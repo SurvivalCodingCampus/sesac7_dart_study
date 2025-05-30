@@ -3,3 +3,4 @@
 - TIL : Today I Learned (오늘 배운 것)
 - lib : 소스코드
 - test : Test 코드 작성
+- etc
