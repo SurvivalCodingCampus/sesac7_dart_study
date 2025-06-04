@@ -13,6 +13,7 @@ void main (){
     //then
 
     // maxMp 를 넘지 않았는지, 3초 동안 회복했을 때 최솟값을 넘었는지
+    expect(cleric.hp == cleric.maxHp, equals(true));
     expect(cleric.mp < 11 || cleric.mp > 2, equals(true));
     
   },);

@@ -33,13 +33,13 @@ class Cleric {
 
     // 회복한 시간
     Timer.periodic(Duration(seconds: 1) , (timer) {
-      int healAmount = mp < 9 ? Random().nextInt(1) + 1 : 1;
+      int healAmount = mp < 9 ? Random().nextInt(1) + 2 : 1;
       totalHealAmount += healAmount;
 
       mp += healAmount;
 
-      print(healAmount);
-      print(mp);
+      print('mp 회복량 : $healAmount');
+      print('현재 mp량 : $mp');
 
       if(timer.tick >= prayTime || mp >= maxMp){
         timer.cancel();
