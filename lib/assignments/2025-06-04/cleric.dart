@@ -21,4 +21,20 @@ class Cleric {
       print('$name used self aid, healing itself to max HP.\n');
     }
   }
+
+  int pray(int seconds) {
+    if (seconds <= 0) {
+      print('$name failed to cast pray.\n');
+      return 0;
+    }
+
+    final int initialMp = mp;
+    final int manaToGain = random.nextInt(3) + seconds;
+
+    mp = (mp + manaToGain > maxMp)? maxMp : mp + manaToGain; 
+
+    print('$name used pray, restoring mana by ${mp - initialMp}');
+
+    return mp - initialMp;
+  }  
 }
