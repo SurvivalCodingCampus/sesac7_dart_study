@@ -81,8 +81,10 @@ void main() {
       final clericJang = Cleric('Jang');
       int retval = 0;
 
+      const int testIterations = 10;
       // random is involved, test 10 times
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < testIterations; i++) {
+        print('Iteration #${i+1}');
         // case 1 : 2/10 mp + 2seconds (2~4) = 4~6
         // when (실행)
         clericJang.mp = 2;
@@ -120,8 +122,10 @@ void main() {
       final clericJang = Cleric('Jang');
       int retval = 0;
 
+      const int testIterations = 10;
       // random is involved, test 10 times
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < testIterations; i++) {
+        print('Iteration #${i+1}');
         // case 1 : 6/10 mp + 3seconds (3~5) = 9~11
         // when (실행)
         clericJang.mp = 6;

@@ -4,7 +4,7 @@
 1. Pick a file to test
 2. Under test directory, create filename_test.dart
 3. given > when > then , using expect
-```
+```dart
 import 'package:test/test.dart';
 
 //메인 안에 
@@ -24,10 +24,10 @@ test ('Wizard Test', () {
 });
 ```
 4. run with terminal 
-```
+```bash
 dart test filename_test.dart
 ```
 
 ## Good reference
 ### Official web
-- https://pub.dev/packages/test
+- [Dart Test Package](https://pub.dev/packages/test)

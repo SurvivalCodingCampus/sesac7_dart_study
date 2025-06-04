@@ -1,6 +1,6 @@
-import 'dart:math';
+import 'dart:math' as math;
 
-var random = Random();
+
 
 class Cleric {
   String name;
@@ -8,6 +8,7 @@ class Cleric {
   final int maxHp = 50;
   int mp = 10;
   final int maxMp = 10;
+  final math.Random _random = math.Random();
 
   Cleric(this.name);
 
@@ -29,12 +30,13 @@ class Cleric {
     }
 
     final int initialMp = mp;
-    final int manaToGain = random.nextInt(3) + seconds;
+    final int recoveryAmount = _random.nextInt(3) + seconds;
 
-    mp = (mp + manaToGain > maxMp)? maxMp : mp + manaToGain; 
+    mp = math.min(maxMp, mp + recoveryAmount);
+    final int actualRecovery = mp - initialMp;
 
-    print('$name used pray, restoring mana by ${mp - initialMp}');
+    print('$name used pray, restoring mana by $actualRecovery');
 
-    return mp - initialMp;
+    return actualRecovery;
   }  
 }
