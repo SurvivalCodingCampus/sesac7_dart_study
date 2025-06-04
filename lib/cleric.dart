@@ -19,12 +19,11 @@ class Cleric {
   }
 
   int pray(int time) {
-    int hill = time + Random().nextInt(2);
-    int resultMp = maxMp - mp;
-    if (resultMp >= hill) {
-      resultMp = hill;
-    }
-    mp += resultMp;
-    return resultMp;
+    int healAmount = time + Random().nextInt(2);
+    int availableSpace = maxMp - mp;
+    int actualHeal = availableSpace > healAmount ? healAmount : availableSpace;
+
+    mp += actualHeal;
+    return actualHeal;
   }
 }
