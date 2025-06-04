@@ -11,7 +11,7 @@ class Cleric {
   Cleric({
     required this.name,
     this.hp = 50,
-    this.mp = 5,
+    this.mp = 10,
     this.maxHp = 50,
     this.maxMp = 10,
   });
