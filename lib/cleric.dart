@@ -21,7 +21,7 @@ class Cleric {
   int pray(int prayTime) {
     int mpPoint = 0;
     if (prayTime >= 0) {
-      int mpPoint = prayTime + Random().nextInt(3);
+      mpPoint = prayTime + Random().nextInt(3);
     } else {
       print(" pray 시간은 1초 이상이어야 합니다.");
     }
