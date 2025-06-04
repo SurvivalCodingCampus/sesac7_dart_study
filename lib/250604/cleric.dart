@@ -9,7 +9,7 @@
 class Cleric{
 
   // 속성
-  String name; // 이름
+  final String name; // 이름
   int hp; // HP
   int mp; // MP
   final int maxHp = 50; // 최대 HP, 초기치(50), 상수 선언
