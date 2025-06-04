@@ -24,6 +24,7 @@ class Cleric {
     if (resultMp >= hill) {
       resultMp = hill;
     }
+    mp += resultMp;
     return resultMp;
   }
 }
