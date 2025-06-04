@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Cleric {
   int hp = 50;
   int mp = 10;
@@ -14,5 +16,27 @@ class Cleric {
     } else {
       print('mp가 부족합니다.');
     }
+  }
+
+  /// amount 는 기도할 시간(초) 1초 기도 시 1~3, 2초 : 2~4
+  /// 반환값 : 실제로 회복된 MP 양
+  int pray(int amount) {
+    int healAmount = 0;
+    final int possibleMP = maxMp - mp; // 회복가능한 MP
+    int healMp = 0;
+
+    if(amount > 0) {
+      healAmount = Random().nextInt(amount+1) + amount;
+
+      if(possibleMP < healAmount) {
+        healMp = possibleMP;
+      } else {
+        healMp = healAmount;
+      }
+
+      mp = mp + healMp;
+    }
+
+    return healMp;
   }
 }
