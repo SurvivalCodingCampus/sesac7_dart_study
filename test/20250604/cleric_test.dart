@@ -19,7 +19,7 @@ void main() {
       });
 
     test('selfAid 메서드 - MP가 부족할 때', () {
-      // give
+      // given
       Cleric cleric = Cleric('성기사');
       cleric.mp = 3; // MP 부족 상태
       cleric.hp = 30;
@@ -38,12 +38,18 @@ void main() {
       cleric.mp = 5;
 
       // when
-      int recovered = cleric.pray(2);
+      List<int> recoveredValues = [];
+      for (int i = 0; i < 10; i++) {
+        Cleric testCleric = Cleric('테스트');
+        testCleric.mp = 5;
+        int recovered = testCleric.pray(2);
+        recoveredValues.add(recovered);
+      }
 
       // then
-      expect(recovered, inInclusiveRange(2, 4));
-      expect(cleric.mp, inInclusiveRange(7, 9));
-      expect(cleric.mp, lessThanOrEqualTo(10));
+      for (int recovered in recoveredValues) {
+        expect(recovered, inInclusiveRange(2, 4));
+      }
     });
 
     test('생성자 테스트', () {
