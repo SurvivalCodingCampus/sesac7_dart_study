@@ -42,13 +42,13 @@ import 'package:test/scaffolding.dart';
 
 void main() {
   test('Cleric Test', () {
-	  // given(준비)
+    // given(준비)
     Cleric cleric = new Cleric('성직자', 40, 10);
 
-		// when(실행)
-		cleric.selfAid()
+    // when(실행)
+    cleric.selfAid()
 		
-		// then(검증)
+    // then(검증)
     expect(cleric.name, equals('성직자'));
     expect(cleric.hp, equals(50));
     expect(cleric.mp, equals(5));
