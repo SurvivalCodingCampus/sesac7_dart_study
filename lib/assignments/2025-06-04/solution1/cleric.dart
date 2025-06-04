@@ -33,7 +33,7 @@ class Cleric {
 
     // 회복한 시간
     Timer.periodic(Duration(seconds: 1) , (timer) {
-      int healAmount = mp < 9 ? Random().nextInt(1) + 2 : 1;
+      int healAmount = mp < 9 ? Random().nextInt(2) + 1 : 1;
       totalHealAmount += healAmount;
 
       mp += healAmount;
@@ -49,11 +49,3 @@ class Cleric {
     return totalHealAmount;
   }
 }
-
-void main(){
-  Cleric cleric = Cleric(name: 'oh');
-
-  cleric.pray(prayTime: 3);
-}
-
-
