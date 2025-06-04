@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Cleric {
   String name;
   int hp = maxHp;
@@ -14,5 +16,14 @@ class Cleric {
     } else {
       print('mp 소모 불가능');
     }
+  }
+
+  int pray(int time) {
+    int hill = time + Random().nextInt(2);
+    int resultMp = maxMp - mp;
+    if (resultMp >= hill) {
+      resultMp = hill;
+    }
+    return resultMp;
   }
 }
