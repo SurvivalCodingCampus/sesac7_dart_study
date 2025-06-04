@@ -56,6 +56,10 @@ class Cleric {
       mpPointsRecovered = maxMpPointsRecovered;
     }
 
+    // mp 회복
+    mp = mp + mpPointsRecovered;
+
+    // 실제 회복된 mp 값 반환
     return mpPointsRecovered;
   }
 }
