@@ -4,33 +4,56 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 void main() {
-  test('cleric test', () {
-    // given
-    Cleric cleric = Cleric('성기사', 50, 10);
+  group('Cleric 클래스 테스트', () {
+    test('selfAid 메서드 - MP가 충분할 때', () {
+      // given
+      Cleric cleric = Cleric('성기사');
+      cleric.hp = 30; // HP 손상
 
-    //when
-    print('20만큼 공격당했다');
-    cleric.hp = cleric.hp - 20;
-    print('1 현재 MP : ${cleric.mp}, 현재 HP : ${cleric.hp}');
-    cleric.selfAid();
-    print('2 현재 MP : ${cleric.mp}, 현재 HP : ${cleric.hp}');
+      // when
+      cleric.selfAid();
 
-    int mp = cleric.pray(1);
-    print('회복된 MP : $mp');
-    print('3 현재 MP : ${cleric.mp}, 현재 HP : ${cleric.hp}');
+      // then
+      expect(cleric.hp, equals(50));
+      expect(cleric.mp, equals(5));
+      });
 
-    print('40만큼 공격당했다');
-    cleric.hp = cleric.hp - 40;
-    print('4 현재 MP : ${cleric.mp}, 현재 HP : ${cleric.hp}');
+    test('selfAid 메서드 - MP가 부족할 때', () {
+      // give
+      Cleric cleric = Cleric('성기사');
+      cleric.mp = 3; // MP 부족 상태
+      cleric.hp = 30;
 
-    mp = cleric.pray(20);
-    print('2 회복된 MP : $mp');
+      // when
+      cleric.selfAid();
 
-    print('5 현재 MP : ${cleric.mp}, 현재 HP : ${cleric.hp}');
+      // then
+      expect(cleric.hp, equals(30)); // HP 변화 없음
+      expect(cleric.mp, equals(3)); // MP 변화 없음
+    });
 
-    // then
-    expect(true, cleric.mp <= 10);
-    expect(true, cleric.hp <= 50 && cleric.hp > 0);
-    expect(false, cleric.name.isEmpty);
+    test('pray 메서드 - 정상 범위 회복', () {
+      // given
+      Cleric cleric = Cleric('성기사');
+      cleric.mp = 5;
+
+      // when
+      int recovered = cleric.pray(2);
+
+      // then
+      expect(recovered, inInclusiveRange(2, 4));
+      expect(cleric.mp, inInclusiveRange(7, 9));
+      expect(cleric.mp, lessThanOrEqualTo(10));
+    });
+
+    test('생성자 테스트', () {
+      // when
+      Cleric cleric = Cleric('성기사');
+
+      // then
+      expect(cleric.name, equals('성기사'));
+      expect(cleric.hp, equals(50));
+      expect(cleric.mp, equals(10));
+      });
   });
 }
