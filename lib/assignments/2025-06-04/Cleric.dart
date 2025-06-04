@@ -15,4 +15,17 @@ class Cleric {
     hp = max_hp;
   }
 
+  int pray(int second){
+    int beforeMp = mp;
+    int heal = second + Random().nextInt(3); //회복량
+
+    if(beforeMp + heal >= max_mp){
+      mp = max_mp;
+      return max_mp - beforeMp;
+    }else{
+      mp+=heal;
+      return mp - beforeMp;
+    }
+  }
+
 }
