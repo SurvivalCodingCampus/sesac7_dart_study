@@ -1,5 +1,5 @@
 void main() {
-  print('Hello world: ${calculate()}!');
+  print(5 / 2);
 }
 
 int calculate() {
