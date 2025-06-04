@@ -10,4 +10,9 @@ class Cleric {
 
   Cleric(this.name);
 
+  void selfAid(){
+    mp-=5;
+    hp = max_hp;
+  }
+
 }
