@@ -13,5 +13,16 @@ class Cleric {
     this.maxMp = 10,
   });
 
+  void selfAid(){
+    if(mp >= 5){
+      mp -= 5;
+      hp = maxHp;
+    }else {
+      print('selfAid 사용에 필요한 mp가 부족합니다');
+    }
+  }
+
 
 }
+
+
