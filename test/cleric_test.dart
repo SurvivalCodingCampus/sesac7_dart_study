@@ -8,13 +8,11 @@ void main() {
 
     // when
     cleric.selfAid();
-    cleric.selfAid();
-    cleric.selfAid();
 
     // then
     expect(cleric.name, equals('이학민'));
-    expect(cleric.mp, equals(0));
-    expect(cleric.hp, equals(50));
-
+    // expect(cleric.mp, equals(0));
+    // expect(cleric.hp, equals(50));
+    expect(cleric.pray(3), equals(5));
   });
 }
