@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 class Cleric {
   String name;
   int hp;
@@ -8,7 +11,7 @@ class Cleric {
   Cleric({
     required this.name,
     this.hp = 50,
-    this.mp = 10,
+    this.mp = 5,
     this.maxHp = 50,
     this.maxMp = 10,
   });
@@ -22,7 +25,35 @@ class Cleric {
     }
   }
 
+  int pray ({required int prayTime}){
+    // 회복할 수 없는 경우
+    if (mp == maxMp) return 0;
 
+    int totalHealAmount = 0; // 총 회복량
+
+    // 회복한 시간
+    Timer.periodic(Duration(seconds: 1) , (timer) {
+      int healAmount = mp < 9 ? Random().nextInt(1) + 1 : 1;
+      totalHealAmount += healAmount;
+
+      mp += healAmount;
+
+      print(healAmount);
+      print(mp);
+
+      if(timer.tick >= prayTime || mp >= maxMp){
+        timer.cancel();
+      }
+    }, );
+
+    return totalHealAmount;
+  }
+}
+
+void main(){
+  Cleric cleric = Cleric(name: 'oh');
+
+  cleric.pray(prayTime: 3);
 }
 
 
