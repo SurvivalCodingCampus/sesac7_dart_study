@@ -10,8 +10,13 @@ class Cleric {
 
   Cleric(this.name);
 
+
   void selfAid(){
     print('회복 이전 hp : $hp');
+    if(mp < 5){
+      print('mp가 부족합니다.');
+      return;
+    }
     mp-=5;
     hp = max_hp;
     print('현재 mp : $mp , 회복 이후 hp : $hp');
