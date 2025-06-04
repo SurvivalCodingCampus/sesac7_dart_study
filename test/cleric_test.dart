@@ -12,11 +12,15 @@ void main() {
     // then (검증)
     expect(cleric.mp, equals(5));
 
-    // when (실행)
+
+    // when (실행) - hp 가 최대값이하인 30
+    cleric.hp = 30;
     cleric.selfAid();
+
 
     // then (검증)
     expect(cleric.mp, equals(0));
+    expect(cleric.hp, equals(50));
 
     // when (실행)
     cleric.selfAid();
