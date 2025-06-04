@@ -1,3 +1,7 @@
+import 'dart:math';
+
+var random = Random();
+
 class Cleric {
   String name;
   int hp = 50;
@@ -6,4 +10,15 @@ class Cleric {
   final int maxMp = 10;
 
   Cleric(this.name);
+
+  void selfAid() {
+    if (mp < 5) {
+      print('$name does not have enough mana (5) to cast self aid.\n');
+    }
+    else {
+      mp = mp - 5;
+      hp = maxHp;
+      print('$name used self aid, healing itself to max HP.\n');
+    }
+  }
 }
