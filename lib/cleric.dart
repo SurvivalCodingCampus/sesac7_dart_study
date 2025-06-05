@@ -19,7 +19,7 @@ class Cleric {
   }
 
   int pray(int time) {
-    int healAmount = time + Random().nextInt(2);
+    int healAmount = time + Random().nextInt(3);
     int availableSpace = maxMp - mp;
     int actualHeal = availableSpace > healAmount ? healAmount : availableSpace;
 
