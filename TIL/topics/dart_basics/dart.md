@@ -2,7 +2,7 @@
 - language developed by google to replace javascript
 ## Notable features of Dart 
 ### type safe + inferance
-- 타입이 정의 되면 무조건 그 타입의 밸류만 변수에 들어갑니다
+- **타입이 정의 되면 무조건 그 타입의 밸류만 변수에 들어갑니다**
 - use var keyword to declare inferable variable. Depending on value context, compiler decides the variable type.
 ```dart
 var myNumber = 10; 
@@ -33,3 +33,29 @@ String str2 = str1;
 String str2 = str1!;
 //OKAY
 ```
+
+### Constructor
+```dart
+class Hero {
+    String name;
+    int hp;
+    Sword sword;
+    
+    // Constructor
+    Hero(this.name, {this.hp = 10, required this.sword});
+}
+```
+
+- `name` : outside { }, meaning its a necessary parameter. Caller of constructor must provide this parameter, but without naming the parameter.
+- `hp` : inside { }, meaning its a named(optional) parameter. The caller of constructor either <br>
+__1. use `hp: 5` to explicitly give__ <br>
+__2. or not provide at all and let the default value in(10)__
+- `sword` : inside { }, meaning its a named(optional) parameter, but the required field is given. Therefore there is **no default value**. Required is for **any value without default, but cannot be null.**
+
+```dart
+final hero1 = Hero("이름1", hp: 30, sword: sword1) // okay
+final hero1 = Hero("이름1", sword: sword1) // okay
+final hero1 = Hero("이름2") // nope! need sword 
+final hero1 = Hero(sword: sword2) // nope! need name
+```
+
