@@ -6,8 +6,10 @@ class Cleric {
   static final int maxMp = 10;
   int hp = 50;
   int mp = 10;
-  
-  Cleric(this.name);
+
+  // Cleric(this.name);
+
+  Cleric(this.name, {int? hp, int? mp}) : hp = hp ?? maxHp, mp = mp ?? maxMp;
 
   void selfAid() {
     print('회복 이전 hp : $hp');
@@ -34,4 +36,19 @@ class Cleric {
     print('회복 이후 mp : $mp , 회복량 : $actualHeal');
     return actualHeal;
   }
+}
+
+void main() {
+  Cleric cleric1 = Cleric('아서스', hp: 30, mp: 3);
+  Cleric cleric2 = Cleric('아서스2', hp: 35);
+  Cleric cleric3 = Cleric('아서스3');
+  print(cleric1.name);
+  print(cleric1.hp);
+  print(cleric1.mp);
+  print(cleric2.name);
+  print(cleric2.hp);
+  print(cleric2.mp);
+  print(cleric3.name);
+  print(cleric3.hp);
+  print(cleric3.mp);
 }
