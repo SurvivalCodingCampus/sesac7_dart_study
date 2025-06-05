@@ -2,7 +2,7 @@ import 'dart:math';
 
 class Cleric {
   static const int maxHp = 50;
-  static const int maxMp = 50;
+  static const int maxMp = 10;
   static final Random _random = Random();
 
   String name;
