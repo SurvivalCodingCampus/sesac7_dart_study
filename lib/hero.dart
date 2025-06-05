@@ -1,21 +1,37 @@
+// top level
+const int heroMoney = 100;
+
 class Hero {
+  // 무관계
+  static int money = 100;
+
   String name;
   int hp;
 
-  Hero(this.name, this.hp);
+  Hero({required this.name, this.hp = 100});
+
+  static void setRandomMoney() {
+    Hero.money = 200;
+
+    Hero hero = Hero(name: 'name');
+    hero.hp = 100;
+  }
 
   void attack() {
     hp--;
   }
 
-  void run() {
-
-  }
+  void run() {}
 }
 
 void main() {
-  Hero hero = Hero('홍길동', 100);
+  // Hero('홍길동', 50)
+  // Hero(60, 10, 5, 5, 2)
+
+  // Named Parameter
+  Hero hero = Hero(name: '홍길동', hp: 50);
   hero.attack();
+  Hero.setRandomMoney();
   print(hero.hp); // 99
 
   String name = '홍길동';
