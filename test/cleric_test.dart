@@ -6,7 +6,7 @@ import 'package:test/scaffolding.dart';
 
 void main() {
   test('Cleric Test', () {
-    Cleric cleric = new Cleric('성직자', 50, 10);
+    final cleric = Cleric('성직자', 50, 10);
 
     expect(cleric.name, equals('성직자'));
     expect(cleric.hp, equals(50));
@@ -16,8 +16,8 @@ void main() {
   });
 
   test('Cleric Self Aid Test', () {
-    Cleric cleric1 = new Cleric('성직자', 1, 10);
-    Cleric cleric2 = new Cleric('성직자', 1, 1);
+    final cleric1 = Cleric('성직자', 1, 10);
+    final cleric2 = Cleric('성직자', 1, 1);
 
     cleric1.selfAid();
     cleric2.selfAid();
@@ -33,11 +33,11 @@ void main() {
 
   test('Cleric Pray Test', () {
     // mp가 최대가 아닌 성직자
-    Cleric cleric1 = new Cleric('성직자', 50, 0);
-    Cleric cleric2 = new Cleric('성직자', 50, 9);
+    final cleric1 = Cleric('성직자', 50, 0);
+    final cleric2 = Cleric('성직자', 50, 9);
 
     // mp가 최대인 성직자
-    Cleric cleric3 = new Cleric('성직자', 50, 10);
+    final cleric3 = Cleric('성직자', 50, 10);
 
     int recoveryMp1 = cleric1.pray(Random().nextInt(cleric1.maxMp + 1));
     int recoveryMp2 = cleric2.pray(1);
