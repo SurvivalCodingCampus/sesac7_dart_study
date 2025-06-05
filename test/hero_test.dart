@@ -3,7 +3,7 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 void main() {
-  test('heor test', () {
+  test('hero test', () {
     // given
     final hero = Hero('히어로', 100);
 

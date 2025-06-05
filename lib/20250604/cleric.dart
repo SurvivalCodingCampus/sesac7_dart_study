@@ -24,6 +24,9 @@ class Cleric {
 
   /// 공격당함
   void attacked({required int damageAmount}) {
+    //damageAmount가 0이하면 무시한다.
+    if (damageAmount <= 0) return;
+
     hp -= damageAmount;
   }
 
