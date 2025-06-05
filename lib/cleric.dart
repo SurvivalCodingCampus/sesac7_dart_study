@@ -62,11 +62,19 @@ class Cleric {
   int pray(int praySeconds) {
     // 리턴될 mpPointsRecovered 정의 및 계산
     int mpPointsRecovered = 0;
-    if (praySeconds > 0) {
-      mpPointsRecovered = praySeconds + Random().nextInt(3);
-    } else {
+
+    // if (praySeconds > 0) {
+    //   mpPointsRecovered = praySeconds + Random().nextInt(3);
+    // } else {
+    //   print("pray 시간은 1초이상이어야 합니다.");
+    // }
+
+    if (praySeconds <= 0) {
       print("pray 시간은 1초이상이어야 합니다.");
+      return 0;
     }
+
+    mpPointsRecovered = praySeconds + Random().nextInt(3);
 
     // 최대 mpPointsRecovered 정의 및 계산
     int maxMpPointsRecovered = maxMp - mp;
