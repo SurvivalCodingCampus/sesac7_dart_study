@@ -5,7 +5,7 @@ class Hero{
   String name;
   int hp;
 
-  Hero(this.name, this.hp); // 생성자
+  Hero({required this.name, this.hp = 0}); // 생성자
 
   // 메소드명 camelcase
   void attack(){
