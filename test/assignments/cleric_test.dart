@@ -2,19 +2,16 @@ import 'package:modu_3_dart_study/assignments/cleric.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('Cleric Test', () async {
-    //given
-    final cleric = Cleric(name: '클레릭', hp: 2, mp: 7);
+  group('클레릭 테스트', () {
+    test('cleric 생성', () {
+      final cleric1 = Cleric('cleric1', hp: 10, mp: 5);
+      final cleric2 = Cleric('cleric2', hp: 20, mp: 5);
+      final cleric3 = Cleric('cleric3', hp: 40, mp: 5);
 
-    //when
-    // cleric.selfAid();
-
-    cleric.pray(prayTime: 3);
-
-    //then
-
-    // maxMp 를 넘지 않았는지, 3초 동안 회복했을 때 최솟값을 넘었는지
-    // expect(cleric.hp == cleric.maxHp, equals(true));
-    expect(cleric.mp < 11 || cleric.mp > 2, equals(true));
+      expect(cleric1.name, equals('cleric1'));
+      expect(cleric2.name, equals('cleric2'));
+      expect(cleric3.name, equals('cleric3'));
+      expect(Cleric.maxHp, equals(50));
+    });
   });
 }

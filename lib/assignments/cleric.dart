@@ -4,16 +4,10 @@ class Cleric {
   String name;
   int hp;
   int mp;
-  final int maxHp;
-  final int maxMp;
+  static const int maxHp = 50;
+  static const int maxMp = 10;
 
-  Cleric({
-    required this.name,
-    this.hp = 50,
-    this.mp = 10,
-    this.maxHp = 50,
-    this.maxMp = 10,
-  });
+  Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
 
   void selfAid() {
     if (mp >= 5) {
