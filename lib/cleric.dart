@@ -83,11 +83,14 @@ class Cleric {
     // 최대 mpPointsRecovered 정의 및 계산
     int maxMpPointsRecovered = maxMp - mp;
 
-    // mpPointsRecovered 가 최대 maxMpPointsRecovered 보다 클 경우
-    // mpPointsRecovered 를 최대 maxMpPointsRecovered 로 재할당
-    if (mpPointsRecovered > maxMpPointsRecovered) {
-      mpPointsRecovered = maxMpPointsRecovered;
-    }
+    // // mpPointsRecovered 가 최대 maxMpPointsRecovered 보다 클 경우
+    // // mpPointsRecovered 를 최대 maxMpPointsRecovered 로 재할당
+    // if (mpPointsRecovered > maxMpPointsRecovered) {
+    //   mpPointsRecovered = maxMpPointsRecovered;
+    // }
+
+    // maxMpPointsRecovered 제약 체크
+    mpPointsRecovered = min(mpPointsRecovered, maxMpPointsRecovered);
 
     // mp 회복
     mp = mp + mpPointsRecovered;
