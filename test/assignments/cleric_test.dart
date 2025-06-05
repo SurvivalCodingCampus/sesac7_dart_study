@@ -20,7 +20,7 @@ void main() {
       final arthas1 = Cleric('아서스1', hp: 40, mp: 5);
       final arthas2 = Cleric('아서스2', hp: 35);
       final arthas3 = Cleric('아서스3');
-
+      
       //Cleric maxHP, maxMP
       expect(Cleric.maxHp, equals(50));
       expect(Cleric.maxMp, equals(10));

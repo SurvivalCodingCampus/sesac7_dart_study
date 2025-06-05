@@ -24,8 +24,9 @@ class Cleric {
 
     int totalHealAmount = 0; // 총 회복량
 
-    for (int i = 0; i <= prayTime; i++) {
+    for (int i = 0; i < prayTime; i++) {
       if (mp < maxMp) {
+        // 9라면 1만 회복가능
         int healAmount = mp < 9 ? Random().nextInt(2) + 1 : 1;
         totalHealAmount += healAmount;
 
