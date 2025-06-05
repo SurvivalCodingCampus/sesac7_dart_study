@@ -1,16 +1,25 @@
 import 'dart:math';
 
 class Cleric {
+  // String name;
+  // int hp = 50;
+  // final int maxHp = 50;
+  // int mp = 10;
+  // final int maxMp = 10;
+  //
+  // Cleric(this.name);
+
+  static int maxHp = 50;
+  static int maxMp = 10;
+
   String name;
   int hp = 50;
-  final int maxHp = 50;
   int mp = 10;
-  final int maxMp = 10;
 
   Cleric(this.name);
 
   void selfAid() {
-    if(mp >= 5) {
+    if (mp >= 5) {
       mp = mp - 5;
       hp = maxHp;
     } else {
@@ -38,7 +47,6 @@ class Cleric {
   // }
 
   int pray(int praySeconds) {
-
     // 리턴될 mpPointsRecovered 정의 및 계산
     int mpPointsRecovered = 0;
     if (praySeconds > 0) {
