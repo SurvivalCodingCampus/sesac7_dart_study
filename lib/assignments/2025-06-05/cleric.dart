@@ -2,11 +2,11 @@ import 'dart:math';
 
 class Cleric {
   String name;
+  static final int maxHp = 50;
+  static final int maxMp = 10;
   int hp = 50;
-  final int maxHp = 50;
   int mp = 10;
-  final int maxMp = 10;
-
+  
   Cleric(this.name);
 
   void selfAid() {
