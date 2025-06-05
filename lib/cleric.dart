@@ -8,20 +8,7 @@ class Cleric {
   int hp;
   int mp;
 
-  Cleric(this.name, this.hp, this.mp) {
-    if (hp <= 0) {
-      hp = 1;
-    }
-    if (hp > maxHp) {
-      hp = maxHp;
-    }
-    if (mp < 0) {
-      mp = 0;
-    }
-    if (mp > maxMp) {
-      mp = maxMp;
-    }
-  }
+  Cleric(this.name, this.hp, this.mp);
 
   void selfAid() {
     if (mp >= 5) {
