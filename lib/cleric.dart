@@ -1,27 +1,31 @@
 import 'dart:math';
 
 class Cleric {
-  String name;
-  int hp = maxHp;
   static const int maxHp = 50;
-  int mp = maxMp;
   static const int maxMp = 10;
 
-  Cleric(this.name);
+  String name;
+  int hp;
+  int mp;
+
+  final _selfAidUseMp = 5;
+  final _randomHealRange = 3;
+
+  Cleric(this.name, {this.hp = Cleric.maxHp, this.mp = Cleric.maxMp});
 
   void selfAid() {
-    if (mp >= 5) {
-      mp -= 5;
-      hp = maxHp;
-    } else {
-      print('mp 소모 불가능');
+    if (mp < _selfAidUseMp) {
+      print('mp 부족');
+      return;
     }
+    mp -= _selfAidUseMp;
+    hp = maxHp;
   }
 
   int pray(int time) {
-    int healAmount = time + Random().nextInt(2);
-    int availableSpace = maxMp - mp;
-    int actualHeal = availableSpace > healAmount ? healAmount : availableSpace;
+    final int healAmount = time + Random().nextInt(_randomHealRange);
+    final int availableSpace = maxMp - mp;
+    final int actualHeal = availableSpace > healAmount ? healAmount : availableSpace;
 
     mp += actualHeal;
     return actualHeal;

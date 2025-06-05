@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 void main() {
   group('Cleric Test', () {
     test('최초 Cleric 인스턴스 생성 후 속성값 확인', () {
-      var clericName = 'Cleric';
+      final clericName = 'Cleric';
       final cleric = Cleric(clericName);
 
       expect(cleric.name, equals(clericName));
@@ -64,6 +64,49 @@ void main() {
       cleric.pray(Random().nextInt(100));
 
       expect(cleric.mp, lessThanOrEqualTo(Cleric.maxMp));
+    });
+  });
+
+  test('Cleric 클래스의 static 멤버 maxHp, maxMp 값 불변 검증', () {
+    int clericMaxHp = Cleric.maxHp;
+    int clericMaxMp = Cleric.maxMp;
+
+    clericMaxHp = 0; // ClericMaxHp 값을 0으로 저장
+    clericMaxMp = 0; // ClericMaxMp 값을 0으로 저장
+
+    // 변수 clericMaxHp와 clericMaxMp의 값을 변경하면 저장 되어있는 정적 멤버의 값도 변경 되는지 확인
+    expect(Cleric.maxHp != clericMaxHp && Cleric.maxMp != clericMaxMp, equals(true));
+  });
+
+  group('Cleric Constructor Test', () {
+    test('Cleric 클래스 생성자의 name, hp, mp를 받아서 생성하는 경우', () {
+      final String clericName = '아서스';
+      final int clericHp = 40;
+      final int clericMp = 5;
+      final cleric = Cleric(clericName, hp: clericHp, mp: clericMp);
+
+      expect(cleric.name, equals(clericName));
+      expect(cleric.hp, equals(clericHp));
+      expect(clericMp, equals(clericMp));
+    });
+    
+    test('Cleric 클래스 생성자의 name, hp를 받아서 생성하는 경우', () {
+      final String clericName = '아서스';
+      final int clericHp = 35;
+      final cleric = Cleric(clericName, hp: clericHp);
+
+      expect(cleric.name, equals(clericName));
+      expect(cleric.hp, equals(clericHp));
+      expect(cleric.mp, equals(Cleric.maxMp)); // mp값을 인자로 넣지 않는 경우 maxMp값이 반영되는지 확인
+    });
+
+    test('Cleric 클래스 생성자의 name만 받아서 생성하는 경우', () {
+      final String clericName = '아서스';
+      final cleric = Cleric(clericName);
+
+      expect(cleric.name, equals(clericName));
+      expect(cleric.hp, equals(Cleric.maxHp)); // hp값을 인자로 넣지 않는 경우 maxHp값이 반영되는지 확인
+      expect(cleric.mp, equals(Cleric.maxMp)); // mp값을 인자로 넣지 않는 경우 maxMp값이 반영되는지 확인
     });
   });
 }
