@@ -9,22 +9,35 @@ class Cleric {
   //
   // Cleric(this.name);
 
-  static int maxHp = 50;
-  static int maxMp = 10;
+  static const int maxHp = 50;
+  static const int maxMp = 10;
 
   String name;
   int hp = 50;
   int mp = 10;
 
-  Cleric(this.name);
+  Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
 
   void selfAid() {
-    if (mp >= 5) {
-      mp = mp - 5;
-      hp = maxHp;
-    } else {
+    // if (mp >= 5) {
+    //   mp = mp - 5;
+    //   hp = maxHp;
+    // } else {
+    //   print("self aid 에는 최소한 5 mp가 필요합니다.");
+    // }
+
+    // self-aid 에 따라 차감되는 mp 양 - 5 mp
+    final mpNecessary = 5;
+
+    // 예외처리
+    if (mp < mpNecessary) {
       print("self aid 에는 최소한 5 mp가 필요합니다.");
+      return;
     }
+
+    // mp를 줄이고 hp를 최대치로
+    mp = mp - mpNecessary;
+    hp = maxHp;
   }
 
   // int pray(int prayTime) {
