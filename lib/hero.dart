@@ -14,8 +14,3 @@ class Hero {
     }
     void sit() {}
 }
-
-void main() {
-    Hero hero = Hero('세환', 1000);
-
-}

@@ -34,9 +34,6 @@ void main() {
 
     test('pray 메서드 - 정상 범위 회복', () {
       // given
-      Cleric cleric = Cleric('성기사', mp: 5);
-
-      // when
       List<int> recoveredValues = [];
 
       // i는 기도 시간의 변화값
