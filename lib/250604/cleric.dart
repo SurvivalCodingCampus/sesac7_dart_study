@@ -16,8 +16,7 @@ import 'dart:io'; //사용자 입력 받을시 필요
 11. 이 메소드는 인수에 “기도할 시간(초)"를 지정할 수 있고, 리턴 값은 “실제로 회복된 MP 양" 을 반환한다.
 */
 
-class Cleric{
-
+class Cleric {
   // 속성
   final String name; // 이름
   int hp; // HP
@@ -26,7 +25,7 @@ class Cleric{
   final int maxMp = 10; // 최대 MP, 초기치(10), 상수 선언
 
   // 생성자
-  Cleric(this.name, this.hp, this.mp){
+  Cleric(this.name, this.hp, this.mp) {
     hp = maxHp;
     mp = maxMp;
   }
@@ -34,26 +33,26 @@ class Cleric{
   // selfAid메서드
   // 호출시 mp에서 -5를 더하고 HP를 최대치로 설정
   // mp가 0 또는 이하가 될 경우 소모 문구표시
-  void selfAid(){
-    if(mp>0){
+  void selfAid() {
+    if (mp > 0) {
       mp -= 5;
       hp = maxHp;
-    }else{
+    } else {
       mp = 0; // 음수로 되지 않도록 0으로 초기화
       print("mp가 전부 소모 되었습니다.");
     }
   }
 
   // pray 메소드
-  int Pray(int praySec){
+  int pray(int praySec) {
     //사용자로 입력받은 수와 보정(0~2) 합산
     // mp와 보정 합산되 수를 한산하여 mp 최대범위 확인
     int totalSec = mp + praySec + Random().nextInt(3);
     print(totalSec);
-    if(0 <= totalSec || totalSec <= 10){
+    if (0 <= totalSec || totalSec <= maxMp) {
       //0과 10사이 수면 리턴
       return totalSec;
-    }else{
+    } else {
       // 10 이상이면 최대MP 리턴
       mp = maxMp;
       return mp;
@@ -61,15 +60,15 @@ class Cleric{
   }
 }
 
-void main(){
+void main() {
   var cleric = Cleric('성직자', 1, 1);
   // Pray 메서드 호출
-  cleric.Pray(inputSec());
+  cleric.pray(inputSec());
 }
 
 // 기도할 시간 사용자 입력받는 함수
-int inputSec(){
-  while(true) {
+int inputSec() {
+  while (true) {
     // 사용자 입력문구 표시
     stdout.write('기도한 시간(초)을 입력해 주세요: ');
     // 사용자 입력 받기

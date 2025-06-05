@@ -66,7 +66,7 @@ void main(){
 
     //when(실행)
     cleric.mp = 0;
-    cleric.Pray(10);
+    cleric.pray(10);
 
     //then(검증)
     //expect(cleric.mp, isNot(10));
@@ -80,7 +80,7 @@ void main(){
 
     //when(실행)
     cleric.mp = 10;
-    cleric.Pray(1);
+    cleric.pray(1);
 
     //then(검증)
     expect(cleric.mp, 10);
