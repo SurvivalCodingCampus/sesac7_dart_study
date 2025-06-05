@@ -87,7 +87,7 @@ void main() {
 
       expect(cleric.name, equals(clericName));
       expect(cleric.hp, equals(clericHp));
-      expect(clericMp, equals(clericMp));
+      expect(cleric.mp, equals(clericMp));
     });
     
     test('Cleric 클래스 생성자의 name, hp를 받아서 생성하는 경우', () {
