@@ -2,54 +2,45 @@ import 'dart:math';
 
 class Cleric {
   String name;
+
   int hp = 50;
   int mp = 10;
 
-  static const int maxHp = 50;
-  static const int maxMp = 10;
+  static const int maxHP = 50;
+  static const int maxMP = 10;
 
-  Cleric(this.name);
-
+  Cleric(this.name, {this.hp = maxHP, this.mp = maxMP});
 
   void selfAid() {
-    if( mp >= 5 ) {
-      mp -= 5;
-      hp = maxHp;
-
-      print('$name casts Self Aid! HP restored to $hp.');
-    }
-    else {
+    if (mp < 5) {
       print('$name does not have enough MP to cast Self Aid.');
+      return;
     }
-    print('hp: $hp, mp: $mp'); 
+
+    mp -= 5;
+    hp = maxHP;
+
+    print('$name casts Self Aid! HP restored to $hp.');
+    print('hp: $hp, mp: $mp');
   }
 
   int pray(int praySeconds) {
-
     //기도시간이 0이면 패스
-    if( praySeconds <= 0 ) {
+    if (praySeconds <= 0) {
       print("If praySeconds is 0 then not work");
       return 0;
     }
 
-    int firstMP = mp;
+    int initialMP = mp;
 
     Random random = Random();
     int randomNumber = random.nextInt(3); //0~2
-    
-    //회복된 MP
-    int recoveredMP = praySeconds + randomNumber;
 
-    mp += recoveredMP;
+    //최대 MP보다 클 순 없다.
+    mp = min(mp + praySeconds + randomNumber, Cleric.maxMP);
 
-    //최대mp보다 회복할 순 없음.
-    if( mp > maxMp ) {
-      mp = maxMp;
-      recoveredMP = mp - firstMP;
-      print("mp limit is $maxMp");
-    }
+    int recoveredMP = mp - initialMP;
 
-    print("mp is increased to $mp");
     print("recovered mp is $recoveredMP");
 
     return recoveredMP;
