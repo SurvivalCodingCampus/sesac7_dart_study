@@ -3,21 +3,22 @@ import 'dart:math';
 class Cleric {
   // field
   String name; // 이름
-  int hp = 50; // hp
-  int mp = 10; // mp
+  int hp; // hp
+  int mp; // mp
   final int prayCorrectionRange = 3; // 기도 마법 회복 보정 범위
-  static final int maxHp = 50; // 최대 hp
-  static final int maxMp = 10; // 최대 mp
+  final int selfAidMpCost = 5; // selfAid 마법의 mp 소모량
+  static const int maxHp = 50; // 최대 hp
+  static const int maxMp = 10; // 최대 mp
 
-  Cleric(this.name); // 생성자, 성직자 이름 초기화
+  Cleric(this.name, {this.hp = maxHp, this.mp = maxMp}); // 생성자, 성직자 이름 + hp + mp 초기화
 
   // method
   void selfAid() {
-    if (mp < 5) {
+    if (mp < selfAidMpCost) {
       print('mp가 충분하지 않습니다!');
       return;
     } else {
-      mp -= 5;
+      mp -= selfAidMpCost;
       hp = maxHp;
     }
   }
