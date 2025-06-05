@@ -1,5 +1,3 @@
-import 'package:modu_3_dart_study/250604/cleric.dart';
-
 class Hero{
   String name;
   int hp;
