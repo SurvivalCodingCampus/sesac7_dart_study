@@ -3,7 +3,7 @@ class Hero {
     int hp;
     final int maxHp;
 
-    // 생성 시 maxHp도 추가적으로 셋팅
+    // 생성 시 현재 HP를 최대 HP로 설정
     Hero(this.name, this.hp) : maxHp = hp;
 
     void damages() {
