@@ -14,4 +14,31 @@ void main() {
       expect(Cleric.maxHp, equals(50));
     });
   });
+
+  group('아서스 테스트', () {
+    test('아서스 생성', () {
+      final arthas1 = Cleric('아서스1', hp: 40, mp: 5);
+      final arthas2 = Cleric('아서스2', hp: 35);
+      final arthas3 = Cleric('아서스3');
+
+      //Cleric maxHP, maxMP
+      expect(Cleric.maxHp, equals(50));
+      expect(Cleric.maxMp, equals(10));
+
+      //아서스1
+      expect(arthas1.name, equals('아서스1'));
+      expect(arthas1.hp, equals(40));
+      expect(arthas1.mp, equals(5));
+
+      //아서스2
+      expect(arthas2.name, equals('아서스2'));
+      expect(arthas2.hp, equals(35));
+      expect(arthas2.mp, equals(10));
+
+      //아서스3
+      expect(arthas3.name, equals('아서스3'));
+      expect(arthas3.hp, equals(50));
+      expect(arthas3.mp, equals(10));
+    });
+  });
 }
