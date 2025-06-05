@@ -8,7 +8,7 @@ class Cleric {
   static const int maxHp = 50;
   static const int maxMp = 10;
 
-  final wasteMP = 5; // hp를 채울 때 사용되는 mp
+  static const int wasteMP = 5; // hp를 채울 때 사용되는 mp
 
   Cleric(this.name, {this.hp = Cleric.maxHp, this.mp = Cleric.maxMp}) {
     if(name.isEmpty) {
