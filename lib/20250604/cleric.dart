@@ -22,9 +22,13 @@ class Cleric {
     }
   }
 
+  /// 공격당함
+  void attacked({required int damageAmount}) {
+    hp -= damageAmount;
+  }
+
   void selfAid() {
     if(mp < wasteMP) {
-      print('보유한 mp가 부족합니다.');
       return;
     }
 

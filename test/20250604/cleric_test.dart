@@ -9,7 +9,7 @@ void main() {
     test('selfAid 메서드 - MP가 충분할 때', () {
       // given
       Cleric cleric = Cleric('성기사');
-      cleric.hp = 30; // HP 손상
+      cleric.attacked(damageAmount: 20);
 
       // when
       cleric.selfAid();
@@ -21,9 +21,8 @@ void main() {
 
     test('selfAid 메서드 - MP가 부족할 때', () {
       // given
-      Cleric cleric = Cleric('성기사');
+      Cleric cleric = Cleric('성기사', hp: 30);
       cleric.mp = 3; // MP 부족 상태
-      cleric.hp = 30;
 
       // when
       cleric.selfAid();
@@ -35,8 +34,7 @@ void main() {
 
     test('pray 메서드 - 정상 범위 회복', () {
       // given
-      Cleric cleric = Cleric('성기사');
-      cleric.mp = 5;
+      Cleric cleric = Cleric('성기사', mp: 5);
 
       // when
       List<int> recoveredValues = [];
@@ -62,6 +60,7 @@ void main() {
       Cleric cleric1 = Cleric('성기사');
       Cleric cleric2 = Cleric('아서스', hp: 40, mp: 5);
       Cleric cleric3 = Cleric('아서스', hp: 35);
+      Cleric cleric4 = Cleric('손오공', mp: 7);
 
       // then
       expect(cleric1.name, equals('성기사'));
@@ -70,6 +69,10 @@ void main() {
 
       expect(cleric2.hp, equals(40));
       expect(cleric3.hp, equals(35));
+
+      expect(cleric4.name, equals('손오공'));
+      expect(cleric4.hp, equals(50));
+      expect(cleric4.mp, equals(7));
 
       expect(() => Cleric('외계인', mp: -1), throwsA(isA<ArgumentError>()));
       expect(() => Cleric('화성인', hp: 600), throwsA(isA<ArgumentError>()));
