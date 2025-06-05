@@ -2,22 +2,16 @@ class Hero {
   String name;
   int hp;
 
-  Hero (this.name, this.hp);
+  Hero(this.name, this.hp);
 
-  void attack() {
+  void attack() {}
 
-  }
+  void run() {}
 
-  void run() {
-
-  }
-
-  void sleep() {
-
-  }
+  void sleep() {}
 }
 
-void main () {
+void main() {
   Hero james = Hero('James', 10);
   james.attack();
 }
