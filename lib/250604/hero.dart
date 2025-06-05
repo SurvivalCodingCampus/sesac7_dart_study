@@ -1,3 +1,5 @@
+import 'package:modu_3_dart_study/250604/cleric.dart';
+
 class Hero{
   String name;
   int hp;
@@ -25,8 +27,8 @@ class Hero{
     hp = 100;
     print('$name is sleeping.');
   }
-}
 
+}
 void main(){
   Hero hero = Hero('홍길동', 100);
 
