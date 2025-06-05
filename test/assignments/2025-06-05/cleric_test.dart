@@ -47,16 +47,5 @@ void main() {
       expect(arthas.hp, equals(Cleric.maxHp));
       expect(arthas.mp, equals(5));
     });
-    /*
-    test('Cleric() instance', () {
-      // given (준비)
-      final arthas = Cleric();
-
-      // when (실행)
-
-      // then (검증)
-      
-    });
-  */
   });
 }

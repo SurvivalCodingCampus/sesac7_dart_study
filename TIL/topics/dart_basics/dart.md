@@ -48,8 +48,8 @@ class Hero {
 
 - `name` : outside { }, meaning its a necessary parameter. Caller of constructor must provide this parameter, but without naming the parameter.
 - `hp` : inside { }, meaning its a named(optional) parameter. The caller of constructor either <br>
-__1. use `hp: 5` to explicitly give__ <br>
-__2. or not provide at all and let the default value in(10)__
+**1. use `hp: 5` to explicitly give** <br>
+**2. or not provide at all and let the default value in(10)**
 - `sword` : inside { }, meaning its a named(optional) parameter, but the required field is given. Therefore there is **no default value**. Required is for **any value without default, but cannot be null.**
 
 ```dart

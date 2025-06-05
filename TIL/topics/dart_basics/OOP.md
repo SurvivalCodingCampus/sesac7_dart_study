@@ -36,9 +36,9 @@ Hero heroro = Hero('heroro', 100);
 ### Static field and methods
 - use `static` keyword to share one single field reference across all instances of a class.
 - static field is basically global top-level variable:
-    - resides in a different memory section than non-static field(*Stack*)
-    - different lifespan (exists before any instances are instantiated)
-    - different access
+    * resides in a different memory section than non-static field(*Stack*)
+    * different lifespan (exists before any instances are instantiated)
+    * different access
     ```dart
     class Hero {
         static int money = 100;
