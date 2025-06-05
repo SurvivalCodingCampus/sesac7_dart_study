@@ -63,6 +63,9 @@ class Cleric {
     // 리턴될 mpPointsRecovered 정의 및 계산
     int mpPointsRecovered = 0;
 
+    // 회복되는 +alpha 값의 최대치
+    final maxPlusAlphaRecovered = 2;
+
     // if (praySeconds > 0) {
     //   mpPointsRecovered = praySeconds + Random().nextInt(3);
     // } else {
@@ -74,7 +77,8 @@ class Cleric {
       return 0;
     }
 
-    mpPointsRecovered = praySeconds + Random().nextInt(3);
+    mpPointsRecovered =
+        praySeconds + Random().nextInt(maxPlusAlphaRecovered + 1);
 
     // 최대 mpPointsRecovered 정의 및 계산
     int maxMpPointsRecovered = maxMp - mp;
