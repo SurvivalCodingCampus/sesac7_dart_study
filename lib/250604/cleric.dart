@@ -59,19 +59,10 @@ class Cleric {
 
   // pray 메소드
   int pray(int praySec) {
-    int result = initZero;
-    int totalSec = mp + praySec + Random().nextInt(randomLimitNum);
-
-    if (totalSec < maxMp) {
-      // 10 이하
-      mp = maxMp;
-      result = totalSec;
-    } else {
-      // 10 이상
-      mp = maxMp;
-      result = maxMp;
-    }
-    return result;
+    int recoveryMpAmount = mp + praySec + Random().nextInt(randomLimitNum);
+    int oldMp = mp;
+    mp = (mp + recoveryMpAmount).clamp(0, maxMp);
+    return mp - oldMp;
   }
 }
 
