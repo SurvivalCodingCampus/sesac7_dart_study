@@ -25,8 +25,8 @@ class Hero{
     hp = 100;
     print('$name is sleeping.');
   }
-}
 
+}
 void main(){
   Hero hero = Hero('홍길동', 100);
 
