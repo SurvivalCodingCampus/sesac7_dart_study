@@ -2,14 +2,20 @@ import 'dart:math';
 
 class Cleric {
   String name;
+
   static final int maxHp = 50;
   static final int maxMp = 10;
-  int hp = 50;
-  int mp = 10;
-
-  // Cleric(this.name);
+  int hp;
+  int mp;
 
   Cleric(this.name, {int? hp, int? mp}) : hp = hp ?? maxHp, mp = mp ?? maxMp;
+
+  // static const int maxHp = 50;
+  // static const int maxMp = 10;
+  // int hp = 50;
+  // int mp = 50;
+  //
+  // Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
 
   void selfAid() {
     print('회복 이전 hp : $hp');
