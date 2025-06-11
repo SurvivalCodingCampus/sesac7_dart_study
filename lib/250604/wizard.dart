@@ -69,6 +69,7 @@ class Wizard {
     if(wand == null){
       throw Exception('마법사가 생성된 이후에는 지팡이를 null 로 설정할 수 없습니다.');
     }
+    this.wand = wand;
   }
 }
 

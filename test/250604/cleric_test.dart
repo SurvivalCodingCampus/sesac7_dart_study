@@ -70,7 +70,6 @@ void main() {
 
   group('생성자 테스트', () {
     final String clericTestName = '아서스';
-
     test('생성자 인자값 : “아서스", hp: 40, mp: 5', () {
       //given(준비)
       final int testHp = 40;
@@ -218,7 +217,7 @@ void main() {
     expect(wizard.getHp, 0);
   });
 
-  test('HP가 음수가 되는 상황에서는 대신 0을 설정 되는지 확인 Test', () {
+  test('마법사가 생성된 이후에는 지팡이를 null 로 설정 불가 Test', () {
     //given(준비)
     var wand = Wand(name : '홍길동', power : 1.1);
     var wizard = Wizard('홍길동', 1, 1, wand: wand);
