@@ -31,8 +31,8 @@ void main() {
       final Wizard wizard2 = Wizard('카리나', testHp, testMp, testWand);
 
       // when & then
-      expect(() => {wizard1.name = testName1}, throwsException);
-      expect(() => {wizard2.name = testName2}, throwsException);
+      expect(() => wizard1.name = testName1, throwsException);
+      expect(() => wizard2.name = testName2, throwsException);
     });
 
     test('마법사가 생성된 후 지팡이 정보를 null로 설정했을 때', () {
@@ -44,7 +44,7 @@ void main() {
       final Wizard wizard = Wizard('이학민', testHp, testMp, testWand);
 
       // when & then
-      expect(() => {wizard.wand = null}, throwsException);
+      expect(() => wizard.wand = null, throwsException);
     });
 
     test('마법사의 MP가 음수로 설정되었을 경우', () {
@@ -57,7 +57,7 @@ void main() {
       final Wizard wizard = Wizard('이학민', testHp, testMp, testWand);
 
       // when & then
-      expect(() => {wizard.mp = testWrongMp}, throwsException);
+      expect(() => wizard.mp = testWrongMp, throwsException);
     });
 
     test('마법사의 HP가 음수로 설정될 경우', () {
