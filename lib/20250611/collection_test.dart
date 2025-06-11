@@ -5,7 +5,7 @@
 “한석봉의 나이는 25살”
 * */
 void main() {
-  List<Map<String, dynamic>> personInfos = [
+  final personInfos = [
     {
       'name' : '홍길동',
       'age' : 20,

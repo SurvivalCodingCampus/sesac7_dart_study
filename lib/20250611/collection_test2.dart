@@ -6,7 +6,7 @@ List에 담긴 모든 Person 인스턴스의 이름을 표시하시오.
 import 'package:modu_3_dart_study/20250611/person.dart';
 
 void main() {
-  List<Person> students = [];
+  final List<Person> students = [];
 
   Person person1 = Person('홍길동', 20);
   Person person2 = Person('한석봉', 25);

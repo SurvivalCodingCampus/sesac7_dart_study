@@ -34,7 +34,7 @@ void main() {
       Student student3 = Student('미래에서온학생', birthYear: 12000);
 
       expect(() => student1.age, throwsException);
-      expect(student2.age, 46);
+      expect(student2.age, DateTime.now().year - 1979);
       expect(() => student3.age, throwsException);
     });
   });
