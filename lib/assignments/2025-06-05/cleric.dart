@@ -12,8 +12,8 @@ class Cleric {
 
   // static const int maxHp = 50;
   // static const int maxMp = 10;
-  // int hp = 50;
-  // int mp = 50;
+  // int hp ;
+  // int mp ;
   //
   // Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
 

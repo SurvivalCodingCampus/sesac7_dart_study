@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Cleric{
+    + int hp;
+    - int mp;
+
+    + void attack()
+    - void die()
+}
+
+
+@enduml
