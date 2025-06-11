@@ -9,8 +9,8 @@ void main() {
       final int testPersonBirthYear = 1998;
       final Person person = Person(name: testPersonName, birthYear: testPersonBirthYear);
 
-      expect(person.name == testPersonName, equals(true));
-      expect(person.birthYear == testPersonBirthYear, equals(true));
+      expect(person.name, equals(testPersonName));
+      expect(person.birthYear, equals(testPersonBirthYear));
     });
     test('Person 클래스 age 프로퍼티 유효성 체크', () {
       final String testPersonName = 'Person';

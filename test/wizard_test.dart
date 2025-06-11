@@ -12,9 +12,9 @@ void main() {
         final int testWizardMp = 20;
         final Wizard wizard = Wizard(name: testWizardName, hp: testWizardHp, mp: testWizardMp);
 
-        expect(wizard.wizardName == testWizardName, equals(true));
-        expect(wizard.wizardHp == testWizardHp, equals(true));
-        expect(wizard.wizardMp == testWizardMp, equals(true));
+        expect(wizard.wizardName, equals(testWizardName));
+        expect(wizard.wizardHp, equals(testWizardHp));
+        expect(wizard.wizardMp, equals(testWizardMp));
         expect(wizard.wand, isNull);
       });
       test('Wizard 클래스 필수, 옵셔널 생성자 테스트', () {

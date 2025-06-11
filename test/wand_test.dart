@@ -12,8 +12,8 @@ void main() {
 
       Wand wand = Wand(name: testWandName, power: testWandPower);
 
-      expect(testWandName == wand.wandName, equals(true));
-      expect(testWandPower == wand.wandPower, equals(true));
+      expect(testWandName, equals(wand.wandName));
+      expect(testWandPower, equals(wand.wandPower));
     });
     test('Wand 클래스 이름 최소 범위 미만 테스트', () {
       final String testWandName = 'Wand';
