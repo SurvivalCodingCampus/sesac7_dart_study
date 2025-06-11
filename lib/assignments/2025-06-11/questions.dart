@@ -12,9 +12,9 @@ void main() {
   “한석봉의 나이는 25살”
   */
 
-  final Map<String, dynamic> gildong = {'name': 'gildong', 'age': 20};
+  final Map<String, dynamic> gildong = {'name': '홍길동', 'age': 20};
 
-  final Map<String, dynamic> seokbong = {'name': 'seokbong', 'age': 25};
+  final Map<String, dynamic> seokbong = {'name': '한석봉', 'age': 25};
 
   print('${gildong['name']}의 나이는 ${gildong['age']}살');
   print('${seokbong['name']}의 나이는 ${seokbong['age']}살');
@@ -25,8 +25,8 @@ void main() {
   List에 담긴 모든 Person 인스턴스의 이름을 표시하시오.
   */
 
-  Person honggildong = Person("gildong");
-  Person hanseokbong = Person("seokbong");
+  final Person honggildong = Person("홍길동");
+  final Person hanseokbong = Person("한석봉");
   final List<Person> people = [];
   people.add(honggildong);
   people.add(hanseokbong);
