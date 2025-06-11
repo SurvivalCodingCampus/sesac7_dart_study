@@ -1,60 +1,50 @@
 import 'dart:math';
 
 class Cleric {
+  static const int maxHp = 50;
+  static const int maxMp = 10;
+
   String name;
   int hp = 50;
-  final int maxHp = 50;
   int mp = 10;
-  final int maxMp = 10;
 
-  Cleric(this.name);
+  Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
 
   void selfAid() {
-    if(mp >= 5) {
-      mp = mp - 5;
-      hp = maxHp;
-    } else {
+    // self-aid 에 따라 차감되는 mp 양 - 5 mp
+    final mpNecessary = 5;
+
+    // 예외처리
+    if (mp < mpNecessary) {
       print("self aid 에는 최소한 5 mp가 필요합니다.");
+      return;
     }
+
+    // mp를 줄이고 hp를 최대치로
+    mp = mp - mpNecessary;
+    hp = maxHp;
   }
 
-  // int pray(int prayTime) {
-  //   int mpPrayPoint = 0;
-  //   if (prayTime > 0) {
-  //     mpPrayPoint = prayTime + Random().nextInt(3);
-  //   } else {
-  //     print(" pray 시간은 1초 이상이어야 합니다.");
-  //   }
-  //
-  //   int maxMpCanBeRecovered = maxMp - mp;
-  //
-  //   if(mpPrayPoint > maxMpCanBeRecovered) {
-  //     mp = mp + maxMpCanBeRecovered;
-  //     return maxMpCanBeRecovered;
-  //   } else {
-  //     mp = mp + mpPrayPoint;
-  //     return mpPrayPoint;
-  //   }
-  // }
-
   int pray(int praySeconds) {
-
     // 리턴될 mpPointsRecovered 정의 및 계산
     int mpPointsRecovered = 0;
-    if (praySeconds > 0) {
-      mpPointsRecovered = praySeconds + Random().nextInt(3);
-    } else {
+
+    // 회복되는 +alpha 값의 최대치
+    final maxPlusAlphaRecovered = 2;
+
+    if (praySeconds <= 0) {
       print("pray 시간은 1초이상이어야 합니다.");
+      return 0;
     }
+
+    mpPointsRecovered =
+        praySeconds + Random().nextInt(maxPlusAlphaRecovered + 1);
 
     // 최대 mpPointsRecovered 정의 및 계산
     int maxMpPointsRecovered = maxMp - mp;
 
-    // mpPointsRecovered 가 최대 maxMpPointsRecovered 보다 클 경우
-    // mpPointsRecovered 를 최대 maxMpPointsRecovered 로 재할당
-    if (mpPointsRecovered > maxMpPointsRecovered) {
-      mpPointsRecovered = maxMpPointsRecovered;
-    }
+    // maxMpPointsRecovered 제약 체크
+    mpPointsRecovered = min(mpPointsRecovered, maxMpPointsRecovered);
 
     // mp 회복
     mp = mp + mpPointsRecovered;
