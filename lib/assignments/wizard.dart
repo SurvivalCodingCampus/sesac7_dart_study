@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/wand.dart';
+import 'package:modu_3_dart_study/assignments/wand.dart';
 
 class Wizard {
   String _name;
