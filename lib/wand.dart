@@ -1,6 +1,6 @@
 class Wand {
   String name;
-  int power;
+  double power;
 
   Wand({required this.name, required this.power});
 }
