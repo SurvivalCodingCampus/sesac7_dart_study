@@ -17,6 +17,20 @@ void _collectionPractice2() {
   }
 }
 
+void _collectionPractice3() {
+  Person personHong = Person(name: '홍길동', birthYear: 2005);
+  Person personHan = Person(name: '한석봉', birthYear: 2000);
+
+  List<Person> people = <Person>[];
+  people.add(personHong);
+  people.add(personHan);
+
+  for (Person person in people) {
+    print(person.name);
+  }
+}
+
 void main() {
   _collectionPractice2();
+  _collectionPractice3();
 }
