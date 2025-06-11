@@ -16,7 +16,3 @@ class Hero {
     print('$name sleeps');
   }
 }
-
-
-
-
