@@ -9,7 +9,7 @@ class Wizard {
   final int _wizardNameLimit = 3;
   final int _wizardMinMpLimit = 0;
 
-  Wizard({required String name, required int hp, required int mp, Wand? wand}): _name = name, _hp = hp, _mp = mp;
+  Wizard({required String name, required int hp, required int mp, Wand? wand}): _name = name, _hp = hp, _mp = mp, _wand = wand;
 
   String get wizardName => _name;
   set wizardName(String value) => {
