@@ -19,10 +19,14 @@ class Wizard {
     required int hp,
     required int mp,
     required Wand wand,
-  }) : _name = name,
-       _hp = hp,
-       _mp = mp,
-       _wand = wand;
+  })
+      : _name = name,
+        _hp = hp,
+        _mp = mp,
+        _wand = wand;
+
+
+  // Wizard(this._name, this._hp, this._mp, {Wand? wand}) : _wand = wand;
 
   String get name => _name;
 
@@ -33,9 +37,6 @@ class Wizard {
   Wand? get wand => _wand;
 
   set name(String value) {
-    if (value == null) {
-      throw Exception('마법사의 이름은 NULL 일 수 없습니다.');
-    }
     if (value.length < 3) {
       throw Exception('마법사의 이름은 3글자 이상이어야 합니다.');
     }
@@ -63,16 +64,4 @@ class Wizard {
     }
     _wand = wand;
   }
-}
-
-void main() {
-  Wand wand = Wand('영겁의 지팡이', 38.0);
-  Wizard wizard = Wizard(name: '질리언', hp: 30, mp: 10, wand: wand);
-
-  wizard.mp = 20;
-  wizard.hp = 40;
-
-  print(wizard._name);
-  print(wizard._mp);
-  print(wizard._hp);
 }

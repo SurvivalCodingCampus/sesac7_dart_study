@@ -2,7 +2,10 @@ class Wand {
   String _name;
   double _power;
 
-  Wand(this._name, this._power);
+  Wand(this._name, this._power) {
+    name = _name;
+    power = _power;
+  }
 
   String get name => _name;
 
