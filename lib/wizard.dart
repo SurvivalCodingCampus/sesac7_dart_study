@@ -50,7 +50,8 @@ class Wizard {
       throw Exception('에러메세지');
     } else if (value < 0) {
       _hp = 0;
+    } else {
+      _hp = value;
     }
-    _hp = value;
   }
 }
