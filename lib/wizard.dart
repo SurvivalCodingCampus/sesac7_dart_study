@@ -44,7 +44,7 @@ class Wizard {
   */
   Wand? get wand => _wand;
   set wand(Wand? value) => {
-    if (wand == null) {
+    if (value == null) {
       throw Exception('Wizard 생성 후 wand value를 null로 설정할 수 없습니다.')
     } else {
       _wand = value
