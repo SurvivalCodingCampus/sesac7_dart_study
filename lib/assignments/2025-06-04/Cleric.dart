@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 class Cleric {
@@ -10,21 +9,20 @@ class Cleric {
 
   Cleric(this.name);
 
-
-  void selfAid(){
+  void selfAid() {
     print('회복 이전 hp : $hp');
-    if(mp < 5){
+    if (mp < 5) {
       print('mp가 부족합니다.');
       return;
     }
-    mp-=5;
+    mp -= 5;
     hp = maxHp;
     print('현재 mp : $mp , 회복 이후 hp : $hp');
   }
 
-  int pray(int second){
+  int pray(int second) {
     //이미 최대 mp면 0 리턴.
-    if(mp == maxMp){
+    if (mp == maxMp) {
       return 0;
     }
 
@@ -35,9 +33,5 @@ class Cleric {
     mp = beforeMp + actualHeal;
     print('회복 이후 mp : $mp , 회복량 : $actualHeal');
     return actualHeal;
-
   }
-
 }
-
-
