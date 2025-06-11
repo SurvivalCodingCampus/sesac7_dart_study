@@ -6,15 +6,15 @@ class Wizard {
   int _mp;
   Wand? _wand;
 
-  final int _wizardNameLimit = 3;
-  final int _wizardMinMpLimit = 0;
+  final int wizardNameLimit = 3;
+  final int wizardMinMpLimit = 0;
 
   Wizard({required String name, required int hp, required int mp, Wand? wand}): _name = name, _hp = hp, _mp = mp, _wand = wand;
 
   String get wizardName => _name;
   set wizardName(String value) => {
-    if (value.length < _wizardNameLimit) {
-      throw Exception('wizardName은 $_wizardNameLimit문자 이상이어야 합니다.')
+    if (value.length < wizardNameLimit) {
+      throw Exception('wizardName은 $wizardNameLimit문자 이상이어야 합니다.')
     } else {
       _name = value
     }
@@ -31,8 +31,8 @@ class Wizard {
 
   int get wizardMp => _mp;
   set wizardMp(int value) => {
-    if (value < _wizardMinMpLimit) {
-      throw Exception('WizardMp 값은 항상 $_wizardMinMpLimit 이상이어야 합니다')
+    if (value < wizardMinMpLimit) {
+      throw Exception('WizardMp 값은 항상 $wizardMinMpLimit 이상이어야 합니다')
     } else {
       _mp = value
     }
