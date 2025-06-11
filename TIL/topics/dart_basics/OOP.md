@@ -63,3 +63,47 @@ Hero heroro = Hero('heroro', 100);
         }
     }
     ```
+
+## Encapsulation
+Prevents user's human error, by only allowing access to private fields via controlled getters and setters, possibly with input validations. Rule of thumb is to throw **exception** when parameters are largely invalid. But simply replacing it with acceptable value is also possible.
+
+### Encapsulation in dart
+Make any field, method, or even class private by adding _ before the identifier.
+- fields that are defined with named parameter in the constructor will have to be tweaked.
+```dart
+class Hero {
+    String name;
+    int _hp;
+    Sword? sword = null;
+
+    Hero({required this.name, required int hp}) : _hp = hp;
+}
+
+// hp field became private
+```
+
+- Instead of private field, dart getters and setters allows programmer to have representative **property** and make sure values are within expected behavior.
+
+```dart
+class Person {
+    String _name;
+    int _age;
+
+    Person(this._name, this._age);
+
+    String get name => _name;
+    String get age {
+        return _age;
+    }
+
+    set name(String value) => _name = value;
+    set age(int value) {
+        if (value >= 0) {
+            _age = value;
+        }
+    }
+}
+
+// with age stter method can make sure only valid modification to age is applied.
+```
+- Can also throw exeption when user tries to set value with unacceptable input.
