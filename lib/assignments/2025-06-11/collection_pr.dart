@@ -20,10 +20,10 @@ void Sol3() {
   final hong = Person('홍길동', 2005);
   final han = Person('한석봉', 2000);
 
-  final List<Person> list = [];
-  list.add(hong);
-  list.add(han);
-
+  // final List<Person> list = [];
+  // list.add(hong);
+  // list.add(han);
+  final list = <Person>[hong, han];
   for (final item in list) {
     print(item.name);
   }

@@ -1,7 +1,7 @@
 class Person {
-  String _name;
+  final String _name;
 
-  int _birthYear;
+  final int _birthYear;
 
   // Person({required String name, required int birthYear})
   //   : _name = name,
