@@ -46,12 +46,13 @@ class Wizard {
 }
 
 class Wand {
+    ..PublicData..
+    -int wandNameLimit
+    -double wandPowerMinValue
+    -double wandPowerMaxValue
     ..PrivateData..
     -String _name
     -double _power
-    -int _wandNameLimit
-    -double _wandPowerMinValue
-    -double _wandPowerMaxValue
     ..Getter..
     +String wandName()
     +double wandPower()
