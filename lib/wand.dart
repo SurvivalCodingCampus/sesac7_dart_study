@@ -22,7 +22,7 @@ class Wand {
   set power(double? value) {
     if (value == null) {
       throw Exception('에러메세지');
-    } else if (value < 0.5 && value > 100) {
+    } else if (value < 0.5 || value > 100) {
       throw Exception('에러메세지');
     }
     _power = value;
