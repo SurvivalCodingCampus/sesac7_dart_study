@@ -5,32 +5,19 @@ void main() {
 
 class Person {
   final String _name;
-  final int _birthYear;
+  final int _age;
 
   // getter
   String get name => _name;
-  int get birthYear => _birthYear;
-  int get age {
-    final year = DateTime.now().year;
+  int get age => _age;
 
-    // 출생 연도에 대한 검증
-    if (birthYear > year) {
-      throw Exception('출생 연도는 현재 연도보다 커질 수 없습니다.');
-    }
-    return year - birthYear;
-  }
-
-  Person(this._name, this._birthYear);
+  Person({required String name, required int age}) : _name = name, _age = age;
 }
 
 void assignment2() {
-  // Person에서의 나이 계산은 '현재 연도 - birthYear'
-  final Person person1 = Person('홍길동', 2005);
-  final Person person2 = Person('한석봉', 2000);
-
   final Map<String, int> personMap = {
-    person1.name: person1.age,
-    person2.name: person2.age,
+    '홍길동': 25,
+    '한석봉': 20,
   };
 
   for (var element in personMap.entries) {
@@ -39,9 +26,8 @@ void assignment2() {
 }
 
 void assignment3() {
-  // Person에서의 나이 계산은 '현재 연도 - birthYear'
-  final Person person1 = Person('홍길동', 2005);
-  final Person person2 = Person('한석봉', 2000);
+  final Person person1 = Person(name: '홍길동', age: 25);
+  final Person person2 = Person(name: '한석봉', age: 20);
   final List<Person> personList = [];
 
   personList.add(person1);
