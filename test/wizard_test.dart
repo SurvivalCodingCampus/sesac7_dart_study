@@ -9,7 +9,7 @@ void main() {
       final int testHp = 50;
       final int testMp = 10;
       final double testPower = 5.0;
-      final Wand testWand = Wand('견습 지팡이', testPower);
+      final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
       final Wizard wizard = Wizard('이학민', testHp, testMp, testWand);
 
       // when & then
@@ -26,7 +26,7 @@ void main() {
       final int testHp = 50;
       final int testMp = 10;
       final double testPower = 5.0;
-      final Wand testWand = Wand('견습 지팡이', testPower);
+      final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
       final Wizard wizard1 = Wizard('이학민', testHp, testMp, testWand);
       final Wizard wizard2 = Wizard('카리나', testHp, testMp, testWand);
 
@@ -40,7 +40,7 @@ void main() {
       final int testHp = 50;
       final int testMp = 10;
       final double testPower = 5.0;
-      final Wand testWand = Wand('견습 지팡이', testPower);
+      final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
       final Wizard wizard = Wizard('이학민', testHp, testMp, testWand);
 
       // when & then
@@ -53,7 +53,7 @@ void main() {
       final int testMp = 10;
       final int testWrongMp = -10;
       final double testPower = 5.0;
-      final Wand testWand = Wand('견습 지팡이', testPower);
+      final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
       final Wizard wizard = Wizard('이학민', testHp, testMp, testWand);
 
       // when & then
@@ -67,7 +67,7 @@ void main() {
       final int testWrongHp2 = -100;
       final int testMp = 10;
       final double testPower = 5.0;
-      final Wand testWand = Wand('견습 지팡이', testPower);
+      final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
       final Wizard wizard1 = Wizard('이학민', testHp, testMp, testWand);
       final Wizard wizard2 = Wizard('카리나', testHp, testMp, testWand);
 

@@ -24,5 +24,5 @@ class Wand {
     _power = power;
   }
 
-  Wand(this._name, this._power);
+  Wand({required String name, required double power}) : _name = name, _power = power;
 }

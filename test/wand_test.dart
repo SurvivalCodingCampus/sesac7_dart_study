@@ -9,9 +9,9 @@ void main() {
       final double testPower2 = testPower1 * 2;
       final double testPower3 = testPower1 * 5;
 
-      final Wand wand1 = Wand('이학민', testPower1);
-      final Wand wand2 = Wand('카리나', testPower2);
-      final Wand wand3 = Wand('홍길동', testPower3);
+      final Wand wand1 = Wand(name: '이학민', power: testPower1);
+      final Wand wand2 = Wand(name: '카리나', power: testPower2);
+      final Wand wand3 = Wand(name: '홍길동', power: testPower3);
 
       // when & then
       expect(wand1.name, equals('이학민'));
@@ -30,8 +30,8 @@ void main() {
       final double testPower2 = 20.0;
       final String testName1 = '홍';
       final String testName2 = '길동';
-      final Wand wand1 = Wand('이학민', testPower1);
-      final Wand wand2 = Wand('카리나', testPower2);
+      final Wand wand1 = Wand(name: '이학민', power: testPower1);
+      final Wand wand2 = Wand(name: '카리나', power: testPower2);
 
       // when & then
       expect(() => wand1.name = testName1, throwsException);
@@ -42,8 +42,8 @@ void main() {
       // given
       final double testPower1 = -10.0;
       final double testPower2 = 200.0;
-      final Wand wand1 = Wand('이학민', testPower1);
-      final Wand wand2 = Wand('카리나', testPower2);
+      final Wand wand1 = Wand(name: '이학민', power: testPower1);
+      final Wand wand2 = Wand(name: '카리나', power: testPower2);
 
       // when & then
       expect(() => wand1.power = testPower1, throwsException);
