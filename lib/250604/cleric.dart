@@ -49,8 +49,8 @@ class Cleric {
 
   // selfAid 메서드
   void selfAid() {
-    if (mp > initZero) {
-      mp -= mpUsage;
+    mp -= mpUsage;
+    if (mp >= initZero) {
       hp = maxHp;
     } else {
       mp = 0; // 음수로 되지 않도록 0으로 초기화
