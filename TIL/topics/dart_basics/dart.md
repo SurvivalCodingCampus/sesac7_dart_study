@@ -105,7 +105,7 @@ Map<String, dynamic> gildong = {
     'age' : 20,
 };
 
-gildong.entries.foreach((element) {
+gildong.entries.forEach((element) {
     print(element.key); // or element.value
 });
 ```

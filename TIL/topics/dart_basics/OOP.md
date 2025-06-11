@@ -92,7 +92,7 @@ class Person {
     Person(this._name, this._age);
 
     String get name => _name;
-    String get age {
+    int get age {
         return _age;
     }
 

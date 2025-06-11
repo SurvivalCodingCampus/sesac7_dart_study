@@ -28,9 +28,9 @@ void main() {
       final Wand woodwand = Wand('woodwand', 1.0);
 
       //set name to 'ww', violation of >3 rule.
-      expect(() => {woodwand.name = 'ww'}, throwsException);
+      expect(() => woodwand.name = 'ww', throwsException);
       //set name to 'MithrilWand', should work fine.
-      expect(() => {woodwand.name = 'MithrilWand'}, returnsNormally);
+      expect(() => woodwand.name = 'MithrilWand', returnsNormally);
 
       //now actually change the name
       woodwand.name = 'MithrilWand';
@@ -42,12 +42,12 @@ void main() {
     test('Wand power setter', () {
       final Wand woodwand = Wand('woodwand', 1.0);
 
-      //set power to 0.4, violation of > 0.5 rule.
-      expect(() => {woodwand.power = 0.4}, throwsException);
-      //set power to 200.0, violation of < 100.0 rule.
-      expect(() => {woodwand.power = 200.0}, throwsException);
+      //set power to 0.4, violation of >= 0.5 rule.
+      expect(() => woodwand.power = 0.4, throwsException);
+      //set power to 200.0, violation of <= 100.0 rule.
+      expect(() => woodwand.power = 200.0, throwsException);
       //set power to 42.5, should work fine.
-      expect(() => {woodwand.power = 42.5}, returnsNormally);
+      expect(() => woodwand.power = 42.5, returnsNormally);
 
       //now actually change the power
       woodwand.power = 2.0;
@@ -61,9 +61,9 @@ void main() {
       final Wizard harry = Wizard('Harry', 10, wand: woodwand);
 
       //cannot set wand to null
-      expect(() => {harry.wand = null}, throwsException);
+      expect(() => harry.wand = null, throwsException);
       //cannot set name to length <3
-      expect(() => {harry.name = 'ha'}, throwsException);
+      expect(() => harry.name = 'ha', throwsException);
 
       //try setting hp to 20;
       harry.hp = 20;

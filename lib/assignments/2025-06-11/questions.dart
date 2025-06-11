@@ -1,4 +1,8 @@
-import 'package:modu_3_dart_study/assignments/2025-06-11/person.dart';
+class Person {
+  String name;
+
+  Person(this.name);
+}
 
 void main() {
   /*
@@ -21,9 +25,8 @@ void main() {
   List에 담긴 모든 Person 인스턴스의 이름을 표시하시오.
   */
 
-  final Person honggildong = Person('gildong', 20);
-  final Person hanseokbong = Person('seokbong', 25);
-
+  Person honggildong = Person("gildong");
+  Person hanseokbong = Person("seokbong");
   final List<Person> people = [];
   people.add(honggildong);
   people.add(hanseokbong);
