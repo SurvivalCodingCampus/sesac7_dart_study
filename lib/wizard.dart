@@ -6,7 +6,11 @@ class Wizard {
   int _mp;
   Wand? _wand;
 
-  Wizard(this._name, this._hp, this._mp, this._wand);
+  Wizard({required String name, required int hp, required int mp, Wand? wand})
+    : _name = name,
+      _hp = hp,
+      _mp = mp,
+      _wand = wand;
 
   String get name => _name;
 
