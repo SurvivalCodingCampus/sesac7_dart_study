@@ -9,7 +9,7 @@ class Person {
     final now = DateTime.now();
     final currentYear = now.year;
     _age = currentYear - birthYear;
-    if (_age > 0) {
+    if (_age > 0 && _age < 130) {
       return _age;
     } else {
       throw Exception('태어난 연도를 확인해 주세요.');
