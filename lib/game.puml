@@ -26,13 +26,14 @@ class Hero {
 }
 
 class Wizard {
+    ..PublicData..
+    +int wizardNameLimit
+    +int wizardMinMpLimit
     ..PrivateData..
     -String _name
     -int _hp
     -int _mp
     -Wand? _wand
-    -int _wizardNameLimit
-    -int _wizardMinMpLimit
     ..Getter..
     +String wizardName()
     +int wizardHp()
