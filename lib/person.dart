@@ -7,6 +7,11 @@ class Person {
   int get birthYear => _birthYear;
   int get age {
     final year = DateTime.now().year;
+
+    // 출생 연도에 대한 검증
+    if (birthYear > year) {
+      throw Exception('출생 연도는 현재 연도보다 커질 수 없습니다.');
+    }
     return year - birthYear;
   }
 
