@@ -26,7 +26,7 @@ class Wizard {
   }
 
   set setMp(int value) {
-    if (value > 0) {
+    if (value >= 0) {
       _mp = value;
     } else {
       throw Exception('마법사의 MP는 0 이상이어야 합니다.');
@@ -35,9 +35,9 @@ class Wizard {
 
   set setHp(int value) {
     if (value < 0) {
-      _mp = 0;
+      _hp = 0;
     } else {
-      _mp = value;
+      _hp = value;
     }
   }
 }
