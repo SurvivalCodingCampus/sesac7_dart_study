@@ -8,7 +8,7 @@ class Wand {
   double get power => _power;
 
   //name cannot be null, must be with length longer than 3
-  //power should be between 0.5 and 100.0.
+  //power should be between 0.5 and 100.0
 
   set name(String newName) {
     if (newName.length < 3) {
@@ -18,8 +18,8 @@ class Wand {
   }
 
   set power(double newPower) {
-    if (newPower <= 0.5 || newPower >= 100.0) {
-      throw Exception('Wand power must be between 0.5 and 100.0.');
+    if (newPower < 0.5 || newPower > 100.0) {
+      throw Exception('power should be between 0.5 and 100.0');
     }
     _power = newPower;
   }
