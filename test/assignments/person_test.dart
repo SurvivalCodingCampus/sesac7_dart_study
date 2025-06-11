@@ -27,4 +27,26 @@ void main() {
       expect(() => person.birthYear, returnsNormally);
     });
   });
+
+  group('홍길동, 한석봉 Map 테스트', () {
+    final Map<String, int> people = {'홍길동': 20, '한석봉': 25};
+
+    test('홍길동, 한석봉 값 확인 테스트', () {
+      expect(people['홍길동'], equals(20));
+      expect(people['한석봉'], equals(25));
+    });
+
+    test('print 테스트', () {
+      final peopleList = people.entries
+          .map((e) => '${e.key}의 나이는 ${e.value}살')
+          .toList();
+
+      expect(peopleList.contains('홍길동의 나이는 20살'), isTrue);
+      expect(peopleList.contains('한석봉의 나이는 25살'), isTrue);
+
+      people.forEach((name, age) {
+        print('$name의 나이는 ${age}살');
+      });
+    });
+  });
 }
