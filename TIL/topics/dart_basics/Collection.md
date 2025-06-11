@@ -25,7 +25,7 @@
     - entries Property를 통해서 forEach()를 사용할 수 있다.(다만 순서는 보장되지 않음)
   - ### Set
       ```dart
-        Set<String> peopleAges = {20, 24, 25};
+        Set<int> peopleAges = {20, 24, 25};
       ```
     - 중복을 허용하지 않음
     - get() 메서드를 제공하지 않음
