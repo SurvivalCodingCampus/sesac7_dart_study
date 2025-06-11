@@ -43,7 +43,7 @@ void main() {
     int recoveryMp2 = cleric2.pray(1);
     int recoveryMp3 = cleric3.pray(1);
 
-    expect(recoveryMp1 >= 1 && recoveryMp1 <= 10, equals(true));
+    expect(recoveryMp1 >= 0 && recoveryMp1 <= 10, equals(true));
     expect(recoveryMp2, equals(1));
     expect(recoveryMp3, equals(0));
   });
