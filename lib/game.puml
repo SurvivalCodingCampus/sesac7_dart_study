@@ -2,8 +2,8 @@
 scale 1
 class Cleric {
     ..Static..
-    {static} maxHp
-    {static} maxMp
+    {static}int maxHp
+    {static}int maxMp
     ..PublicData..
     +String name
     +int hp
@@ -28,7 +28,7 @@ class Hero {
 
 class Wizard {
     ..Static..
-    {static}wizardDefaultMp
+    {static}int wizardDefaultMp
     ..PublicData..
     +int wizardNameLimit
     +int wizardMinMpLimit
