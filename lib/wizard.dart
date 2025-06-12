@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:modu_3_dart_study/wand.dart';
 
 import 'hero.dart';
@@ -63,7 +65,7 @@ class Wizard {
       return;
     }
     _mp -= healMpCost;
-    hero.hp += healHp;
+    hero.hp = min(hero.hp + healHp, hero.heroMaxHp);
     print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
   }
 }
