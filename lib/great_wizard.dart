@@ -14,7 +14,7 @@ class GreatWizard extends Wizard {
     if (_mp < 5) {
       print('마나가 부족합니다.');
     }
-    hero.hp += 25;
+    hero.hp = (hero.hp + 25).clamp(0, hero.maxHp);
     _mp -= 5;
     print('힐을 시전했습니다. 대상 HP: ${hero.hp}.');
   }
