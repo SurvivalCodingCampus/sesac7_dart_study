@@ -1,4 +1,4 @@
-import '../slime.dart';
+import 'package:modu_3_dart_study/assignments/slime.dart';
 
 class Hero {
   String name;
@@ -8,9 +8,5 @@ class Hero {
 
   void attack(Slime slime) {
     print('${name}이 ${slime}을 공격했다.');
-  }
-
-  void run() {
-    print('${name}이 도망쳤다.');
   }
 }
