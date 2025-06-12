@@ -53,6 +53,18 @@ class Wizard {
     +void heal(Hero hero)
 }
 
+class GreatWizard extends Wizard {
+    ..Static..
+    {static}int greatWizardDefaultMp
+    ..PublicData..
+    +int greatWizardHealHp
+    +int greatWizardHealMpCost
+    +int greatWizardSuperHealMpCost
+    ..Method..
+    +void heal(Hero hero)
+    +void superHeal(Hero hero)
+}
+
 class Wand {
     ..PublicData..
     -int wandNameLimit
