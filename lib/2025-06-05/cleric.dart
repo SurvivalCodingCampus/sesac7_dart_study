@@ -3,8 +3,9 @@ import 'dart:math'; // random 함수 사용을 위한 import
 class Cleric {
   // 필드
   String name;
-  int hp = 50; // hp, maxHp는 정수로 초기값 50
-  int mp = 10; // mp, maxMp는 정수로 초기치 10
+  int hp; // hp, maxHp는 정수로 초기값 50 : 선언만
+  int mp; // mp, maxMp는 정수로 초기치 10 : 선언만
+  // hp, mp 값 재사용해서 한번만 사용할 수 있게 하기
 
   // 각 인스턴스별로 최대 HP와 최대 MP 필드에 대한 정보를 가지고 있다
   // 모든 파일에 공유되는 필드
@@ -12,7 +13,8 @@ class Cleric {
   static const int maxMp = 10;
   // Q. 여기서 static final 로 수정시 에러 메세지가 '선택적 parameter의 기본값은 반드시 상수여야 한다' 고 하는 이유가 dart의 type safety 때문인가요?
 
-  Cleric({required this.name, this.hp = Cleric.maxHp, this.mp = Cleric.maxMp}); // 생성자
+  Cleric(this.name, {this.hp = Cleric.maxHp, this.mp = Cleric.maxMp}); // 생성자
+  // 이름은 중괄호에서 빼기
   
   // 이름과 Hp 만으로 지정하여 인스턴스화 할때 mp는 최대 mp 와 같은 값이 초기화 된다
   
