@@ -1,15 +1,21 @@
 import 'package:modu_3_dart_study/wand.dart';
 
+import 'hero.dart';
+
 class Wizard {
   String _name;
   int _hp;
-  int _mp;
+  int _mp = wizardDefaultMp;
   Wand? _wand;
 
   final int wizardNameLimit = 3;
   final int wizardMinMpLimit = 0;
+  final int healHp = 20;
+  final int healMpCost = 10;
 
-  Wizard({required String name, required int hp, required int mp, Wand? wand}): _name = name, _hp = hp, _mp = mp, _wand = wand;
+  static final int wizardDefaultMp = 100;
+
+  Wizard({required String name, required int hp, Wand? wand}): _name = name, _hp = hp, _wand = wand;
 
   String get wizardName => _name;
   set wizardName(String value) {
@@ -49,5 +55,15 @@ class Wizard {
     } else {
       _wand = value;
     }
+  }
+
+  void heal(Hero hero) {
+    if (_mp < healMpCost) {
+      print('마나가 부족합니다.');
+      return;
+    }
+
+    hero.hp += healHp;
+    print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
   }
 }
