@@ -5,6 +5,7 @@ class Slime {
 
   final int level = 10;
   final String suffix;
+  final int slimeAttackDamage = 10;
 
   Slime(this.suffix);
 
@@ -15,6 +16,6 @@ class Slime {
   void attack(Hero hero) {
     print('슬라임$suffix이/가 공격했다.');
     print('10의 데미지');
-    hero.hp -= 10;
+    hero.hp -= slimeAttackDamage;
   }
 }
