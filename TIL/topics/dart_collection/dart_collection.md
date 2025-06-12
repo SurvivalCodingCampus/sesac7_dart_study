@@ -1,4 +1,4 @@
-# Dart 컬렉션션
+# Dart 컬렉션
 ## 데이터 구조에 따른 대표적인 컬렉션 (자료구조)
 
 - List : 순서대로 쌓여있는 구조 (아이템의 중복 허용)
@@ -20,9 +20,9 @@ names2.add('aaa');
 
 // 휴먼 에러 확률이 높아진다
 final names3 = [];
-names2.add('aaa');
-names2.add(1);
-names2.add(true);
+names3.add('aaa');
+names3.add(1);
+names3.add(true);
 ```
 
 ### List의 탐색 방법
