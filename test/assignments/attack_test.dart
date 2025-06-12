@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 void main() {
   group('Poison slime 테스트', () {
     test('slime 공격 테스트', () {
-      final hero = Hero('hero1', 100);
+      final hero = Hero('hero1', 100, 100);
       final poisonSlime = PoisonSlime('A');
 
       poisonSlime.attack(hero);
@@ -16,7 +16,7 @@ void main() {
     });
 
     test('poison 공격 최대 5회 가능 테스트', () {
-      final hero = Hero('hero2', 100);
+      final hero = Hero('hero2', 100, 100);
       final poisonSlime = PoisonSlime('A');
 
       for (int i = 0; i < 6; i++) {
@@ -28,7 +28,7 @@ void main() {
 
     test('poison 데미지 hp 1/5 테스트', () {
       // hp 95 설정
-      final hero = Hero('hero3', 95);
+      final hero = Hero('hero3', 95, 100);
       final poisonSlime = PoisonSlime('A');
 
       poisonSlime.attack(hero);
