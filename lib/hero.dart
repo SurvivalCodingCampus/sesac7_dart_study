@@ -2,12 +2,7 @@ class Hero {
   String name;
   int hp;
 
-  Hero(this.name, this.hp);
+  Hero({required this.name, required this.hp});
 
   void attack() {}
-
-}
-
-void main() {
-
 }
