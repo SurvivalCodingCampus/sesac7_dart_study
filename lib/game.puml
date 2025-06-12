@@ -72,6 +72,17 @@ class Person {
     -void _collectionPractice2()
     -void _collectionPractice3()
 }
+
+class Slime {
+    ..PublicData..
+    +int hp
+    +int level
+    +String suffix
+    ..Method..
+    +void run()
+    +void attack(Hero hero)
+}
+
 note right of Hero
     Dart 수업용 Class
 end note
