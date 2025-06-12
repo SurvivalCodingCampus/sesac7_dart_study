@@ -17,6 +17,10 @@ void main() {
       expect(wizard.wand?.power, fixPower);
     });
 
+    test('description', () {
+      final wizard = Wizard(name: '임찬규', mp: 10, hp: 20);
+      expect(() => wizard.mp -= 20, throwsException);
+    });
 
     test('이름 길이 setter 예외 처리', () {
       final wand = Wand('지팡이', fixPower);
@@ -34,8 +38,8 @@ void main() {
 
     test('hp 음수시 0 처리', () {
       final wand = Wand('지팡이', fixPower);
-      final wizard = Wizard(name: '임찬규', hp: 30, mp: 10, wand: wand);
-      wizard.hp = -1;
+      final wizard = Wizard(name: '임찬규', hp: 10, mp: 10, wand: wand);
+      wizard.hp -= 20;
       expect(wizard.hp, 0);
     });
   });

@@ -9,22 +9,32 @@ import 'package:modu_3_dart_study/assignments/2025-06-11/wand.dart';
 // HP가 음수가 되는 상황에서는 대신 0을 설정 되도록 한다
 
 class Wizard {
+  // String _name;
+  // int _hp;
+  // int _mp;
+  // Wand? _wand;
+  //
+  // Wizard({
+  //   required String name,
+  //   required int hp,
+  //   required int mp,
+  //   required Wand wand,
+  // })
+  //     : _name = name,
+  //       _hp = hp,
+  //       _mp = mp,
+  //       _wand = wand;
+
   String _name;
   int _hp;
   int _mp;
   Wand? _wand;
 
-  Wizard({
-    required String name,
-    required int hp,
-    required int mp,
-    required Wand wand,
-  })
-      : _name = name,
-        _hp = hp,
-        _mp = mp,
-        _wand = wand;
-
+  Wizard({required String name, required int mp, required int hp, Wand? wand})
+    : _name = name,
+      _hp = hp,
+      _mp = mp,
+      _wand = wand;
 
   // Wizard(this._name, this._hp, this._mp, {Wand? wand}) : _wand = wand;
 
