@@ -3,6 +3,7 @@ import 'assignments/2025-06-12/slime.dart';
 class Hero {
   String name;
   int hp;
+  int maxHp = 100;
 
   ///객체를 새로 생성 할때는 생성자를 통해 만드는게 규칙이야.
   ///기본 생성자.
