@@ -28,6 +28,16 @@ test ('Wizard Test', () {
 dart test filename_test.dart
 ```
 
+## Useful testing
+- testing if something throws exception
+```dart
+expect(() => a.transfer(b, 600), throwsException);
+```
+- or does not throw error / exception
+```dart
+expect(() => a.transfer(b, 100), returnsNormally);
+```
+
 ## Good reference
 ### Official web
 - [Dart Test Package](https://pub.dev/packages/test)

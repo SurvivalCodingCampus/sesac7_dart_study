@@ -34,7 +34,7 @@ String str2 = str1!;
 //OKAY
 ```
 
-### Constructor
+## Constructor
 ```dart
 class Hero {
     String name;
@@ -57,5 +57,70 @@ final hero1 = Hero("이름1", hp: 30, sword: sword1) // okay
 final hero1 = Hero("이름1", sword: sword1) // okay
 final hero1 = Hero("이름2") // nope! need sword 
 final hero1 = Hero(sword: sword2) // nope! need name
+```
+
+## Collections
+### List
+- Data structure with order
+- allowing duplicate
+- replaces array
+```dart
+final names = <String>[];
+
+names.add('홍길동');
+names.add('한석봉');
+names.add('신사임당');
+
+print(names[1]);
+```
+- Searching through list
+```dart
+for (int i = 0; i < names.length; i++) {
+    print(names[i]);
+}
+
+for (final name in names) {
+    print(name);
+}
+
+names.forEach((name) {
+    print(name);
+});
+
+names.forEach(print);
+
+final iterater = names.iterator;
+while (iterator.moveNext()) {
+    print(iterator.current);
+}
+```
+
+### Map
+- Data structure without order, set of key value pair. 
+- No duplicates of key allowed.
+```dart
+Map<String, dynamic> gildong = {
+    'name' : '홍길동',
+    'id' : 0,
+    'age' : 20,
+};
+
+gildong.entries.forEach((element) {
+    print(element.key); // or element.value
+});
+```
+### Set
+- Data structure without order
+- no duplicates.
+```dart
+Set<int> lottoSet = {1, 2, 3, 4};
+
+print(lottoSet.contains(1));
+print(lottoSet.contains(5));
+
+final iterator = lottoSet.iterator;
+while (iterator.moveNext()) {
+    print(iterator.current);
+}
 ```
 
