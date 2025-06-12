@@ -33,7 +33,8 @@ void main() {
 
       poisonSlime.attack(hero);
 
-      // 95 - 10(기본) = 85
+      //  hp 85 테스트
+      //  poison 데미지 소수점 제외
       final expectedPoisonDamage = (85 / 5).floor();
       final expectedHp = 95 - 10 - expectedPoisonDamage;
 
