@@ -30,11 +30,14 @@ class Wizard {
   int _mp;
   Wand? _wand;
 
+  ///Wand는 null허용을 하기 위해 만들었는데, 예외처리할때는 그냥 null체크를 통해 예외 터뜨리는 작업 우겨넣음.(문제를 위한 문제)
+
+
   Wizard({required String name, required int mp, required int hp, Wand? wand})
-    : _name = name,
-      _hp = hp,
-      _mp = mp,
-      _wand = wand;
+      : _name = name,
+        _hp = hp,
+        _mp = mp,
+        _wand = wand;
 
   // Wizard(this._name, this._hp, this._mp, {Wand? wand}) : _wand = wand;
 

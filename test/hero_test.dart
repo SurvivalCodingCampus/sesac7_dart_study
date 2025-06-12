@@ -1,13 +1,15 @@
+import 'package:modu_3_dart_study/assignments/2025-06-12/slime.dart';
 import 'package:modu_3_dart_study/hero.dart';
 import 'package:test/test.dart';
 
-void main(){
-  test('Hero Test', (){
+void main() {
+  test('Hero Test', () {
     //준비 given
-    final hero = Hero('홍길동', 100);
+    final hero = Hero(name: '홍길동', hp: 100);
 
+    Slime slime = Slime('슬라임12');
     //실행 when
-    hero.attack();
+    hero.attack(slime);
 
     //검증 then
     expect(hero.hp, equals(99));
@@ -22,6 +24,5 @@ void main(){
     expect(hero.hp == 99 , equals(true));
     expect(hero.hp, isNot(100));
     */
-
   });
 }
