@@ -1,12 +1,21 @@
 @startuml
-scale 3
+scale 2
 
 class Cleric {
     + int hp;
     - int mp;
 
     + void attack(){}
+}
+
+class Hero {
+int hp;
+int mp;
+
+void attack() {}
 
 }
+
+class SuperHero extends Hero {}
 
 @enduml
