@@ -29,9 +29,9 @@ class Wizard {
     if (hp < hpStandard) {
       print('음수값이 입력되었습니다. 0으로 설정합니다.');
       _hp = 0;
+    } else {
+      _hp = hp;
     }
-
-    _hp = hp;
   }
 
   set mp(int mp) {
