@@ -61,7 +61,7 @@ class GreatWizard extends Wizard {
     +int greatWizardHealMpCost
     +int greatWizardSuperHealMpCost
     ..Method..
-    +void heal(Hero hero)
+    +void heal(Hero hero) {override}
     +void superHeal(Hero hero)
 }
 
