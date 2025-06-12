@@ -16,7 +16,7 @@ void main() {
 
     test('마력 범위 예외 처리 테스트', () {
       expect(() => Wand('지팡이1', 0.4), throwsException);
-      expect(() => Wand('지팡이2', 101.0), throwsException);
+      expect(() => Wand('지팡이2', 101.0), throwsA(isA<Exception>()));
     });
 
     test('setter 이름 테스트', () {
