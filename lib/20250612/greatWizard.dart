@@ -10,7 +10,7 @@ class GreatWizard extends Wizard {
   void heal(Hero hero) {
     if (mp >= 5) {
       mp -= 5;
-      hero.hp += 25;
+      hero.receivedHeal(25);
       print('${hero.name}에게 힐을 시전했습니다. 대상 HP: ${hero.hp}');
     } else {
       print('마나가 부족합니다');
@@ -20,7 +20,7 @@ class GreatWizard extends Wizard {
   void superHeal(Hero hero) {
     if (mp >= 50) {
       mp -= 50;
-      hero.hp = hero.maxHp;
+      hero.receivedHeal(hero.maxHp);
       print('${hero.name}에게 슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}');
     } else {
       print('전체회복에 필요한 마나가 부족합니다');

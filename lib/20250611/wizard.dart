@@ -56,7 +56,7 @@ class Wizard {
   void heal(Hero hero) {
     if (_mp >= 10) {
       _mp -= 10;
-      hero.hp += 20;
+      hero.receivedHeal(20);
       print('${hero.name}에게 힐을 시전했습니다. 대상 HP: ${hero.hp}');
     } else {
       print('마나가 부족합니다');

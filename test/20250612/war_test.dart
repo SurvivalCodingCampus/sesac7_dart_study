@@ -9,6 +9,7 @@ import 'package:test/scaffolding.dart';
 void main() {
   final slimeAttackCount = 5;
   final heroMaxHp = 100;
+  final wizardHealCount = 10;
 
   late PoisonSlime poisonSlime;
   late Hero hero;
@@ -59,6 +60,15 @@ void main() {
       }
 
       expect(hero.hp, 50); // 미리 계산했을때 잔여 50
+    });
+
+    test('일반마법사 heal을 10번 시전했을 때 남은 MP', () {
+      // 일반마법사의 MP는 100, 한번 소모량 10
+      for (var i = 0; i < wizardHealCount; i++) {
+        wizard.heal(hero);
+      }
+
+      expect(wizard.mp, 0);
     });
 
     test('슈퍼마법사 superHeal을 3번 시전했을 때 남은 MP', () {
