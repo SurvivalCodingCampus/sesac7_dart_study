@@ -69,3 +69,39 @@ class Wizard {
     }
   }
 }
+
+/*
+GreatWizard 클래스 요구사항:
+Wizard 클래스를 상속받음
+속성:
+  mp가 150으로 증가
+메서드:
+  void heal(Hero hero) 재정의 :  hp를 25 회복시키고 자신의 mp를 5 소모
+  void superHeal(Hero hero) : hp를 전부 회복시키고 자신의 mp를 50 소모
+  mp가 부족하면 "마나가 부족합니다" 출력
+  힐을 성공하면 "슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
+
+*/
+class GreatWizard extends Wizard {
+  @override
+  final int healManaCost = 5;
+  @override
+  final int healAmount = 25;
+  final int superHealManaCost = 50;
+
+  GreatWizard(super.name, {required super.hp, super.mp = 150});
+
+  void superHeal(Hero hero) {
+    if (mp < superHealManaCost) {
+      print(
+        'Wizard \'$name\' does not have enough mp($superHealManaCost) to cast Superheal',
+      );
+      return;
+    } else {
+      hero.hp = hero.maxHP;
+      mp -= superHealManaCost;
+      print('Wizard \'$name\' cast Superheal on \'${hero.name}\'.');
+      print('Current target HP: ${hero.hp}.');
+    }
+  }
+}

@@ -14,6 +14,7 @@ void main() {
       //Test for hero's name and hp
       expect(hero.name, '초보자');
       expect(hero.hp, 100);
+      expect(hero.maxHP, 100);
       //Test for slime's suffix and hp(default value = 50)
       expect(slime.suffix, '째깐이');
       expect(slime.hp, 50);
