@@ -44,7 +44,7 @@ names.forEach((name) {
 });
 
 // 4
-name.forEach(print);
+names.forEach(print);
 ```
 
 ### Set

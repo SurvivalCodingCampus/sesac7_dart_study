@@ -50,7 +50,7 @@ class Hero {
 	String name;
 	int _hp;   // private
 	
-	Hero({required this.name, requiared int hp}) : _hp = hp;   // initializar list 기법
+	Hero({required this.name, requiared int hp}) : _hp = hp;   // initializer list 기법
 	
 	// 메소드를 private로 지정
 	void _die() {
@@ -74,7 +74,7 @@ class Hero {
 	int get hp => _hp;
 	
 	Hero({required this.name, requiared int hp}) : _hp = hp;
-	// 생성자 뒷 부분( : _hp = hp) initializar list 기법
+	// 생성자 뒷 부분( : _hp = hp) initializer list 기법
 	
 	// setter
 	set hp(int value) {
@@ -82,7 +82,7 @@ class Hero {
 		if (value < 0) {
 			throw Exception('hp는 음수일 수 없다');
 		}
-		_age = value;
+		_hp = value;
 	}
 }
 ```
