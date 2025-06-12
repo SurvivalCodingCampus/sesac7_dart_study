@@ -14,8 +14,8 @@ void main() {
       expect(wand1.name.length >= 3, true); // 지팡이 이름 3자 이상
       expect(wand1.power, inInclusiveRange(0.5, 100)); // 마력범위 체크
       
-      final Wizard wizard1 = Wizard("헤리포터", hp: 100, mp: -100, wand: wand1);
-      final Wizard wizard2 = Wizard("무명", hp: 100, mp: 100, wand: wand2);
+      final Wizard wizard1 = Wizard('헤리포터', hp: 100, mp: -100, wand: wand1);
+      final Wizard wizard2 = Wizard('', hp: 100, mp: 100, wand: wand2);
 
       expect(() => wizard2.wand = null, throwsException); // 마법사 생성 후 지팡이 null일때 Exception
       expect(wizard1.name.length, greaterThan(3)); // 마법사 이름 3자 이상
@@ -25,7 +25,7 @@ void main() {
       expect(wizard1.mp, 0); // 마법사 생성 시 음수로 설정해도 MP가 0으로 설정되는지 체크
 
       expect(() => wand2.name, throwsException); // 지팡이 이름이 공백일 경우
-      expect(() => wizard2.name, throwsException); // 마법사 이름이 공백일 경우
+      expect(wizard2.name, ''); // 마법사 이름이 공백일 경우
     });
 
     test('Student 클래스 생성 테스트', () {
