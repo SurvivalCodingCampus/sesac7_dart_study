@@ -13,7 +13,11 @@ void main() {
       // when & then
       for (int i = 0; i < 10; i++) {
         final Wand testWand = Wand(name: '견습 지팡이', power: testPower + i);
-        final Wizard wizard = Wizard(name: '이학민', hp: testHp + i, wand: testWand);
+        final Wizard wizard = Wizard(
+          name: '이학민',
+          hp: testHp + i,
+          wand: testWand,
+        );
 
         expect(wizard.name, equals('이학민'));
         expect(wizard.hp, equals(testHp + i));
@@ -47,9 +51,11 @@ void main() {
 
       // when & then
       expect(() => wizard.wand = null, throwsException);
-      expect(() => wizard = Wizard(name: '이학민', hp: testHp, wand: testWand2), returnsNormally);
+      expect(
+        () => wizard = Wizard(name: '이학민', hp: testHp, wand: testWand2),
+        returnsNormally,
+      );
       expect(() => wizard.wand = null, throwsException);
-
     });
 
     test('마법사의 MP가 음수로 설정되었을 경우', () {
@@ -93,40 +99,122 @@ void main() {
 
       wizard1.hp = testWrongHp2;
       expect(wizard1.hp, equals(zeroHp)); // hp 음수로 설정 시 0으로 보정
-      expect(() => wizard1.hp = testWrongHp2, returnsNormally); // 0으로 보정된다고 해서 예외 처리가 되진 않음
+      expect(
+        () => wizard1.hp = testWrongHp2,
+        returnsNormally,
+      ); // 0으로 보정된다고 해서 예외 처리가 되진 않음
     });
 
     test('힐 시전 시 hero의 hp를 20 정상적으로 회복시키고 본인의 mp를 10 정상적으로 소모하는지?', () {
       // given
-      final int baseHp = 0;
       final int testHp = 50;
-      final int testHeroHp = 50;
-      final int testDamage1 = 50;
-      final int testDamage2 = 40;
-      final int testDamage3 = 30;
-      final int testDamage4 = 20;
       final double testPower = 5.0;
+      final int testDamage = 50;
       final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
       final Wizard wizard = Wizard(name: '이학민', hp: testHp, wand: testWand);
-      final Hero hero = Hero(name: '카리나', hp: testHeroHp);
+      final Hero hero = Hero(name: '카리나', hp: testHp);
+
+      // when
+      hero.hp -= testDamage;
+
+      // then
+      // hero의 hp를 0으로 설정했을 때, 정해진 회복량만큼 잘 회복되는지? mp 소모는 잘 하는지?
+      expect(() => wizard.heal(hero), returnsNormally); // 힐이 정상 작동하는지
+      expect(hero.hp, equals(Wizard.healHpIncrease)); // 의도된 회복량만큼 회복하는지
+      expect(
+        wizard.mp,
+        equals(Wizard.mpInit - Wizard.healMpCost), // 의도된 mp 소모량만큼 소모하는지
+      );
+    });
+
+    test('heal을 시전할 때 회복량이 hp 최대치를 넘어갈 시 hp를 최대치로 잘 보정하는지?', () {
+      // given
+      final int testHp = 50;
+      final double testPower = 5.0;
+      final int testDamage1 = 20; // 피해 수치 == 회복량일 경우
+      final int testDamage2 = 10; // 회복량이 hp 최대치를 넘어갈 경우
+      final int testDamage3 = 0; // 풀피인 경우
+      final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
+      final Wizard wizard = Wizard(name: '이학민', hp: testHp, wand: testWand);
+      final Hero hero = Hero(name: '카리나', hp: testHp);
 
       // when & then
-      hero.hp -= testDamage1;
-      expect(() => wizard.heal(hero), returnsNormally);
-      expect(hero.hp, equals(baseHp + Wizard.healHpIncrease));
+      // 케이스 1번: 피해 수치 == 회복량일 경우
+      // 케이스 2번: 회복량이 hp 최대치를 넘어갈 경우
+      // 케이스 3번: 풀피인 경우
+      for (int i = 0; i < 3; i++) {
+        final int damage;
+        if (i == 0) {
+          damage = testDamage1;
+        } else if (i == 1) {
+          damage = testDamage2;
+        } else {
+          damage = testDamage3;
+        }
 
+        hero.hp -= damage;
+        expect(() => wizard.heal(hero), returnsNormally); // 힐이 정상 사용되는지
+        expect(hero.hp, equals(testHp)); // hp 잔여량이 hp 최대치를 넘어가진 않는지
+        expect(
+          wizard.mp,
+          equals(Wizard.mpInit - Wizard.healMpCost),
+        ); // 의도된 mp 소모량만큼만 소모됐는지
+        hero.hp = testHp;
+        wizard.mp = Wizard.mpInit;
+      }
+    });
+
+    test('mp가 부족할 때는 heal을 사용할 수 없다', () {
+      // given
+      final int testHp = 50;
+      final double testPower = 5.0;
+      final int testDamage = 50;
+      final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
+      final Wizard wizard = Wizard(
+        name: '이학민',
+        hp: testHp,
+        wand: testWand,
+      );
+      final Hero hero = Hero(name: '카리나', hp: testHp);
+
+      // mp 경계값 생성
+      final int cannotSuperHealStandard1 = 9;
+      final int cannotSuperHealStandard2 = 10;
+      final int cannotSuperHealStandard3 = 11;
+
+      // when & then
+      // mp를 음수로 설정할 경우 Exception 발생
+      // mp가 9인 경우(모자란 경우) 먼저 실시
+      int mpOfWizard = cannotSuperHealStandard1; // mpOfWizard는 wizard의 현재 mp 잔여량
+
+      wizard.mp = mpOfWizard;
+      hero.hp -= testDamage;
+      wizard.heal(hero);
+
+      expect(hero.hp == hero.hpMax, false); // 힐이 사용됐다면 회복량(20)만큼 회복됐을 것이므로 true일 것이고, 아니라면 false일 것임.
+      expect(wizard.mp == mpOfWizard, true); // 힐이 사용됐다면 mp가 소비됐을 것이므로 값이 달라서 false일 것이고, 아니라면 true일 것임.
+
+      wizard.mp = Wizard.mpInit;
+      hero.hp = hero.hpMax;
+
+      // 힐을 사용 가능한 mp 범위의 경우
+      for(int i = 0; i < 2; i++) {
+        if (i == 0) {
+          mpOfWizard = cannotSuperHealStandard2;
+        } else {
+          mpOfWizard = cannotSuperHealStandard3;
+        }
+
+        wizard.mp = mpOfWizard;
+        hero.hp -= testDamage;
+        wizard.heal(hero);
+
+        expect(hero.hp == Wizard.healHpIncrease, true); // 힐이 사용됐다면 회복량(20)만큼 회복됐을 것이므로 true일 것이고, 아니라면 false일 것임.
+        expect(wizard.mp == mpOfWizard, false); // 힐이 사용됐다면 mp가 소비됐을 것이므로 값이 달라서 false일 것이고, 아니라면 true일 것임.
+
+        wizard.mp = Wizard.mpInit;
+        hero.hp = hero.hpMax;
+      }
     });
   });
 }
-
-/*
-* 1. mp 초기값이 100으로 잘 초기화되는지?
-* 2. 힐 시전 시 hero의 hp를 20 정상적으로 회복시키고 본인의 mp를 10 정상적으로 소모하는지?
-*   - hp 회복량이 hp 최대치를 넘어갈 시 최대치로 보정될 수 있어야 함.
-* 3. 힐 시전 시 마나가 없으면 "마나가 부족합니다"가 출력되는지?
-*   -
-* 4. 힐 성공 시 "힐을 시전했습니다. 대상 HP: ${hero.hp}"가 출력되는지?
-* 5.
-*
-*
-* */

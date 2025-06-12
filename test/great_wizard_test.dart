@@ -1,7 +1,6 @@
 import 'package:modu_3_dart_study/great_wizard.dart';
 import 'package:modu_3_dart_study/hero.dart';
 import 'package:modu_3_dart_study/wand.dart';
-import 'package:modu_3_dart_study/wizard.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -107,12 +106,12 @@ void main() {
         }
 
         hero.hp -= damage;
-        expect(() => wizard.heal(hero), returnsNormally);
-        expect(hero.hp, equals(testHp));
+        expect(() => wizard.heal(hero), returnsNormally); // 힐이 정상 사용되는지
+        expect(hero.hp, equals(testHp)); // hp 잔여량이 hp 최대치를 넘어가진 않는지
         expect(
           wizard.mp,
           equals(GreatWizard.greatWizMpInit - GreatWizard.greatWizHealMpCost),
-        );
+        ); // 의도된 mp 소모량만큼만 소모됐는지
         hero.hp = testHp;
         wizard.mp = GreatWizard.greatWizMpInit;
       }
@@ -148,28 +147,24 @@ void main() {
         }
 
         hero.hp -= damage;
-        expect(() => wizard.superHeal(hero), returnsNormally);
-        expect(hero.hp, equals(testHp));
+        expect(() => wizard.superHeal(hero), returnsNormally); // 슈퍼 힐이 정상 사용되는지
+        expect(hero.hp, equals(testHp)); // hp를 최대치까지 회복 시켜주는지
         expect(
           wizard.mp,
-          equals(GreatWizard.greatWizMpInit - GreatWizard.greatWizSuperHealMpCost),
-        );
+          equals(
+            GreatWizard.greatWizMpInit - GreatWizard.greatWizSuperHealMpCost,
+          ),
+        ); // 의도된 mp 소모량만큼만 소모됐는지
         hero.hp = testHp;
         wizard.mp = GreatWizard.greatWizMpInit;
       }
     });
 
-    test('mp가 부족할 때는 사용자가 의도한대로 superHeal이 동작 안 하는지?', () {
+    test('mp가 부족할 때는 superHeal을 사용할 수 없다', () {
       // given
       final int testHp = 50;
       final double testPower = 5.0;
-      final int testDamage = 0;
-
-      // 경계값 생성
-      final int cannotSuperHealStandard1 = 49;
-      final int cannotSuperHealStandard2 = 50;
-      final int cannotSuperHealStandard3 = 51;
-
+      final int testDamage = 50;
       final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
       final GreatWizard wizard = GreatWizard(
         name: '이학민',
@@ -178,13 +173,57 @@ void main() {
       );
       final Hero hero = Hero(name: '카리나', hp: testHp);
 
-      // when & then
-      // mp를 음수로 설정할 경우 Exception 발생하도록 해놓아 제외
-      // hero.hp -= testDamage;
-      // wizard.mp = cannotSuperHealStandard;
-      // wizard.superHeal(hero);
-      // expect(hero.hp, equals());
+      // mp 경계값 생성
+      final int cannotSuperHealStandard1 = 49;
+      final int cannotSuperHealStandard2 = 50;
+      final int cannotSuperHealStandard3 = 51;
 
+      // when & then
+      // mp를 음수로 설정할 경우 Exception 발생
+      // mp가 49인 경우(모자란 경우) 먼저 실시
+      int mpOfWizard =
+          cannotSuperHealStandard1; // mpOfWizard는 wizard의 현재 mp 잔여량
+
+      wizard.mp = mpOfWizard;
+      hero.hp -= testDamage;
+      wizard.superHeal(hero);
+
+      expect(
+        hero.hp == hero.hpMax,
+        false,
+      ); // 슈퍼 힐이 사용됐다면 최대치까지 회복됐을 것이므로 true일 것이고, 아니라면 false일 것임.
+      expect(
+        wizard.mp == mpOfWizard,
+        true,
+      ); // 슈퍼 힐이 사용됐다면 mp가 소비됐을 것이므로 값이 달라서 false일 것이고, 아니라면 true일 것임.
+
+      wizard.mp = GreatWizard.greatWizMpInit;
+      hero.hp = hero.hpMax;
+
+      // 사용 가능한 mp 범위의 경우
+      for (int i = 0; i < 2; i++) {
+        if (i == 0) {
+          mpOfWizard = cannotSuperHealStandard2;
+        } else {
+          mpOfWizard = cannotSuperHealStandard3;
+        }
+
+        wizard.mp = mpOfWizard;
+        hero.hp -= testDamage;
+        wizard.superHeal(hero);
+
+        expect(
+          hero.hp == hero.hpMax,
+          true,
+        ); // 슈퍼 힐이 사용됐다면 최대치까지 회복됐을 것이므로 true일 것이고, 아니라면 false일 것임.
+        expect(
+          wizard.mp == mpOfWizard,
+          false,
+        ); // 슈퍼 힐이 사용됐다면 mp가 소비됐을 것이므로 값이 달라서 false일 것이고, 아니라면 true일 것임.
+
+        wizard.mp = GreatWizard.greatWizMpInit;
+        hero.hp = hero.hpMax;
+      }
     });
   });
 }
