@@ -5,7 +5,7 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 void main() {
-  test('Wand 클래스 타당성 검사 테스트', () {
+  group('Wand 클래스 타당성 검사 테스트', () {
     final String initialName = '';
     final double initialPower = 0.0;
     final String threeLettersName = 'abc';
@@ -20,16 +20,27 @@ void main() {
 
     final wand = Wand(name: initialName, power: initialPower);
 
-    // Wand 이름이 3글자 이상인 경우와 그렇지 않은 경우
-    expect(() => wand.name = threeLettersName, returnsNormally);
-    expect(() => wand.name = lessThreeLettersName, throwsException);
+    test('Wand 이름이 3글자 이상인 경우와 그렇지 않은 경우', () {
+      expect(() => wand.name = threeLettersName, returnsNormally);
+      expect(() => wand.name = lessThreeLettersName, throwsException);
 
-    // Wand 이름이 null인 경우
-    expect(() => wand.name = nullName, throwsException);
+      // Wand 이름이 null인 경우
+      expect(() => wand.name = nullName, throwsException);
 
-    // Wand 파워가 0.5 이상 100.0 이하인 경우와 그렇지 않은 경우
-    expect(() => wand.power = inRangeRandomPower, returnsNormally);
-    expect(() => wand.power = lessMinPower, throwsException);
-    expect(() => wand.power = overMaxPower, throwsException);
+      // Wand 파워가 0.5 이상 100.0 이하인 경우와 그렇지 않은 경우
+      expect(() => wand.power = inRangeRandomPower, returnsNormally);
+      expect(() => wand.power = lessMinPower, throwsException);
+      expect(() => wand.power = overMaxPower, throwsException);
+    });
+
+    test('Wand 이름이 null인 경우', () {
+      expect(() => wand.name = nullName, throwsException);
+    });
+
+    test('Wand 파워가 0.5 이상 100.0 이하인 경우와 그렇지 않은 경우', () {
+      expect(() => wand.power = inRangeRandomPower, returnsNormally);
+      expect(() => wand.power = lessMinPower, throwsException);
+      expect(() => wand.power = overMaxPower, throwsException);
+    });
   });
 }
