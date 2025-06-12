@@ -61,4 +61,59 @@ void main(){
     //then(검증)
     expect(wizard.mp <= irrecoverableMpLimit, true);
   });
+
+
+  test('mp가 150으로 증가 확인 Test', () {
+    //given(준비)
+    Wand wand = Wand(name: "지팡이", power: 1);
+    Wizard wizard = GreatWizard(name: "홍길동", hp: 1, wand: wand);
+
+    //when(실행)
+
+    //then(검증)
+    expect(wizard.mp, wizard.useGreatWizardMaxMp);
+  });
+
+  test('void heal(Hero hero) 재정의 :  hp를 25 회복시키고 자신의 mp를 5 소모 확인 Test', () {
+    //given(준비)
+    Hero hero = Hero('홍길동', 0);
+    Wand wand = Wand(name: "지팡이", power: 1);
+    final wizard = GreatWizard(name: "홍길동", hp: 1, wand: wand);
+    final int onetimeSpendMp = 145;
+
+    //when(실행)
+    wizard.heal(hero);
+
+    //then(검증)
+    expect(wizard.mp, onetimeSpendMp);
+    expect(hero.hp, wizard.recoverHeroHpValue);
+  });
+
+  test('void superHeal(Hero hero) : hp를 전부 회복시키고 자신의 mp를 50 소모 확인 Test', () {
+    //given(준비)
+    Hero hero = Hero('홍길동', 0);
+    Wand wand = Wand(name: "지팡이", power: 1);
+    final wizard = GreatWizard(name: "홍길동", hp: 1, wand: wand);
+    final int resultMp = wizard.useGreatWizardMaxMp - wizard.useGreatWizardMpValue;
+
+    //when(실행)
+    wizard.superHeal(hero);
+
+    //then(검증)
+    expect(wizard.mp, resultMp);
+    expect(hero.hp, wizard.recoverGreatHeroHpValue);
+  });
+
+  test('void heal(Hero hero) 재정의 :  hp를 25 회복시키고 자신의 mp를 5 소모 확인 Test', () {
+    //given(준비)
+    Hero hero = Hero('홍길동', 0);
+    Wand wand = Wand(name: "지팡이", power: 1);
+    final wizard = GreatWizard(name: "홍길동", hp: 1, wand: wand);
+
+    //when(실행)
+    wizard.heal(hero);
+
+    //then(검증)
+  });
+
 }

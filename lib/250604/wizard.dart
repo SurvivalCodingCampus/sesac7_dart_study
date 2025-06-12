@@ -62,13 +62,17 @@ class Wizard {
   //속성:
   //- mp: Int (초기값 100)
   int _mp;
+  final int useWizardMpValue = 5;
+  final int useGreatWizardMpValue = 50;
+  final int useGreatWizardMaxMpValue = 50;
+  final int recoverHeroHpValue = 25;
+  final int recoverGreatHeroHpValue = 100;
+  final int useGreatWizardMaxMp = 150;
 
   int get mp => _mp;
   set mp(int value) {
     _mp = value;
   }
-
-  final int useMpValue = 10;
 
   Wand? wand;
 
@@ -115,9 +119,51 @@ class Wizard {
       return;
     }
 
-    mp -= useMpValue;
-    hero.hp += 20;
+    mp -= useWizardMpValue;
+    hero.hp += recoverHeroHpValue;
     print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
+  }
+}
+
+//05. GreatWizard 작성
+//GreatWizard 클래스 요구사항:
+//- Wizard 클래스를 상속받음
+class GreatWizard extends Wizard{
+
+  //속성:
+  //- mp가 150으로 증가
+  int greatWizardLimit = 150;
+  GreatWizard({required super.name, required super.hp, required super.wand}){super.mp = greatWizardLimit;}
+
+  //- void heal(Hero hero) 재정의 :  hp를 25 회복시키고 자신의 mp를 5 소모
+  @override
+  void heal(Hero hero) {
+    //- mp가 부족하면 "마나가 부족합니다" 출력
+    print(super._mp);
+
+    if(mp < 5) {
+      print('마나가 부족합니다');
+      return;
+    } else {
+      //- void heal(Hero hero) 재정의 :  hp를 25 회복시키고 자신의 mp를 5 소모
+      mp -= useWizardMpValue;
+      hero.hp += recoverHeroHpValue;
+      print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
+    }
+  }
+
+  //- void superHeal(Hero hero) : hp를 전부 회복시키고 자신의 mp를 50 소모
+  void superHeal(Hero hero){
+    //- mp가 부족하면 "마나가 부족합니다" 출력
+    if(mp < 50) {
+      print('마나가 부족합니다');
+      return;
+    } else {
+      mp -= useGreatWizardMaxMpValue;
+      hero.hp = 100;
+      //- 힐을 성공하면 "슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
+      print('슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}');
+    }
   }
 }
 
