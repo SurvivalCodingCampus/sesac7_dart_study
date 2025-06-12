@@ -21,10 +21,10 @@ class Hero {
   }
 
   void attack(Slime slime) {
-    print('$name이 $slime을 공격했다.');
+    print('$name attacked $slime.');
   }
 
   void run() {
-    print('$name이 도망쳤다.');
+    print('$name ran.');
   }
 }

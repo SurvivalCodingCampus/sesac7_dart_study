@@ -18,8 +18,8 @@ class Slime {
   Slime(this.suffix, {int hp = 50}) : _hp = hp;
 
   void attack(Hero hero) {
-    print('슬라임 \'$suffix\'이/가 \'${hero.name}\'을/를 공격했다.');
-    print('$damage포인트의 데미지');
+    print('Slime \'$suffix\' attacked \'${hero.name}\'.');
+    print('$damage points of damage');
     hero.hp -= damage;
   }
 }
@@ -57,10 +57,10 @@ class PoisonSlime extends Slime {
   void attack(Hero hero) {
     super.attack(hero);
     if (_poisonCount > 0) {
-      print('추가로, 독 포자를 살포했다!');
+      print('Also released toxic spore!');
       final int poisonDamage = (hero.hp / 5).toInt();
       hero.hp -= poisonDamage;
-      print('$poisonDamage포인트의 데미지');
+      print('$poisonDamage points of damage');
       _poisonCount -= 1;
     }
   }
