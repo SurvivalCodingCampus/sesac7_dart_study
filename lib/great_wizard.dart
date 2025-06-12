@@ -9,7 +9,7 @@ class GreatWizard extends Wizard {
   void heal(Hero hero) {
     if (super.mp >= 5) {
       hero.hp += 25;
-      mp -= 5;
+      mp = super.mp - 50;
       print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
     } else {
       print('마나가 부족합니다');
