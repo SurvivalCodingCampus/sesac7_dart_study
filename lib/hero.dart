@@ -1,4 +1,5 @@
 class Hero {
+  final int maxHp = 100;
   String name;
   int hp;
 
