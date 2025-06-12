@@ -1,0 +1,84 @@
+@startuml
+scale 1
+class Cleric {
+    ..Static..
+    {static} maxHp
+    {static} maxMp
+    ..PublicData..
+    +String name
+    +int hp
+    +int mp
+    ..PrivateData..
+    -int _selfAidUseMp
+    -int _randomHealRange
+    ..Method..
+    +void selfAid()
+    +int pray(int time)
+}
+
+class Hero {
+    ..PublicData..
+    +String name
+    +int hp
+    ..Method..
+    +void attack()
+    +void run()
+}
+
+class Wizard {
+    ..PublicData..
+    +int wizardNameLimit
+    +int wizardMinMpLimit
+    ..PrivateData..
+    -String _name
+    -int _hp
+    -int _mp
+    -Wand? _wand
+    ..Getter..
+    +String wizardName()
+    +int wizardHp()
+    +int wizardMp()
+    +Wand? wand()
+    ..Setter..
+    +void wizardName(String value)
+    +void wizardHp(int value)
+    +void wizardMp(int value)
+    +void wand(Wand? value)
+}
+
+class Wand {
+    ..PublicData..
+    -int wandNameLimit
+    -double wandPowerMinValue
+    -double wandPowerMaxValue
+    ..PrivateData..
+    -String _name
+    -double _power
+    ..Getter..
+    +String wandName()
+    +double wandPower()
+    ..Setter..
+    +void wandName(String value)
+    +void wandPower((String value)
+}
+
+class Person {
+    ..PublicData..
+    +String name
+    +int birthYear
+    ..Getter..
+    +int age()
+    ..Method..
+    -void _collectionPractice2()
+    -void _collectionPractice3()
+}
+note right of Hero
+    Dart 수업용 Class
+end note
+note left of Person::_collectionPractice2
+    컬렌션 연습문제 2번 출력용 함수
+end note
+note left of Person::_collectionPractice3
+    컬렌션 연습문제 3번 출력용 함수
+end note
+@enduml
