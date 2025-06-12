@@ -2,6 +2,7 @@ import 'package:modu_3_dart_study/assignments/2025-06-12/wand.dart';
 import 'package:modu_3_dart_study/assignments/2025-06-12/hero.dart';
 
 class Wizard {
+  static const int defaultWizardMP = 100;
   String _name;
   int _hp;
   int _mp;
@@ -9,7 +10,7 @@ class Wizard {
   final int healManaCost = 10;
   final int healAmount = 20;
 
-  Wizard(this._name, {required int hp, Wand? wand, int mp = 100})
+  Wizard(this._name, {required int hp, Wand? wand, int mp = defaultWizardMP})
     : _hp = hp,
       _wand = wand,
       _mp = mp;
@@ -83,13 +84,14 @@ Wizard 클래스를 상속받음
 
 */
 class GreatWizard extends Wizard {
+  static const int defaultGreatWizardMP = 150;
   @override
   final int healManaCost = 5;
   @override
   final int healAmount = 25;
   final int superHealManaCost = 50;
 
-  GreatWizard(super.name, {required super.hp, super.mp = 150});
+  GreatWizard(super.name, {required super.hp, super.mp = defaultGreatWizardMP});
 
   void superHeal(Hero hero) {
     if (mp < superHealManaCost) {
@@ -97,11 +99,10 @@ class GreatWizard extends Wizard {
         'Wizard \'$name\' does not have enough mp($superHealManaCost) to cast Superheal',
       );
       return;
-    } else {
-      hero.hp = hero.maxHP;
-      mp -= superHealManaCost;
-      print('Wizard \'$name\' cast Superheal on \'${hero.name}\'.');
-      print('Current target HP: ${hero.hp}.');
     }
+    hero.hp = hero.maxHP;
+    mp -= superHealManaCost;
+    print('Wizard \'$name\' cast Superheal on \'${hero.name}\'.');
+    print('Current target HP: ${hero.hp}.');
   }
 }

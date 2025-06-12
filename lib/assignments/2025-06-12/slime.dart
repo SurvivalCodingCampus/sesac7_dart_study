@@ -39,7 +39,8 @@ class Slime {
 */
 
 class PoisonSlime extends Slime {
-  int _poisonCount = 5;
+  static const int defaultPoisonCount = 5;
+  int _poisonCount = defaultPoisonCount;
 
   PoisonSlime(super.suffix);
 
@@ -47,10 +48,9 @@ class PoisonSlime extends Slime {
 
   set poisonCount(int value) {
     if (value < 0) {
-      _poisonCount = 0;
-    } else {
-      _poisonCount = value;
+      throw Exception("PoisonSlime.poisonCount cannot be set below 0.");
     }
+    _poisonCount = value;
   }
 
   @override

@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/assignments/2025-06-12/hero.dart';
 import 'package:modu_3_dart_study/assignments/2025-06-12/slime.dart';
 
 void main() {
-  group('GROUP : Constructor tests for Hero and Slime', () {
+  group('GROUP : Constructor tests for Hero and Slime\n', () {
     test('Hero, Slime, PoisonSlime instance', () {
       //given
       Hero hero = Hero('초보자', hp: 100);
@@ -25,7 +25,7 @@ void main() {
     });
   });
 
-  group('GROUP : Attack method test for Hero and Slime', () {
+  group('GROUP : Attack method test for Hero and Slime\n', () {
     test('Hero and Slime_attack method test : basic case', () {
       //given
       Hero hero = Hero('초보자', hp: 100);
