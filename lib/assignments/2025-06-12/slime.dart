@@ -18,8 +18,8 @@ class Slime {
   Slime(this.suffix, {int hp = 50}) : _hp = hp;
 
   void attack(Hero hero) {
-    print('슬라임$suffix이/가 공격했다.');
-    print('$damage의 데미지');
+    print('슬라임 \'$suffix\'이/가 \'${hero.name}\'을/를 공격했다.');
+    print('$damage포인트의 데미지');
     hero.hp -= damage;
   }
 }
@@ -37,3 +37,31 @@ class Slime {
     용사의 HP 의 1/5에 해당하는 포인트를 용사의 HP 로부터 감소시키고, “~포인트의 데미지" 라고 표시
     poisonCount 를 1 감소 시킨다
 */
+
+class PoisonSlime extends Slime {
+  int _poisonCount = 5;
+
+  PoisonSlime(super.suffix);
+
+  int get poisonCount => _poisonCount;
+
+  set poisonCount(int value) {
+    if (value < 0) {
+      _poisonCount = 0;
+    } else {
+      _poisonCount = value;
+    }
+  }
+
+  @override
+  void attack(Hero hero) {
+    super.attack(hero);
+    if (_poisonCount > 0) {
+      print('추가로, 독 포자를 살포했다!');
+      final int poisonDamage = (hero.hp / 5).toInt();
+      hero.hp -= poisonDamage;
+      print('$poisonDamage포인트의 데미지');
+      _poisonCount -= 1;
+    }
+  }
+}

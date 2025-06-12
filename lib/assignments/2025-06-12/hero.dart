@@ -10,7 +10,7 @@ class Hero {
 
   set hp(int value) {
     if (value < 0) {
-      _hp = _hp;
+      _hp = 0;
     } else {
       _hp = value;
     }
