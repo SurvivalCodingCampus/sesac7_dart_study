@@ -3,9 +3,9 @@ import 'package:modu_3_dart_study/wizard.dart';
 import 'hero.dart';
 
 class GreatWizard extends Wizard {
-  GreatWizard({required super.name, required super.hp});
-
   int _mp = 150;
+
+  GreatWizard(super.name, {required super.hp});
 
   int get mp => _mp;
 

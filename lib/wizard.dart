@@ -2,20 +2,31 @@ import 'package:modu_3_dart_study/hero.dart';
 import 'package:modu_3_dart_study/wand.dart';
 
 class Wizard {
-  String name;
-  int _mp = 100;
+  String _name;
   int _hp;
   Wand? _wand;
+  int _mp;
 
-  Wizard({required this.name, required int hp, Wand? wand})
+  Wizard(this._name, {required int hp, Wand? wand, int mp = 100})
     : _hp = hp,
-      _wand = wand;
+      _wand = wand,
+      _mp = mp;
+
+  String get name => _name;
 
   Wand? get wand => _wand;
 
   int get mp => _mp;
 
   int get hp => _hp;
+
+  set setName(String value) {
+    if (value.length < 3) {
+      throw Exception('마법사의 이릉은 3글자 이상이어야 합니다.');
+    } else {
+      _name = value;
+    }
+  }
 
   set setWand(Wand? value) {
     if (value == null) {
