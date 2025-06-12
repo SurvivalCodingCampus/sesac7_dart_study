@@ -9,6 +9,29 @@
    - HP가 음수가 되는 상황에서는 대신 0을 설정 되도록 한다
 */
 
+/*
+04. Wizard 수정
+  속성:
+    - mp: Int (초기값 100)
+  메서드:
+    - void heal(Hero hero) : hp를 20 회복시키고 자신의 mp를 10 소모
+    - mp가 부족하면 "마나가 부족합니다" 출력
+    - 힐을 성공하면 "힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
+05. GreatWizard 작성
+  GreatWizard 클래스 요구사항:
+    - Wizard 클래스를 상속받음
+  속성:
+    - mp가 150으로 증가
+  메서드:
+    - void heal(Hero hero) 재정의 :  hp를 25 회복시키고 자신의 mp를 5 소모
+    - void superHeal(Hero hero) : hp를 전부 회복시키고 자신의 mp를 50 소모
+    - mp가 부족하면 "마나가 부족합니다" 출력
+    - 힐을 성공하면 "슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
+ */
+
+
+
+
 class Wand {
   String name;
   double power;
