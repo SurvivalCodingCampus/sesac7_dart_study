@@ -17,6 +17,7 @@
     - void heal(Hero hero) : hp를 20 회복시키고 자신의 mp를 10 소모
     - mp가 부족하면 "마나가 부족합니다" 출력
     - 힐을 성공하면 "힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
+
 05. GreatWizard 작성
   GreatWizard 클래스 요구사항:
     - Wizard 클래스를 상속받음
@@ -28,9 +29,7 @@
     - mp가 부족하면 "마나가 부족합니다" 출력
     - 힐을 성공하면 "슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
  */
-
-
-
+import 'package:modu_3_dart_study/250604/hero.dart';
 
 class Wand {
   String name;
@@ -59,10 +58,21 @@ class Wand {
 class Wizard {
   String name;
   int hp;
-  int mp;
+  //연습문제 4
+  //속성:
+  //- mp: Int (초기값 100)
+  int _mp;
+
+  int get mp => _mp;
+  set mp(int value) {
+    _mp = value;
+  }
+
+  final int useMpValue = 10;
+
   Wand? wand;
 
-  Wizard(this.name, this.hp, this.mp, {required this.wand});
+  Wizard({required this.name, required this.hp, required this.wand}) : _mp = 100;
 
   set setName(String? name) {
     String checkName = checkNullAndLength(name);
@@ -93,6 +103,21 @@ class Wizard {
       throw Exception('마법사가 생성된 이후에는 지팡이를 null 로 설정할 수 없습니다.');
     }
     this.wand = wand;
+  }
+
+  //메서드:
+  //- void heal(Hero hero) : hp를 20 회복시키고 자신의 mp를 10 소모
+  //- mp가 부족하면 "마나가 부족합니다" 출력
+  //- 힐을 성공하면 "힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
+  void heal(Hero hero){
+    if(mp<=9){
+      print('마나가 부족합니다');
+      return;
+    }
+
+    mp -= useMpValue;
+    hero.hp += 20;
+    print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
   }
 }
 
