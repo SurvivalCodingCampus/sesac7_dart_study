@@ -16,7 +16,7 @@ class Hero {
   }
 
   void attack() {
-    _hp--;
+    hp = _hp - 1;
   }
 }
 
