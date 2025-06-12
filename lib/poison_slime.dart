@@ -13,6 +13,7 @@ class PoisonSlime extends Slime {
   }
 
   final double _poisonDamageRatio = 1 / 5;
+  double get poisonDamageRatio => _poisonDamageRatio;
 
   PoisonSlime(super.suffix);
 
