@@ -20,8 +20,9 @@ class Hero {
     ..PublicData..
     +String name
     +int hp
+    +int heroMaxHp
     ..Method..
-    +void attack()
+    +void attack(Slime slime)
     +void run()
 }
 
