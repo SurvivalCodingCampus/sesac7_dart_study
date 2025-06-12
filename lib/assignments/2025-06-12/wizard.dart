@@ -13,7 +13,7 @@ class Wizard {
   Wizard({required String name, required int hp, int? mp, Wand? wand})
     : _name = name,
       _hp = hp,
-      _mp = 100,
+      _mp = mp ?? 100,
       _wand = wand;
 
   // Wizard(this._name, this._hp, this._mp, {Wand? wand}) : _wand = wand;

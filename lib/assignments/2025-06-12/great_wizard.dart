@@ -6,6 +6,9 @@ class GreatWizard extends Wizard {
   int _mp = 150;
 
   set mp(int value) {
+    if (value < 0) {
+      throw ArgumentError('mp는 음수가 될 수 없습니다.');
+    }
     _mp = value;
   }
 

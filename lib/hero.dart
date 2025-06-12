@@ -10,7 +10,9 @@ class Hero {
   Hero({required this.name, required this.hp});
 
   ///기능 추가. 메소드
-  void attack(Slime slime) {}
+  void attack(Slime slime) {
+    print('attack');
+  }
 
   void run() {
     print('hero 의 run');
