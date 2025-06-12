@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:modu_3_dart_study/hero.dart';
 import 'package:modu_3_dart_study/wand.dart';
 import 'package:modu_3_dart_study/wizard.dart';
 import 'package:test/expect.dart';
@@ -99,6 +102,48 @@ void main() {
       wizard.wizardHp = -1;
 
       expect(wizard.wizardHp, equals(0));
+    });
+    test('Wizard 클래스 heal 메서드 hp 회복량 검증 테스트', () {
+      final String testWizardName = 'Wizard';
+      final int testWizardHp = 50;
+      final Wizard wizard = Wizard(name: testWizardName, hp: testWizardHp);
+      final String testHeroName = '영웅';
+      final int testHeroHp = 100;
+      final Hero hero = Hero(name: testHeroName, hp: testHeroHp);
+      final damage = 30;
+
+      hero.hp -= damage;
+      wizard.heal(hero);
+
+      expect(hero.heroMaxHp - damage + wizard.healHp, equals(hero.hp));
+    });
+    test('Wizard 클래스 heal 메서드 mp 소모 테스트', () {
+      final String testWizardName = 'Wizard';
+      final int testWizardHp = 50;
+      final Wizard wizard = Wizard(name: testWizardName, hp: testWizardHp);
+      final String testHeroName = '영웅';
+      final int testHeroHp = 100;
+      final Hero hero = Hero(name: testHeroName, hp: testHeroHp);
+
+      wizard.heal(hero);
+
+      expect(Wizard.wizardDefaultMp - wizard.healMpCost, equals(wizard.wizardMp));
+    });
+    test('Wizard 클래스 heal 메서드 mp 부족 테스트', () {
+      final String testWizardName = 'Wizard';
+      final int testWizardHp = 50;
+      final Wizard wizard = Wizard(name: testWizardName, hp: testWizardHp);
+      final String testHeroName = '영웅';
+      final int testHeroHp = 100;
+      final Hero hero = Hero(name: testHeroName, hp: testHeroHp);
+      final damage = 30;
+
+      wizard.wizardMp = Random().nextInt(wizard.healMpCost);
+      hero.hp -= damage;
+
+      wizard.heal(hero);
+
+      expect(hero.hp + wizard.healHp == hero.hp, equals(false));
     });
   });
 }
