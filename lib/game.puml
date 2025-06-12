@@ -1,0 +1,12 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Cleric {
+    + int hp;
+    - int mp;
+
+    + void attack()
+    - void die()
+}
+
+@enduml
