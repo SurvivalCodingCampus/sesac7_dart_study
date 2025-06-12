@@ -1,15 +1,17 @@
+import 'package:modu_3_dart_study/assignments/hero.dart';
 import 'package:modu_3_dart_study/assignments/wand.dart';
 
 class Wizard {
   String _name;
   int _hp;
   int _mp;
-  Wand? _wand;
+  Wand _wand;
 
-  Wizard(String name, int hp, int mp, Wand? wand)
+  Wizard(String name, int hp, {int mp = 100, required Wand wand})
     : _name = '',
       _hp = 0,
-      _mp = 0 {
+      _mp = 0,
+      _wand = wand {
     this.name = name;
     this.hp = hp;
     this.mp = mp;
@@ -22,7 +24,7 @@ class Wizard {
 
   int get mp => _mp;
 
-  Wand? get wand => _wand;
+  Wand get wand => _wand;
 
   set name(String newName) {
     if (newName.length < 3) {
@@ -47,5 +49,20 @@ class Wizard {
       throw Exception('에러 : 지팡이는 null로 설정 불가');
     }
     _wand = newWand;
+  }
+
+  void heal(Hero hero) {
+    final int requiredMP = 10;
+    final int useMP = 20;
+
+    if (_mp < requiredMP) {
+      print('마나가 부족합니다');
+      return;
+    }
+
+    hero.hp += useMP;
+    _mp -= requiredMP;
+
+    print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
   }
 }
