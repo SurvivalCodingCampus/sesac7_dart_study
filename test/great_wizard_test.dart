@@ -22,8 +22,8 @@ void main() {
     });
 
     group('GreatWizard heal() 테스트', () {
-      final int useMp = 10;
-      final int healHp = 20;
+      final int useMp = 5;
+      final int healHp = 25;
 
       test('초기 mp heal() 테스트', () {
         int defaultMp = defaultGreatMp;
