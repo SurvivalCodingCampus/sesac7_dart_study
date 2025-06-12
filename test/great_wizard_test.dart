@@ -150,7 +150,7 @@ void main() {
         expect(lessMpGreatWizard.mp == lessMp, equals(true));
         expect(hero.hp == heroCurrentHp, equals(true));
 
-        lessMpGreatWizard.heal(hero);
+        lessMpGreatWizard.superHeal(hero);
 
         expect(lessMpGreatWizard.mp == lessMp, equals(true));
         expect(hero.hp == heroCurrentHp, equals(true));
