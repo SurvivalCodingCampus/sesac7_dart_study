@@ -60,3 +60,27 @@
 03. 이름을 가지는 Person 클래스를 작성하고, 다음을 수행하는 코드를 작성하시오.
     이름이 ‘홍길동', ‘한석봉' 인 Person 인스턴스를 생성하고, List에 담습니다.
     List에 담긴 모든 Person 인스턴스의 이름을 표시하시오.
+
+## 250612 test1,2,3,4,5 상속
+
+01. 다음 중에서 “잘못 된 상속" 인 것을 모두 구하시오
+2,5
+슈퍼클래스 | 서브클래스
+1
+Person   | Student
+2
+Car      | Engine
+3
+Father   | Child
+4
+Food     | Sushi
+5
+SuperMan | Man
+
+02. 다음 클래스에 대해 “부모 클래스" 와 “자식 클래스" 를 1개씩 생각 해 보시오
+    communication 
+    device       Vehicle    Book
+     |              |        |
+   Phone           Car   Dictionary
+     |              |        |
+   iOS Phone      Auto   Korean Dic
