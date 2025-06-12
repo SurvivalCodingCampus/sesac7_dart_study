@@ -83,6 +83,18 @@ class Slime {
     +void attack(Hero hero)
 }
 
+class PoisonSlime extends Slime {
+    ..PrivateData..
+    -int _poisonCount
+    -double _poisonDamageRatio
+    ..Getter..
+    +int poisonCount()
+    ..Setter..
+    +void poisonCount(int value)
+    ..Method..
+    +void attack(Hero hero)
+}
+
 note right of Hero
     Dart 수업용 Class
 end note
