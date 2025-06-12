@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/assignments/2025-06-04/cleric.dart';
+import 'package:modu_3_dart_study/assignments/cleric.dart';
 import 'package:test/test.dart';
 
 void main() {
