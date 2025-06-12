@@ -97,6 +97,7 @@ class Slime {
     +int hp
     +int level
     +String suffix
+    +int slimeAttackDamage
     ..Method..
     +void run()
     +void attack(Hero hero)
