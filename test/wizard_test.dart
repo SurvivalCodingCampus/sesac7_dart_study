@@ -143,7 +143,7 @@ void main() {
 
       wizard.heal(hero);
 
-      expect(hero.hp + wizard.healHp == hero.hp, equals(false));
+      expect(hero.hp, equals(hero.heroMaxHp - damage));
     });
   });
 }
