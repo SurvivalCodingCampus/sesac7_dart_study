@@ -26,9 +26,13 @@ class Hero {
 }
 
 class Wizard {
+    ..Static..
+    {static}wizardDefaultMp
     ..PublicData..
     +int wizardNameLimit
     +int wizardMinMpLimit
+    +int healHp
+    +int healMpCost
     ..PrivateData..
     -String _name
     -int _hp
@@ -44,6 +48,8 @@ class Wizard {
     +void wizardHp(int value)
     +void wizardMp(int value)
     +void wand(Wand? value)
+    ..Method..
+    +void heal(Hero hero)
 }
 
 class Wand {
