@@ -1,9 +1,9 @@
 import 'package:modu_3_dart_study/hero.dart';
 
 class Slime {
-  final int level = 10;
-
   int hp = 50;
+
+  final int level = 10;
   final String suffix;
 
   Slime(this.suffix);

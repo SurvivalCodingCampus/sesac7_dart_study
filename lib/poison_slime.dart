@@ -3,10 +3,6 @@ import 'package:modu_3_dart_study/slime.dart';
 
 class PoisonSlime extends Slime {
   int _poisonCount = 5;
-  final double _poisonDamageRatio = 1 / 5;
-
-  PoisonSlime(super.suffix);
-
   int get poisonCount => _poisonCount;
   set poisonCount(int value) {
     if (_poisonCount == 0 && value < 0) {
@@ -15,6 +11,10 @@ class PoisonSlime extends Slime {
       _poisonCount = value;
     }
   }
+
+  final double _poisonDamageRatio = 1 / 5;
+
+  PoisonSlime(super.suffix);
 
   @override
   void attack(Hero hero) {
