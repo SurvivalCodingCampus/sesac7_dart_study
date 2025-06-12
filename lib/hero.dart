@@ -21,7 +21,7 @@ class Hero {
     }
   }
 
-  Hero(this._name, {int hp = 100}) : _hp = hp;
+  Hero(this._name, {required int hp}) : _hp = hp;
 
   static void setRandomMoney() {
     Hero.money = 200;
@@ -34,7 +34,9 @@ class Hero {
     _hp--;
   }
 
-  void run() {}
+  void run() {
+    print('hero 의 run()');
+  }
 }
 
 void main() {

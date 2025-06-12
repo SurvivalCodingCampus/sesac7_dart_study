@@ -1,5 +1,5 @@
 @startuml
-scale 3 
+scale 2
 
 class Cleric {
     + int hp
@@ -7,6 +7,17 @@ class Cleric {
 
     + void attack()
     - void die()
+}
+
+class Hero {
+    int hp
+    int mp
+    void attack(Slime slime)
+    void run()
+}
+
+class SuperHero extends Hero {
+    Sword sword
 }
 
 @enduml
