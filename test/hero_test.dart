@@ -5,7 +5,7 @@ import 'package:test/scaffolding.dart';
 void main() {
   test('hero test', () {
     // given
-    final hero = Hero('히어로', 100);
+    final hero = Hero('히어로', hp: 100);
 
     //when
     hero.damages();

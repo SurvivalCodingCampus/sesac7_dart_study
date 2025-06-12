@@ -21,7 +21,7 @@ class PoisonSlime extends Slime {
       final poisonDamage = hero.hp / 5;
       hero.hp -= poisonDamage.toInt();
 
-      print('~포인트의 데미지');
+      print('~포인트의 데미지 : ${poisonDamage.toInt()}');
 
       _poisonCount--;
     }
