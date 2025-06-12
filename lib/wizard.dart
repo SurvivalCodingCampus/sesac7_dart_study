@@ -62,7 +62,7 @@ class Wizard {
       print('마나가 부족합니다.');
       return;
     }
-
+    _mp -= healMpCost;
     hero.hp += healHp;
     print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
   }
