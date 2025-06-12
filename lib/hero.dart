@@ -9,7 +9,7 @@ class Hero {
 
   void attack(Slime slime) {
     print('$name이 $slime을 공격했다.');
-    hp -= 10;
+    slime.hp -= 10;
   }
 
   void run() {
