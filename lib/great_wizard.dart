@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:modu_3_dart_study/wizard.dart';
 import 'hero.dart';
 
@@ -19,7 +21,7 @@ class GreatWizard extends Wizard {
       return;
     }
     wizardMp -= greatWizardHealMpCost;
-    hero.hp += greatWizardHealHp;
+    hero.hp = min(hero.hp + greatWizardHealHp, hero.heroMaxHp);
     print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
   }
 
