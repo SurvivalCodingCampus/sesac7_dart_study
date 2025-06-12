@@ -146,7 +146,7 @@ void main() {
 
         greatWizard.heal(hero);
 
-        expect(hero.hp + greatWizard.greatWizardHealHp == hero.hp, equals(false));
+        expect(hero.hp, equals(hero.heroMaxHp - damage));
       });
     });
     test('GreatWizard 클래스 superHeal 메서드 hp 회복량 검증 테스트', () {
@@ -189,7 +189,7 @@ void main() {
 
       greatWizard.superHeal(hero);
 
-      expect(hero.hp == hero.heroMaxHp, equals(false));
+      expect(hero.hp, isNot(hero.heroMaxHp));
     });
   });
 }
