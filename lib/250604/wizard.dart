@@ -58,6 +58,7 @@ class Wand {
 class Wizard {
   String name;
   int hp;
+
   //연습문제 4
   //속성:
   //- mp: Int (초기값 100)
@@ -65,18 +66,20 @@ class Wizard {
   final int useWizardMpValue = 5;
   final int useGreatWizardMpValue = 50;
   final int useGreatWizardMaxMpValue = 50;
-  final int recoverHeroHpValue = 25;
-  final int recoverGreatHeroHpValue = 100;
+  final int recoverHeroHpValue = 20;
+  final int recoverGreatHeroHpValue = 25;
   final int useGreatWizardMaxMp = 150;
 
   int get mp => _mp;
+
   set mp(int value) {
     _mp = value;
   }
 
   Wand? wand;
 
-  Wizard({required this.name, required this.hp, required this.wand}) : _mp = 100;
+  Wizard({required this.name, required this.hp, required this.wand})
+    : _mp = 100;
 
   set setName(String? name) {
     String checkName = checkNullAndLength(name);
@@ -102,8 +105,8 @@ class Wizard {
 
   int get getHp => hp;
 
-  set setWand(Wand? wand){
-    if(wand == null){
+  set setWand(Wand? wand) {
+    if (wand == null) {
       throw Exception('마법사가 생성된 이후에는 지팡이를 null 로 설정할 수 없습니다.');
     }
     this.wand = wand;
@@ -113,35 +116,35 @@ class Wizard {
   //- void heal(Hero hero) : hp를 20 회복시키고 자신의 mp를 10 소모
   //- mp가 부족하면 "마나가 부족합니다" 출력
   //- 힐을 성공하면 "힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
-  void heal(Hero hero){
-    if(mp<=9){
+  void heal(Hero hero) {
+    if (mp <= 9) {
       print('마나가 부족합니다');
       return;
+    } else {
+      mp -= 10;
+      hero.hp += recoverHeroHpValue;
+      print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
     }
-
-    mp -= useWizardMpValue;
-    hero.hp += recoverHeroHpValue;
-    print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
   }
 }
 
 //05. GreatWizard 작성
 //GreatWizard 클래스 요구사항:
 //- Wizard 클래스를 상속받음
-class GreatWizard extends Wizard{
-
+class GreatWizard extends Wizard {
   //속성:
   //- mp가 150으로 증가
   int greatWizardLimit = 150;
-  GreatWizard({required super.name, required super.hp, required super.wand}){super.mp = greatWizardLimit;}
+
+  GreatWizard({required super.name, required super.hp, required super.wand}) {
+    super.mp = greatWizardLimit;
+  }
 
   //- void heal(Hero hero) 재정의 :  hp를 25 회복시키고 자신의 mp를 5 소모
   @override
   void heal(Hero hero) {
     //- mp가 부족하면 "마나가 부족합니다" 출력
-    print(super._mp);
-
-    if(mp < 5) {
+    if (mp < 5) {
       print('마나가 부족합니다');
       return;
     } else {
@@ -153,9 +156,9 @@ class GreatWizard extends Wizard{
   }
 
   //- void superHeal(Hero hero) : hp를 전부 회복시키고 자신의 mp를 50 소모
-  void superHeal(Hero hero){
+  void superHeal(Hero hero) {
     //- mp가 부족하면 "마나가 부족합니다" 출력
-    if(mp < 50) {
+    if (mp < 50) {
       print('마나가 부족합니다');
       return;
     } else {
