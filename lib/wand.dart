@@ -1,6 +1,9 @@
 class Wand {
   String _name; // 이름
   double _power; // 마력
+  final int nameLengthStandard = 3; // 이름 길이 한도
+  final double lowPowerStandard = 0.5; // 마력 하한선
+  final double highPowerStandard = 100.0; // 마력 상한선
 
   // getter
   String get name => _name;
@@ -8,7 +11,7 @@ class Wand {
 
   // setter
   set name(String name) {
-    if (name.length < 3) {
+    if (name.length < nameLengthStandard) {
       throw Exception('지팡이의 이름이 너무 짧습니다. 이름은 3문자 이상으로 설정되어야합니다.');
     }
 
@@ -17,7 +20,7 @@ class Wand {
   }
 
   set power(double power) {
-    if (power < 0.5 || power > 100.0) {
+    if (power < lowPowerStandard || power > highPowerStandard) {
       throw Exception('지팡이의 마력은 0.5 이상 100.0 이하로 설정되어야합니다.');
     }
 

@@ -5,6 +5,9 @@ class Wizard {
   int _hp;
   int _mp;
   Wand? _wand;
+  final int nameLengthStandard = 3; // 이름 길이 한도
+  final int hpStandard = 0; // hp 하한선
+  final int mpStandard = 0; // mp 하한선
 
   // getter
   String get name => _name;
@@ -14,7 +17,7 @@ class Wizard {
 
   // setter
   set name(String name) {
-    if (name.length < 3) {
+    if (name.length < nameLengthStandard) {
       throw Exception('마법사의 이름이 너무 짧습니다. 이름은 3문자 이상으로 설정되어야합니다.');
     }
 
@@ -23,7 +26,7 @@ class Wizard {
   }
 
   set hp(int hp) {
-    if (hp < 0) {
+    if (hp < hpStandard) {
       print('음수값이 입력되었습니다. 0으로 설정합니다.');
       _hp = 0;
     }
@@ -32,7 +35,7 @@ class Wizard {
   }
 
   set mp(int mp) {
-    if (mp < 0) {
+    if (mp < mpStandard) {
       throw Exception('마법사의 MP는 0 이상으로 설정되어야합니다.');
     }
 
