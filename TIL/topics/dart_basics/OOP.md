@@ -107,3 +107,37 @@ class Person {
 // with age stter method can make sure only valid modification to age is applied.
 ```
 - Can also throw exeption when user tries to set value with unacceptable input.
+
+## Inheritance
+Enables programmer to reuse a class and extend its functionality to create more **specialized and concrete** subclass. Also enables utilizing the concept of **polymorphism**
+### Inheritance in dart
+```dart
+class Hero {
+    int hp;
+    String name;
+}
+class SuperHero extends Hero{
+
+}
+```
+### Multi-inheritance
+- not allowed in dart unlike c++
+- but can work around to get the effect with mixin(More later).
+
+### Override
+- can redefine the method of parent class.
+- place @override annotation over it for easier readability
+- still can access parents method by using super.class
+
+### Constructor
+- Also can bascially override the constructor.
+- using super keyword to access previously defined fields and properties.
+
+### Is-A principle
+- childclass *IS a* parent class
+- child class is more concrete and down-to-earth while parent class is more abstract and general.
+
+### Instance structure
+- Child instance basically *Contains* the parent instance within.
+- The outer field methods are called first.
+- Accessing internal instance requires using the keyword super
