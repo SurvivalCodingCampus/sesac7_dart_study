@@ -1,0 +1,48 @@
+@startuml
+scale 0.7
+
+abstract class Asset {
+  String name;
+  int price;
+
+  Asset(this.name, this.price);
+}
+
+abstract class IntangibleAsset extends Asset {
+  String right; // 권리
+
+  IntangibleAsset(super.name, super.price, this.right);
+}
+
+abstract class TangibleAsset extends Asset {
+  String name;
+  int price;
+  String color;
+
+  TangibleAsset(this.name, this.price, this.color);
+}
+
+class Book extends TangibleAsset {
+  String isbn;
+
+  Book(super.name, super.price, super.color, this.isbn);
+}
+
+class Computer extends TangibleAsset {
+  String makerName;
+
+  Computer(super.name, super.price, super.color, this.makerName);
+}
+
+class Patent extends IntangibleAsset {
+  String country; // 지역성(국가별)
+
+  Patent(super.name, super.price, super.right, this.country);
+}
+
+interface Thing {
+  double getWeight();
+  void setWeight(double weight);
+}
+
+@enduml

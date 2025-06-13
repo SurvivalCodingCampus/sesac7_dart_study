@@ -1,6 +1,5 @@
 import 'package:modu_3_dart_study/20250611/wizard.dart';
 
-import '../20250611/wand.dart';
 import '../hero.dart';
 
 class GreatWizard extends Wizard {
@@ -8,7 +7,7 @@ class GreatWizard extends Wizard {
     super.name, {
     required super.hp,
     super.mp = 150,
-    required Wand super.wand,
+    required super.wand,
   });
 
   @override
