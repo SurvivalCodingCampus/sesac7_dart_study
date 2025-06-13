@@ -1,9 +1,11 @@
+import 'package:modu_3_dart_study/assignments/hero.dart';
 import 'package:modu_3_dart_study/assignments/wand.dart';
 import 'package:modu_3_dart_study/assignments/wizard.dart';
 import 'package:test/test.dart';
 
 void main() {
   const String defaultName = 'Wizard';
+  const String heroName = 'Hero';
   const int defaultHp = 100;
   const int defaultMp = 10;
 
@@ -14,6 +16,18 @@ void main() {
   });
 
   group('constructor', () {
+    test('When create a wizard, name, hp are given value.', () {
+      // given
+      // when
+      final wizard = Wizard(defaultName, hp: defaultHp);
+
+      // then
+      expect(wizard.name, defaultName);
+      expect(wizard.hp, defaultHp);
+      expect(wizard.mp, Wizard.maxMp);
+      expect(wizard.wand, null);
+    });
+
     test('When create a wizard, name, hp, mp are given value.', () {
       // given
       // when
@@ -150,5 +164,46 @@ void main() {
       // then
       expect(wizard.wand, wand);
     });
+  });
+
+  group('heal', () {
+    test('If MP is less than 10, the hero\'s HP remains the same.', () {
+      // given
+      final lessThanHealCost = Wizard.healCost - 1;
+      final expectedHp = 10;
+      final wizard = Wizard(defaultName, hp: defaultHp, mp: lessThanHealCost);
+      final hero = Hero(heroName, hp: expectedHp);
+
+      // when
+      wizard.heal(hero);
+
+      // then
+      expect(wizard.mp, lessThanHealCost);
+      expect(hero.hp, expectedHp);
+    });
+
+    test(
+      'If MP is greater than 10, the hero\'s HP is increased by 20 and the wizard\'s MP is decreased by 10.',
+      () {
+        // given
+        final greaterThanHealCost = Wizard.healCost;
+        final expectedMp = 0;
+        final initialHp = 10;
+        final expectedHp = initialHp + Wizard.healAmount;
+        final wizard = Wizard(
+          defaultName,
+          hp: defaultHp,
+          mp: greaterThanHealCost,
+        );
+        final hero = Hero(heroName, hp: initialHp);
+
+        // when
+        wizard.heal(hero);
+
+        // then
+        expect(wizard.mp, expectedMp);
+        expect(hero.hp, expectedHp);
+      },
+    );
   });
 }

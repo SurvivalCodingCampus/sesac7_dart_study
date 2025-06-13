@@ -1,16 +1,20 @@
+import 'package:modu_3_dart_study/assignments/hero.dart';
 import 'package:modu_3_dart_study/assignments/wand.dart';
 
 class Wizard {
   static const int minNameLength = 3;
   static const int minHp = 0;
+  static const int maxMp = 100;
   static const int minMp = 0;
+  static const int healCost = 10;
+  static const int healAmount = 20;
 
   String _name;
   int _hp;
   int _mp;
   Wand? _wand;
 
-  Wizard(this._name, {required int hp, required int mp, Wand? wand})
+  Wizard(this._name, {required int hp, int mp = maxMp, Wand? wand})
     : _hp = hp,
       _mp = mp,
       _wand = wand;
@@ -50,5 +54,16 @@ class Wizard {
     }
 
     _wand = value;
+  }
+
+  void heal(Hero hero) {
+    if (_mp < healCost) {
+      print('마나가 부족합니다.');
+      return;
+    }
+
+    hero.increaseHp(healAmount);
+    mp -= healCost;
+    print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
   }
 }
