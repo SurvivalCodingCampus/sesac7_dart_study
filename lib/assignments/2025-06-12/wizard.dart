@@ -9,8 +9,6 @@ class Wizard {
   int _hp;
   int _mp;
   Wand? _wand;
-  final int healManaCost = 10;
-  final int healAmount = 20;
 
   Wizard(this._name, {required int hp, Wand? wand, int mp = defaultWizardMP})
     : _hp = hp,
@@ -20,6 +18,8 @@ class Wizard {
   int get hp => _hp;
   int get mp => _mp;
   Wand? get wand => _wand;
+  int get healManaCost => 10;
+  int get healAmount => 20;
 
   set name(String newName) {
     if (newName.length < 3) {
@@ -87,11 +87,12 @@ Wizard 클래스를 상속받음
 */
 class GreatWizard extends Wizard {
   static const int defaultGreatWizardMP = 150;
+
   @override
-  final int healManaCost = 5;
+  int get healManaCost => 5;
   @override
-  final int healAmount = 25;
-  final int superHealManaCost = 50;
+  int get healAmount => 25;
+  int get superHealManaCost => 50;
 
   GreatWizard(super.name, {required super.hp, super.mp = defaultGreatWizardMP});
 
