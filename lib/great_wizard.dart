@@ -43,9 +43,12 @@ class GreatWizard extends Wizard {
   }
 }
 
-
 void main() {
-  GreatWizard g = GreatWizard(name: 'name', hp: 50, wand: Wand(name: 'name', power: 0.5));
+  GreatWizard g = GreatWizard(
+    name: 'name',
+    hp: 50,
+    wand: Wand(name: 'name', power: 0.5),
+  );
   Hero h = Hero(name: '홍길동', hp: 50);
   print('법사의 mp는 ${g.mp}');
   print('용사의 hp는 ${h.hp}');
@@ -58,5 +61,4 @@ void main() {
   g.heal(h);
   print('법사의 mp는 ${g.mp}');
   print('용사의 hp는 ${h.hp}');
-
 }

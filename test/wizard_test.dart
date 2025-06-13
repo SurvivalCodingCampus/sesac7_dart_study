@@ -170,11 +170,7 @@ void main() {
       final double testPower = 5.0;
       final int testDamage = 50;
       final Wand testWand = Wand(name: '견습 지팡이', power: testPower);
-      final Wizard wizard = Wizard(
-        name: '이학민',
-        hp: testHp,
-        wand: testWand,
-      );
+      final Wizard wizard = Wizard(name: '이학민', hp: testHp, wand: testWand);
       final Hero hero = Hero(name: '카리나', hp: testHp);
 
       // mp 경계값 생성
@@ -185,20 +181,27 @@ void main() {
       // when & then
       // mp를 음수로 설정할 경우 Exception 발생
       // mp가 9인 경우(모자란 경우) 먼저 실시
-      int mpOfWizard = cannotSuperHealStandard1; // mpOfWizard는 wizard의 현재 mp 잔여량
+      int mpOfWizard =
+          cannotSuperHealStandard1; // mpOfWizard는 wizard의 현재 mp 잔여량
 
       wizard.mp = mpOfWizard;
       hero.hp -= testDamage;
       wizard.heal(hero);
 
-      expect(hero.hp == hero.hpMax, false); // 힐이 사용됐다면 회복량(20)만큼 회복됐을 것이므로 true일 것이고, 아니라면 false일 것임.
-      expect(wizard.mp == mpOfWizard, true); // 힐이 사용됐다면 mp가 소비됐을 것이므로 값이 달라서 false일 것이고, 아니라면 true일 것임.
+      expect(
+        hero.hp == hero.hpMax,
+        false,
+      ); // 힐이 사용됐다면 회복량(20)만큼 회복됐을 것이므로 true일 것이고, 아니라면 false일 것임.
+      expect(
+        wizard.mp == mpOfWizard,
+        true,
+      ); // 힐이 사용됐다면 mp가 소비됐을 것이므로 값이 달라서 false일 것이고, 아니라면 true일 것임.
 
       wizard.mp = Wizard.mpInit;
       hero.hp = hero.hpMax;
 
       // 힐을 사용 가능한 mp 범위의 경우
-      for(int i = 0; i < 2; i++) {
+      for (int i = 0; i < 2; i++) {
         if (i == 0) {
           mpOfWizard = cannotSuperHealStandard2;
         } else {
@@ -209,8 +212,14 @@ void main() {
         hero.hp -= testDamage;
         wizard.heal(hero);
 
-        expect(hero.hp == Wizard.healHpIncrease, true); // 힐이 사용됐다면 회복량(20)만큼 회복됐을 것이므로 true일 것이고, 아니라면 false일 것임.
-        expect(wizard.mp == mpOfWizard, false); // 힐이 사용됐다면 mp가 소비됐을 것이므로 값이 달라서 false일 것이고, 아니라면 true일 것임.
+        expect(
+          hero.hp == Wizard.healHpIncrease,
+          true,
+        ); // 힐이 사용됐다면 회복량(20)만큼 회복됐을 것이므로 true일 것이고, 아니라면 false일 것임.
+        expect(
+          wizard.mp == mpOfWizard,
+          false,
+        ); // 힐이 사용됐다면 mp가 소비됐을 것이므로 값이 달라서 false일 것이고, 아니라면 true일 것임.
 
         wizard.mp = Wizard.mpInit;
         hero.hp = hero.hpMax;

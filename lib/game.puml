@@ -1,12 +1,36 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class Cleric {
+interface Healable {
+    {abstract} + void heal()
+}
+
+interface Attackable {
+    {abstract} + void attack()
+}
+
+class Cleric extends Character {
     + int hp;
     - int mp;
 
     + void attack()
     - void die()
+}
+
+abstract class Character {
+    {abstract} + void attack(Slime slime)
+}
+
+class Hero extends Character {
+    - int hp
+    - int mp
+    + void attack(Slime slime)
+    + void run()
+}
+
+class SuperHero extends Hero implements Healable {
+    - Sword? sword
+    + void attack(Slime slime)
 }
 
 @enduml
