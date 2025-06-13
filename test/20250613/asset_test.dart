@@ -12,12 +12,14 @@ void main() {
 
   group('추상화 킄래스, 인터페이스 테스트', () {
     setUp(() {
-      book = Book('수학', price: 20000, color: 'red', weight: 1.0, isbn: '1204293409182');
-      computer = Computer('맥프로', price: 2000000, color: 'silver', weight: 2.0, makerName: 'apple');
+      book = Book('수학', price: 20000, color: 'red', isbn: '1204293409182');
+      computer = Computer('맥프로', price: 2000000, color: 'silver', makerName: 'apple');
       patent = Patent('식물특허', price: 30000, right: '신품종 보호', country: '한국');
     });
     test('생성 후 결과확인', () {
+      book.weight = 1.0;
       expect(book.weight, 1.0);
+      computer.weight = 2.0;
       expect(computer.weight, 2.0);
       expect(patent.name, '식물특허');
     });
