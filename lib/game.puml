@@ -16,14 +16,20 @@ class Cleric {
     +int pray(int time)
 }
 
-class Hero {
+abstract class Character {
     ..PublicData..
     +String name
     +int hp
+    ..Method..
+    void run
+    {abstract} void attack(Slime slime)
+}
+
+class Hero extends Character {
+    ..PublicData..
     +int heroMaxHp
     ..Method..
     +void attack(Slime slime)
-    +void run()
 }
 
 class Wizard {
