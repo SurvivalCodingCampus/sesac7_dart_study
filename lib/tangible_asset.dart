@@ -19,17 +19,6 @@ abstract class TangibleAsset extends Asset implements Thing {
     _weight = weight;
   }
 
-  // 생성자(구 방식), super에 대해 제대로 이해하기 위해 적었다
-  /*
-  TangibleAsset({
-    required String name,
-    required int price,
-    required String color,
-    required double weight,
-  }) : super(name: name, price: price, color: color),
-       _weight = weight;
-  */
-
   // 생성자
   TangibleAsset({
     required super.name,
@@ -42,4 +31,15 @@ abstract class TangibleAsset extends Asset implements Thing {
       throw Exception('형태가 있는 것이면 무게가 존재합니다.');
     }
   }
+
+  // 생성자(구 방식), super에 대해 제대로 이해하기 위해 적었다
+  /*
+  TangibleAsset({
+    required String name,
+    required int price,
+    required String color,
+    required double weight,
+  }) : _weight = weight,
+       super(name: name, price: price, color: color);
+  */
 }
