@@ -1,50 +1,43 @@
+import 'package:modu_3_dart_study/250604/hero.dart';
 import 'package:modu_3_dart_study/250611/wand.dart';
 import 'package:modu_3_dart_study/250611/wizard.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('Wizard,Wind 테스트', () {
-    test('Wand생성 테스트', () {
-      //given
+  group('Wizard\n', () {
+    test('heal 테스트 - hp를 20회복시키고, mp를 10소모', () {
+      Wand wand = Wand(name: 'wand', power: 50);
+      Wizard wizard = Wizard('wizard', 100, wand);
+      Hero hero = Hero('hero', 100);
 
-      //when
+      int initialWizardMP = wizard.mp;
+      int initialHeroHP = hero.hp;
 
-      //then
-      expect(() => Wand(name: 'a', power: 1), throwsException); //지팡이 이름이 3문자미만
-      expect(() => Wand(name: 'aaa', power: 1), returnsNormally); //지팡이 이름이 3문자
-      expect(
-        () => Wand(name: 'aaaa', power: 1),
-        returnsNormally,
-      ); //지팡이 이름이 3문자이상
+      do {
+        wizard.heal(hero);
 
-      expect(() => Wand(name: 'aaaa', power: 0.4), throwsException); //0.5미만
-      expect(() => Wand(name: 'aaaa', power: 0.5), returnsNormally); //0.5
-      expect(
-        () => Wand(name: 'aaaa', power: 100),
-        returnsNormally,
-      ); //0.5이상 100이하
-      expect(() => Wand(name: 'aaaa', power: 100.1), throwsException); //100초과
+        //hero.hp는 100이었으므로 120
+        //wizard.mp는 100이었으므로 90
+        initialWizardMP -= 10;
+        initialHeroHP += 20;
+
+        expect(hero.hp, equals(initialHeroHP));
+        expect(wizard.mp, equals(initialWizardMP));
+      } while (wizard.mp > 0);
     });
 
-    test('Wizard생성 테스트', () {
-      //given
+    test('heal 테스트 - hp를 20회복시키고, mp를 10소모', () {
+      Wand wand = Wand(name: 'wand', power: 50);
+      Wizard wizard = Wizard('wizard', 0, wand, 0);
+      Hero hero = Hero('hero', 10);
 
-      //when
+      wizard.heal(hero);
 
-      //then
-      Wand wand = Wand(name: 'aaaaa', power: 50);
-      expect(() => Wizard('a', 1, 1, wand), throwsException); //이름이 3글자미만
-      expect(() => Wizard('aaa', 1, 1, wand), returnsNormally); //이름이 3글자
-      expect(() => Wizard('aaaa', 1, 1, wand), returnsNormally); //이름이 3글자이상
+      //wizard.mp는 0이었으므로 heal실패
+      //hero.hp는 10이었으므로, 그대로 10
 
-      expect(() => Wizard('aaaa', 1, -1, wand), throwsException); //MP가 -1
-      expect(() => Wizard('aaaa', 1, 0, wand), returnsNormally); //MP가 0
-      expect(() => Wizard('aaaa', 1, 1, wand), returnsNormally); //MP가 1
-
-      Wizard wizard0 = Wizard('wizard0', -1, 1, wand);
-      expect(wizard0.hp, equals(0)); //HP가 -1이면 0이된다.
-
-      expect(() => Wizard('aaaa', 1, 1, null), throwsException); //지팡이가 null
+      expect(hero.hp, equals(10));
+      expect(wizard.mp, equals(0));
     });
   });
 }
