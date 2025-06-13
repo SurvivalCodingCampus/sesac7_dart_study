@@ -27,9 +27,9 @@ abstract class TangibleAsset extends Asset implements Thing {
 
   @override
   set weight(double value) {
-    if (value > 0) {
-      _weight = value;
+    if (value < 0) {
+      _weight = 0.0;
     }
-    _weight = 0.0;
+    _weight = value;
   }
 }

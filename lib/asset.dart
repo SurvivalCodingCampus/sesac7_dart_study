@@ -11,16 +11,13 @@ abstract class Asset {
       _price = price;
 
   set name(String value) {
-    if (value.isNotEmpty) {
-      _name = value;
-    }
-    _name = '';
+    _name = value;
   }
 
   set price(int value) {
-    if (value > 0) {
-      _price = value;
+    if (value < 0) {
+      _price = 0;
     }
-    _price = 0;
+    _price = value;
   }
 }

@@ -14,9 +14,6 @@ class Book extends TangibleAsset {
   }) : _isbn = isbn;
 
   set isbn(String value) {
-    if (value.isNotEmpty) {
-      _isbn = value;
-    }
-    _isbn = '';
+    _isbn = value;
   }
 }

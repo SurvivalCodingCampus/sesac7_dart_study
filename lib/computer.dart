@@ -14,9 +14,6 @@ class Computer extends TangibleAsset {
   }) : _makerName = makerName;
 
   set makerName(String value) {
-    if (value.isNotEmpty) {
-      _makerName = value;
-    }
-    _makerName = '';
+    _makerName = value;
   }
 }
