@@ -31,7 +31,7 @@ void main() {
       Hero hero = Hero('초보자', hp: 100);
       Slime slime = Slime('째깐이');
       //when
-      // Hero method class attack() and run() are simple text output at the moment, therefore not testsed.
+      // Hero class method attack() and run() are simple text output at the moment, therefore not testsed.
       // the section focus on testing attack(Hero) method of Slime.
       slime.attack(hero);
       //then

@@ -21,7 +21,7 @@ class Wizard {
 
   set name(String newName) {
     if (newName.length < 3) {
-      throw Exception('Wizard name must be longer than three characters.');
+      throw Exception('Wizard name cannot be shorter than three characters.');
     }
 
     _name = newName;
@@ -63,8 +63,8 @@ class Wizard {
       );
       return;
     } else {
-      hero.hp += healAmount;
       mp -= healManaCost;
+      hero.hp += healAmount;
       print('Wizard \'$name\' cast Heal on \'${hero.name}\'.');
       print('Current target HP: ${hero.hp}.');
     }
@@ -100,8 +100,8 @@ class GreatWizard extends Wizard {
       );
       return;
     }
-    hero.hp = hero.maxHP;
     mp -= superHealManaCost;
+    hero.hp = hero.maxHP;
     print('Wizard \'$name\' cast Superheal on \'${hero.name}\'.');
     print('Current target HP: ${hero.hp}.');
   }

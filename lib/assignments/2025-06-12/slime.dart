@@ -9,7 +9,7 @@ class Slime {
 
   set hp(int value) {
     if (value < 0) {
-      _hp = _hp;
+      _hp = 0;
     } else {
       _hp = value;
     }
@@ -58,10 +58,14 @@ class PoisonSlime extends Slime {
     super.attack(hero);
     if (_poisonCount > 0) {
       print('Also released toxic spore!');
-      final int poisonDamage = (hero.hp / 5).toInt();
-      hero.hp -= poisonDamage;
-      print('$poisonDamage points of damage');
       _poisonCount -= 1;
+      final int poisonDamage = (hero.hp / 5).toInt();
+      if (poisonDamage > 0) {
+        hero.hp -= poisonDamage;
+        print('$poisonDamage points of damage');
+      } else {
+        print('But the poison damage was negligible');
+      }
     }
   }
 }

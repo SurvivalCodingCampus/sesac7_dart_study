@@ -104,9 +104,9 @@ class Person {
     }
 }
 
-// with age stter method can make sure only valid modification to age is applied.
+// with age setter method can make sure only valid modification to age is applied.
 ```
-- Can also throw exeption when user tries to set value with unacceptable input.
+- Can also throw exception when user tries to set value with unacceptable input.
 
 ## Inheritance
 Enables programmer to reuse a class and extend its functionality to create more **specialized and concrete** subclass. Also enables utilizing the concept of **polymorphism**
@@ -130,7 +130,7 @@ class SuperHero extends Hero{
 - still can access parents method by using super.class
 
 ### Constructor
-- Also can bascially override the constructor.
+- Also can basically override the constructor.
 - using super keyword to access previously defined fields and properties.
 
 ### Is-A principle

@@ -117,7 +117,7 @@ void main() {
       // 150(default mp of GreatWizard) - 5(healManaCost of GreatWizard) = 145
       expect(wizard.mp, 145);
     });
-    test('Hero and Wizard_heal method test : low mana case ', () {
+    test('Hero and GreatWizard_heal method test : low mana case ', () {
       //given
       Hero hero = Hero('초보자', hp: 100);
       GreatWizard wizard = GreatWizard('볼드모트', hp: 100);
@@ -128,7 +128,7 @@ void main() {
       //then
       // Hero hp unchanged from base value of 100.
       expect(hero.hp, 100);
-      // GreatWizard mp unchanged from set value of 9. (Because the casting failed due to low mp)
+      // GreatWizard mp unchanged from set value of 4. (Because the casting failed due to low mp)
       expect(wizard.mp, 4);
     });
   });
@@ -146,7 +146,7 @@ void main() {
       // 150(default mp of GreatWizard) - 50(superHealManaCost of GreatWizard) = 100
       expect(wizard.mp, 100);
     });
-    test('Hero and Wizard_superHeal method test : low mana case ', () {
+    test('Hero and GreatWizard_superHeal method test : low mana case ', () {
       //given
       Hero hero = Hero('초보자', hp: 100);
       GreatWizard wizard = GreatWizard('볼드모트', hp: 100);
