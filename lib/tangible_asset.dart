@@ -31,4 +31,5 @@ abstract class TangibleAsset extends Asset implements Thing {
       _weight = value;
     }
     _weight = 0.0;
+  }
 }
