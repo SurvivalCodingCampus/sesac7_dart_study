@@ -1,0 +1,10 @@
+@startuml
+
+
+class Hero{
+ - int hp
+ - int mp
+}
+
+
+@enduml

@@ -11,6 +11,7 @@ class Wand {
 
   double get power => _power;
 
+  //어차피 이름 속성인 name이 null을 허용하지 않는 타입으로 선언을 했기때문에, 애초에 null허용을 하지않아서 따로 예외처리를 할 필요가 없다.
   set name(String value) {
     if (value.length < 3) {
       throw Exception('지팡이 이름은 3글자 이상이어야합니다.');

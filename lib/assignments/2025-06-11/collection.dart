@@ -69,7 +69,7 @@ void main() {
     {'name': '상태', 'age': 20},
   ];
 
-  Hero hero = Hero('홍길동', 10);
+  Hero hero = Hero(name: '홍길동', hp: 100);
   List<Hero> heroes = [hero];
   hero.name = '한석봉';
   print(heroes[0].name); //한석봉
