@@ -6,12 +6,13 @@ abstract class TangibleAsset extends Asset implements Thing {
   double _weight;
 
   @override
-  double get weight {
-    return _weight;
-  }
+  double get weight => _weight;
 
   @override
   set weight(double value) {
+    if (value < 0) {
+      throw Exception('무게는 마이너스 불가');
+    }
     _weight = value;
   }
 

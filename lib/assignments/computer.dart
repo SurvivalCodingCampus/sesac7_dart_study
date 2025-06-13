@@ -1,7 +1,7 @@
 import 'package:modu_3_dart_study/assignments/tangible_asset.dart';
 
 class Computer extends TangibleAsset {
-  final String makerName;
+  String makerName;
 
   Computer(
     super._weight, {
