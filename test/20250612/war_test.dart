@@ -57,8 +57,9 @@ void main() {
       for (var i = 0; i < 2; i++) {
         poisonSlime.attack(hero);
       }
+      greatWizard.superHeal(hero);
 
-      expect(hero.hp, 50); // 미리 계산했을때 잔여 50
+      expect(hero.hp, 100); // 미리 계산했을때 잔여 50
     });
 
     test('일반마법사 heal을 10번 시전했을 때 남은 MP', () {

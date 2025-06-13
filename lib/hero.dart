@@ -11,6 +11,10 @@ class Hero {
         hp = (hp + heal > maxHp) ? maxHp : hp + heal;
     }
 
+    void receiveDamage(int amount) {
+        hp = (hp - amount < 0) ? 0 : hp - amount;
+    }
+
     void damages() {
         hp = hp > 0 ? hp - 1 : 0;
     }
