@@ -18,4 +18,5 @@ class Computer extends TangibleAsset {
       _makerName = value;
     }
     _makerName = '';
+  }
 }

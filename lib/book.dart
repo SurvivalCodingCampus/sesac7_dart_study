@@ -18,4 +18,5 @@ class Book extends TangibleAsset {
       _isbn = value;
     }
     _isbn = '';
+  }
 }
