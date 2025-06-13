@@ -1,13 +1,9 @@
 class Hero {
+  final int maxHp = 100;
   String name;
   int hp;
 
-  Hero(this.name, this.hp);
+  Hero({required this.name, required this.hp});
 
   void attack() {}
-
-}
-
-void main() {
-
 }
