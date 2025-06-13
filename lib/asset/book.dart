@@ -3,14 +3,14 @@ import 'package:modu_3_dart_study/asset/tangible_asset.dart';
 class Book extends TangibleAsset {
   String isbn;
   bool _isSealed;
-  bool _bookValueAdjustChange = false;
+  bool _bookValueAdjustmentChange = false;
 
   final int sealPrice = 5000;
 
   set isSealed(bool value) {
     if (value != _isSealed) {
       _isSealed = value;
-      _bookValueAdjustChange = true;
+      _bookValueAdjustmentChange = true;
       valueAdjustment();
     }
   }
@@ -39,7 +39,7 @@ class Book extends TangibleAsset {
     required this.tangibleAssetHeight,
     required this.tangibleAssetDepth,
   }) : _isSealed = isSealed {
-    _bookValueAdjustChange = true;
+    _bookValueAdjustmentChange = true;
     valueAdjustment();
   }
 
@@ -54,9 +54,11 @@ class Book extends TangibleAsset {
 
   @override
   void valueAdjustment() {
-    if (_bookValueAdjustChange) {
-      price = _isSealed ? price += sealPrice : price -= sealPrice;
-      _bookValueAdjustChange = false;
+    if (_bookValueAdjustmentChange) {
+      price = _isSealed
+          ? excludeValueAdjustmentPrice + sealPrice
+          : excludeValueAdjustmentPrice - sealPrice;
+      _bookValueAdjustmentChange = false;
     }
   }
 }

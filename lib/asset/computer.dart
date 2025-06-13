@@ -3,14 +3,14 @@ import 'package:modu_3_dart_study/asset/tangible_asset.dart';
 class Computer extends TangibleAsset {
   String makerName;
   bool _isOsInstalled;
-  bool _computerValueAdjustChange = false;
+  bool _computerValueAdjustmentChange = false;
 
   final int osInstallPrice = 100000;
 
   set isOsInstall(bool value) {
     if (value != _isOsInstalled) {
       _isOsInstalled = value;
-      _computerValueAdjustChange = true;
+      _computerValueAdjustmentChange = true;
       valueAdjustment();
     }
   }
@@ -39,17 +39,17 @@ class Computer extends TangibleAsset {
     required this.tangibleAssetHeight,
     required this.tangibleAssetDepth,
   }) : _isOsInstalled = isOsInstall {
-    _computerValueAdjustChange = true;
+    _computerValueAdjustmentChange = true;
     valueAdjustment();
   }
 
   @override
   void valueAdjustment() {
-    if (_computerValueAdjustChange) {
+    if (_computerValueAdjustmentChange) {
       price = _isOsInstalled
-          ? price += osInstallPrice
-          : price -= osInstallPrice;
-      _computerValueAdjustChange = false;
+          ? excludeValueAdjustmentPrice + osInstallPrice
+          : excludeValueAdjustmentPrice - osInstallPrice;
+      _computerValueAdjustmentChange = false;
     }
   }
 }

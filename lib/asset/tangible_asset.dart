@@ -8,12 +8,14 @@ abstract class TangibleAsset extends Asset implements Thing {
   String texture;
   bool _isDestroy = false;
 
+  final int excludeValueAdjustmentPrice; // 가치 조정 전 금액
+
   TangibleAsset({
     required super.name,
     required this.price,
     required this.color,
     required this.texture,
-  });
+  }) : excludeValueAdjustmentPrice = price;
 
   // 추상 메서드
   void valueAdjustment(); // 가치조정
