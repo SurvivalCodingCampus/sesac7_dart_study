@@ -13,14 +13,14 @@ void main() {
   });
 
   test('Given GreatWizard 클래스 and Hero 클래스 when heal method 호출하면 '
-      'then Hero의 HP를 80에서 25 증가시키고, Wizard의 mp는 5만큼 감소', () {
+      'then Hero의 HP를 60에서 25 증가시키고, Wizard의 mp는 5만큼 감소', () {
     // given(준비)
     GreatWizard greatWizard = GreatWizard('greatWizard', hp: 100);
-    Hero heroA = Hero(name: 'heroA', hp: 80);
+    Hero heroA = Hero(name: 'heroA', hp: 60);
     // when (실행)
     greatWizard.heal(heroA);
     // then (검증)
-    expect(heroA.hp, 80 + 25);
+    expect(heroA.hp, 60 + 25);
     expect(greatWizard.mp, 150 - 5);
   });
 

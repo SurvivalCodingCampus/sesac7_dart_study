@@ -55,6 +55,7 @@ class Wizard {
   void heal(Hero hero) {
     if (_mp < 10) {
       print('마나가 부족합니다.');
+      return;
     }
     hero.hp = (hero.hp + 20).clamp(0, hero.maxHp);
     _mp -= 10;
