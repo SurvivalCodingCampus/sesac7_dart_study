@@ -1,9 +1,8 @@
 @startuml
 scale 2
 
-class Cleric{
-    int _hp
-    int mp
+class Hero {
 
 }
+
 @enduml
