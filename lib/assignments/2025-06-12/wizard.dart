@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields
+
 import 'package:modu_3_dart_study/assignments/2025-06-12/wand.dart';
 import 'package:modu_3_dart_study/assignments/2025-06-12/hero.dart';
 
