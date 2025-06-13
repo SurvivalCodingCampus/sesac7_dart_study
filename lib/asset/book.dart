@@ -2,8 +2,18 @@ import 'package:modu_3_dart_study/asset/tangible_asset.dart';
 
 class Book extends TangibleAsset {
   String isbn;
-  bool isSealed;
-  bool _checkSealed = false;
+  bool _isSealed;
+  bool _bookValueAdjustChange = false;
+
+  final int sealPrice = 5000;
+
+  set isSealed(bool value) {
+    if (value != _isSealed) {
+      _isSealed = value;
+      _bookValueAdjustChange = true;
+      valueAdjustment();
+    }
+  }
 
   @override
   double weight;
@@ -23,12 +33,13 @@ class Book extends TangibleAsset {
     required super.color,
     required super.texture,
     required this.isbn,
-    required this.isSealed,
+    required bool isSealed,
     required this.weight,
     required this.tangibleAssetWidth,
     required this.tangibleAssetHeight,
     required this.tangibleAssetDepth,
-  }) {
+  }) : _isSealed = isSealed {
+    _bookValueAdjustChange;
     valueAdjustment();
   }
 
@@ -43,13 +54,9 @@ class Book extends TangibleAsset {
 
   @override
   void valueAdjustment() {
-    if (_checkSealed) {
-      print('이미 밀봉 여부를 확인해서 가격을 올렸습니다.');
-      return;
-    }
-    if (isSealed) {
-      price += 5000;
-      _checkSealed = true;
+    if (_bookValueAdjustChange) {
+      price = _isSealed ? price += sealPrice : price -= sealPrice;
+      _bookValueAdjustChange = false;
     }
   }
 }

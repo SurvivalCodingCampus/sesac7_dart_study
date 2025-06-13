@@ -2,8 +2,18 @@ import 'package:modu_3_dart_study/asset/tangible_asset.dart';
 
 class Computer extends TangibleAsset {
   String makerName;
-  bool isOsInstall;
-  bool _checkOsInstallPay = false;
+  bool _isOsInstalled;
+  bool _computerValueAdjustChange = false;
+
+  final int osInstallPrice = 100000;
+
+  set isOsInstall(bool value) {
+    if (value != _isOsInstalled) {
+      _isOsInstalled = value;
+      _computerValueAdjustChange = true;
+      valueAdjustment();
+    }
+  }
 
   @override
   double weight;
@@ -23,24 +33,23 @@ class Computer extends TangibleAsset {
     required super.color,
     required super.texture,
     required this.makerName,
-    required this.isOsInstall,
+    required bool isOsInstall,
     required this.weight,
     required this.tangibleAssetWidth,
     required this.tangibleAssetHeight,
     required this.tangibleAssetDepth,
-  }) {
+  }) : _isOsInstalled = isOsInstall {
+    _computerValueAdjustChange = true;
     valueAdjustment();
   }
 
   @override
   void valueAdjustment() {
-    if (_checkOsInstallPay) {
-      print('이미 OS 설치 여부를 확인해서 가격을 올렸습니다.');
-      return;
-    }
-    if (isOsInstall) {
-      price += 100000;
-      _checkOsInstallPay = true;
+    if (_computerValueAdjustChange) {
+      price = _isOsInstalled
+          ? price += osInstallPrice
+          : price -= osInstallPrice;
+      _computerValueAdjustChange = false;
     }
   }
 }
