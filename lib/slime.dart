@@ -2,12 +2,15 @@ import 'package:modu_3_dart_study/hero.dart';
 
 class Slime {
   int _hp = 50;
+
+  int get hp => _hp;
+
   final String _suffix;
 
   Slime(this._suffix);
 
   void attack(Hero hero) {
-    if(hero.hp < 10) {
+    if (hero.hp < 10) {
       hero.hp = 0;
       return;
     }

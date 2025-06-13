@@ -17,10 +17,12 @@ class Wizard {
 
   // HP
   int get hp => _hp >= 0 ? _hp : 0;
+
   set hp(int value) => _hp = value >= 0 ? value : 0;
 
   // MP
   int get mp => _mp >= 0 ? _mp : 0;
+
   set mp(int value) {
     if (value < 0) {
       throw Exception('마법사 MP는 0이상이어야 합니다.');
@@ -33,7 +35,7 @@ class Wizard {
   String get name => _name;
 
   set name(String value) {
-    if(value.length < 3) {
+    if (value.length < 3) {
       throw Exception('마법사 이름은 3자 이상이어야 합니다.');
     }
 
@@ -51,7 +53,10 @@ class Wizard {
     _wand = value;
   }
 
-  Wizard(this._name, {required int hp, int mp = 100, required Wand? wand}) : _hp = hp, _mp = mp, _wand = wand;
+  Wizard(this._name, {required int hp, int mp = 100, required Wand? wand})
+    : _hp = hp,
+      _mp = mp,
+      _wand = wand;
 
   void heal(Hero hero) {
     if (_mp >= 10) {

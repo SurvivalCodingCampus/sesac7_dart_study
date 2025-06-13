@@ -4,7 +4,12 @@ import '../20250611/wand.dart';
 import '../hero.dart';
 
 class GreatWizard extends Wizard {
-  GreatWizard(super.name, {required super.hp, super.mp = 150, required Wand super.wand});
+  GreatWizard(
+    super.name, {
+    required super.hp,
+    super.mp = 150,
+    required Wand super.wand,
+  });
 
   @override
   void heal(Hero hero) {

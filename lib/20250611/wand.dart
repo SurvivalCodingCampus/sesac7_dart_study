@@ -14,7 +14,7 @@ class Wand {
   }
 
   set name(String value) {
-    if(value.length < 3) {
+    if (value.length < 3) {
       throw Exception('지팡이 이름은 3자 이상이어야 합니다.');
     }
 
@@ -25,7 +25,7 @@ class Wand {
   double get power => _power;
 
   set power(double value) {
-    if(value < 0.5 || value > 100) {
+    if (value < 0.5 || value > 100) {
       throw Exception('마력은 0.5이상 100이하여야 합니다.');
     }
 
