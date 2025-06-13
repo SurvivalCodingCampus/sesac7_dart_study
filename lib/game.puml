@@ -8,7 +8,11 @@ class Cleric {
     + void attack(){}
 }
 
-class Hero {
+abstract class Character {
+    {abstract} void attack(Slime slime)
+}
+
+class Hero extends Character{
 int hp;
 int mp;
 
