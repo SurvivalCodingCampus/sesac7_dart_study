@@ -10,6 +10,9 @@ class Book extends TangibleAsset {
   double get weight => _weight;
 
   @override
-  set weight(double weight) => _weight = weight;
+  set weight(double weight) {
+    if(weight <= 0) throw Exception('무게는 0보다 커야합니다.');
+    _weight = weight;
+  }
 
 }
