@@ -1,5 +1,3 @@
-import 'hero.dart';
-
 class Exam {
   int a = 1;
   int b = 2;
