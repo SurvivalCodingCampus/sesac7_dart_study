@@ -1,0 +1,31 @@
+import 'package:modu_3_dart_study/asset/asset.dart';
+
+import '../interface/thing.dart';
+
+abstract class TangibleAsset extends Asset implements Thing {
+  int price;
+  String color;
+  String texture;
+  bool _isDestroy = false;
+
+  TangibleAsset({
+    required super.name,
+    required this.price,
+    required this.color,
+    required this.texture,
+  });
+
+  void grab() {
+    if (_isDestroy) {
+      print('$name이/가 파괴되어서 잡을 수 없습니다.');
+    } else {
+      print(
+        '$name을/를 잡았습니다.\n재질: $texture 무게: $weight width: $tangibleAssetWidth height: $tangibleAssetHeight depth: $tangibleAssetDepth',
+      );
+    }
+  }
+
+  void destroy() {
+    _isDestroy = true;
+  }
+}
