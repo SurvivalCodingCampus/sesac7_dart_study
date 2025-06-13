@@ -39,7 +39,7 @@ class Book extends TangibleAsset {
     required this.tangibleAssetHeight,
     required this.tangibleAssetDepth,
   }) : _isSealed = isSealed {
-    _bookValueAdjustChange;
+    _bookValueAdjustChange = true;
     valueAdjustment();
   }
 
