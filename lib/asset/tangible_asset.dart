@@ -17,7 +17,7 @@ abstract class TangibleAsset extends Asset implements Thing {
 
   void grab() {
     if (_isDestroy) {
-      print('$name이/가 파괴되어서 잡을 수 없습니다.');
+      throw Exception('$name이/가 파괴되어서 잡을 수 없습니다.');
     } else {
       print(
         '$name을/를 잡았습니다.\n재질: $texture 무게: $weight width: $tangibleAssetWidth height: $tangibleAssetHeight depth: $tangibleAssetDepth',
