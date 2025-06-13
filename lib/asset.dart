@@ -1,6 +1,6 @@
 abstract class Asset {
-  final String _name;
-  final int _price;
+  String _name;
+  int _price;
 
   String get name => _name;
 
@@ -9,4 +9,18 @@ abstract class Asset {
   Asset({required String name, required int price})
     : _name = name,
       _price = price;
+
+  set name(String value) {
+    if (value.isNotEmpty) {
+      _name = value;
+    }
+    _name = '';
+  }
+
+  set price(int value) {
+    if (value > 0) {
+      _price = value;
+    }
+    _price = 0;
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:modu_3_dart_study/tangible_asset.dart';
 
 class Computer extends TangibleAsset {
-  final String _makerName;
+  String _makerName;
 
   String get makerName => _makerName;
 
@@ -12,4 +12,10 @@ class Computer extends TangibleAsset {
     required String makerName,
     required super.weight,
   }) : _makerName = makerName;
+
+  set makerName(String value) {
+    if (value.isNotEmpty) {
+      _makerName = value;
+    }
+    _makerName = '';
 }

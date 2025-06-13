@@ -1,7 +1,7 @@
 import 'package:modu_3_dart_study/tangible_asset.dart';
 
 class Book extends TangibleAsset {
-  final String _isbn;
+  String _isbn;
 
   String get isbn => _isbn;
 
@@ -12,4 +12,10 @@ class Book extends TangibleAsset {
     required String isbn,
     required super.weight,
   }) : _isbn = isbn;
+
+  set isbn(String value) {
+    if (value.isNotEmpty) {
+      _isbn = value;
+    }
+    _isbn = '';
 }

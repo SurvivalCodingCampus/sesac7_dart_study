@@ -2,7 +2,7 @@ import 'package:modu_3_dart_study/asset.dart';
 import 'package:modu_3_dart_study/thing.dart';
 
 abstract class TangibleAsset extends Asset implements Thing {
-  final String _color;
+  String _color;
 
   @override
   double weight;
@@ -15,4 +15,10 @@ abstract class TangibleAsset extends Asset implements Thing {
     required String color,
     required this.weight,
   }) : _color = color;
+
+  set color(String value) {
+    if (value.isNotEmpty) {
+      _color = value;
+    }
+    _color = '';
 }
