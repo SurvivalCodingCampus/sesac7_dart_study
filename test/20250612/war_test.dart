@@ -59,7 +59,7 @@ void main() {
       }
       greatWizard.superHeal(hero);
 
-      expect(hero.hp, 100); // 미리 계산했을때 잔여 50
+      expect(hero.hp, 100); // 미리 계산했을때 잔여 100
     });
 
     test('일반마법사 heal을 10번 시전했을 때 남은 MP', () {
