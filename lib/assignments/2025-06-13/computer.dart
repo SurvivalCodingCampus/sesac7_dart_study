@@ -1,8 +1,7 @@
-class Computer {
-  String name;
-  int price;
-  String color;
+import 'package:modu_3_dart_study/assignments/2025-06-13/tangible_asset.dart';
+
+class Computer extends Tangibleasset {
   String makerName;
 
-  Computer(this.name, this.price, this.color, this.makerName);
+  Computer(super.name, super.price, super.color, this.makerName);
 }
