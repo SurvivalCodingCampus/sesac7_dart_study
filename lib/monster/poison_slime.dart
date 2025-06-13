@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/hero.dart';
-import 'package:modu_3_dart_study/slime.dart';
+import 'package:modu_3_dart_study/character/hero.dart';
+import 'package:modu_3_dart_study/monster/slime.dart';
 
 class PoisonSlime extends Slime {
   int _poisonCount = 5;

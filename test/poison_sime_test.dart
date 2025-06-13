@@ -1,8 +1,6 @@
-import 'dart:math';
-
-import 'package:modu_3_dart_study/hero.dart';
-import 'package:modu_3_dart_study/poison_slime.dart';
-import 'package:modu_3_dart_study/slime.dart';
+import 'package:modu_3_dart_study/character/hero.dart';
+import 'package:modu_3_dart_study/monster/poison_slime.dart';
+import 'package:modu_3_dart_study/monster/slime.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

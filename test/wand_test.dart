@@ -1,6 +1,4 @@
-import 'dart:math';
-
-import 'package:modu_3_dart_study/wand.dart';
+import 'package:modu_3_dart_study/asset/wand.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

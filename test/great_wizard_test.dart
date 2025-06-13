@@ -1,9 +1,9 @@
 import 'dart:math';
 
-import 'package:modu_3_dart_study/great_wizard.dart';
-import 'package:modu_3_dart_study/hero.dart';
-import 'package:modu_3_dart_study/wand.dart';
-import 'package:modu_3_dart_study/wizard.dart';
+import 'package:modu_3_dart_study/asset/wand.dart';
+import 'package:modu_3_dart_study/character/great_wizard.dart';
+import 'package:modu_3_dart_study/character/hero.dart';
+import 'package:modu_3_dart_study/character/wizard.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

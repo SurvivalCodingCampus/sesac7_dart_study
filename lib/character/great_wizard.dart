@@ -1,6 +1,7 @@
 import 'dart:math';
 
-import 'package:modu_3_dart_study/wizard.dart';
+import 'package:modu_3_dart_study/character/wizard.dart';
+
 import 'hero.dart';
 
 class GreatWizard extends Wizard {

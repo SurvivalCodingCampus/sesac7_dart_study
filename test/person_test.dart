@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/person.dart';
+import 'package:modu_3_dart_study/character/person.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

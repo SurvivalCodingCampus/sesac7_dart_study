@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/hero.dart';
+import 'package:modu_3_dart_study/character/hero.dart';
 
 class Slime {
   int hp = 50;
