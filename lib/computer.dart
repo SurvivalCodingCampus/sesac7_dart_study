@@ -3,9 +3,6 @@ import 'package:modu_3_dart_study/tangible_asset.dart';
 class Computer extends TangibleAsset {
   final String _makerName;
 
-  @override
-  double weight;
-
   String get makerName => _makerName;
 
   Computer({
@@ -13,6 +10,6 @@ class Computer extends TangibleAsset {
     required super.price,
     required super.color,
     required String makerName,
-    required this.weight,
+    required super.weight,
   }) : _makerName = makerName;
 }
