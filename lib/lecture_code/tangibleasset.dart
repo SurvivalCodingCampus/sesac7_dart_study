@@ -18,32 +18,5 @@ abstract class TangibleAsset extends Asset implements Thing{
   TangibleAsset(super.name, super.price, this.color);
 }
 
-class Book extends TangibleAsset {
-  String isbn;
-
-  Book(super.name, super.price, super.color, this.isbn);
-
-  @override
-  double get weight => 10.0;
-
-  @override
-  set weight(double weight) {
-  }
-}
-
-class Computer extends TangibleAsset {
-  String makerName;
-
-  Computer(super.name, super.price, super.color, this.makerName);
-
-  @override
-  double get weight => 1.0;
-
-  @override
-  set weight(double weight) {
-  }
-
-}
-
 void main(){
 }

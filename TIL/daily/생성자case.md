@@ -94,3 +94,10 @@ void main() {
 }
 ```
 
+# final 필드를 사용 못하는 케이스
+ - Wizard(...) : _name = name;
+    - Dart 권장 스타일, final 필드나 assert, super() 같이 사용
+   
+ - Wizard(...) { _name = name; }
+    - 문법적으로 맞지만, 하지만 final 필드는 초기화 불가능!
+
