@@ -1,27 +1,37 @@
 @startuml
-'https://plantuml.com/class-diagram
+abstract class Asset {
+    - String _name
+    - int _price
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+    + Asset(_name, _price)
+    + void getName()
+    + void setName()
+    + void getPrice()
+    + void setPrice()
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+abstract class TangibleAsset extends Asset implements Thing {
+    - String _color
+    - double _weight
+    + TangibleAsset(super.name, super.price, _color)
+    + void getColor()
+    + void setColor()
 }
 
+class Book extends TangibleAsset {
+    - String _isbn
+
+    + Book(super.name, super.price, super.color, _isbn)
+}
+
+class Computer extends TangibleAsset {
+    - String _makerName
+
+    + Computer(super.name, super.price, super.color, _makerName)
+}
+
+interface Thing {
+    {abstract} + void getWeight()
+    {abstract} + void setWeight()
+}
 @enduml
