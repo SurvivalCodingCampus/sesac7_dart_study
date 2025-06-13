@@ -2,7 +2,14 @@ import 'package:modu_3_dart_study/asset.dart';
 import 'package:modu_3_dart_study/thing.dart';
 
 abstract class TangibleAsset extends Asset implements Thing {
+  String _color;
   double _weight;
+
+  // getter
+  String get color => _color;
+
+  // setter
+  set color(String color) => _color = color;
 
   // getter 오버라이드
   @override
@@ -23,9 +30,10 @@ abstract class TangibleAsset extends Asset implements Thing {
   TangibleAsset({
     required super.name,
     required super.price,
-    required super.color,
+    required String color,
     required double weight,
-  }) : _weight = weight {
+  }) : _color = color,
+       _weight = weight {
     // 무게 최소값 검증
     if (weight <= 0) {
       throw Exception('형태가 있는 것이면 무게가 존재합니다.');
@@ -40,6 +48,6 @@ abstract class TangibleAsset extends Asset implements Thing {
     required String color,
     required double weight,
   }) : _weight = weight,
-       super(name: name, price: price, color: color);
-  */
+       super(name: name, price: price);
+   */
 }
