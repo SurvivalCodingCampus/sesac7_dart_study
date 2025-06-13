@@ -60,3 +60,39 @@
 03. 이름을 가지는 Person 클래스를 작성하고, 다음을 수행하는 코드를 작성하시오.
     이름이 ‘홍길동', ‘한석봉' 인 Person 인스턴스를 생성하고, List에 담습니다.
     List에 담긴 모든 Person 인스턴스의 이름을 표시하시오.
+
+## 250612 test1,2,3,4,5 상속
+
+01. 다음 중에서 “잘못 된 상속" 인 것을 모두 구하시오
+2,3,5
+슈퍼클래스 | 서브클래스
+1
+Person   | Student  "학생은 사람이다."
+2
+Car      | Engine
+3
+Father   | Child
+4
+Food     | Sushi
+5
+SuperMan | Man
+
+02. 다음 클래스에 대해 “부모 클래스" 와 “자식 클래스" 를 1개씩 생각 해 보시오
+    communication 
+    device       Vehicle    Book
+     |              |        |
+   Phone           Car   Dictionary
+     |              |        |
+   iOS Phone      Auto   Korean Dic
+
+03. 이 클래스를 이용해, 다음 사양을 따르는 PoisonSlime 클래스를 작성하시오
+    - 독 슬라임(PoisonSlime) 은, 슬라임 (Slime) 중에서도 특히 “독 공격" 이 되는 것
+    - PoisonSlime 는 아래의 코드로 인스턴스화 되는 클래스임
+      PoisonSlime poisonSlime = PoisonSlime(‘A’);
+    - PoisonSlime 독 공격 가능 횟수를 저장하는 poisonCount(초기값 5)를 가진다
+    - PoisonSlime attack() 메소드가 호출되면 다음 내용의 공격을 한다
+      a. 우선, “보통 슬라임과 같은 공격"을 한다
+      b. poisonCount가 0이 아니면 다음을 추가로 수행한다
+      c. 화면에 “추가로, 독 포자를 살포했다!” 를 표시
+      d. 용사의 HP 의 1/5에 해당하는 포인트를 용사의 HP 로부터 감소시키고, “~포인트의 데미지" 라고 표시
+      e. poisonCount 를 1 감소 시킨다

@@ -8,4 +8,10 @@ class Cleric{
    + void attack()
    - void die()
 }
+
+class Hero{
+}
+
+class SuperHero extends Hero{
+}
 @enduml

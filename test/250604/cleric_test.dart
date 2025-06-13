@@ -161,7 +161,7 @@ void main() {
     //given(준비)
 
     var wand = Wand(name : '홍길동', power : 1.1);
-    var wizard = Wizard('홍길동', 1, 1, wand: wand);
+    Wizard wizard = Wizard(name: "홍길동", hp: 1, wand: wand);
 
     //when(실행)
 
@@ -194,7 +194,7 @@ void main() {
     //given(준비)
     var wand = Wand(name : '홍길동', power : 1.1);
 
-    var wizard = Wizard('홍길동', 1, 1, wand: wand);
+    Wizard wizard = Wizard(name: "홍길동", hp: 1, wand: wand);
 
     //when(실행)
 
@@ -208,7 +208,7 @@ void main() {
     //given(준비)
     var wand = Wand(name : '홍길동', power : 1.1);
 
-    var wizard = Wizard('홍길동', 1, 1, wand: wand);
+    Wizard wizard = Wizard(name: "홍길동", hp: 1, wand: wand);
 
     //when(실행)
     wizard.setHp = -1;
@@ -220,7 +220,7 @@ void main() {
   test('마법사가 생성된 이후에는 지팡이를 null 로 설정 불가 Test', () {
     //given(준비)
     var wand = Wand(name : '홍길동', power : 1.1);
-    var wizard = Wizard('홍길동', 1, 1, wand: wand);
+    Wizard wizard = Wizard(name: "홍길동", hp: 1, wand: wand);
 
     //when(실행)
 
