@@ -14,7 +14,6 @@ void main() {
       expect(cleric.mp == 10, true);
     });
 
-
     test('Cleric 생성자 테스트2', () {
       //name,hp만 인자로 준 경우.
       //이떄 mp는 maxMp값인 10 예상.
@@ -26,7 +25,6 @@ void main() {
       expect(cleric.hp == 30, true);
       expect(cleric.mp == maxMp, true);
     });
-
 
     test('Cleric 생성자 테스트3', () {
       //name만 인자로 준 경우.

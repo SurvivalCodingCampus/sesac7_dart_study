@@ -6,6 +6,5 @@ class Hero{
  - int mp
 }
 
-class
 
 @enduml
