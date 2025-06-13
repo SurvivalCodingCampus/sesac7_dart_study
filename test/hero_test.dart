@@ -40,6 +40,4 @@ void main() {
       expect(() => hero.run(), returnsNormally);
     });
   });
-
-
 }

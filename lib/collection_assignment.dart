@@ -15,10 +15,7 @@ class Person {
 }
 
 void assignment2() {
-  final Map<String, int> personMap = {
-    '홍길동': 25,
-    '한석봉': 20,
-  };
+  final Map<String, int> personMap = {'홍길동': 25, '한석봉': 20};
 
   for (var element in personMap.entries) {
     print('${element.key}의 나이는 ${element.value}살');

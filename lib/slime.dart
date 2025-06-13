@@ -1,6 +1,6 @@
 import 'package:modu_3_dart_study/hero.dart';
 
-class Slime{
+class Slime {
   int hp = 50;
   final String suffix;
   final int attackDamage = 10;

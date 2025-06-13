@@ -27,5 +27,7 @@ class Wand {
     _power = power;
   }
 
-  Wand({required String name, required double power}) : _name = name, _power = power;
+  Wand({required String name, required double power})
+    : _name = name,
+      _power = power;
 }
