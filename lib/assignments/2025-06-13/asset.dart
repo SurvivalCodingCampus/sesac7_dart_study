@@ -1,6 +1,6 @@
 abstract class Asset {
-  String name;
-  int price;
+  final String name;
+  final int price;
 
   Asset(this.name, {required this.price});
 }

@@ -143,7 +143,7 @@ class SuperHero extends Hero{
 - Accessing internal instance requires using the keyword super
 
 ### Abstract Class
-- Classes intentionally unfinshed to be fully implemented after inheritance
+- Classes intentionally unfinished to be fully implemented after inheritance
 - subclasses must override abstract methods
 - cannot be instantiated
 
@@ -154,11 +154,11 @@ abstract class Asset {
 ```
 
 ### Interface
-- special case of abstract classes
+- A special case of abstract classes
 - **every method abstract**
 - **no field**
 - guarantees common method support among implementers
-- multiple interfaces can be implemented by implementer
+- A class can implement multiple interfaces
 
 ```dart
 abstract interface class Attackable {

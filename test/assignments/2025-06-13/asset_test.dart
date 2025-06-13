@@ -22,7 +22,7 @@ void main() {
       //then
       expect(book is Book, true);
       expect(book is Computer, false);
-      expect(book is Tangibleasset, true);
+      expect(book is TangibleAsset, true);
       expect(book is Thing, true);
       expect(book is Asset, true);
 
@@ -46,7 +46,7 @@ void main() {
       //then
       expect(computer is Book, false);
       expect(computer is Computer, true);
-      expect(computer is Tangibleasset, true);
+      expect(computer is TangibleAsset, true);
       expect(computer is Thing, true);
       expect(computer is Asset, true);
 
