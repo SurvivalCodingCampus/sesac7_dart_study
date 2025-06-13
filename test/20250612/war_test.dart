@@ -54,7 +54,6 @@ void main() {
     });
 
     test('독슬라임의 2번 공격 후 Heal받았을때 영웅 HP 확인', () {
-      // 독슬라임이 울트라맨을 연속 6번 공격
       for (var i = 0; i < 2; i++) {
         poisonSlime.attack(hero);
       }

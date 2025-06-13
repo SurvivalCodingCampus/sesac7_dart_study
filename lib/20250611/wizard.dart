@@ -53,7 +53,7 @@ class Wizard {
     _wand = value;
   }
 
-  Wizard(this._name, {required int hp, int mp = 100, required Wand? wand})
+  Wizard(this._name, {required int hp, int mp = 100, required Wand wand})
     : _hp = hp,
       _mp = mp,
       _wand = wand;

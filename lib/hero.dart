@@ -7,7 +7,8 @@ class Hero {
     Hero(this.name, {required this.hp}) : maxHp = hp;
 
     void receivedHeal(int heal) {
-        hp = hp + heal > maxHp ? maxHp : hp + heal;
+        if (heal <= 0) return; // 음수/0 회복은 무시
+        hp = (hp + heal > maxHp) ? maxHp : hp + heal;
     }
 
     void damages() {

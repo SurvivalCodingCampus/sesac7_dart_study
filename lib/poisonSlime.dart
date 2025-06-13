@@ -9,7 +9,7 @@ class PoisonSlime extends Slime {
   int get poisonCount => _poisonCount;
 
   @override
-  attack(Hero hero) {
+  void attack(Hero hero) {
     if (hero.hp <= 0) {
       hero.hp = 0;
       return;
