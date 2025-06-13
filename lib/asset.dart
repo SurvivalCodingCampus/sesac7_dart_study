@@ -15,5 +15,10 @@ abstract class Asset {
 
   String get color => _color;
 
-  // 필요한 경우 setter 추가
+  // setter
+  set name(String name) => _name = name;
+
+  set price(int price) => _price = price;
+
+  set color(String color) => _color = color;
 }
