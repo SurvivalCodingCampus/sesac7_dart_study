@@ -1,5 +1,24 @@
 @startuml
 scale 1
+
+abstract class Character {
+    ..PublicData..
+    +String name
+    +int hp
+    ..Method..
+    void run
+    {abstract} void attack(Slime slime)
+}
+
+interface Attackable {
+    {abstract} void attack(Slime target)
+    {abstract} void defend()
+}
+
+interface Healable {
+    {abstract} void heal(Hero target)
+}
+
 class Cleric {
     ..Static..
     {static}int maxHp
@@ -14,15 +33,6 @@ class Cleric {
     ..Method..
     +void selfAid()
     +int pray(int time)
-}
-
-abstract class Character {
-    ..PublicData..
-    +String name
-    +int hp
-    ..Method..
-    void run
-    {abstract} void attack(Slime slime)
 }
 
 class Hero extends Character {
