@@ -1,7 +1,11 @@
 import 'package:modu_3_dart_study/assignments/asset.dart';
 
-class IntangibleAsset extends Asset {
-  String patent;
+abstract class IntangibleAsset extends Asset {
+  final String patent;
 
-  IntangibleAsset(super.name, super.price, this.patent);
+  IntangibleAsset({
+    required super.name,
+    required super.price,
+    required this.patent,
+  });
 }

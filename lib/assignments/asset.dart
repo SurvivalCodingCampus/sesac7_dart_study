@@ -1,6 +1,6 @@
-class Asset {
-  String name;
-  int price;
+abstract class Asset {
+  final String name;
+  final int price;
 
-  Asset(this.name, this.price);
+  Asset({required this.name, required this.price});
 }
