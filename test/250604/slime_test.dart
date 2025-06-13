@@ -88,14 +88,14 @@ void main() {
       final endPointPoisonCount = 0;
       final int poisonCountLimitNum = poisonSlime.poisonCount;
 
-
       //when(실행)
-      for(int i = 0 ; i < poisonCountLimitNum ; i++){
+      for (int i = 0; i < poisonCountLimitNum; i++) {
         poisonSlime.attack(hero);
       }
 
       //then(검증)
       expect(poisonSlime.poisonCount, endPointPoisonCount);
+      // expect(hero.hp, equals(/* 예상 HP 값 */));              // HP도 함께 검증 coderabbit
     });
 
     test('b,c번 poisonCount가 0이후 비수행 및 독 포자를 살포했다! 비출력 Test', () {
@@ -105,7 +105,7 @@ void main() {
       final poisonOverCountNum = poisonSlime.poisonCount + 1;
 
       //when(실행)
-      for(int i = 0 ; i < poisonOverCountNum ; i++){
+      for (int i = 0; i < poisonOverCountNum; i++) {
         poisonSlime.attack(hero);
       }
 
@@ -113,28 +113,30 @@ void main() {
       expect(poisonSlime.poisonCount, endPointPoisonCount);
     });
 
-    test('d번 용사의 HP 의 1/5에 해당하는 포인트를 용사의 HP 로부터 감소시키고, ~포인트의 데미지 라고 표시 Test', () {
-      //given(준비)
-      PoisonSlime poisonSlime = PoisonSlime("녹색");
-      final endHpCount = 6;
+    test(
+      'd번 용사의 HP 의 1/5에 해당하는 포인트를 용사의 HP 로부터 감소시키고, ~포인트의 데미지 라고 표시 Test',
+      () {
+        //given(준비)
+        PoisonSlime poisonSlime = PoisonSlime("녹색");
+        final endHpCount = 6;
 
-      //when(실행)
-      for(int i = 0 ; i < endHpCount ; i++){
-        poisonSlime.attack(hero);
-      }
+        //when(실행)
+        for (int i = 0; i < endHpCount; i++) {
+          poisonSlime.attack(hero);
+        }
 
-      //then(검증)
-      //출력물 표시
-    });
+        //then(검증)
+        //출력물 표시
+      },
+    );
 
     test('e번 poisonCount 를 1 감소 시킨다 Test', () {
       //given(준비)
       PoisonSlime poisonSlime = PoisonSlime("녹색");
       final int poisonCountLimitNum = poisonSlime.poisonCount;
 
-
       //when(실행)
-      for(int i = 0 ; i < poisonCountLimitNum ; i++){
+      for (int i = 0; i < poisonCountLimitNum; i++) {
         poisonSlime.attack(hero);
       }
 
@@ -148,13 +150,12 @@ void main() {
       final poisonOverCountNum = poisonSlime.poisonCount + 1;
 
       //when(실행)
-      for(int i = 0 ; i < poisonOverCountNum ; i++){
+      for (int i = 0; i < poisonOverCountNum; i++) {
         poisonSlime.attack(hero);
       }
 
       //then(검증)
       expect(poisonSlime.poisonCount, 0);
     });
-
   });
 }

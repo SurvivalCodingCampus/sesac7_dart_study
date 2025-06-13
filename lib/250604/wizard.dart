@@ -63,7 +63,7 @@ class Wizard {
   //속성:
   //- mp: Int (초기값 100)
   int _mp;
-  final int useWizardMpValue = 5;
+  final int useWizardMpValue = 5; //private으로 작성하는것이 Default임.
   final int useGreatWizardMpValue = 50;
   final int useGreatWizardMaxMpValue = 50;
   final int recoverHeroHpValue = 20;
@@ -80,6 +80,7 @@ class Wizard {
 
   Wizard({required this.name, required this.hp, required this.wand})
     : _mp = 100;
+
 
   set setName(String? name) {
     String checkName = checkNullAndLength(name);
@@ -163,7 +164,7 @@ class GreatWizard extends Wizard {
       return;
     } else {
       mp -= useGreatWizardMaxMpValue;
-      hero.hp = 100;
+      hero.hp = 100; // coderabbit
       //- 힐을 성공하면 "슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
       print('슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}');
     }

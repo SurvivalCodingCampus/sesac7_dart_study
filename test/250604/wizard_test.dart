@@ -28,7 +28,6 @@ void main() {
       //when(실행)
       wizard.heal(hero);
 
-
       //then(검증)
       expect(hero.hp, limitHp);
       expect(wizard.mp, 90);

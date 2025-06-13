@@ -1,5 +1,4 @@
 @startuml
-scale 1.5
 
 class Cleric{
    + int hp
@@ -9,9 +8,23 @@ class Cleric{
    - void die()
 }
 
-class Hero{
+interface Attackable{
+    {abstract} void attack()
+}
+
+interface Attackable{
+}
+
+abstract class Character{
+    {abstract} void attack(Slime slime)
+}
+
+class Hero extends Character implements Attackable{
 }
 
 class SuperHero extends Hero{
 }
+
+
+
 @enduml
