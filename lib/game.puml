@@ -1,21 +1,31 @@
 @startuml 
 
-class Cleric {
+interface Attackable {
+    {abstract} void attack()
+}
+
+interface Healable {
+    {abstract} void heal()
+}
+
+abstract class Character implements Attackable {
     + int hp
     - int mp
 
+    {abstract} void attack(Slime slime)
+}
+
+class Cleric extends Character {
     + void attack()
     - void die()
 }
 
-class Hero {
-    int hp
-    int mp
+class Hero extends Character {
     void attack(Slime slime)
     void run()
 }
 
-class SuperHero extends Hero {
+class SuperHero extends Hero implements Healable {
     Sword sword
 }
 
