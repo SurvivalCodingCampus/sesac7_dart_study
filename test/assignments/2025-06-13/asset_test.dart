@@ -11,7 +11,13 @@ void main() {
   group('GROUP : Constructor tests for Book and Computer\n', () {
     test('Book instance', () {
       //given
-      Book book = Book('신데렐라', 20000, 'Blue', 0.2, 'a-1234');
+      Book book = Book(
+        '신데렐라',
+        price: 20000,
+        color: 'Blue',
+        weight: 0.2,
+        isbn: 'a-1234',
+      );
       //when
       //then
       expect(book is Book, true);
@@ -29,7 +35,13 @@ void main() {
 
     test('Computer instance', () {
       //given
-      Computer computer = Computer('그램', 1000000, 'White', 1.1, 'LG');
+      Computer computer = Computer(
+        '그램',
+        price: 1000000,
+        color: 'White',
+        weight: 1.1,
+        makerName: 'LG',
+      );
       //when
       //then
       expect(computer is Book, false);
