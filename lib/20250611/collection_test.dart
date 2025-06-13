@@ -6,14 +6,8 @@
 * */
 void main() {
   final personInfos = [
-    {
-      'name' : '홍길동',
-      'age' : 20,
-    },
-    {
-      'name' : '한석봉',
-      'age' : 25,
-    }
+    {'name': '홍길동', 'age': 20},
+    {'name': '한석봉', 'age': 25},
   ];
 
   for (final personInfo in personInfos) {

@@ -3,6 +3,7 @@ class Person {
   final int _age;
 
   String get name => _name;
+
   int get age => _age;
 
   Person(this._name, this._age);
@@ -15,7 +16,8 @@ class Student {
   String get name => _name;
 
   int _age = 0;
-  int get age{
+
+  int get age {
     DateTime now = DateTime.now();
     final int currentYear = now.year;
     _age = currentYear - _birthYear;
