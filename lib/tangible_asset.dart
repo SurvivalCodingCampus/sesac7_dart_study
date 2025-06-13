@@ -1,6 +1,7 @@
 import 'package:modu_3_dart_study/asset.dart';
+import 'package:modu_3_dart_study/thing.dart';
 
-abstract class TangibleAsset extends Asset {
+abstract class TangibleAsset extends Asset implements Thing {
   final String _color;
 
   String get color => _color;
