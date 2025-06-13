@@ -1,8 +1,10 @@
-class Wand {
-  String _name;
-  double _power;
+import 'hero.dart';
 
-  Wand({required String name,required double power}) : _name = name, _power = power{
+class Wand {
+  String _name = '';
+  double _power = 0;
+
+  Wand({required String name,required double power}){
     wandName = name;
     wandPower = power;
   }
@@ -34,14 +36,16 @@ class Wizard {
   Wand? wand;
   
   // 마법사가 생성된 이후에는 지팡이를 null로 설정할 수 없다
-  Wizard({required String name, int hp = 0, int mp = 0, required Wand wand}) : _name = name, _hp = hp, _mp = mp{
-    this.name = name;
-    this.mp = mp;
-    this.hp = hp;
-  }
+  // Wizard({required String name, int hp = 0, int mp = 100, Wand? wand}){
+  //   this.name = name;
+  //   this.mp = mp;
+  //   this.hp = hp;
+  // }
+  Wizard({required String name, int hp = 0, int mp = 100, Wand? wand}) : _name = name, _hp = hp, _mp = mp;
 
   // getter
   int get hp => _hp;
+  int get mp => _mp;
 
   // 이름은 null 일수없고 반드시 3문자 이상이여야한다
   set name(String newName){
@@ -67,6 +71,22 @@ class Wizard {
     }
 
     _hp = newHp;
+  }
+
+  // method
+  void heal(Hero hero){
+  
+    // mp가 부족하면 "마나가 부족합니다" 출력
+    if (mp < 0) {
+      print('마나가 부족합니다');
+      throw Exception('마나가 부족합니다');
+    } else {
+      // hp를 20회복시키고 자신의 mp를 10소모
+      mp -= 10;
+      hero.hp += 20;
+      print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
+    }
+
   }
 }
 

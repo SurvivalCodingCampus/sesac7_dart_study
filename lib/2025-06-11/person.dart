@@ -1,6 +1,8 @@
 class Person{
-  String name;
-  int birthYear;
+
+  // 한번 정해지면 수정이 불가하다
+  final String name;
+  final int birthYear;
 
   // age 프로퍼티를 통해 나이를 제공하지만 임의로 수정은 불가능하다
   Person({this.name = '', this.birthYear = 0});

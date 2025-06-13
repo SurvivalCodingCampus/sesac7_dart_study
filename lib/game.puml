@@ -1,11 +1,19 @@
-@startuml
+@startuml name
 
 class Cleric{
-    + hp: int
-    - mp: int
+    + int hp
+    - int mp
 
-    + attack(): void 
-    - die(): void 
+    + void attack()
+    - void die()
+}
+
+class Hero{
+    void attack()
+}
+
+class SuperHero extends Hero{
+    
 }
 
 @enduml

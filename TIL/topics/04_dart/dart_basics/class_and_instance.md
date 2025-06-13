@@ -12,23 +12,23 @@
 
 ## 클래스 타입
 1. 클래스를 정의하면 사용자가 정의한 타입이 생성됨
-```class type
+```dart
 class Hero{...}
 ```
 
 2. 클래스 타입의 변수를 선언할 수 있음
-```class type 변수
+```dart
 Hero hero1;
 ```
 
 3. 어떤 클래스 타입 변수는 그 클래스의 인스턴스를 담을 수 있음
-```class type with instance
+```dart
 hero1 = Hero('홍길동', 100);
 ```
 
 ## 인스턴스화
 - new 키워드를 사용하여 클래스(붕어빵틀)로 부터 생성자를 통해 인스턴스(가상세계 붕어빵)를 생성
-```new
+```dart
 class Hero{
   
   String name;
@@ -53,7 +53,7 @@ void main(){
 
 - dart에서 new 키워드는 생략 가능
 - 클래스 타입 변수에 인스턴스가 담겨있을때 "변수명.필드명" 이나 "변수명.메소드명()" 으로 그 인스턴스의 필드나 메소드를 이용할 수 있음
-```변수
+```dart
 print(hero1.name);
 hero1.attack();
 ```
