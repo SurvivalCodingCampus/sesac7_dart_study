@@ -2,8 +2,8 @@
 scale 1
 class Cleric {
     ..Static..
-    {static} maxHp
-    {static} maxMp
+    {static}int maxHp
+    {static}int maxMp
     ..PublicData..
     +String name
     +int hp
@@ -20,15 +20,20 @@ class Hero {
     ..PublicData..
     +String name
     +int hp
+    +int heroMaxHp
     ..Method..
-    +void attack()
+    +void attack(Slime slime)
     +void run()
 }
 
 class Wizard {
+    ..Static..
+    {static}int wizardDefaultMp
     ..PublicData..
     +int wizardNameLimit
     +int wizardMinMpLimit
+    +int healHp
+    +int healMpCost
     ..PrivateData..
     -String _name
     -int _hp
@@ -44,6 +49,20 @@ class Wizard {
     +void wizardHp(int value)
     +void wizardMp(int value)
     +void wand(Wand? value)
+    ..Method..
+    +void heal(Hero hero)
+}
+
+class GreatWizard extends Wizard {
+    ..Static..
+    {static}int greatWizardDefaultMp
+    ..PublicData..
+    +int greatWizardHealHp
+    +int greatWizardHealMpCost
+    +int greatWizardSuperHealMpCost
+    ..Method..
+    +void heal(Hero hero) {override}
+    +void superHeal(Hero hero)
 }
 
 class Wand {
@@ -72,6 +91,30 @@ class Person {
     -void _collectionPractice2()
     -void _collectionPractice3()
 }
+
+class Slime {
+    ..PublicData..
+    +int hp
+    +int level
+    +String suffix
+    +int slimeAttackDamage
+    ..Method..
+    +void run()
+    +void attack(Hero hero)
+}
+
+class PoisonSlime extends Slime {
+    ..PrivateData..
+    -int _poisonCount
+    -double _poisonDamageRatio
+    ..Getter..
+    +int poisonCount()
+    ..Setter..
+    +void poisonCount(int value)
+    ..Method..
+    +void attack(Hero hero)
+}
+
 note right of Hero
     Dart 수업용 Class
 end note

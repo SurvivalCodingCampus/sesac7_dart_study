@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:modu_3_dart_study/cleric.dart';
+import 'package:modu_3_dart_study/character/cleric.dart';
 import 'package:test/test.dart';
 
 void main() {
