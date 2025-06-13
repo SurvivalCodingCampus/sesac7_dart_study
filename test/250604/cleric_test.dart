@@ -1,6 +1,6 @@
-import 'package:modu_3_dart_study/250604/cleric.dart';
-import 'package:modu_3_dart_study/250604/person.dart';
-import 'package:modu_3_dart_study/250604/wizard.dart';
+import 'package:modu_3_dart_study/lecture_code/cleric.dart';
+import 'package:modu_3_dart_study/lecture_code/person.dart';
+import 'package:modu_3_dart_study/lecture_code/wizard.dart';
 import 'package:test/test.dart';
 
 void main() {

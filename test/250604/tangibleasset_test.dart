@@ -1,4 +1,3 @@
-import 'package:modu_3_dart_study/250604/tangibleasset.dart';
 import 'package:test/test.dart';
 
 /*

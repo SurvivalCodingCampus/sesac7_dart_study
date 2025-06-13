@@ -29,7 +29,7 @@
     - mp가 부족하면 "마나가 부족합니다" 출력
     - 힐을 성공하면 "슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}" 출력
  */
-import 'package:modu_3_dart_study/250604/hero.dart';
+import 'package:modu_3_dart_study/lecture_code/hero.dart';
 
 class Wand {
   String name;
