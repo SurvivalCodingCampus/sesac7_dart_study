@@ -10,7 +10,14 @@ abstract class TangibleAsset extends Asset implements Thing {
 
   // setter 오버라이드
   @override
-  set weight(double weight) => _weight = weight;
+  set weight(double weight) {
+    // 무게 최소값 검증
+    if (weight <= 0) {
+      throw Exception('형태가 있는 것이면 무게가 존재합니다.');
+    }
+
+    _weight = weight;
+  }
 
   // 생성자(구 방식), super에 대해 제대로 이해하기 위해 적었다
   /*
@@ -30,6 +37,7 @@ abstract class TangibleAsset extends Asset implements Thing {
     required super.color,
     required double weight,
   }) : _weight = weight {
+    // 무게 최소값 검증
     if (weight <= 0) {
       throw Exception('형태가 있는 것이면 무게가 존재합니다.');
     }
