@@ -5,6 +5,10 @@ class Computer extends TangibleAsset {
 
   String get makerName => _makerName;
 
-  Computer(super.name, super.price, super.color, String makerName)
-    : _makerName = makerName;
+  Computer({
+    required super.name,
+    required super.price,
+    required super.color,
+    required String makerName,
+  }) : _makerName = makerName;
 }
