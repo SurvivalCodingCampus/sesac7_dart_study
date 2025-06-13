@@ -3,7 +3,7 @@
 // // 테스트 코드를 사용하기 위해 test 패키지를 사용함
 // import 'package:test/test.dart';
 
-void main(){}
+void main() {}
 
 // void main(){
 

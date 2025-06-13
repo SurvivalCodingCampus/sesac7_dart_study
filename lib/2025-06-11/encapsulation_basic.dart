@@ -1,13 +1,13 @@
-class Person{
+class Person {
   String _name = ''; // private 필드
   int _age = 0; // private 필드
-  
+
   // 생성자에서 setter 를 안거치고 직접 저장
   // Person({required String name, required int age}) : _name = name, _age = age;
 
   // 세터를 통해서 인스턴스를 초기화
-  Person({String name = '', int age = 0}){
-    this.name = name; 
+  Person({String name = '', int age = 0}) {
+    this.name = name;
     this.age = age;
   }
 
@@ -20,8 +20,9 @@ class Person{
   // setter: 함수처럼 동작
   // set name(String value) => _name = value;
   set age(int value) {
-    if(value >= 0) { // 유효성 검사 추가
-        _age = value;
+    if (value >= 0) {
+      // 유효성 검사 추가
+      _age = value;
     }
   }
 
@@ -36,11 +37,9 @@ class Person{
 
     _name = newName;
   }
-
 }
 
-void main(){
+void main() {
   final person = Person(name: '홍길동', age: 10);
   print(person);
 }
-

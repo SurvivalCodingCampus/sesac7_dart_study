@@ -2,7 +2,7 @@
 // import 'package:test/test.dart';
 // import 'package:modu_3_dart_study/2025-06-04/cleric.dart';
 
-void main(){}
+void main() {}
 
 // // test를 group 으로 묶어서 case 관리하기
 // void main(){
@@ -26,12 +26,12 @@ void main(){}
 //     // 어떤 상황인지를 주석으로 추가 설명한다
 //     expect(cleric1.hp, equals(50));
 //     expect(cleric1.mp, equals(5));
-    
+
 //     // when(2차 실행)
 //     cleric1.selfAid();
 //     // then(검증)
 //     expect(cleric1.hp, equals(50));
-//     expect(cleric1.mp, equals(5)); 
+//     expect(cleric1.mp, equals(5));
 
 //     // Q. expect는 어떤 값까지를 보여주는가? expect 활용법?
 //   }, skip: true);
@@ -61,12 +61,12 @@ void main(){}
 
 //   // 여러번 반복해서 확인해봐야함 for 활용
 //   // 경계값을 체크하고 경계값 밖 큰 값, 작은값을 확인하고 경계안의 값을 확인해서 모든 케이스를 확인했다고 확인한다
-  
+
 //   test('기도하기',(){
 //     // given(준비)
 //     final cleric3 = Cleric(name: '성직자3', hp: 10, mp: 3);
 //     final beforeMp = cleric3.mp; // 실행전 mp
-    
+
 //     // when(실행)
 //     final healScore = cleric3.pray(3); // 실제 회복된 량
 //     // pray 에 1부터 10까지의 숫자를 넣어서 확인해보는 것 해보기?
@@ -91,4 +91,3 @@ void main(){}
 //     }
 //   }, skip: true);
 // }
-

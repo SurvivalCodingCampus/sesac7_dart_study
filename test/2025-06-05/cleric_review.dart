@@ -1,6 +1,6 @@
 import 'package:modu_3_dart_study/2025-06-04/cleric.dart';
 
-void main(){
+void main() {
   final cleric1 = Cleric(name: 'cleric1');
   // Cleric() 함수 앞에는 new 가 붙어있다
 
@@ -12,11 +12,9 @@ void main(){
 
   print('$cleric1, $name');
 
-  // 범위체크하는 matcher 확인하기 
+  // 범위체크하는 matcher 확인하기
 }
 
 // print로는 테스트를 확인 할 수 없다
 // 결과를 리턴하는 명령어가 아니다
 // 값이 없다
-
-

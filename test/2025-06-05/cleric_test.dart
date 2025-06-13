@@ -1,7 +1,7 @@
 // import 'package:test/test.dart';
 // import 'package:modu_3_dart_study/2025-06-05/cleric.dart';
 
-void main(){}
+void main() {}
 
 // void main(){
 
@@ -18,13 +18,13 @@ void main(){}
 //       final cleric01 = Cleric('아서스', hp: Cleric.maxHp - 10, mp: selfAidUsedMp + 1);
 
 //       expect(cleric01.mp, 6);
-      
+
 //       cleric01.selfAid();
 //       // 생성자 이외의 것이 들어와서
 //       // hp, mp 가 그 값이 맞는지
 //       // selfAid 전에 테스트
 
-//       // selfAid 한번 실행시 
+//       // selfAid 한번 실행시
 //       expect(cleric01.name, '아서스');
 //       expect(cleric01.hp, Cleric.maxHp);
 //       expect(cleric01.mp, 1);
@@ -43,7 +43,7 @@ void main(){}
 
 //       // then(검증)
 //       // 이 때, MP는 최대 MP와 같은 값이 초기화 된다
-//       expect(cleric02.mp, Cleric.maxMp - selfAidUsedMp); 
+//       expect(cleric02.mp, Cleric.maxMp - selfAidUsedMp);
 //     });
 
 //   });
