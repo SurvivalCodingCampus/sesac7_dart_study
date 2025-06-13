@@ -15,6 +15,9 @@ abstract class TangibleAsset extends Asset implements Thing {
     required this.texture,
   });
 
+  // 추상 메서드
+  void valueAdjustment(); // 가치조정
+
   void grab() {
     if (_isDestroy) {
       throw Exception('$name이/가 파괴되어서 잡을 수 없습니다.');
