@@ -25,11 +25,11 @@
       void run();
     }
 
-    abstract interface class Surviver [
+    abstract interface class Survival [
       void eat();
     }
 
-    class Person implements Runnable Move, Surviver {
+    class Person implements Move, Survival {
       @override
       void run() {
         print('사람이 달린다.');
@@ -59,7 +59,7 @@
       
       class Animal implements Move {
         @override
-        void breathe() {
+        void run() {
           print('동물이 달린다.');
         {
         ...
@@ -71,7 +71,7 @@
       void run();
     }
 
-    abstract interface class Surviver, Move [
+    abstract interface class Survival, Move {
       void eat();
     }
     ```
