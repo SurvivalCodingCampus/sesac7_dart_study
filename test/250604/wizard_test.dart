@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/250604/hero.dart';
-import 'package:modu_3_dart_study/250604/wizard.dart';
+import 'package:modu_3_dart_study/lecture_code/hero.dart';
+import 'package:modu_3_dart_study/lecture_code/wizard.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -27,7 +27,6 @@ void main() {
       wizard.mp = 100;
       //when(실행)
       wizard.heal(hero);
-
 
       //then(검증)
       expect(hero.hp, limitHp);
