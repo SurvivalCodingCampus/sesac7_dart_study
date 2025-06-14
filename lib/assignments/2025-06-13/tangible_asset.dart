@@ -1,7 +1,16 @@
 import 'package:modu_3_dart_study/assignments/2025-06-13/asset.dart';
+import 'package:modu_3_dart_study/assignments/2025-06-13/thing.dart';
 
-abstract class TangibleAsset extends Asset {
+abstract class TangibleAsset extends Asset implements Thing {
   String color;
+  double weight;
 
-  TangibleAsset(super.name, super.price, this.color);
+  TangibleAsset({
+    required super.name,
+    required super.price,
+    required this.color,
+    required this.weight,
+  });
+
+
 }
