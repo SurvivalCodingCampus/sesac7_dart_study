@@ -1,0 +1,31 @@
+name: Students Branch Dart Checks
+
+on:
+  pull_request:
+    branches:
+      - 'student/*' # 대상 브랜치
+
+jobs:
+  lint_format_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Dart SDK
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk-version: 'stable'
+
+      - name: Install dependencies
+        run: dart pub get # Dart 프로젝트의 의존성 설치
+
+      - name: Run Dart Analyzer (Linter)
+        run: dart analyze --fatal-infos # 코드 분석 및 린트 검사. 경고/정보도 실패로 간주하도록 --fatal-infos 추가 가능
+
+      - name: Run Dart Formatter Check
+        run: dart format --output=none --set-exit-if-changed . # 변경 사항을 수정하지 않고 포맷팅만 확인. 포맷팅이 필요한 경우 exit code 1 반환
+
+      - name: Run Dart Tests
+        run: dart test # Dart 프로젝트의 테스트 명령어
