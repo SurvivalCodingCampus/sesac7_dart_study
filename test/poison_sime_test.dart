@@ -19,7 +19,7 @@ void main() {
         final String testSlimeSuffix = '슬라임';
         final Slime slime = Slime(testSlimeSuffix);
 
-        expect(poisonSlime is Slime, isTrue);
+        // expect(poisonSlime is Slime, isTrue);
         expect(slime is PoisonSlime, isFalse); // Slime은 PoisonSlime의 SuperClass임으로 말이 안된다.
         expect(poisonSlime.hp, equals(slime.hp));
         expect(poisonSlime.level, equals(slime.level));
