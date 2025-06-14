@@ -12,10 +12,10 @@ void main() {
   group('Computer 테스트', () {
     test('Computer 생성자 테스트', () {
       Computer computer = Computer(
+        500.0,
         name: 'MacBook Air',
         price: 2200000,
         color: 'black',
-        weight: 500.0,
         makerName: 'Apple',
       );
       expect(computer.name, computerName);
@@ -26,12 +26,13 @@ void main() {
     });
     test('Computer setter 테스트', () {
       Computer computer = Computer(
+        500.0,
         name: 'MacBook Air',
-        price: 2200000,
+        price: 220000,
         color: 'black',
-        weight: 500.0,
         makerName: 'Apple',
       );
+
       computer.weight = 400.0;
       expect(computer.weight, changeComputerWeight);
     });

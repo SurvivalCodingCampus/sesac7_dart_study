@@ -2,15 +2,23 @@ import 'package:modu_3_dart_study/assignments/2025-06-13/asset.dart';
 import 'package:modu_3_dart_study/assignments/2025-06-13/thing.dart';
 
 abstract class TangibleAsset extends Asset implements Thing {
-  String color;
-  double weight;
+  final String color;
+  double _weight;
 
-  TangibleAsset({
+  TangibleAsset(
+    this._weight, {
     required super.name,
     required super.price,
     required this.color,
-    required this.weight,
   });
 
+  @override
+  double get weight {
+    return _weight;
+  }
 
+  @override
+  set weight(double value) {
+    _weight = value;
+  }
 }

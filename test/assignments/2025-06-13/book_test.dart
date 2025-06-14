@@ -11,10 +11,10 @@ void main() {
     final changeBookWeight = 80.0;
     test('Book 생성자 테스트', () {
       Book book = Book(
+        100.0,
         name: '플러터 생존코딩',
         price: 25200,
         color: 'white',
-        weight: 100.0,
         isbn: '한빛미디어',
       );
       expect(book.name, bookName);
@@ -26,10 +26,10 @@ void main() {
 
     test('Book setter 테스트', () {
       Book book = Book(
+        100.0,
         name: '플러터 생존코딩',
         price: 25200,
         color: 'white',
-        weight: 100.0,
         isbn: '한빛미디어',
       );
       book.weight = 80.0;
