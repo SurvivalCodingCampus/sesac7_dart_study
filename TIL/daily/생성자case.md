@@ -101,3 +101,26 @@ void main() {
  - Wizard(...) { _name = name; }
     - 문법적으로 맞지만, 하지만 final 필드는 초기화 불가능!
 
+# 복합적으로 사용된 형태
+Wizard() : _name = name {
+name = _name;
+hp = _hp;
+mp = _mp;
+wand = _wand;
+}
+
+생성자 본문에서 setter 사용
+name = _name;
+hp = _hp;
+mp = _mp;
+wand = _wand;
+이렇게 사용하면 필드에 바로 대입하지 않고, setter를 한 번 더 호출해서 검증까지 처리할 수 있다.
+
+# 위치기반 생성자 - 위치 기반으로 해야함 - 즉 순서대로 호출해야됨
+Wizard(this._name, this._hp, this._wand, [int mp = 100])
+
+```dart
+Wizard('aa', 100, wand);           // mp는 기본값 100
+Wizard('aa', 100, wand, 200);      // mp는 200
+```
+

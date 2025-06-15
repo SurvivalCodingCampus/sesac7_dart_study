@@ -1,31 +1,29 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class asset {
+abstract class Asset {
   String name
   int price
 }
 
-interface thing {
+interface Thing {
   {abstract} double get weight
   {abstract} set weight(double weight)
 }
 
-abstract class TangibleAsset extends asset implements thing{
+abstract class TangibleAsset extends Asset implements Thing{
   String color
 }
 
-abstract class intangbleasset extends asset {
+abstract class IntangbleAsset extends asset {
   String patent
 }
 
 class Book extends TangibleAsset {
- String color
  String isbn
 }
 
 class Computer extends TangibleAsset {
- String color
  String makerName
 }
 

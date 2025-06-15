@@ -31,7 +31,7 @@ class Account {
 
   int get balance => _balance;
 
-  Account(this.owner, {int startMoney = 0}) : this._balance = startMoney;
+  Account(this.owner, {int startMoney = 0}) : _balance = startMoney;
 
   void show() {
     print('$owner님의 잔액은 $_balance원입니다');

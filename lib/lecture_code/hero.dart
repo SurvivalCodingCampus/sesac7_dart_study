@@ -46,9 +46,12 @@ class Hero {
     //   return;
     // }
     int damageHp = (hp * hpDamagePercent).round(); //반올림
-    print("🥲 $damageHp포인트의 데미지");
-    if (hp < 0) return;
     hp -= damageHp;
+    if (hp < 0) {
+      hp = 0;
+      return;
+    }
+    print("🥲 $damageHp포인트의 데미지");
   }
 }
 

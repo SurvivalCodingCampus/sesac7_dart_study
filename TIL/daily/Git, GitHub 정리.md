@@ -48,7 +48,6 @@
   - 커밋된 내용을 원격저장소 반영
   - master(로컬)에서 orgin(원격)으로 push
   - master가 main인 경우도 있음
-
 ---
 
 ### Git Commit Message Convention Guide

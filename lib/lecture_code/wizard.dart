@@ -69,7 +69,7 @@ class Wizard {
   final int recoverHeroHpValue = 20;
   final int recoverGreatHeroHpValue = 25;
   final int useGreatWizardMaxMp = 150;
-
+  static const int a = 100;
   int get mp => _mp;
 
   set mp(int value) {
@@ -79,7 +79,7 @@ class Wizard {
   Wand? wand;
 
   Wizard({required this.name, required this.hp, required this.wand})
-    : _mp = 100;
+    : _mp = a;
 
 
   set setName(String? name) {

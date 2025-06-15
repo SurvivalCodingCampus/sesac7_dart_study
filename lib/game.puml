@@ -9,10 +9,6 @@ class Cleric{
 }
 
 interface Attackable{
-    {abstract} void attack()
-}
-
-interface Attackable{
 }
 
 abstract class Character{

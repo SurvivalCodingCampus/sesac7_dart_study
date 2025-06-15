@@ -7,11 +7,11 @@ abstract class Human{
 }
 
 //인터페이스 -> 구현
-abstract interface class Attacjable{
+abstract interface class Attactable{
 
 }
 
-class SuperMan implements Human{
+class SuperMan extends Human{
   @override
   void attack() {
     // TODO: implement attack
