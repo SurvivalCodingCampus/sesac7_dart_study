@@ -32,20 +32,20 @@
 
 import 'hero.dart';
 
-class Slime{
+class Slime {
   int hp = 50;
   final String suffix;
 
   Slime(this.suffix);
 
-  void attack(Hero hero){
+  void attack(Hero hero) {
     print('슬라임 $suffix가 공격했다.');
     print('10의 데미지');
     hero.hp -= 10;
   }
 }
 
-class PoisonSlime extends Slime{
+class PoisonSlime extends Slime {
   PoisonSlime(super.suffix);
 
   // 03. PoisonSlime 독 공격 가능 횟수를 저장하는 poisonCount(초기값 5)를 가진다
@@ -64,7 +64,7 @@ class PoisonSlime extends Slime{
     //  b. poisonCount가 0이 아니면 다음을 추가로 수행한다
     //    - poision 조건 검사 (0과 같거나 작으면 return)
 
-    if(poisonCount <=0) return;
+    if (poisonCount <= 0) return;
 
     // 04. PoisonSlime attack() 메소드가 호출되면 다음 내용의 공격을 한다
     //   a. 우선, “보통 슬라임과 같은 공격"을 한다.
@@ -81,9 +81,8 @@ class PoisonSlime extends Slime{
 
     // e. poisonCount 를 1 감소 시킨다
     //    - poisonCount-=1;
-    poisonCount -=1;
+    poisonCount--; //poisonCount -=1;
   }
 }
 
-void main(){
-}
+void main() {}
