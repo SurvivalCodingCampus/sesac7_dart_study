@@ -37,7 +37,6 @@ void main() {
       final double testWeight1 = 10.0;
       final double testWeight2 = 20.0;
       final String testIsbn1 = 'book1';
-      final String testIsbn2 = 'book2';
       final Book book = Book(
         name: testName1,
         price: testPrice1,
@@ -60,9 +59,6 @@ void main() {
 
       expect(() => book.weight = testWeight2, returnsNormally);
       expect(book.weight, equals(testWeight2));
-
-      expect(() => book.isbn = testIsbn2, returnsNormally);
-      expect(book.isbn, equals(testIsbn2));
     });
 
     test('책 무게는 0보다 커야 한다(형태가 있는 것이라면 무게가 있어야 한다)', () {

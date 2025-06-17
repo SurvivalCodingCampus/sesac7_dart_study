@@ -1,13 +1,10 @@
 import 'package:modu_3_dart_study/tangible_asset.dart';
 
 class Book extends TangibleAsset {
-  String _isbn; // 고유 번호
+  final String _isbn; // 고유 번호
 
   // getter
   String get isbn => _isbn;
-
-  // setter
-  set isbn(String isbn) => _isbn = isbn;
 
   // 생성자
   Book({

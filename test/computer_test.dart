@@ -36,14 +36,13 @@ void main() {
       final String testColor2 = '화이트';
       final double testWeight1 = 1.5;
       final double testWeight2 = 2.0;
-      final String testMakerName1 = 'Samsung';
-      final String testMakerName2 = 'Apple';
+      final String testMakerName = 'Samsung';
       final Computer computer = Computer(
         name: testName1,
         price: testPrice1,
         color: testColor1,
         weight: testWeight1,
-        makerName: testMakerName1,
+        makerName: testMakerName,
       );
 
       // when & then
@@ -60,9 +59,6 @@ void main() {
 
       expect(() => computer.weight = testWeight2, returnsNormally);
       expect(computer.weight, equals(testWeight2));
-
-      expect(() => computer.makerName = testMakerName2, returnsNormally);
-      expect(computer.makerName, equals(testMakerName2));
     });
 
     test('컴퓨터 무게는 0보다 커야 한다(형태가 있는 것이라면 무게가 있어야 한다)', () {

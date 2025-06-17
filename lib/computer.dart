@@ -1,13 +1,10 @@
 import 'package:modu_3_dart_study/tangible_asset.dart';
 
 class Computer extends TangibleAsset {
-  String _makerName; // 제조사 명
+  final String _makerName; // 제조사 명
 
   // getter
   String get makerName => _makerName;
-
-  // setter
-  set makerName(String makerName) => _makerName = makerName;
 
   // 생성자
   Computer({
