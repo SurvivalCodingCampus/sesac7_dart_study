@@ -19,6 +19,7 @@ void main() {
     test('독 살포 가능 횟수가 남아있을 때 정상적으로 살포하는지? ', () {
       // given
       final int poisonCountInit = 5; // 독 살포 횟수 최초 초기화 값(고정)
+      final int poisonCountStandard = 0; // 독 살포 횟수의 하한선 값
       final int testHp = 1000; // 용사가 죽는 것을 방지하기 위해 임의의 매우 큰 값 제공
       final int dieHp = 0;
       final PoisonSlime poisonSlime1 = PoisonSlime('레드 슬라임');
@@ -62,10 +63,7 @@ void main() {
       for (int i = 0; i < testAttackCount3; i++) {
         expect(() => poisonSlime3.attack(hero3), returnsNormally);
       }
-      expect(
-        poisonSlime3.poisonCount,
-        equals(poisonCountInit - testAttackCount3),
-      );
+      expect(poisonSlime3.poisonCount, equals(poisonCountStandard));
       expect(hero3.hp, lessThan(testHp));
       expect(hero3.hp, greaterThan(dieHp));
     });
