@@ -15,7 +15,7 @@ class Unit{}
 
 class Structure{}
 
-class Bionic extends Unit{}
+class Bionic implements Unit{}
 
 class Mechanic extends Unit{}
 
