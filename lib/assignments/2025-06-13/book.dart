@@ -43,7 +43,7 @@ void main() {
       print(asset.makerName);
     }
 
-    final book = asset as Book;
+    // final book = asset as Book;
     //이렇게 타입 강제 캐스팅 가능한데, 이건 쓰지마라. 날 믿어라 == 휴먼 == 버그.  언제 터질지 모른다.
     //이게 왜 위험하냐면? 나 이거 book인거 알아. 그런데 갑자기 Hero로 바뀌면, book.hp가 가능해진다., 휴먼에러발생.
   }
