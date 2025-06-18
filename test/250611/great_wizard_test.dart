@@ -2,8 +2,6 @@ import 'package:modu_3_dart_study/250604/hero.dart';
 import 'package:modu_3_dart_study/250604/slime.dart';
 import 'package:modu_3_dart_study/250611/great_wizard.dart';
 import 'package:modu_3_dart_study/250611/wand.dart';
-import 'package:modu_3_dart_study/250611/wizard.dart';
-import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 
 void main() {
