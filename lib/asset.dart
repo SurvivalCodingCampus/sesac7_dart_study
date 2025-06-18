@@ -3,7 +3,8 @@ abstract class Asset {
   int _price;
 
   Asset({required String name, required int price})
-    : _name = name,
+    : assert(price >= 0, '자산의 가격은 음수가 될 수 없습니다.'),
+      _name = name,
       _price = price;
 
   // getter
@@ -14,5 +15,11 @@ abstract class Asset {
   // setter
   set name(String name) => _name = name;
 
-  set price(int price) => _price = price;
+  set price(int price) {
+    if (price < 0) {
+      throw Exception('자산의 가격은 음수가 될 수 없습니다.');
+    }
+
+    _price = price;
+  }
 }
