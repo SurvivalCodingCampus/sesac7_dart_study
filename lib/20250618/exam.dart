@@ -9,7 +9,6 @@ abstract class Y implements X {
 class A extends Y {
   @override
   void a() {
-    // TODO: implement a
     print("Aa");
   }
 
