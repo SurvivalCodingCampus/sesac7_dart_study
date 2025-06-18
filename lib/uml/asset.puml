@@ -1,0 +1,54 @@
+@startuml
+abstract class Asset {
+    ..PublicData..
+    +String name
+}
+
+abstract class TangibleAsset extends Asset implements Thing {
+    ..PublicData..
+    +int price
+    +String color
+    +String texture
+    +int excludeValueAdjustmentPrice
+    ..PrivateData..
+    -bool _isDestroy
+    ..AbstractMethod..
+    {abstract} void valueAdjustment()
+    ..Method..
+    void grab()
+    void destroy()
+}
+
+interface Size {
+    double tangibleAssetWidth
+    double tangibleAssetHeight
+    double tangibleAssetDepth
+}
+
+interface Thing implements Size {
+    double weight
+}
+
+class Computer extends TangibleAsset {
+    ..PublicData..
+    osInstallPrice
+    ..PrivateData..
+    -bool _isOsInstalled
+    -bool _computerValueAdjustmentChange
+    ..Setter..
+    +void isOsInstall(bool value)
+}
+
+class Book extends TangibleAsset {
+    ..PublicData..
+    +String isbn
+    +int sealPrice
+    ..PrivateData..
+    -bool _isSealed
+    -bool _bookValueAdjustmentChange
+    ..Setter..
+    +void isSealed(bool value)
+    ..Method..
+    +void destroy() {override}
+}
+@enduml
