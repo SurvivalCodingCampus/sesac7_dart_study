@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+!include starcraft_common.puml
+
+class Marine extends Terran implements Bionic, AttackAble, HealAble, Unit
+class Medic extends Terran implements Bionic, HealAble, Unit
+
+class Tank extends Terran implements AttackAble, Mechanic, Unit
+class Vulture extends Terran implements AttackAble, Mechanic, Unit
+
+class Scv extends Terran implements AttackAble, HealAble, Mechanic, Unit {
+    ' amount 채취량,
+    void mineResource(Resource r, int amount)
+    void fixMachine(Mechanic m)
+}
+
+Scv ..> Resource : <<collects>>
+Scv ..> Mechanic : <<repairs>>
+@enduml

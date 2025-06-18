@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/class-diagram
+!include starcraft_common.puml
+
+class Zergling extends Zerg implements AttackAble, RecoveryAble, Unit
+class Hydra extends Zerg implements AttackAble, RecoveryAble, Unit
+
+class Hatchery extends Zerg implements RecoveryAble, Structure
+@enduml
