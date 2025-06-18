@@ -14,7 +14,7 @@ class A extends Y {
 
   @override
   void b() {
-    print('Bb');
+    print('Ab');
   }
 
   void c() {
