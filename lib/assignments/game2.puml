@@ -1,0 +1,82 @@
+@startuml
+
+interface Terran {
+  void TerranFuntion()
+}
+
+interface Zerg extends SelfAidAble{
+
+}
+
+class Protoss implements SelfAidAble{
+int shield
+}
+
+
+interface SelfAidAble{
+void selfAid()
+}
+
+interface AttackAble{
+void attack()
+}
+
+
+interface MineAble{
+void mine()
+}
+
+class Bionic {
+}
+
+class Mechanic {
+}
+
+abstract class BionicUnit extends Bionic {
+
+}
+
+
+class Mineral {
+
+}
+
+
+abstract class MechanicUnit extends Mechanic implements Terran, Zerg{
+}
+
+abstract class BionicStructure implements Terran{
+}
+
+abstract class MechanicStructure extends Mechanic{
+}
+
+
+class Marin extends BionicUnit implements AttackAble{
+    int hp
+    bool IsHealTarget
+}
+
+class Medic extends BionicUnit{
+   int hp
+   heal()
+}
+
+class Tank extends MechanicUnit implements AttackAble{
+   int hp
+   bool IsHealTarget
+ }
+
+
+class Scv extends BionicUnit implements AttackAble,MineAble{
+   int hp
+   bool IsHealTarget
+   repair()
+   getMineral()
+}
+
+class Zergling extends BionicUnit implements AttackAble {
+}
+
+
+@enduml
