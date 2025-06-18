@@ -7,7 +7,6 @@ abstract class Monster {
 class Slime extends Monster {
   @override
   void run() {
-    // TODO: implement run
     print('2');
   }
 }
@@ -18,7 +17,7 @@ void main() {
 
   Monster monster2 = Slime();
   Slime slime2 = monster2 as Slime;
-  
+
   monster.run();
 }
 
