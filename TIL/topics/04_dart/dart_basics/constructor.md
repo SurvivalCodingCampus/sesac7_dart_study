@@ -13,5 +13,5 @@
 - `Name(this.firstName)`: 필드를 바로 초기화하는 축약 문법
 - `Name({this.name})`: 이름 있는 매개변수(선택가능), named parameter
 - `Name({required this.name})`: 이름 있는 매개변수(필수 지정), 데이터 타입이 null 을 허용하지 않으면 required 를 붙여야 함
-- `Name({required this.name}, this.hp, this.mp,)` 필수 parameter 와 named parameter를 동시에 사용할 경우 필수 parameter 가 앞에 와야함
+- `Name(this.hp, this.mp,{required this.name})` 필수 parameter 와 named parameter를 동시에 사용할 경우 필수 parameter 가 앞에 와야함
 - named parameter 에서만 기본값 지정이 가능

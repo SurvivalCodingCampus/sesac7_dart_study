@@ -2,7 +2,7 @@
 
 ## 1. 인수(argument)
 - 함수를 실행할 때 실제로 input 한 값
-```인수
+```dart
 void main(){
     const firstName = "jina"; // "jina"는 인수
     final fullName = getFullName(firstName, lastName); // firstName, lastName은 getFullName 함수의 인수

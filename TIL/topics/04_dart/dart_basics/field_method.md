@@ -15,7 +15,7 @@
 | `메소드명` | 동사 | 최초 이외의 단어의 맨 처음은 대문자(camel) | findWeakPoint |
 
 ## 작성 예시 및 영역별 예시
-```ex
+```dart
 // 클래스 명(pascalcase 사용)
 class Hero{
   // 필드영역

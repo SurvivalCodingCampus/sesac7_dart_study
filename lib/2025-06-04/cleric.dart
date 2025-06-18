@@ -42,7 +42,7 @@ class Cleric {
   int pray(int praySec) {
     // mp가 0보다 크고 10보다 작은 범위일때
     if (mp < 10 && mp > 0) {
-      int randomPoint = Random().nextInt(3); // 0~2 사이 정수 Q.재확인필요
+      int randomPoint = Random().nextInt(3); // 0~2 사이 정수
       int healScore = praySec + randomPoint;
       mp = (mp + healScore).clamp(0, maxMp);
 

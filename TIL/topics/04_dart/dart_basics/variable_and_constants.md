@@ -35,3 +35,25 @@ Person();
   // 생성자 만드는 순간 기본 생성자는 사라진다
 
 ```
+
+5. 정적 메소드
+
+```dart
+class Hero{
+
+  static void setRandomMoney(){
+    money = Random().nextInt(100);
+    
+    // 인스턴스 멤버로는 접근 불가
+    print('$name의 소지금을 추가했다');
+  }
+}
+
+// 정적 메소드 호출
+void main(List<String> arguments){
+  Hero.setRandomMoney();
+
+}
+```
+- 정적 메소드 안에서 엑세스 할 수 있는 것은 정적 멤버만 가능
+- 클래스의 인스턴스가 없어도 실행되기 때문에 인스턴스 멤버에는 접근할 수 없다

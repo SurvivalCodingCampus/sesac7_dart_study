@@ -1,7 +1,7 @@
 // import 'package:test/test.dart';
 // import 'package:modu_3_dart_study/2025-06-11/wizard.dart';
 
-void main(){
+void main() {
   // test('wizard 이름이 세글자 이하일때',(){
   //   expect(() => Wizard(name: '안녕', wand: Wand(name: '지팡이1', power: 0)) , throwsException);
   // });
