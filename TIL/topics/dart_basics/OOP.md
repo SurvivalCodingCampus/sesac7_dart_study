@@ -141,3 +141,30 @@ class SuperHero extends Hero{
 - Child instance basically *Contains* the parent instance within.
 - The outer field methods are called first.
 - Accessing internal instance requires using the keyword super
+
+### Abstract Class
+- Classes intentionally unfinished to be fully implemented after inheritance
+- subclasses must override abstract methods
+- cannot be instantiated
+
+```dart
+abstract class Asset {
+
+}
+```
+
+### Interface
+- A special case of abstract classes
+- **every method abstract**
+- **no field**
+- guarantees common method support among implementers
+- A class can implement multiple interfaces
+
+```dart
+abstract interface class Attackable {
+
+}
+class Hero implements Attackable {
+    
+}
+```
