@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:modu_3_dart_study/cleric.dart';
+import 'package:modu_3_dart_study/game_jrpg/cleric.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/slime.dart';
+import 'package:modu_3_dart_study/game_jrpg/slime.dart';
 
 import 'hero.dart';
 
