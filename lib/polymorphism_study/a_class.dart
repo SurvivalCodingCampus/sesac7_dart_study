@@ -1,6 +1,6 @@
 import 'package:modu_3_dart_study/polymorphism_study/y_abstract_class.dart';
 
-import 'b_ class.dart';
+import 'b_class.dart';
 
 class A extends Y {
   @override
