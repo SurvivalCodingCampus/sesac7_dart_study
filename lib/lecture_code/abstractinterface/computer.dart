@@ -7,7 +7,13 @@ class Computer extends TangibleAsset {
   @override
   double weight; //인터페이스에 getter/setter가 있으면 non-final 필드 하나로 가능하다.
 
-  Computer(super.name, super.price, super.color, this.makerName, {this.weight = 1.1});
+  Computer(
+    super.name,
+    super.price,
+    super.color,
+    this.makerName, {
+    this.weight = 1.1,
+  });
 }
 
 void main() {

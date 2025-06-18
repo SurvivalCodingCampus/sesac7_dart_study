@@ -120,7 +120,7 @@ wand = _wand;
 Wizard(this._name, this._hp, this._wand, [int mp = 100])
 
 ```dart
-Wizard('aa', 100, wand);           // mp는 기본값 100
-Wizard('aa', 100, wand, 200);      // mp는 200
+// Wizard('aa', 100, wand);           // mp는 기본값 100
+// Wizard('aa', 100, wand, 200);      // mp는 200
 ```
 

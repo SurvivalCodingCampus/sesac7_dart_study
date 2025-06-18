@@ -118,3 +118,6 @@ SuperMan | Man
     이 정의에 맞도록 TangibleAsset 의 소스 코드를 수정하시오.
     이 때, TangibleAsset 에 필드나 메소드의 추가가 필요하다면, 적당히 추가하시오.
 
+## 250612 test1 다형성
+
+01. 조별과제 <설계>

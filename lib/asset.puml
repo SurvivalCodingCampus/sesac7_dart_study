@@ -15,7 +15,7 @@ abstract class TangibleAsset extends Asset implements Thing{
   String color
 }
 
-abstract class IntangbleAsset extends asset {
+abstract class IntangbleAsset extends Asset {
   String patent
 }
 

@@ -88,3 +88,28 @@ dart format . : 다트 코드정리했는지 확인
 상속
 
 연습3 인터페이스 , 프로퍼티, 생성자에서 받아야해
+
+
+추상클래스 인터페이스 연습문제
+
+
+생성자 정리 옵션
+analysis_options.yaml 에 추가
+
+formatter:
+trailing_commas: preserve
+
+생성자 생성 plugin => Dart data class
+
+ctrl+j 범위지정
+
+alt shift up down : 이동
+
+
+인터페이스는 특징을 가지는거
+
+생성자는 클래스 만든사람마음. named를 하던지 말던지
+
+영어 용어에도 익숙하자 - 다른사람과 커뮤니케이션을 위해서. 
+
+객체지향 -> 현실세계와 맞추기위해 - 휴먼에러 격차 줄이고.(캡슐화, 상속..등등)
