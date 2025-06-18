@@ -1,6 +1,6 @@
-import 'package:modu_3_dart_study/250604/cleric.dart';
-import 'package:modu_3_dart_study/250604/person.dart';
-import 'package:modu_3_dart_study/250604/wizard.dart';
+import 'package:modu_3_dart_study/lecture_code/cleric.dart';
+import 'package:modu_3_dart_study/lecture_code/person.dart';
+import 'package:modu_3_dart_study/lecture_code/wizard.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -109,7 +109,7 @@ void main() {
       expect(cleric.hp, testHp);
       expect(cleric.mp, Cleric.maxMp);
     });
-    
+
     test('생성자 인자값 지정 안 한 경우', () {
       //given(준비)
       // var cleric = Cleric(); 에러발생
@@ -124,7 +124,7 @@ void main() {
     test('Person Class birthYear 리턴값 비교확인 거짓일 경우 Test', () {
       //given(준비)
       final int birthYear = 1982;
-      var person = Person(name : '홍길동', birthYear : 1981);
+      var person = Person(name: '홍길동', birthYear: 1981);
 
       //when(실행)
       var calAge = person.age;
@@ -136,7 +136,7 @@ void main() {
     test('Person Class birthYear 리턴값 비교확인 참 일경우 Test', () {
       //given(준비)
       final int birthYear = 1982;
-      var person = Person(name : '홍길동', birthYear : 1982);
+      var person = Person(name: '홍길동', birthYear: 1982);
 
       //when(실행)
       var calAge = person.age;
@@ -146,7 +146,7 @@ void main() {
     });
   });
 
-/*
+  /*
 01. 다음 2개의 클래스 “Wizard (마법사)”, “Wand (지팡이)” 를 작성하시오. 마법사는 지팡이를 들 수 있습니다.
     작성한 Wand 클래스와 Wizard 클래스에 대해, 아래의 규칙에 따라 타당성 검사를 추가하시오.
     부정한 값이 설정 될 경우에는 “Exception(“에러메세지");” 를 작성하여 프로그램을 중단 시킵니다.
@@ -160,7 +160,7 @@ void main() {
   test('마법사나 지팡이의 이름은 null 일 경우, 3문자 이하인 경우 Exception Test', () {
     //given(준비)
 
-    var wand = Wand(name : '홍길동', power : 1.1);
+    var wand = Wand(name: '홍길동', power: 1.1);
     Wizard wizard = Wizard(name: "홍길동", hp: 1, wand: wand);
 
     //when(실행)
@@ -178,7 +178,7 @@ void main() {
 
   test('지팡이의 마력은 0.5 이하 100.0 이상인 경우 Exception Test', () {
     //given(준비)
-    var wand = Wand(name : '홍길동', power : 1.1);
+    var wand = Wand(name: '홍길동', power: 1.1);
 
     //when(실행)
 
@@ -192,7 +192,7 @@ void main() {
 
   test('마법사의 MP는 0 이하인 경우  Test', () {
     //given(준비)
-    var wand = Wand(name : '홍길동', power : 1.1);
+    var wand = Wand(name: '홍길동', power: 1.1);
 
     Wizard wizard = Wizard(name: "홍길동", hp: 1, wand: wand);
 
@@ -206,7 +206,7 @@ void main() {
 
   test('HP가 음수가 되는 상황에서는 대신 0을 설정 되는지 확인 Test', () {
     //given(준비)
-    var wand = Wand(name : '홍길동', power : 1.1);
+    var wand = Wand(name: '홍길동', power: 1.1);
 
     Wizard wizard = Wizard(name: "홍길동", hp: 1, wand: wand);
 
@@ -219,7 +219,7 @@ void main() {
 
   test('마법사가 생성된 이후에는 지팡이를 null 로 설정 불가 Test', () {
     //given(준비)
-    var wand = Wand(name : '홍길동', power : 1.1);
+    var wand = Wand(name: '홍길동', power: 1.1);
     Wizard wizard = Wizard(name: "홍길동", hp: 1, wand: wand);
 
     //when(실행)
@@ -227,5 +227,4 @@ void main() {
     //then(검증)
     expect(() => wizard.setWand = null, throwsException);
   });
-
 }

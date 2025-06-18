@@ -66,6 +66,4 @@ class Cleric {
   }
 }
 
-void main() {
-
-}
+void main() {}
