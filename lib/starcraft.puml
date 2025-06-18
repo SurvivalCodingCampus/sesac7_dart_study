@@ -1,0 +1,125 @@
+@startuml
+
+    abstract class Unit extends Object {
+    - int attackPower
+    - int mp
+    - int moveSpeed
+    - int attackSpeed
+
+     - void move()
+}
+abstract class Structure extends Object
+
+abstract class TerranStructure extends Structure
+abstract class ZergStructure extends Structure implements Recoverable
+abstract class ProtossStructure extends Structure implements Recoverable {
+    - int shield
+}
+
+abstract class Bionic extends Unit implements Healable
+abstract class Mechanic extends Unit implements Attacker
+
+abstract class TerranBionic extends Bionic
+abstract class TerranMechanic extends Mechanic
+abstract class ZergBionic extends Bionic implements Recoverable, Attacker
+abstract class ProtossBionic extends Bionic implements Recoverable, Attacker {
+    - int shield
+}
+abstract class ProtossMechanic extends Mechanic implements Recoverable {
+    - int shield
+}
+
+class Marine extends TerranBionic implements Attacker {
+    + static const marineCost
+    + static const int productionSpeed
+}
+class Medic extends TerranBionic {
+    + static const medicCost
+    + static const int productionSpeed
+    - int healPower
+    - void heal(Healable target)
+}
+
+note left
+각 유닛을 생성하는데 필요한 코스트와 속도는 각 클래스에 static const 필드로 정의된다.
+일부 유닛에만 작성 후 생략하였다.
+end note
+class Vulture extends TerranMechanic {
+    + static const vultureCost
+    + static const int productionSpeed
+}
+class Tank extends TerranMechanic
+class SCV extends TerranMechanic implements Worker, Healable {
+    - void repair(Mechanic target)
+}
+
+class Zergling extends ZergBionic
+class Hydra extends ZergBionic
+class Drone extends ZergBionic implements Worker
+
+class Zealot extends ProtossBionic
+class Dragun extends ProtossMechanic
+class Probe extends ProtossMechanic implements Worker
+
+class CommandCenter extends TerranStructure implements Productive {
+    + static const commandCenterCost
+    + static const int productionSpeed
+}
+class SupplyDepot extends TerranStructure {
+    + static const supplyDepotCost
+    + static const int productionSpeed
+}
+class EngineeringBay extends TerranStructure {
+    + static const engineeringBayCost
+    + static const int productionSpeed
+}
+
+note right
+각 건물을 생성하는데 필요한 코스트와 속도는 각 클래스에 static const 필드로 정의된다.
+일부 건물에만 작성 후 생략하였다.
+end note
+class Hatchery extends ZergStructure
+class SpawningPool extends ZergStructure
+class SunkenColony extends ZergStructure
+
+class Nexus extends ProtossStructure
+class Gateway extends ProtossStructure
+class StarGate extends ProtossStructure
+
+interface Worker implements Productive{
+    {abstract} - void mining(Fuel resource)
+}
+abstract class Object {
+    - int hp
+    - int defensePower
+    {abstract} - void attacked(int attackPower)
+}
+interface Attacker {
+    {abstract} - void attack(Object target)
+}
+interface Healable {
+    {abstract} - void healed(int healPower)
+}
+interface Recoverable {
+    {abstract} - void recover()
+}
+interface Productive {
+    {abstract} - Object product(Object target)
+}
+note right of Productive
+유닛을 생성할 수 있는 건물은 클래스 내에 Productive만을 구현한다. 일부 건물에만 작성 후 생략하였다.
+건물을 생성할 수 있는 일꾼 클래스들은 Productive 인터페이스를 구현한 Worker 인터페이스를 구현한다.
+end note
+abstract class Fuel {
+    - int amount
+}
+class Mineral extends Fuel
+class Gas extends Fuel
+class Player {
+    + Mineral mineral
+    + Gas gas
+}
+class InputController {
+    - List<Unit> getPickedUnits()
+}
+@enduml
