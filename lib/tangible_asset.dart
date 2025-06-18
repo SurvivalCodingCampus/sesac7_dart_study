@@ -32,13 +32,9 @@ abstract class TangibleAsset extends Asset implements Thing {
     required super.price,
     required String color,
     required double weight,
-  }) : _color = color,
-       _weight = weight {
-    // 무게 최소값 검증
-    if (weight <= 0) {
-      throw Exception('형태가 있는 것이면 무게가 존재합니다.');
-    }
-  }
+  }) : assert(weight > 0, '형태가 있는 것이면 무게가 존재합니다.'),
+       _color = color,
+       _weight = weight;
 
   // 생성자(구 방식), super에 대해 제대로 이해하기 위해 적었다
   /*
