@@ -19,6 +19,7 @@ void main() {
     test('독 살포 가능 횟수가 남아있을 때 정상적으로 살포하는지? ', () {
       // given
       final int poisonCountInit = 5; // 독 살포 횟수 최초 초기화 값(고정)
+      final int poisonCountStandard = 0; // 독 살포 횟수의 하한선 값
       final int testHp = 1000; // 용사가 죽는 것을 방지하기 위해 임의의 매우 큰 값 제공
       final int dieHp = 0;
       final PoisonSlime poisonSlime1 = PoisonSlime('레드 슬라임');
@@ -36,27 +37,33 @@ void main() {
       // when & then
       // 공격 횟수가 4번 혹은 5번일 때는 문제 없이 독을 모두 살포하지만,
       expect(poisonSlime1.poisonCount, equals(poisonCountInit));
-      for(int i = 0; i < testAttackCount1; i++) {
+      for (int i = 0; i < testAttackCount1; i++) {
         expect(() => poisonSlime1.attack(hero1), returnsNormally);
       }
-      expect(poisonSlime1.poisonCount, equals(poisonCountInit - testAttackCount1));
+      expect(
+        poisonSlime1.poisonCount,
+        equals(poisonCountInit - testAttackCount1),
+      );
       expect(hero1.hp, lessThan(testHp));
       expect(hero1.hp, greaterThan(dieHp));
 
       expect(poisonSlime2.poisonCount, equals(poisonCountInit));
-      for(int i = 0; i < testAttackCount2; i++) {
+      for (int i = 0; i < testAttackCount2; i++) {
         expect(() => poisonSlime2.attack(hero2), returnsNormally);
       }
-      expect(poisonSlime2.poisonCount, equals(poisonCountInit - testAttackCount2));
+      expect(
+        poisonSlime2.poisonCount,
+        equals(poisonCountInit - testAttackCount2),
+      );
       expect(hero2.hp, lessThan(testHp));
       expect(hero2.hp, greaterThan(dieHp));
 
       // 공격 횟수가 6번인 경우 5번은 독을 살포하고 마지막엔 독 살포 횟수가 부족하여 살포하지 않는다.
       expect(poisonSlime3.poisonCount, equals(poisonCountInit));
-      for(int i = 0; i < testAttackCount3; i++) {
+      for (int i = 0; i < testAttackCount3; i++) {
         expect(() => poisonSlime3.attack(hero3), returnsNormally);
       }
-      expect(poisonSlime3.poisonCount, equals(poisonCountInit - testAttackCount3));
+      expect(poisonSlime3.poisonCount, equals(poisonCountStandard));
       expect(hero3.hp, lessThan(testHp));
       expect(hero3.hp, greaterThan(dieHp));
     });

@@ -1,0 +1,37 @@
+@startuml
+abstract class Asset {
+    - String _name
+    - int _price
+
+    + Asset(_name, _price)
+    + String getName()
+    + void setName(String name)
+    + int getPrice()
+    + void setPrice(int price)
+}
+
+abstract class TangibleAsset extends Asset implements Thing {
+    - String _color
+    - double _weight
+    + TangibleAsset(super.name, super.price, _color, _weight)
+    + String getColor()
+    + void setColor(String color)
+}
+
+class Book extends TangibleAsset {
+    - String _isbn
+
+    + Book(super.name, super.price, super.color, super.weight, _isbn)
+}
+
+class Computer extends TangibleAsset {
+    - String _makerName
+
+    + Computer(super.name, super.price, super.color, super.weight, _makerName)
+}
+
+interface Thing {
+    {abstract} + double getWeight()
+    {abstract} + void setWeight(double weight)
+}
+@enduml

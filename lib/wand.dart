@@ -1,12 +1,14 @@
 class Wand {
   String _name; // 이름
   double _power; // 마력
-  final int nameLengthStandard = 3; // 이름 길이 한도
-  final double lowPowerStandard = 0.5; // 마력 하한선
-  final double highPowerStandard = 100.0; // 마력 상한선
+
+  static const int nameLengthStandard = 3; // 이름 길이 한도
+  static const double lowPowerStandard = 0.5; // 마력 하한선
+  static const double highPowerStandard = 100.0; // 마력 상한선
 
   // getter
   String get name => _name;
+
   double get power => _power;
 
   // setter
@@ -27,5 +29,15 @@ class Wand {
     _power = power;
   }
 
-  Wand({required String name, required double power}) : _name = name, _power = power;
+  Wand({required String name, required double power})
+    : assert(
+        name.length >= nameLengthStandard,
+        '지팡이의 이름이 너무 짧습니다. 이름은 3문자 이상으로 설정되어야합니다.',
+      ),
+      assert(
+        power >= lowPowerStandard && power <= highPowerStandard,
+        '지팡이의 마력은 0.5 이상 100.0 이하로 설정되어야합니다.',
+      ),
+      _name = name,
+      _power = power;
 }
