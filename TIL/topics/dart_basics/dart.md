@@ -141,11 +141,11 @@ bool operator==(Object other) =>
 ```
 - identical(object A, object B) will still strictly do the 'reference address' eqaulity check
 
-### hashcode
+### hashCode
 - By default, every different instances in different address will give out unique and different hashcodes.
 - By overriding this method, programmer can make two logically equal instances to return same hashcode
 ```dart
-int get hashcode => name.hashCode ^ age.hashCode; 
+int get hashCode => name.hashCode ^ age.hashCode; 
 // or any other member fields that are relevant to treat two instances 'equal'
 ```
 
@@ -167,6 +167,7 @@ class Book implements Comparable<Book> {
   int compareTo(Book other) {
     return publishDate.compareTo(other.publishDate);
   }
+}
 ```
 
 ### Instance copy
@@ -184,6 +185,5 @@ class Book implements Comparable<Book> {
 
   Book copyWith() =>
       Book(title: title, comment: comment, publishDate: publishDate.copyWith());
-
-  }
+}
 ```
