@@ -27,13 +27,15 @@ class Book implements Comparable<Book> {
     return 'Book{title: $title, publishDate: $publishDate, comment: $comment}';
   }
 
-  Book copyWith({String? title, String? comment, DateTime? publishDate}) {
-    return Book(
-      title: title ?? this.title,
-      comment: comment ?? this.comment,
-      publishDate: publishDate ?? this.publishDate,
-    );
-  }
+  // Book copyWith({String? title, String? comment, DateTime? publishDate}) {
+  //   return Book(
+  //     title: title ?? this.title,
+  //     comment: comment ?? this.comment,
+  //     publishDate: publishDate ?? this.publishDate,
+  //   );
+  // }
+  Book copyWith() =>
+      Book(title: title, comment: comment, publishDate: publishDate.copyWith());
 }
 
 void main() {
@@ -60,10 +62,11 @@ void main() {
 
   Book book4 = book3.copyWith();
   print('book4 : $book4');
-  Book book5 = book3.copyWith(
-    title: 'e',
-    comment: 'ee',
-    publishDate: DateTime(2019, 10, 01),
-  );
+  // Book book5 = book3.copyWith(
+  //   title: 'e',
+  //   comment: 'ee',
+  //   publishDate: DateTime(2019, 10, 01),
+  // );
+  Book book5 = book3.copyWith();
   print('book5 : $book5');
 }
