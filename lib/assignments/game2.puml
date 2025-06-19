@@ -1,82 +1,146 @@
 @startuml
+scale 1.6
 
-interface Terran {
-  void TerranFuntion()
+class GameObject{
 }
 
-interface Zerg extends SelfAidAble{
-
+class Group {
+  - List<Unit>
+  + add(Unit)
 }
 
-class Protoss implements SelfAidAble{
-int shield
-}
+abstract class Type {
+ + Bionic
+ + Mechanic
 
 
-interface SelfAidAble{
-void selfAid()
-}
-
-interface AttackAble{
-void attack()
+  +bool canHealed()
+  +bool canRepaired()
 }
 
 
-interface MineAble{
-void mine()
+abstract class Tribe {
+ + Terran
+ + Zerg
+ + Protoss
 }
 
-class Bionic {
+
+abstract class Unit extends GameObject implements MoveAble{
+  - Type
+  - Tribe
 }
 
-class Mechanic {
+interface MoveAble {
++move()
 }
 
-abstract class BionicUnit extends Bionic {
+class Marine extends Unit implements Attacker{
++Tribe : Terran
+    +hp
+    + canHealed() => true
+}
+class Vulture extends Unit implements Attacker{
++Tribe : Terran
++hp
++ canRepaired() => true
+}
+class Tank extends Unit implements Attacker{
++Tribe : Terran
++hp
++ canRepaired() => true
+}
+class Medic extends Unit implements Healer{
++Tribe : Terran
++ hp
++ canHealed() => true
+}
+
+class Zergling extends Unit implements Attacker, SelfHealer{
+    +Tribe : Zerg
+    +hp
+    + selfAid(hp)
+    + canHealed() => false
+}
+
+class Hydra extends Unit implements Attacker, SelfHealer{
+    +Tribe : Zerg
+    +hp
+    +selfAid(hp)
+    + canHealed() => false
+}
+
+class Dragon extends Unit implements SelfHealer{
++Tribe : Protoss
++ hp
++shield
++ selfAid(shield)
++ canHealed() => true
 
 }
 
+class Zealot extends Unit implements SelfHealer{
++Tribe : Protoss
++ hp
++shield
++ selfAid(shield)
++ canHealed() => true
+}
 
 class Mineral {
+  + amount
 
+  + bool isMine()
+}
+
+interface WorkMan{
+ +mine(Mineral)
+}
+
+interface Attacker{
+   +void attack()
+}
+
+interface Healer{
+  + void heal(canHealed)
+}
+
+interface SelfHealer{
+ + void SelfAid()
+}
+
+class SCV extends Unit implements WorkMan,Attacker{
++Tribe : Terran
+  + hp
+  + canRepaired() => false
+}
+
+abstract class Structure extends GameObject {
+  - Type
+  - Tribe
+}
+
+class ZergBuilding extends Structure implements SelfHealer{
++Tribe
++hp
++ selfAid(hp)
++ canHealed() => false
+}
+
+class ProtossBuilding extends Structure implements SelfHealer{
++Tribe
++hp
++shield
++ selfAid(shield)
 }
 
 
-abstract class MechanicUnit extends Mechanic implements Terran, Zerg{
-}
-
-abstract class BionicStructure implements Terran{
-}
-
-abstract class MechanicStructure extends Mechanic{
-}
 
 
-class Marin extends BionicUnit implements AttackAble{
-    int hp
-    bool IsHealTarget
-}
 
-class Medic extends BionicUnit{
-   int hp
-   heal()
-}
-
-class Tank extends MechanicUnit implements AttackAble{
-   int hp
-   bool IsHealTarget
- }
-
-
-class Scv extends BionicUnit implements AttackAble,MineAble{
-   int hp
-   bool IsHealTarget
-   repair()
-   getMineral()
-}
-
-class Zergling extends BionicUnit implements AttackAble {
-}
-
-
+SCV --> Mineral
+Unit --> Type
+Unit --> Tribe
+Structure --> Tribe
+Structure --> Type
 @enduml
