@@ -1,0 +1,146 @@
+@startuml
+scale 1.6
+
+class GameObject{
+}
+
+class Group {
+  - List<Unit>
+  + add(Unit)
+}
+
+abstract class Type {
+ + Bionic
+ + Mechanic
+
+
+  +bool canHealed()
+  +bool canRepaired()
+}
+
+
+abstract class Tribe {
+ + Terran
+ + Zerg
+ + Protoss
+}
+
+
+abstract class Unit extends GameObject implements MoveAble{
+  - Type
+  - Tribe
+}
+
+interface MoveAble {
++move()
+}
+
+class Marine extends Unit implements Attacker{
++Tribe : Terran
+    +hp
+    + canHealed() => true
+}
+class Vulture extends Unit implements Attacker{
++Tribe : Terran
++hp
++ canRepaired() => true
+}
+class Tank extends Unit implements Attacker{
++Tribe : Terran
++hp
++ canRepaired() => true
+}
+class Medic extends Unit implements Healer{
++Tribe : Terran
++ hp
++ canHealed() => true
+}
+
+class Zergling extends Unit implements Attacker, SelfHealer{
+    +Tribe : Zerg
+    +hp
+    + selfAid(hp)
+    + canHealed() => false
+}
+
+class Hydra extends Unit implements Attacker, SelfHealer{
+    +Tribe : Zerg
+    +hp
+    +selfAid(hp)
+    + canHealed() => false
+}
+
+class Dragon extends Unit implements SelfHealer{
++Tribe : Protoss
++ hp
++shield
++ selfAid(shield)
++ canHealed() => true
+
+}
+
+class Zealot extends Unit implements SelfHealer{
++Tribe : Protoss
++ hp
++shield
++ selfAid(shield)
++ canHealed() => true
+}
+
+class Mineral {
+  + amount
+
+  + bool isMine()
+}
+
+interface WorkMan{
+ +mine(Mineral)
+}
+
+interface Attacker{
+   +void attack()
+}
+
+interface Healer{
+  + void heal(canHealed)
+}
+
+interface SelfHealer{
+ + void SelfAid()
+}
+
+class SCV extends Unit implements WorkMan,Attacker{
++Tribe : Terran
+  + hp
+  + canRepaired() => false
+}
+
+abstract class Structure extends GameObject {
+  - Type
+  - Tribe
+}
+
+class ZergBuilding extends Structure implements SelfHealer{
++Tribe
++hp
++ selfAid(hp)
++ canHealed() => false
+}
+
+class ProtossBuilding extends Structure implements SelfHealer{
++Tribe
++hp
++shield
++ selfAid(shield)
+}
+
+
+
+
+
+SCV --> Mineral
+Unit --> Type
+Unit --> Tribe
+Structure --> Tribe
+Structure --> Type
+@enduml
