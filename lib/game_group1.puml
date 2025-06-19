@@ -1,0 +1,19 @@
+@startuml
+
+interface Terran {
+    
+}
+
+interface Zerg {
+    
+}
+
+interface Protoss {
+    
+}
+
+abstract class Bionic{
+    
+}
+
+@enduml

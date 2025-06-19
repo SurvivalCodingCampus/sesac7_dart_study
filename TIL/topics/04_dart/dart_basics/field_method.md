@@ -27,7 +27,7 @@ class Hero{
 
   // 메소드명(camelcase)
   void attack(){
-
+    
   }
 
 }

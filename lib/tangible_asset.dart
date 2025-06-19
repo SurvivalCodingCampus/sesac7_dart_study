@@ -7,10 +7,10 @@ class Book extends TangibleAsset{
   // super named
   Book({
     required super.name, 
-    required this.isbn, 
-    double weight = 0, 
+    required this.isbn,
     required super.price, 
     required super.color,
+    double weight = 0, 
   }) : _weight = weight {
     this.weight = _weight;
   }
@@ -49,5 +49,27 @@ class Computer extends TangibleAsset{
   }  
 }
 
+List<Thing> assets = [
+  Book(name: 'book', isbn: 'isbn', price: 30, color: 'y'),
+  Computer(price: 30, color: 'y', name: 'name', makerName: 'makerName'),
+];
+
+void main(){
+  for(final asset in assets){
+    // Thing 으로 에셋을 설정
+    asset.weight;
+
+    final book = asset as Book;
+    // as의 방법이 있지만 강제로 타입 캐스팅 하는 것이기 때문에 쓰지않는다.
+    // 휴먼에러를 방지하기 위해
+    // 런타임에 에러 날수있음(캐스트 실패)
+    
+    if (asset is Book){
+      // is 를 거쳐서 스마트 타입 캐스팅 book의 방법이 있다.
+      
+    }
+  }
+
+}
 
 
