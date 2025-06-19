@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/tangible_asset.dart';
+import 'package:modu_3_dart_study/abstract_class_interface/tangible_asset.dart';
 
 class Computer extends TangibleAsset {
   String _makerName;
