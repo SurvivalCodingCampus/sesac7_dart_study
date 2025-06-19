@@ -77,6 +77,6 @@ class Hatchery extends Zerg implements RecoveryAble, Structure
 
 ' 프로토스
 class Zealot extends Protoss implements AttackAble, Bionic, HealAble, Unit
-class Dragun extends Protoss implements AttackAble, Mechanic, Unit
+class Dragoon extends Protoss implements AttackAble, Mechanic, Unit
 
 @enduml

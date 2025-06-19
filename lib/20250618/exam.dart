@@ -48,5 +48,6 @@ void main() {
 
   for (var y in list) {
     y.a();
+    y.b();
   }
 }

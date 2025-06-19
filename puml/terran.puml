@@ -12,6 +12,7 @@ class Scv extends Terran implements AttackAble, HealAble, Mechanic, Unit {
     ' amount 채취량,
     void mineResource(Resource r, int amount)
     void fixMachine(Mechanic m)
+    void receiveHealing(int amount)
 }
 
 Scv ..> Resource : <<collects>>
