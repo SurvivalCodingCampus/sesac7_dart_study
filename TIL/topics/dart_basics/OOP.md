@@ -168,3 +168,19 @@ class Hero implements Attackable {
     
 }
 ```
+
+### Polymorphism
+- able to call common methods
+- able to treat an instance as more than its class
+
+```dart
+Character character = Hero('Joe', 100);
+```
+
+- Abstract declaration but instantiated as more concrete class
+- overriden method follows outer most implementation
+- visibility follows the "box" but behavior follows the content
+
+```dart
+If (asset is Book) // better approach, make use of smart cast
+book = asset as Book // dangerous approach
