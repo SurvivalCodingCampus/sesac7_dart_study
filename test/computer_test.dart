@@ -29,7 +29,7 @@ void main() {
       );
 
       expect(computer.name, equals(testComputerName));
-      expect(computer.price, equals(testComputerOsInstall ? testComputerPrice + computer.osInstallPrice : testComputerPrice - computer.osInstallPrice));
+      expect(computer.price, equals(testComputerPrice - computer.osInstallPrice));
       expect(computer.color, equals(testComputerColor));
       expect(computer.texture, equals(testComputerTexture));
       expect(computer.makerName, equals(testComputerMakerName));
