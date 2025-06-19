@@ -1,0 +1,138 @@
+@startuml starcraft
+'프로토스와 저그의 고유속성인 쉴드와 자가회복의 특성을 Zerg,Protoss라는 인터페이스로 뺌.
+'유닛 Unit과  건물 Structure 이라는 추상클래스
+'공격가능함과 Attackable , 힐을 받을 수 있냐 Healalble 을 가리기 위해 인터페이스로 뺌.
+'생물인가? Bionic, 기계인가? Mechanic 을 인터페이스로 뺌
+'추상클래스인 BionicUnit은 Unit을 상속받고, Healable과 Bionic을 구현.
+abstract class Entity{
+    int hp
+}
+
+abstract class Unit extends Entity {
+    int moveSpeed //이동속도
+    void move()
+}
+
+abstract class Structure extends Entity{
+
+}
+
+interface Terran {
+
+}
+
+interface Zerg {
+    void regenerate()
+}
+
+interface Protoss {
+    void shieldRegeneration()
+    ..getter..
+    int shield()
+    ..setter..
+    void shield()
+}
+
+interface Healable {
+
+}
+
+interface Attackable {
+    void attack(Entity entity)
+    ..getter..
+    int damage()
+    ..setter..
+    void damage()
+}
+
+interface Bionic {
+
+}
+
+interface Mechanic {
+
+}
+
+abstract class BionicUnit extends Unit implements Healable, Bionic {
+
+}
+
+abstract class BionicStructure extends Structure implements Bionic {
+
+}
+
+abstract class MechanicUnit extends Unit implements Mechanic {
+
+}
+
+abstract class MechanicStructure extends Structure implements Mechanic {
+
+}
+
+
+class SCV extends MechanicUnit implements Terran, Healable, Attackable {
+    void repair(Mechanic mechanic) //기계 수리
+    void extract() // 채굴
+}
+
+class Marine extends BionicUnit implements Terran, Attackable {
+
+}
+
+class Mineral{
+}
+
+
+
+class Medic extends BionicUnit implements Terran {
+    void heal(BionicUnit bionicUnit) //힐
+}
+
+class Tank extends MechanicUnit implements Terran, Attackable {
+
+}
+
+class Zergling extends BionicUnit implements Zerg, Attackable {
+
+}
+
+class Hatchery extends BionicStructure implements Zerg {
+
+}
+
+class Zealot extends BionicUnit implements Protoss, Attackable {
+
+}
+
+class Dragoon extends MechanicUnit implements Protoss, Attackable {
+
+}
+
+class Nexus extends MechanicStructure implements Protoss {
+
+}
+
+
+note left of Entity
+모든 유닛과 건물은 공통적으로 공격을 당할 수 있기 때문에
+Entity로 추상화된 클래스를 통해 hp를 제공하고 Attackable Interface의
+attack 메소드의 인자 값으로 사용할 수 있다.
+
+객체들의 슈퍼클래스를 선택할 때, 유닛 건물 구분하나, 바이오 메카닉 구분하나, 종족구분하나
+유닛 건물을 상속으로 선택하고 나머지 카테고리는 인터페이스로 차별화해서 설계하였음.
+end note
+
+note right of Unit
+Unit- > BionicUnit / MechanicUnit으로 나눈이유.
+메딕의 heal메소드가 바이오닉 유닛만 힐을 받기때문에
+2차 서브 클래스로 바이오닉 건물과 바이오닉 유닛을 구분해주었음.
+
+Mechanic과 Bionic 인터페이스가 없으면 메카닉 유닛,건물이 구조적 공통점을 잃기 때문에
+Mechanic, Bionic 인터페이스를 추가로 만들어 구현
+end note
+
+
+
+
+@enduml
+
