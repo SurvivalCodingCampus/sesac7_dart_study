@@ -16,8 +16,17 @@ class Book implements Comparable<Book> {
   @override
   int get hashCode => title.hashCode ^ publishDate.hashCode;
 
+  @override
   int compareTo(Book other) {
     return other.publishDate.compareTo(publishDate);
+  }
+
+  Book copyWith({String? title, String? comment, DateTime? publishDate}) {
+    return Book(
+      title: title ?? this.title,
+      comment: comment ?? this.comment,
+      publishDate: publishDate ?? this.publishDate,
+    );
   }
 }
 
@@ -47,4 +56,16 @@ void main() {
   for (var book in books) {
     print('책 제목 : ${book.title}, 날짜 : ${book.publishDate}');
   }
+
+  final book = Book(
+    title: '플러터',
+    comment: '플러터 책',
+    publishDate: DateTime(2024, 1, 1),
+  );
+
+  final copyBook = book.copyWith(comment: '플러터 책 설명 변경');
+
+  print(copyBook.title);
+  print(copyBook.comment);
+  print(copyBook.publishDate);
 }
