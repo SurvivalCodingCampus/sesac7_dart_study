@@ -135,8 +135,9 @@ while (iterator.moveNext()) {
 ### operator==
 - By default, this only compares the reference address, therefore often programmer want to override this method to treat 'logically equal instances' equal.
 ```dart
+@override
 bool operator==(Object other) =>
-    return identical(this, other) || other is Hero && runtimeType == other.runtimeType && Hero.name == other.name;
+    identical(this, other) || other is Hero && runtimeType == other.runtimeType && name == other.name;
 ```
 - identical(object A, object B) will still strictly do the 'reference address' eqaulity check
 

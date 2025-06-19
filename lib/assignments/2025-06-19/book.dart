@@ -26,7 +26,7 @@ class Book implements Comparable<Book> {
 
   @override
   int compareTo(Book other) {
-    return publishDate.compareTo(other.publishDate);
+    return -publishDate.compareTo(other.publishDate);
   }
 
   Book copyWith() =>

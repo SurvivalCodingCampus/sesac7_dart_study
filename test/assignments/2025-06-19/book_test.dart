@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 import 'package:modu_3_dart_study/assignments/2025-06-19/book.dart';
 
 void main() {
-  group('GROUP : Book eqaulity override test\n', () {
+  group('GROUP : Book equality override test\n', () {
     test('Same title, same publishDate', () {
       //given
       DateTime date1 = DateTime(1995, 11, 9);
@@ -92,7 +92,7 @@ void main() {
     });
   });
   group('GROUP : comparedTo testing\n', () {
-    test('', () {
+    test('sorting using compareTo() method, favoring publishDate', () {
       //given
       Book yellowBook = Book(
         title: "노란책",
@@ -115,7 +115,7 @@ void main() {
       //when
       //then
       expect(
-        ListEquality().equals(books, [blueBook, yellowBook, redBook]),
+        ListEquality().equals(books, [redBook, yellowBook, blueBook]),
         true,
       );
     });
