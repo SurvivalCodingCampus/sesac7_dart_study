@@ -1,4 +1,4 @@
-class Book {
+class Book implements Comparable<Book> {
   String title;
   DateTime publishDate;
   String comment;
@@ -17,5 +17,15 @@ class Book {
   }
 
   @override
+  String toString() {
+    return '$title published at ${publishDate.year}-${publishDate.month}-${publishDate.day}';
+  }
+
+  @override
   int get hashCode => title.hashCode ^ publishDate.hashCode;
+
+  @override
+  int compareTo(Book other) {
+    return publishDate.compareTo(other.publishDate);
+  }
 }

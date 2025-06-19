@@ -1,5 +1,7 @@
+import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 import 'package:modu_3_dart_study/assignments/2025-06-19/book.dart';
+import 'dart:collection';
 
 void main() {
   group('GROUP : Book eqaulity override test\n', () {
@@ -93,6 +95,36 @@ void main() {
       //then
       expect(date1 == date2, true);
       expect(book1 == book2, true);
+    });
+  });
+  group('GROUP : comparedTo testing\n', () {
+    test('', () {
+      //given
+      Book yellowBook = Book(
+        title: "노란책",
+        publishDate: DateTime(1000, 1, 1),
+        comment: "노랗다",
+      );
+      Book blueBook = Book(
+        title: "파란책",
+        publishDate: DateTime(700, 1, 1),
+        comment: "시퍼렇다",
+      );
+      Book redBook = Book(
+        title: "빨간책",
+        publishDate: DateTime(1200, 1, 1),
+        comment: "시뻘겋다",
+      );
+
+      List<Book> books = [yellowBook, blueBook, redBook];
+      books.sort();
+      //when
+
+      //then
+      expect(
+        ListEquality().equals(books, [blueBook, yellowBook, redBook]),
+        true,
+      );
     });
   });
 }
