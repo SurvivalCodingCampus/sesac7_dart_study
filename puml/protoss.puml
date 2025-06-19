@@ -1,0 +1,7 @@
+@startuml
+'https://plantuml.com/class-diagram
+!include starcraft_common.puml
+
+class Zealot extends Protoss implements AttackAble, Bionic, HealAble, Unit
+class Dragoon extends Protoss implements AttackAble, Mechanic, Unit
+@enduml

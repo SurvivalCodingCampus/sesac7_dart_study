@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+' 종족
+abstract class Tribe
+
+interface Bionic
+interface Mechanic
+
+class Terran extends Tribe
+class Zerg extends Tribe implements Bionic
+class Protoss extends Tribe implements ShieldAble
+
+interface AttackAble {
+    void attack()
+}
+
+interface HealAble {
+    void receiveHealing(int amount)
+}
+
+interface RecoveryAble {
+    void selfRecovery()
+}
+
+interface ShieldAble {
+    void setShieldValue(int amount)
+}
+
+abstract class Resource {
+   amount: int
+}
+class Mineral extends Resource
+
+' 건물, 유닛 모두 공격할수 있으므로 interface 추가
+interface TargetAble
+
+' 건물
+interface Structure extends TargetAble
+
+' 유닛
+interface Unit extends TargetAble {
+    void move(Position p)
+}
+
+class Position
+
+class UnitGroup implements Unit, AttackAble {
+    units: List<Unit>
+
+    void move(Position pos)
+    void attack(TargetAble target)
+    void addUnit(Unit u)
+    void removeUnit(Unit u)
+}
+
+@enduml

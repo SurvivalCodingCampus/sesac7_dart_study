@@ -1,0 +1,82 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+' 종족
+abstract class Tribe
+
+interface Bionic
+interface Mechanic
+
+class Terran extends Tribe
+class Zerg extends Tribe implements Bionic
+class Protoss extends Tribe implements ShieldAble
+
+interface AttackAble {
+    void attack()
+}
+
+interface HealAble {
+    void receiveHealing(int amount)
+}
+
+interface RecoveryAble {
+    void selfRecovery()
+}
+
+interface ShieldAble {
+    void setShieldValue(int amount)
+}
+
+abstract class Resource {
+   amount: int
+}
+class Mineral extends Resource
+
+' 건물, 유닛 모두 공격할수 있으므로 interface 추가
+interface TargetAble
+
+' 건물
+interface Structure extends TargetAble
+
+' 유닛
+interface Unit extends TargetAble {
+    void move(Position p)
+}
+
+class Position
+
+class UnitGroup implements Unit, AttackAble {
+    units: List<Unit>
+
+    void move(Position pos)
+    void attack(TargetAble target)
+    void addUnit(Unit u)
+    void removeUnit(Unit u)
+}
+
+' 테란
+class Marine extends Terran implements Bionic, AttackAble, HealAble, Unit
+class Medic extends Terran implements Bionic, HealAble, Unit
+
+class Tank extends Terran implements AttackAble, Mechanic, Unit
+class Vulture extends Terran implements AttackAble, Mechanic, Unit
+
+class Scv extends Terran implements AttackAble, HealAble, Mechanic, Unit {
+    ' amount 채취량,
+    void mineResource(Resource r, int amount)
+    void fixMachine(Mechanic m)
+}
+
+Scv ..> Resource : <<collects>>
+Scv ..> Mechanic : <<repairs>>
+
+' 저그
+class Zergling extends Zerg implements AttackAble, RecoveryAble, Unit
+class Hydra extends Zerg implements AttackAble, RecoveryAble, Unit
+class Hatchery extends Zerg implements RecoveryAble, Structure
+
+' 프로토스
+class Zealot extends Protoss implements AttackAble, Bionic, HealAble, Unit
+class Dragoon extends Protoss implements AttackAble, Mechanic, Unit
+
+@enduml
