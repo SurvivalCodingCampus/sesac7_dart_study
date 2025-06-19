@@ -7,7 +7,12 @@ class GreatWizard extends Wizard {
   static const int healAmount = 25;
   static const int superHealCost = 50;
 
-  GreatWizard(super.name, {required super.hp, super.mp = maxMp, super.wand});
+  GreatWizard(
+    super.name, {
+    required super.hp,
+    super.mp = maxMp,
+    super.wand,
+  });
 
   @override
   void heal(Hero hero) {

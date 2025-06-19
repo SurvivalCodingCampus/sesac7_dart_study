@@ -6,7 +6,10 @@ class Wand {
   String _name;
   double _power;
 
-  Wand(this._name, {required double power}) : _power = power;
+  Wand(
+    this._name, {
+    required double power,
+  }) : _power = power;
 
   String get name => _name;
   double get power => _power;

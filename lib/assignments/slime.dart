@@ -7,7 +7,10 @@ class Slime {
   final String suffix;
   final int hp;
 
-  Slime(this.suffix, {this.hp = maxHp});
+  Slime(
+    this.suffix, {
+    this.hp = maxHp,
+  });
 
   void attack(Hero hero) {
     print('슬라임$suffix이/가 ${hero.name}을/를 공격했다.');

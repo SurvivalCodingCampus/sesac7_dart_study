@@ -14,10 +14,14 @@ class Wizard {
   int _mp;
   Wand? _wand;
 
-  Wizard(this._name, {required int hp, int mp = maxMp, Wand? wand})
-    : _hp = hp,
-      _mp = mp,
-      _wand = wand;
+  Wizard(
+    this._name, {
+    required int hp,
+    int mp = maxMp,
+    Wand? wand,
+  }) : _hp = hp,
+       _mp = mp,
+       _wand = wand;
 
   String get name => _name;
   int get hp => _hp;

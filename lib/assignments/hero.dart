@@ -5,7 +5,10 @@ class Hero {
   final String name;
   int _hp;
 
-  Hero(this.name, {int hp = maxHp}) : _hp = hp;
+  Hero(
+    this.name, {
+    int hp = maxHp,
+  }) : _hp = hp;
 
   int get hp => _hp;
 
