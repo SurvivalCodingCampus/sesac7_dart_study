@@ -1,0 +1,77 @@
+@startuml game
+
+scale 0.8
+
+
+interface AttackAble{
+void attack()
+}
+
+interface HealAble{
+
+}
+
+interface MoveAble{
+void move()
+}
+
+interface MineAble{
+void mine()
+}
+
+interface SelfAidAble{
+void selfAid()
+}
+
+class Group{
+List<MoveAble> = []
+}
+
+abstract class Bionic {}
+
+class Mechanic {}
+
+class ZergUnit extends Bionic implements SelfAidAble, HealAble, MoveAble{}
+
+class ZergStructure extends Bionic implements SelfAidAble{}
+
+class TerranBioUnit extends Bionic implements HealAble, MoveAble{}
+
+class TerranMechanicUnit extends Mechanic,MoveAble{}
+
+class TerranStructure extends Mechanic{}
+
+class ProtossBionicUnit extends Bionic implements HealAble, SelfAidAble, MoveAble{
+    int shield
+}
+
+class ProtossMechanicUnit extends Mechanic implements SelfAidAble, MoveAble{
+    int shield
+}
+
+class ProtossStructure extends Mechanic implements SelfAidAble{
+    int shield
+}
+
+class Zergling extends ZergUnit implements AttackAble{}
+
+class Hydra extends ZergUnit implements AttackAble{}
+
+class Marin extends TerranBioUnit implements AttackAble{}
+
+class Medic extends TerranBioUnit{
+    void heal(HealAble)
+}
+
+class Tank extends TerranMechanicUnit implements AttackAble {}
+
+class Scv extends TerranMechanicUnit implements AttackAble, HealAble, MineAble {
+    void repair()
+}
+
+class Zealot extends ProtossBionicUnit implements AttackAble {}
+
+class Dragon extends ProtossMechanicUnit implements AttackAble{}
+
+
+@enduml

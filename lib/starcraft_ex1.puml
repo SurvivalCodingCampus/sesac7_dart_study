@@ -1,0 +1,114 @@
+@startuml
+
+scale 0.8
+
+'종족 인터페이스
+interface race{
+ strig name
+ bol isBio
+}
+
+
+'3종족
+class Terran implements race{}
+class Zerg implements race{}
+class Protoss implements race{}
+
+class Structure{}
+
+'미네랄자원
+class Mineral{
+ double mineral amount
+}
+
+'공격
+interface Attackable{
+ void attack()
+}
+
+'회복
+interface Recoverable{
+ void recover()
+}
+
+'치료 매딕
+interface Cureable{
+ bool cureable()
+}
+
+'수리
+interface Repairable{
+ bool repairable()
+}
+
+'채취
+interface mineable{
+ void mineing()
+}
+
+'종족
+abstract class Unit{
+ Race race
+ string unitName
+
+  Identify(Race race)
+}
+
+class Bionic implements Unit{}
+
+class Mechanic extends Unit{}
+
+class marine extends Bionic implements Attackable {
+}
+class medic extends Bionic implements Cureable {
+공격불가능
+생물유닛치료가능()
+}
+
+class Tank extends Mechanic implements Attackable, Repairable {
+
+}
+class Vulture extends Mechanic implements Attackable, Repairable {
+
+}
+
+class Scv extends Mechanic implements Attackable, Cureable, mineable, Repairable {
+매딕치료대상
+attack()
+자원채취()
+기계유닛수리()
+}
+
+class Zergling extends Bionic implements Attackable, Recoverable {
+생물유닛
+매딕에 의해 치료불가
+
+서서희회복()
+}
+class Hydra extends Bionic implements Attackable, Recoverable {
+생물유닛
+매딕에 의해 치료불가
+
+서서희회복()
+}
+class ZergStructure extends Bionic, Recoverable {
+생물유닛
+매딕에 의해 치료불가
+
+서서희회복()
+}
+
+class Zealot extends Bionic implements Attackable, Recoverable, Cureable{
+방어막
+생물유닛
+
+방어막회복()
+매딕에 의해 치료()
+}
+class Dragon extends Mechanic implements Attackable, Recoverable {
+ 방어막
+ 기계유닛
+
+ 방어막회복()
+}
+@enduml

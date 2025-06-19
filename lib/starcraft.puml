@@ -1,0 +1,78 @@
+@startuml
+
+scale 0.7
+
+
+class Terran{}
+class Zerg{}
+class Protoss{}
+
+class Mineral{
+ 유닛을생산()??
+}
+
+class Unit{}
+
+class Structure{}
+
+class Bionic extends Unit{}
+
+class Mechanic extends Unit{}
+
+class marine extends Bionic{
+ 공격()
+}
+class medic extends Bionic{
+ 공격불가능
+
+ 생물유닛치료가능()
+}
+
+class Tank extends Mechanic{
+ 공격()
+}
+class Vulture extends Mechanic{
+ 공격()
+}
+
+class Scv extends Mechanic{
+ 매딕치료대상
+
+ 공격()
+ 자원채취()
+ 기계유닛수리()
+}
+
+class Zergling extends Bionic{
+생물유닛
+매딕에 의해 치료불가
+
+서서희회복()
+}
+class Hydra extends Bionic{
+생물유닛
+매딕에 의해 치료불가
+
+서서희회복()
+}
+class ZergStructure extends Bionic{
+ 생물유닛
+ 매딕에 의해 치료불가
+
+서서희회복()
+}
+
+class Zealot extends Bionic{
+ 방어막
+ 생물유닛
+
+ 방어막회복()
+ 매딕에 의해 치료()
+}
+class Dragon extends Mechanic{
+ 방어막
+ 기계유닛
+
+ 방어막회복()
+}
+@enduml

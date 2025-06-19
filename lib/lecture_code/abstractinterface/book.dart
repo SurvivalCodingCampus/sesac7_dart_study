@@ -12,5 +12,4 @@ class Book extends TangibleAsset {
   double weight;
 
   Book(super.name, super.price, super.color, this.isbn, {this.weight = 1});
-
 }
