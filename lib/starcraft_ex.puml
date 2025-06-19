@@ -1,11 +1,10 @@
 @startuml
 
-scale 0.8
+scale 0.7
 
 '종족 인터페이스
 interface race{
- strig name
- bol isBio
+ string name
 }
 
 '3종족
@@ -15,7 +14,7 @@ class Protoss implements race{}
 
 '미네랄자원
 class Mineral{
- double mineral amount
+ amount
 }
 
 '공격
@@ -40,7 +39,7 @@ interface Repairable{
 
 '채취
 interface mineable{
- void mineing()
+ void mining()
 }
 
 '종족
@@ -51,7 +50,7 @@ abstract class Unit{
   Identify(Race race)
 }
 
-class Bionic implements Unit{}
+class Bionic extends Unit{}
 
 class Mechanic extends Unit{}
 
@@ -65,12 +64,12 @@ class Scv extends Mechanic implements Attackable, Cureable, mineable, Repairable
 
 class Zergling extends Bionic implements Attackable, Recoverable {}
 class Hydra extends Bionic implements Attackable, Recoverable {}
-class ZergStructure extends Bionic, Recoverable, Structure {}
+class ZergStructure extends Bionic implements Recoverable, Structure {}
 
 class Zealot extends Bionic implements Attackable, Recoverable, Cureable{}
 class Dragon extends Mechanic implements Attackable, Recoverable {}
 
-interface Structure{
+abstract Structure{
  Race race
  string unitName
  void build()
