@@ -19,7 +19,7 @@
 			```dart
 			class Person {
 				String name;
-				Person({requried this.name});
+				Person({required this.name});
 				...
 				@override
 				bool operator ==(Object other) {
@@ -32,7 +32,7 @@
 			```dart
 			class Person {
 				String name;
-				Person({requried this.name});
+				Person({required this.name});
 				...
 				@override
 				int get hashCode => name.hashCode;
@@ -46,7 +46,7 @@
 			```dart
 			class Person {
 				String name;
-				Person({requried this.name});
+				Person({required this.name});
 				...
 				@override
 				bool operator ==(Object other) {
@@ -69,7 +69,7 @@
 			```dart
 			class Person {
 				String name;
-				Person({requried this.name});
+				Person({required this.name});
 				...
 				@override
 				int get hashCode => name.hashCode;
@@ -123,7 +123,7 @@
 		```dart
 		class Person implements Comparable<Person> {
 			String name;
-			Person({requried this.name});
+			Person({required this.name});
 
 			@override  
 			int compareTo(Person other) => other.name.compareTo(name);
