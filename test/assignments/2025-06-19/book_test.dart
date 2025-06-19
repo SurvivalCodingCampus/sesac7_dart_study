@@ -34,6 +34,7 @@ void main() {
         publishDate: bookPublishDate,
       );
 
+      expect(book1 == book2, true);
       expect(book1.compareTo(book2) == 0, true);
     });
 
@@ -86,7 +87,6 @@ void main() {
       //   comment: '플',
       //   publishDate: DateTime(2000, 11, 12),
       // );
-
 
       // expect(book1, isNot(book3));
       // expect(

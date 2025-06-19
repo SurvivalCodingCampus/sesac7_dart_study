@@ -9,12 +9,23 @@ class Book implements Comparable<Book> {
     : publishDate = publishDate ?? DateTime.now();
 
   @override
-  bool operator ==(Object other) {
-    if (other is Book) {
-      return title == other.title && publishDate == other.publishDate;
-    }
-    return false;
-  }
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Book &&
+          runtimeType == other.runtimeType &&
+          title == other.title &&
+          publishDate == other.publishDate;
+
+  @override
+  int get hashCode => title.hashCode ^ publishDate.hashCode;
+
+  // @override
+  // bool operator ==(Object other) {
+  //   if (other is Book) {
+  //     return title == other.title && publishDate == other.publishDate;
+  //   }
+  //   return false;
+  // }
 
   @override
   int compareTo(Book other) {
