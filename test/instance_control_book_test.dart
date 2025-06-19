@@ -90,9 +90,9 @@ void main() {
 
       test('InstanceControlBook 생성한 기존 인스턴스와 복사한 인스턴스 identical Test', () {
         final InstanceControlBook originalBook = InstanceControlBook(title: 'TestBookTitle', comment: 'TestBookComment', publishDate: DateTime(2025, 06, 19));
-        final InstanceControlBook copyBook = originalBook;
+        final InstanceControlBook copyBook = originalBook.copyWith();
 
-        expect(identical(originalBook, copyBook), isTrue);
+        expect(identical(originalBook, copyBook), isFalse);
       });
     });
 
@@ -114,9 +114,9 @@ List<InstanceControlBook> getBookList(int bookCount) {
   final random = Random();
 
   for(int i = 0; i < bookCount; i++) {
-    final int dateYear = random.nextInt(2026);
-    final int dateMonth = random.nextInt(13);
-    final int dateDay = random.nextInt(getMaxDay(dateYear, dateMonth) + 1);
+    final int dateYear = 1900 + random.nextInt(2026);
+    final int dateMonth = 1 + random.nextInt(11);
+    final int dateDay = 1 + random.nextInt(getMaxDay(dateYear, dateMonth));
     final InstanceControlBook book = InstanceControlBook(title: 'TestBook${i}Title', comment: 'TestBook${i}Comment', publishDate: DateTime(dateYear, dateMonth, dateDay));
     result.add(book);
   }
