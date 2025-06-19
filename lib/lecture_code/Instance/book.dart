@@ -5,8 +5,6 @@
 03. copyWith() 메서드를 제공한다 (깊은복사)
 */
 
-import 'package:collection/collection.dart';
-
 class Book implements Comparable<Book> {
   String title;
   DateTime publishDate;
