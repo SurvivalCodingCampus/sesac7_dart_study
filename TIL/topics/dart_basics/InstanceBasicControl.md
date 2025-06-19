@@ -7,7 +7,7 @@
 			```dart
 			class Person {
 				String name;
-				Person({requried this.name});
+				Person({required this.name});
 				...
 				@override
 				String toString() {
@@ -183,7 +183,7 @@
 				int damage;
 				Wand({this.damage});
 
-				Wand deepCopy() => Wand({damage});
+				Wand deepCopy() => Wand(damage: damage);
 			}
 			class Wizard {
 				String name;
@@ -192,6 +192,6 @@
 
 				Wizard({this.name, this.hp, this.wand});							
 				// wand 인스턴스 복사한 새로운 인스턴스를 넣어줘서 서로 다른 주소를 참조한다.
-				Wizard shallowCopy() => Wizard(name, hp, wand.deepCopy());
+				Wizard deepCopy() => Wizard(name: name, hp: hp, wand: wand.deepCopy());
 			}
 			```
