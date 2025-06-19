@@ -9,7 +9,7 @@ class Car implements Comparable<Car> {
   @override
   int compareTo(Car other) {
     // TODO: implement compareTo
-    return name.compareTo(other.name);
+    return -name.compareTo(other.name);
   }
 
   @override
@@ -69,9 +69,11 @@ void main() {
   print(car5);
 
   List<Car> list = [car, car2, car3, car4, car5];
-  final sortedList = list.sorted(
-    (a, b) => -a.engine.version.compareTo(b.engine.version),
-  );
+  // final EngineSortedList = list.sorted(
+  //   (a, b) => -a.engine.version.compareTo(b.engine.version),
+  // );
   print(list);
-  print(sortedList);
+  final nameSortedList = list.sorted();
+  print(nameSortedList);
+  // print(sortedList);
 }
