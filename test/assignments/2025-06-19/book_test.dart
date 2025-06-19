@@ -33,7 +33,10 @@ void main() {
         comment: book2Comment,
         publishDate: bookPublishDate,
       );
-
+      expect(
+        identical(book1, book2),
+        false,
+      ); //identical 테스트는 주소 값 비교. 주소 값은 다름.
       expect(book1 == book2, true);
       expect(book1.compareTo(book2) == 0, true);
     });

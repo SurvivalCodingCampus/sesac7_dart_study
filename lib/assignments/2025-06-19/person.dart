@@ -19,7 +19,7 @@ class Person {
   Person copyWith({String? name, int? age, Address? address}) => Person(
     name: name ?? this.name,
     age: age ?? this.age,
-    address: address ?? this.address,
+    address: address ?? this.address.copyWith(),
   );
 }
 
