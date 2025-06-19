@@ -8,8 +8,8 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  # path: ^1.8.0
   collection: ^1.19.1
+  # path: ^1.8.0dart pub add collection
 
 dev_dependencies:
   lints: ^5.0.0

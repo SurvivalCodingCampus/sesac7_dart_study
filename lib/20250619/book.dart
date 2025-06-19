@@ -1,9 +1,9 @@
 
 
 class Book implements Comparable<Book>{
-  String title;
-  DateTime publishDate;
-  String comment;
+  final String title;
+  final DateTime publishDate;
+  final String comment;
 
   Book({
     required this.title,
