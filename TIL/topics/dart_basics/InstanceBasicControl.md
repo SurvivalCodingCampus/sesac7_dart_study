@@ -11,7 +11,7 @@
 				...
 				@override
 				String toString() {
-					return '${name}입니다.'
+					return '${name}입니다.';
 				}
 			}
 			```
@@ -90,7 +90,7 @@
 				peopleMap['Key'] = person1;
 
 				// 동등성 비교 규칙을 재정의해서 사람이름의 hashCode가 같기 때문에 true
-				print(peopleMap.containsValue(person2)) // true
+				print(peopleMap.containsValue(person2)); // true
 			}
 			```
 	- identicalkeyword
@@ -148,8 +148,8 @@
 			Person({required this.name, required this.age});
 			...
 			Person copyWith({ // 복사 메서드
-				String? name;
-				int? age;	
+				String? name,
+				int? age	
 			}) {
 				return Person(
 					name: name ?? this.name,
@@ -173,7 +173,7 @@
 				Wizard({this.name, this.hp, this.wand});							
 				// shallowCopy시 생성된 wand 인스턴스를 넣어줘서 같은 주소를 참조하는 문제 발생
 				// wand 인스턴스 속성 변경시 동시에 바뀌는 문제 발생
-				Wizard shallowCopy() => Wizard(name, hp, wand);
+				Wizard shallowCopy() => Wizard(name: name, hp: hp, wand: wand);
 			}
 			```
 	- 깊은 복사
