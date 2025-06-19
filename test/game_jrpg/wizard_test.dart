@@ -1,6 +1,6 @@
-import 'package:modu_3_dart_study/hero.dart';
-import 'package:modu_3_dart_study/wand.dart';
-import 'package:modu_3_dart_study/wizard.dart';
+import 'package:modu_3_dart_study/game_jrpg/hero.dart';
+import 'package:modu_3_dart_study/game_jrpg/wand.dart';
+import 'package:modu_3_dart_study/game_jrpg/wizard.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

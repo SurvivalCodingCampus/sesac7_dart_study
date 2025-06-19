@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/wizard.dart';
+import 'package:modu_3_dart_study/game_jrpg/wizard.dart';
 
 import 'hero.dart';
 
