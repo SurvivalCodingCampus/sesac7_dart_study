@@ -4,9 +4,9 @@
 '공격가능함과 Attackable , 힐을 받을 수 있냐 Healalble 을 가리기 위해 인터페이스로 뺌.
 '생물인가? Bionic, 기계인가? Mechanic 을 인터페이스로 뺌
 '추상클래스인 BionicUnit은 Unit을 상속받고, Healable과 Bionic을 구현.
+scale 0.8
 abstract class Entity{
     int hp
-
 }
 
 abstract class Unit extends Entity {
@@ -23,11 +23,11 @@ interface Terran {
 }
 
 interface Zerg {
-    void regenerate()
+    {abstract}void regenerate()
 }
 
 interface Protoss {
-    void shieldRegeneration()
+    {abstract}void shieldRegeneration()
     ..getter..
     int shield()
     ..setter..
@@ -39,7 +39,7 @@ interface Healable {
 }
 
 interface Attackable {
-    void attack(Entity entity)
+    {abstract}void attack(Entity entity)
     ..getter..
     int damage()
     ..setter..
@@ -83,7 +83,7 @@ class Marine extends BionicUnit implements Terran, Attackable {
 
 
 class Medic extends BionicUnit implements Terran {
-    void heal(Bionic bionic) //힐
+    void heal(Healable unit) //힐
 }
 
 class Tank extends MechanicUnit implements Terran, Attackable {
