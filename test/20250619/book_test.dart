@@ -20,10 +20,13 @@ void main() {
       final List<Book> books = [book1, book2, book3, book4, book5];
       books.sort();
 
-      expect(books[0].title == '체육' && books[0].comment == '힘든책', true);
-      expect(books[4].title == '체육' && books[4].comment == '재밌는책', true);
+      expect(books[0].title == '가정' && books[0].comment == '따분한책', true);
+      expect(books[4].title == '체육' && books[4].comment == '힘든책', true);
     });
     test('copyWith() 메서드를 제공한다 (깊은 복사)', () {
+      expect(book1.title == book5.title, true);
+      expect(book1.comment == book5.comment, true);
+      expect(book1.publishDate == book5.publishDate, true);
       expect(identical(book1, book5), false);
     });
   });

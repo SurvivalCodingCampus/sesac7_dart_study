@@ -27,7 +27,10 @@ class Book implements Comparable<Book>{
   @override
   int get hashCode => title.hashCode ^ publishDate.hashCode;
 
-  Book deepCopy() => Book(title: title, comment: comment);
+  Book deepCopy() {
+    DateTime dateTime = DateTime(publishDate.year, publishDate.month, publishDate.day);
+    return Book(title: title, comment: comment, publishDate: dateTime);
+  }
 
   Book copyWith({
     String? title,
