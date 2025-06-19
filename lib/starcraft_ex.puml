@@ -1,78 +1,79 @@
 @startuml
 
-scale 0.7
+scale 0.8
 
-
-class Terran{}
-class Zerg{}
-class Protoss{}
-
-class Mineral{
- 유닛을생산()??
+'종족 인터페이스
+interface race{
+ strig name
+ bol isBio
 }
 
-class Unit{}
+'3종족
+class Terran implements race{}
+class Zerg implements race{}
+class Protoss implements race{}
 
-class Structure{}
+'미네랄자원
+class Mineral{
+ double mineral amount
+}
+
+'공격
+interface Attackable{
+ void attack()
+}
+
+'회복
+interface Recoverable{
+ void recover()
+}
+
+'치료 매딕
+interface Cureable{
+ bool cureable()
+}
+
+'수리
+interface Repairable{
+ bool repairable()
+}
+
+'채취
+interface mineable{
+ void mineing()
+}
+
+'종족
+abstract class Unit{
+ Race race
+ string unitName
+
+  Identify(Race race)
+}
 
 class Bionic implements Unit{}
 
 class Mechanic extends Unit{}
 
-class marine extends Bionic{
- 공격()
-}
-class medic extends Bionic{
- 공격불가능
+class marine extends Bionic implements Attackable {}
+class medic extends Bionic implements Cureable {}
 
- 생물유닛치료가능()
-}
+class Tank extends Mechanic implements Attackable, Repairable {}
+class Vulture extends Mechanic implements Attackable, Repairable {}
 
-class Tank extends Mechanic{
- 공격()
-}
-class Vulture extends Mechanic{
- 공격()
-}
+class Scv extends Mechanic implements Attackable, Cureable, mineable, Repairable {}
 
-class Scv extends Mechanic{
- 매딕치료대상
+class Zergling extends Bionic implements Attackable, Recoverable {}
+class Hydra extends Bionic implements Attackable, Recoverable {}
+class ZergStructure extends Bionic, Recoverable, Structure {}
 
- 공격()
- 자원채취()
- 기계유닛수리()
+class Zealot extends Bionic implements Attackable, Recoverable, Cureable{}
+class Dragon extends Mechanic implements Attackable, Recoverable {}
+
+interface Structure{
+ Race race
+ string unitName
+ void build()
 }
 
-class Zergling extends Bionic{
-생물유닛
-매딕에 의해 치료불가
-
-서서희회복()
-}
-class Hydra extends Bionic{
-생물유닛
-매딕에 의해 치료불가
-
-서서희회복()
-}
-class ZergStructure extends Bionic{
- 생물유닛
- 매딕에 의해 치료불가
-
-서서희회복()
-}
-
-class Zealot extends Bionic{
- 방어막
- 생물유닛
-
- 방어막회복()
- 매딕에 의해 치료()
-}
-class Dragon extends Mechanic{
- 방어막
- 기계유닛
-
- 방어막회복()
-}
 @enduml
