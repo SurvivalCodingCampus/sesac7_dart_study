@@ -1,7 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 import 'package:modu_3_dart_study/assignments/2025-06-19/book.dart';
-import 'dart:collection';
 
 void main() {
   group('GROUP : Book eqaulity override test\n', () {
@@ -25,9 +24,7 @@ void main() {
         publishDate: date1,
         comment: "생존코딩 책",
       );
-
       //when
-
       //then
       expect(date1 == date2, true);
       expect(book1 == book2, true);
@@ -49,7 +46,6 @@ void main() {
         comment: "생존코딩 책",
       );
       //when
-
       //then
       expect(date1 == date2, false);
       expect(book1 == book2, false);
@@ -70,7 +66,6 @@ void main() {
         comment: "생존코딩 책",
       );
       //when
-
       //then
       expect(date1 == date2, true);
       expect(book1 == book2, false);
@@ -91,7 +86,6 @@ void main() {
         comment: "생존코딩 책일지도 몰라요",
       );
       //when
-
       //then
       expect(date1 == date2, true);
       expect(book1 == book2, true);
@@ -119,12 +113,29 @@ void main() {
       List<Book> books = [yellowBook, blueBook, redBook];
       books.sort();
       //when
-
       //then
       expect(
         ListEquality().equals(books, [blueBook, yellowBook, redBook]),
         true,
       );
+    });
+  });
+  group('GROUP : copyWith() tests\n', () {
+    test('deep copy test', () {
+      //given
+      DateTime date1 = DateTime(1995, 11, 9);
+
+      Book book1 = Book(
+        title: "오준석의 생존코딩",
+        publishDate: date1,
+        comment: "생존코딩 책",
+      );
+      //when
+      Book book2 = book1.copyWith();
+      //then
+      expect(book1 == book2, true);
+      expect(identical(book1, book2), false);
+      expect(identical(date1, book2.publishDate), false);
     });
   });
 }
