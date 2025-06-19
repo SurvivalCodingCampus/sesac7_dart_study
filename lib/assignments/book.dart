@@ -1,13 +1,18 @@
-import 'package:modu_3_dart_study/assignments/tangible_asset.dart';
+class Book {
+  String title;
+  DateTime publishDate;
+  String comment;
 
-class Book extends TangibleAsset {
-  final String isbn;
+  Book({required this.title, required this.comment, DateTime? publishDate})
+    : publishDate = publishDate ?? DateTime.now();
 
-  Book(
-    super._weight, {
-    required super.name,
-    required super.price,
-    required super.color,
-    required this.isbn,
-  });
+  @override
+  bool operator ==(Object other) {
+    return other is Book &&
+        title == other.title &&
+        publishDate == other.publishDate;
+  }
+
+  @override
+  int get hashCode => title.hashCode ^ publishDate.hashCode;
 }
