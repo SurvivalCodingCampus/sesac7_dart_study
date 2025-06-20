@@ -44,15 +44,16 @@ class StrongBox<E> {
   E? get() {
     // 설정한 keyType에 따라 entity를 얻는 시도를 한다. (getEntity)
     // 사용횟수 제한은 keyTypeMap[keyType]을 따른다.
+    // selectEntityResult 결과에 따라 null을 리턴할지, entity를 리턴하고 금고를 초기화할지를 선택한다.
     switch (keyType) {
       case KeyType.padlock:
-        return getEntity(keyTypeMap[keyType]!);
+        return selectEntityResult(keyType);
       case KeyType.button:
-        return getEntity(keyTypeMap[keyType]!);
+        return selectEntityResult(keyType);
       case KeyType.dial:
-        return getEntity(keyTypeMap[keyType]!);
+        return selectEntityResult(keyType);
       case KeyType.finger:
-        return getEntity(keyTypeMap[keyType]!);
+        return selectEntityResult(keyType);
     }
   }
 
@@ -65,5 +66,20 @@ class StrongBox<E> {
     }
 
     return entity;
+  }
+
+  // entity 값을 null로, tryCount 값을 0으로 초기화할지를 결정
+  // 한 사이클이 끝났을 때(entity를 리턴할 때) 초기화 실행 후 임시 저장했던 result(entity)를 리턴
+  // 사이클 실행 중에는 그대로 null을 리턴
+  E? selectEntityResult(KeyType keyType) {
+    E? result = getEntity(keyTypeMap[keyType]!);
+
+    if (result != null) {
+      _entity = null;
+      _tryCount = 0;
+      return result;
+    }
+
+    return null;
   }
 }
