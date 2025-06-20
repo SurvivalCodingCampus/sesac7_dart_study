@@ -16,7 +16,7 @@
 			buffer
 				..write('World')
 			void main() {
-				print(buffer.toString); // 'HelloWorld'
+				print(buffer.toString()); // 'HelloWorld'
 			}
 			```
 - String Interpolation(보간)
@@ -81,28 +81,28 @@
 	```dart
 	void main() {
 		String helloWorld = 'Hello World';
-		print(hello.contains('Hello')); // true
+		print(helloWorld.contains('Hello')); // true
 	}
 	```
 	- endsWith() 함수를 사용한다. 파라미터로 해당 문자열의 끝나는 문자열 체크할 문자열을 넣음
 	```dart
 	void main() {
 		String helloWorld = 'Hello World';
-		print(hello.endsWith('World')); // true
+		print(helloWorld.endsWith('World')); // true
 	}
 	```
 	- indexOf() 함수를 사용한다. 파라미터로 문자열에서 몇 번째에 있는지 확인할 문자열을 넣음
 	```dart
 	void main() {
 		String helloWorld = 'Hello World';
-		print(hello.indexOf('Hello')); // 0
+		print(helloWorld.indexOf('Hello')); // 0
 	}
 	```
 	- lastIndexOf() 함수를 사용한다. 파라미터로 뒤에서 몇 번째에 있는지 확인할 문자열을 넣음
 	```dart
 	void main() {
 		String helloWorld = 'Hello World';
-		print(hello.lastIndexOf('l')); // 3
+		print(helloWorld.lastIndexOf('l')); // 3
 	}
 	```
 - 문자열 내용 비교
@@ -112,7 +112,7 @@
 		String hello1 = 'hello';
 		String hello2 = 'HELLO';
 		
-		print(hello1 == hello2)); // false
+		print(hello1 == hello2); // false
 		print(hello1.toLowerCase() == hello2.toLowerCase()); // true
 	}
 	```
@@ -122,7 +122,7 @@
 	void main() {
 		String hello = 'Hello';
 		
-		print(hello.length)); // 5 길이체크
+		print(hello.length); // 5 길이체크
 		print(hello.isEmpty); // false 비어있는지 확인
 	}
 	```
@@ -132,7 +132,7 @@
 	void main() {
 		String hello = 'Hello';
 		
-		print(hello.toLowerCase()); // 'hello'
+		print(hello.toLowerCase()); // 'hello'
 	}
 	```
 	- toUpperCase() 함수를 사용한다. 해당 함수는 모든 문자를 대문자로 변경
@@ -140,7 +140,7 @@
 	void main() {
 		String hello = 'Hello';
 		
-		print(hello.toUpperCase()); // 'HELLO'
+		print(hello.toUpperCase()); // 'HELLO'
 	}
 	```
 	- trim() 함수를 사용한다. 해당 함수는 문자열의 좌우 공백을 제거한다.
@@ -148,7 +148,7 @@
 	void main() {
 		String hello = '   Hello  ';
 		
-		print(hello.trim()); // 'hello'
+		print(hello.trim()); // 'Hello'
 	}
 	```
 	- replaceAll() 함수를 사용한다. 해당 함수의 첫 번째 파라미터 문자열을 두 번째 파라미터 문자열로 전부 교체한다.
@@ -156,6 +156,6 @@
 	void main() {
 		String hello = 'HelloBello';
 		
-		print(hello.replaceAll('ll', 'xx')); // 'HexxoBexxo'
+		print(hello.replaceAll('ll', 'xx')); // 'HexxoBexxo'
 	}
 	```
