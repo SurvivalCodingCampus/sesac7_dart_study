@@ -48,7 +48,7 @@ class InstanceBook implements Comparable<InstanceBook> {
     return InstanceBook(
       title: title ?? this.title,
       comment: comment ?? this.comment,
-      publishDate: publishDate ?? DateTime.now(),
+      publishDate: publishDate ?? this.publishDate,
     );
   }
 
