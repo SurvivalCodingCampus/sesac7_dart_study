@@ -6,7 +6,7 @@
 	```dart
 	class Box<E> {
 		E product;
-		Box({required this.product})
+		Box({required this.product});
 	}
 	```
 - Keywod
@@ -21,6 +21,6 @@
 		```dart
 		class Box<E extends TangibleAsset> { // interface도 extends를 사용
 			E product;
-			Box({required this.product})
+			Box({required this.product});
 		}
 		```
