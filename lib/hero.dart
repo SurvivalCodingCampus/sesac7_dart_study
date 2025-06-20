@@ -15,7 +15,16 @@ class Hero {
         hp = (hp - amount < 0) ? 0 : hp - amount;
     }
 
-    void damages() {
+
+    @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Hero && runtimeType == other.runtimeType && name == other.name;
+
+  @override
+  int get hashCode => name.hashCode;
+
+  void damages() {
         hp = hp > 0 ? hp - 1 : 0;
     }
     void run() {
