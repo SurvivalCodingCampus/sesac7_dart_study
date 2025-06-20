@@ -1,43 +1,25 @@
 import '../enum/key_type.dart';
 
 class StrongBox<E> {
-  static int padlockTryCount = 1024;
-  static int buttonTryCount = 10000;
-  static int dialTryCount = 30000;
-  static int fingerTryCount = 1000000;
-
   E? _item;
-  late int _openTryCount;
+  int openTryCount;
 
   final KeyType keyType;
 
-  StrongBox({required this.keyType}) {
-    switch (keyType) {
-      case KeyType.padlock:
-        _openTryCount = padlockTryCount;
-        break;
-      case KeyType.button:
-        _openTryCount = buttonTryCount;
-        break;
-      case KeyType.dial:
-        _openTryCount = dialTryCount;
-        break;
-      case KeyType.finger:
-        _openTryCount = fingerTryCount;
-        break;
-    }
-  }
+  StrongBox({required this.keyType}): openTryCount = keyType.tryCount;
 
   void put(E value) => _item = value;
 
   E? get() {
-    if (_openTryCount < 0) {
+    if (openTryCount < 0) {
       throw Exception('이미 아이템 찾아갔음');
     }
-    _openTryCount--;
-    if (_openTryCount == 0) {
+    if (openTryCount == 0) {
+      openTryCount--;
       return _item;
+    } else {
+      openTryCount--;
+      return null;
     }
-    return null;
   }
 }
