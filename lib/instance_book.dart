@@ -1,5 +1,3 @@
-
-
 class InstanceBook implements Comparable<InstanceBook> {
   String _title;
   DateTime _publishDate;
@@ -34,7 +32,10 @@ class InstanceBook implements Comparable<InstanceBook> {
       other is InstanceBook &&
           runtimeType == other.runtimeType &&
           title == other.title &&
-          publishDate == other.publishDate;
+          // 시, 분, 초는 동등성 비교 조건에서 제외하므로 연, 월, 일에 대해서만 검증
+          publishDate.year == other.publishDate.year &&
+          publishDate.month == other.publishDate.month &&
+          publishDate.day == other.publishDate.day;
 
   // Book 클래스 복사를 위한 메소드
   InstanceBook copyWith({
