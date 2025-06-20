@@ -4,21 +4,16 @@ class Word {
   Word({required this.word});
 
   bool isVowel(int i) {
-    if (i > 0) {
-      String char = word.substring(i - 1, i).toLowerCase();
-
-      return char == 'a' ||
-          char == 'e' ||
-          char == 'i' ||
-          char == 'o' ||
-          char == 'u';
+    if (i >= 1 && i <= word.length) {
+      String char = word[i - 1].toLowerCase();
+      return 'aeiou'.contains(char);
     } else {
       return false;
     }
   }
 
   bool isConsonant(int i) {
-    if (i > 0) {
+    if (i >= 1 && i <= word.length) {
       return !isVowel(i);
     } else {
       return false;
