@@ -1,7 +1,7 @@
 class Word {
   String word = '';
 
-  Word(this.word);
+  Word({required this.word});
 
   bool isVowel(int i) {
     if(i >= word.length || i < 0) {
