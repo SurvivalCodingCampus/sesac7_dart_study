@@ -29,7 +29,7 @@ void main() {
       );
 
       expect(book.name, equals(testBookName));
-      expect(book.price, equals(testBookSealed ? testBookPrice + book.sealPrice : testBookPrice - book.sealPrice));
+      expect(book.price, equals(testBookPrice - book.sealPrice));
       expect(book.color, equals(testBookColor));
       expect(book.texture, equals(testBookTexture));
       expect(book.isbn, equals(testBookIsbn));
