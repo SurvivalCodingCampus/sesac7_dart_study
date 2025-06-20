@@ -45,6 +45,7 @@ class Book implements Comparable<Book> {
   //     publishDate: publishDate ?? this.publishDate,
   //   );
   // }
+
   Book copyWith() =>
       Book(title: title, comment: comment, publishDate: publishDate.copyWith());
 }
