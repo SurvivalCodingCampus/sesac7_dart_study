@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/book.dart';
+import 'package:modu_3_dart_study/abstract_class_interface/computer.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
@@ -7,26 +7,26 @@ void main() {
     final String testName = '';
     final int testPrice = 0;
     final String testColor = '';
-    final String testIsbn = '';
+    final String testMakerName = '';
     final double testWeight = 0.0;
-    final book = Book(
+    final computer = Computer(
       name: testName,
       price: testPrice,
       color: testColor,
-      isbn: testIsbn,
+      makerName: testMakerName,
       weight: testWeight,
     );
 
     test('weight의 getter, setter 테스트', () {
-      final double getWeight = book.weight;
+      final double getWeight = computer.weight;
       final double setWeight = 1.0;
 
-      expect(book.weight == getWeight, equals(true));
+      expect(computer.weight == getWeight, equals(true));
 
-      book.weight = setWeight;
+      computer.weight = setWeight;
 
-      expect(book.weight == getWeight, equals(false));
-      expect(book.weight == setWeight, equals(true));
+      expect(computer.weight == getWeight, equals(false));
+      expect(computer.weight == setWeight, equals(true));
     });
   });
 }

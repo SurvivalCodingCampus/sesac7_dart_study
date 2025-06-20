@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/person.dart';
+import 'package:modu_3_dart_study/encapsulation/person.dart';
 
 void main() {
   practice2();

@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/asset.dart';
-import 'package:modu_3_dart_study/thing.dart';
+import 'package:modu_3_dart_study/abstract_class_interface/asset.dart';
+import 'package:modu_3_dart_study/abstract_class_interface/thing.dart';
 
 abstract class TangibleAsset extends Asset implements Thing {
   String _color;
