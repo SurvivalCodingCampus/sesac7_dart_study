@@ -33,7 +33,7 @@ print(buffer.toString());
 ### 더하기 연산자로 String을 다루지 말자 (성능을 고려한다면)
 
 - + 연산자가 느린 이유는 String 인스턴스가 불변 객체 (immutable) 이기 때문이다
-- StringBuffer를 사용하는게 성능 면에서 떠 빠르
+- StringBuffer를 사용하는게 성능 면에서 떠 빠르다
 
 ```dart
 인스턴스를 반복할 때마다 생성하기 때문에 일정 이상 생성하면 성능에 영향을 준다
