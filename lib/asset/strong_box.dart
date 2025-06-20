@@ -7,12 +7,9 @@ class StrongBox<E> {
   static int fingerTryCount = 1000000;
 
   E? _item;
-
   late int _openTryCount;
 
   final KeyType keyType;
-
-  E? get item => _item;
 
   StrongBox({required this.keyType}) {
     switch (keyType) {
