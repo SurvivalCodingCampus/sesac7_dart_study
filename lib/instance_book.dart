@@ -37,6 +37,10 @@ class InstanceBook implements Comparable<InstanceBook> {
           publishDate.month == other.publishDate.month &&
           publishDate.day == other.publishDate.day;
 
+  @override
+  int get hashCode =>
+      title.hashCode ^ publishDate.year ^ publishDate.month ^ publishDate.day;
+
   // Book 클래스 복사를 위한 메소드
   InstanceBook copyWith({
     required String? title,
