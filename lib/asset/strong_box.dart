@@ -11,7 +11,7 @@ class StrongBox<E> {
 
   final KeyType keyType;
 
-  StrongBox(this.keyType) {
+  StrongBox({required this.keyType}) {
     switch (keyType) {
       case KeyType.padlock:
         _openTryCount = padlockTryCount;
