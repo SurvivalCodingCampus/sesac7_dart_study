@@ -34,7 +34,7 @@ class Slime extends Monster {
 
 class Wizard extends Character {
   int mp = 100;
-  Wizard(String name, int hp) : super(name, hp);
+  Wizard(super.name, super.hp);
 
   @override
   void attack(Monster monster) {
@@ -56,6 +56,5 @@ void main(List<String> arguments) {
   Slime slime = Slime('A');
 
   character.attack(slime); // OK: Character에 정의된 메서드
-
   // character.fireball(slime); // 컴파일 에러: Character 타입에는 fireball 없기때문에 컴파일러가 인식하지 못함
 } 

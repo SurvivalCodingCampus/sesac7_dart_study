@@ -1,19 +1,153 @@
-@startuml
+@startuml game
 
-interface Terran {
-    
+interface AttackAble{
+    void attack()
 }
 
-interface Zerg {
-    
+interface HealAble{
+
 }
 
-interface Protoss {
-    
+interface MoveAble{
+void move()
 }
 
-abstract class Bionic{
-    
+interface MineAble{
+void mine()
 }
 
+interface SelfAidAble{
+void selfAid()
+}
+
+class Group{
+List<MoveAble> = []
+}
+
+abstract class Bionic {}
+
+class Mechanic {}
+
+class ZergUnit extends Bionic implements SelfAidAble, HealAble, MoveAble{}
+
+class ZergStructure extends Bionic implements SelfAidAble{}
+
+class TerranBioUnit extends Bionic implements HealAble, MoveAble{}
+
+class TerranMechanicUnit extends Mechanic,MoveAble{}
+
+class TerranStructure extends Mechanic{}
+
+class ProtossBionicUnit extends Bionic implements HealAble, SelfAidAble, MoveAble{
+    int shield
+}
+
+class ProtossMechanicUnit extends Mechanic implements SelfAidAble, MoveAble{
+    int shield
+}
+
+class ProtossStructure extends Mechanic implements SelfAidAble{
+    int shield
+}
+
+class Zergling extends ZergUnit implements AttackAble{}
+
+class Hydra extends ZergUnit implements AttackAble{}
+
+class Marin extends TerranBioUnit implements AttackAble{}
+
+class Medic extends TerranBioUnit{
+    void heal(HealAble)
+}
+
+class Tank extends TerranMechanicUnit implements AttackAble {}
+
+class Scv extends TerranMechanicUnit implements AttackAble, HealAble, MineAble {
+    void repair()
+}
+
+class Zealot extends ProtossBionicUnit implements AttackAble {}
+
+class Dragon extends ProtossMechanicUnit implements AttackAble{}
+
+
+
+'interface Terran {
+'  void TerranFuntion()
+'}
+'
+'interface Zerg extends SelfAidAble{
+'
+'}
+'
+'class Protoss implements SelfAidAble{
+'int shield
+'}
+'
+'
+'interface SelfAidAble{
+'void selfAid()
+'}
+'
+'interface AttackAble{
+'void attack()
+'}
+'
+'
+'interface MineAble{
+'void mine()
+'}
+'
+'class Bionic {
+'}
+'
+'class Mechanic {
+'}
+'
+'abstract class BionicUnit extends Bionic {
+'
+'}
+'
+'
+'class Mineral {
+'
+'}
+'
+'
+'abstract class MechanicUnit extends Mechanic implements Terran, Zerg{
+'}
+'
+'abstract class BionicStructure implements Terran{
+'}
+'
+'abstract class MechanicStructure extends Mechanic{
+'}
+'
+'
+'class Marin extends BionicUnit implements AttackAble{
+'    int hp
+'    bool IsHealTarget
+'}
+'
+'class Medic extends BionicUnit{
+'   int hp
+'   heal()
+'}
+'
+'class Tank extends MechanicUnit implements AttackAble{
+'   int hp
+'   bool IsHealTarget
+' }
+'
+'
+'class Scv extends BionicUnit implements AttackAble,MineAble{
+'   int hp
+'   bool IsHealTarget
+'   repair()
+'   getMineral()
+'}
+'
+'class Zergling extends BionicUnit implements AttackAble {
+'}
+'
 @enduml

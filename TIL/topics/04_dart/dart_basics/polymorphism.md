@@ -1,5 +1,11 @@
 # 다형성
 
+## 다형성 활용 방법
+- 추상적인 선언 = 상세 정의로 인스턴스 화
+```dart
+  Character character = Hero('홍길동', 100);
+```
+
 ## 스마트 캐스팅 (Smart Cast) - `is` 키워드
 
 - 스마트 캐스팅은 `is` 키워드를 사용해 **타입을 검사한 뒤** 해당 타입이 맞을 경우 안전하게 해당 타입의 멤버에 접근할 수 있도록 함
@@ -9,8 +15,8 @@ void main(List<String> arguments) {
   Character character = Wizard('name', 10);
 
   if (character is Hero) {
-    Hero hero = character; // 타입 확인 후 안전하게 다운캐스팅 가능
-    // hero 객체를 사용 가능
+    Hero hero = character; // 타입 확인 후
+    // hero 객체를 사용
   }
 }
 ```

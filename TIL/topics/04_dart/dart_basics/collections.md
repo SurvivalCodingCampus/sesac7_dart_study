@@ -102,6 +102,23 @@ names.forEach(printName);
 names.forEach(print);
 ```
 
+### List sort() 정렬
+
+```dart
+final numbers = [1, 3, 2];
+numbers.sort(); // 기본제공되는 sort는 원본의 구조를 변경해버린다
+numbers.sort((a, b) => b - a); // 역순정렬
+numbers.sorted((a, b) => a - b); // 라이브러리에서 제공하는 sorted를 사용해서 원본의 변경없이 새로운 List 값을 사용한다
+```
+
+- 리스트는 인터페이스
+- int 는 추상클래스, num 을 상속받은
+- compareTo 는 num 이 준것
+- num 은 comparable 한 인터페이스 타입 
+
+임의로 정의한 리스트를 sort 할때는 어떤 기준으로 sort 할것인지 정의해주어야한다
+반드시 compare 해야함 compareTo comparable 구현하면 sort 가능해짐
+
 ## 3. Map
 - 키(key)와 값(value)의 쌍으로 저장
 - 키의 중복 불가
@@ -180,3 +197,23 @@ print(heros[0].name); // '한석봉'
 - 대한민국의 도시 이름 모음(순서상관없음): 중복되는 값이 있을 수 있으니 List
 - 10명 학생의 시험 점수: Map
 - 대한민국의 도시별 인구수(순서상관없음): Map
+
+
+### 복사
+그래서 int 같은건 왜 복사되지?
+레퍼런스 기반으로 왜?
+
+### 얕은 복사, 깊은 복사
+
+```dart
+// 참조기반의 사용자 정의된 타입을 복사해서 사용하기 위해 copyWith 메서드 구현
+  Hero copyWith({
+    String? name,
+    double? hp,
+  }) {
+    return Hero(
+      name: name ?? this.name,
+      hp: hp ?? this.hp,
+    );
+  }
+```

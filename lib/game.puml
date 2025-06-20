@@ -1,7 +1,168 @@
-@startuml name
+@startuml game
 
 interface AttackAble{
     void attack()
 }
 
+interface HealAble{
+
+}
+
+interface MoveAble{
+void move()
+}
+
+interface MineAble{
+void mine()
+}
+
+interface SelfAidAble{
+void selfAid()
+}
+
+class Group{
+List<MoveAble> = []
+}
+
+abstract class Bionic {}
+
+class Mechanic {}
+
+class ZergUnit extends Bionic implements SelfAidAble, HealAble, MoveAble{}
+
+class ZergStructure extends Bionic implements SelfAidAble{}
+
+class TerranBioUnit extends Bionic implements HealAble, MoveAble{}
+
+class TerranMechanicUnit extends Mechanic,MoveAble{}
+
+class TerranStructure extends Mechanic{}
+
+class ProtossBionicUnit extends Bionic implements HealAble, SelfAidAble, MoveAble{
+    int shield
+}
+
+class ProtossMechanicUnit extends Mechanic implements SelfAidAble, MoveAble{
+    int shield
+}
+
+class ProtossStructure extends Mechanic implements SelfAidAble{
+    int shield
+}
+
+class Zergling extends ZergUnit implements AttackAble{}
+
+class Hydra extends ZergUnit implements AttackAble{}
+
+class Marin extends TerranBioUnit implements AttackAble{}
+
+class Medic extends TerranBioUnit{
+    void heal(HealAble)
+}
+
+class Tank extends TerranMechanicUnit implements AttackAble {}
+
+class Scv extends TerranMechanicUnit implements AttackAble, HealAble, MineAble {
+    void repair()
+}
+'설계도 보는 사람이 봤을때 새로운게 유닛이 생겨났을때 유닛이면서 건물이다 이렇게 하지 않게 하기 is-a 가 되면서
+
+
+'repair 가능한 것을 Mechanic 을 받는다
+'종족별 구분도 필요하다
+
+'객체설계 :
+'추상 클래스(한번 할수 있고 상속을 필수로 해야하니 확장성이 떨어진다) 사용을 줄이고 인터페이스를 기본값으로 가져가는게 확장가능한 객체지향
+'꼭 상속이 필요할때 추상 클래스
+'많은 인터페이스를 사용하면서 공통적인 인터페이스를 하나로 묶어서 관리하는 방식도 있다 extends 로 묶어서 사용
+'bottom up 방식으로 설계하면서 겹치고 공통적인 속성들을 상위로 묶을수있다면 상위로, 생겨나는 새로운 기능들은 인터페이스로
+'자산관리시스템 참고해서 만들기
+'인터페이스, 추상클래스 정확한 사용 방법
+
+class Zealot extends ProtossBionicUnit implements AttackAble {}
+
+class Dragon extends ProtossMechanicUnit implements AttackAble{}
+
+
+'아무 속성도 적혀있지 않다면 abstract class 보다 interface로
+'확장성을 염두에 두고 기능을 별도로 뽑아서 작성해보기
+
+'interface Terran {
+'  void TerranFuntion()
+'}
+'
+'interface Zerg extends SelfAidAble{
+'
+'}
+'
+'class Protoss implements SelfAidAble{
+'int shield
+'}
+'
+'
+'interface SelfAidAble{
+'void selfAid()
+'}
+'
+'interface AttackAble{
+'void attack()
+'}
+'
+'
+'interface MineAble{
+'void mine()
+'}
+'
+'class Bionic {
+'}
+'
+'class Mechanic {
+'}
+'
+'abstract class BionicUnit extends Bionic {
+'
+'}
+'
+'
+'class Mineral {
+'
+'}
+'
+'
+'abstract class MechanicUnit extends Mechanic implements Terran, Zerg{
+'}
+'
+'abstract class BionicStructure implements Terran{
+'}
+'
+'abstract class MechanicStructure extends Mechanic{
+'}
+'
+'
+'class Marin extends BionicUnit implements AttackAble{
+'    int hp
+'    bool IsHealTarget
+'}
+'
+'class Medic extends BionicUnit{
+'   int hp
+'   heal()
+'}
+'
+'class Tank extends MechanicUnit implements AttackAble{
+'   int hp
+'   bool IsHealTarget
+' }
+'
+'
+'class Scv extends BionicUnit implements AttackAble,MineAble{
+'   int hp
+'   bool IsHealTarget
+'   repair()
+'   getMineral()
+'}
+'
+'class Zergling extends BionicUnit implements AttackAble {
+'}
+'
 @enduml

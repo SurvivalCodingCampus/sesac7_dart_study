@@ -66,7 +66,6 @@ void main(){
     
     if (asset is Book){
       // is 를 거쳐서 스마트 타입 캐스팅 book의 방법이 있다.
-      
     }
   }
 
