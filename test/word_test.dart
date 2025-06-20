@@ -34,7 +34,7 @@ void main() {
     });
 
     group('WordClass isConsonant 메서드 자음 테스트', () {
-      test('isConsonant 메서드 자음 인덱스 테스트', () {
+      test('isConsonant 메서드 모음 인덱스 테스트', () {
         final String testWord = 'testWord';
         final Word testWordClass = Word(word: testWord);
 
