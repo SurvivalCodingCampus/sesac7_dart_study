@@ -456,7 +456,7 @@ void main() {
       expect(book2.comment, equals(testComment2));
       expect(book2.publishDate, equals(testDateTime2));
 
-      // publishDate가 null이므로 현재 시간(timeOfNow)으로 설정됨
+      // publishDate가 null이므로 현재 시간(testDateTime1)으로 설정됨
       expect(book3.title, equals(testName2));
       expect(book3.comment, equals(testComment2));
       expect(book3.publishDate, equals(testDateTime1));
