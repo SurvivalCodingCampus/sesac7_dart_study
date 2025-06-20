@@ -19,10 +19,10 @@ enum KeyType {
   finger,
 }
 class StrongBox<T> {
-  static const int padlockLimitNum = 1024;
-  static const int buttonLimitNum = 10000;
-  static const int dialLimitNum = 30000;
-  static const int fingerLimitNum = 1000000;
+  final int padlockLimitNum = 1024;
+  final int buttonLimitNum = 10000;
+  final int dialLimitNum = 30000;
+  final int fingerLimitNum = 1000000;
 
   int padlockNum = 0;
   int buttonNum = 0;
@@ -40,9 +40,7 @@ class StrongBox<T> {
   T? get() {
     switch (_data) {
       case KeyType.padlock:
-        if (padlockLimitNum < padlockNum){
-          return _data;
-        }
+        if (padlockLimitNum < padlockNum) break;
         padlockNum++;
         return null;
       case KeyType.button:
@@ -57,6 +55,8 @@ class StrongBox<T> {
         if (fingerLimitNum < fingerNum) break;
         fingerNum++;
         return null;
+      case null:
+        break;
     }
     return _data;
   }
