@@ -15,7 +15,7 @@ class StrongBox<E> {
     _instance = instance;
   }
 
-  get() {
+  E? get() {
     if (_keyType.count == _count) {
       return _instance;
     } else {
