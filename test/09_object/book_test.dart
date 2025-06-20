@@ -79,7 +79,7 @@ void main() {
       final String newBook6 = bookComment3;
 
       final List<Book> books = [book1, book2, book3, book4, book5, book6];
-      final List<Book> sortedBooks = books.sorted((a, b) => a.compareTo(b));
+      final List<Book> sortedBooks = books.sorted();
 
       expect(books[0] == book1, equals(true));
       expect(books[1] == book2, equals(true));

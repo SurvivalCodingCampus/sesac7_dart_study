@@ -1,4 +1,4 @@
-class Book implements Comparable {
+class Book implements Comparable<Book> {
   String title;
   DateTime publishDate;
   String comment;
@@ -34,17 +34,14 @@ class Book implements Comparable {
 
   @override
   int compareTo(other) {
-    if (other is Book) {
-      final int date = int.parse(
-        publishDate.toString().split(' ')[0].replaceAll('-', ''),
-      );
-      final int otherDate = int.parse(
-        other.publishDate.toString().split(' ')[0].replaceAll('-', ''),
-      );
+    final int date = int.parse(
+      publishDate.toString().split(' ')[0].replaceAll('-', ''),
+    );
+    final int otherDate = int.parse(
+      other.publishDate.toString().split(' ')[0].replaceAll('-', ''),
+    );
 
-      return -(date - otherDate);
-    }
-    throw UnimplementedError();
+    return -(date - otherDate);
   }
 
   Book copyWith({
