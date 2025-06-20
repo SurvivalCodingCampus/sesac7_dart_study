@@ -61,17 +61,16 @@ void main() {
         final String testComment1 = '멋진 책';
         final String testComment2 = '훌륭해요';
         final DateTime timeOfNow = DateTime.now();
-        final DateTime? testDateTime = null;
 
         InstanceBook book1 = InstanceBook(
           title: testName1,
           comment: testComment1,
-          publishDate: testDateTime,
+          publishDate: null,
         );
         InstanceBook book2 = InstanceBook(
           title: testName2,
           comment: testComment2,
-          publishDate: testDateTime,
+          publishDate: null,
         );
 
         // when & then
@@ -408,7 +407,6 @@ void main() {
       final String testComment2 = '훌륭해요';
       final DateTime testDateTime1 = DateTime(1731, 02, 15);
       final DateTime testDateTime2 = DateTime(1876, 04, 27);
-      final DateTime timeOfNow = DateTime.now();
 
       // 복사할 대상 book1
       InstanceBook book1 = InstanceBook(
@@ -461,22 +459,22 @@ void main() {
       // publishDate가 null이므로 현재 시간(timeOfNow)으로 설정됨
       expect(book3.title, equals(testName2));
       expect(book3.comment, equals(testComment2));
-      expect(book3.publishDate, equals(timeOfNow));
+      expect(book3.publishDate, equals(testDateTime1));
 
-      // comment, publishDate가 null이므로 각각 testComment1, 현재 시간(timeOfNow)으로 설정됨
+      // comment, publishDate가 null이므로 각각 testComment1, 기존 시간(testDateTime1)으로 설정됨
       expect(book4.title, equals(testName2));
       expect(book4.comment, equals(testComment1));
-      expect(book4.publishDate, equals(timeOfNow));
+      expect(book4.publishDate, equals(testDateTime1));
 
-      // title, publishDate가 null이므로 각각 testName1, 현재 시간(timeOfNow)으로 설정됨
+      // title, publishDate가 null이므로 각각 testName1, 기존 시간(testDateTime1)으로 설정됨
       expect(book5.title, equals(testName1));
       expect(book5.comment, equals(testComment2));
-      expect(book5.publishDate, equals(timeOfNow));
+      expect(book5.publishDate, equals(testDateTime1));
 
-      // title, comment, publishDate가 null이므로 각각 testName1, testComment1, 현재 시간(timeOfNow)으로 설정됨
+      // title, comment, publishDate가 null이므로 각각 testName1, testComment1, 기존 시간(testDateTime1)으로 설정됨
       expect(book6.title, equals(testName1));
       expect(book6.comment, equals(testComment1));
-      expect(book6.publishDate, equals(timeOfNow));
+      expect(book6.publishDate, equals(testDateTime1));
     });
   });
 }
