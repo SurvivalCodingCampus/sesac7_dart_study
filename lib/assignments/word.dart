@@ -1,6 +1,8 @@
 class Word {
-  String word = '';
+  final String word;
   final List<String> _vowel = ['a', 'e', 'i', 'o', 'u'];
+
+  Word({required this.word});
 
   bool isVowel(int i) {
     if (i < 0 || i >= word.length) return false;
