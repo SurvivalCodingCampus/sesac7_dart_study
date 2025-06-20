@@ -1,4 +1,3 @@
-
 import 'package:modu_3_dart_study/asset/strong_box.dart';
 import 'package:modu_3_dart_study/enum/key_type.dart';
 import 'package:test/expect.dart';
@@ -7,7 +6,7 @@ import 'package:test/scaffolding.dart';
 void main() {
   group('StrongBoxClassTest', () {
     test('StrongBox 클래스 생성자 테스트', () {
-      for(KeyType keyType in KeyType.values) {
+      for (KeyType keyType in KeyType.values) {
         final StrongBox<int> testStrongBox = StrongBox(keyType: keyType);
         expect(keyType, equals(testStrongBox.keyType));
       }
@@ -19,9 +18,9 @@ void main() {
 
       testStrongBox.put(intItem);
 
-      for(int i = 0; i <= StrongBox.fingerTryCount; i++) {
+      for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
         int? item = testStrongBox.get();
-        if(i == StrongBox.fingerTryCount) {
+        if (i == testStrongBox.keyType.tryCount) {
           expect(item.runtimeType, equals(intItem.runtimeType));
         }
       }
@@ -30,13 +29,16 @@ void main() {
     group('StrongBox 클래스 KeyType 별 get 메서드 테스트', () {
       group('KeyType padlock get 메서드 테스트', () {
         test('padlock get메서드 count 미달 return null 테스트', () {
-          final StrongBox<int> testStrongBox = StrongBox(keyType: KeyType.padlock);
+          final StrongBox<int> testStrongBox = StrongBox(
+            keyType: KeyType.padlock,
+          );
           final int intItem = 10000;
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.padlockTryCount; i++) {
-            if(i == StrongBox.padlockTryCount - 1) { // 마지막 카운트전에 나와서 expect에서 호출
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
+            if (i == testStrongBox.keyType.tryCount - 1) {
+              // 마지막 카운트전에 나와서 expect에서 호출
               break;
             } else {
               testStrongBox.get();
@@ -46,29 +48,33 @@ void main() {
         });
 
         test('padlock get메서드 count 도달 return iten 테스트', () {
-          final StrongBox<int> testStrongBox = StrongBox(keyType: KeyType.padlock);
+          final StrongBox<int> testStrongBox = StrongBox(
+            keyType: KeyType.padlock,
+          );
           final int intItem = 10000;
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.padlockTryCount; i++) {
-            if(i == StrongBox.padlockTryCount) { // 마지막 카운트에 나와서 expect에서 호출
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
+            if (i == testStrongBox.keyType.tryCount) {
+              // 마지막 카운트에 나와서 expect에서 호출
               break;
             } else {
               testStrongBox.get();
             }
           }
-
           expect(testStrongBox.get(), equals(intItem));
         });
 
         test('padlock get메서드 count 초과 throw 테스트', () {
-          final StrongBox<int> testStrongBox = StrongBox(keyType: KeyType.padlock);
+          final StrongBox<int> testStrongBox = StrongBox(
+            keyType: KeyType.padlock,
+          );
           final int intItem = 10000;
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.padlockTryCount; i++) {
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
             testStrongBox.get();
           }
           expect(() => testStrongBox.get(), throwsException);
@@ -77,13 +83,16 @@ void main() {
 
       group('KeyType button get 메서드 테스트', () {
         test('button get메서드 count 미달 return null 테스트', () {
-          final StrongBox<int> testStrongBox = StrongBox(keyType: KeyType.button);
+          final StrongBox<int> testStrongBox = StrongBox(
+            keyType: KeyType.button,
+          );
           final int intItem = 10000;
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.buttonTryCount; i++) {
-            if(i == StrongBox.buttonTryCount - 1) { // 마지막 카운트전에 나와서 expect에서 호출
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
+            if (i == testStrongBox.keyType.tryCount - 1) {
+              // 마지막 카운트전에 나와서 expect에서 호출
               break;
             } else {
               testStrongBox.get();
@@ -93,13 +102,16 @@ void main() {
         });
 
         test('button get메서드 count 도달 return iten 테스트', () {
-          final StrongBox<int> testStrongBox = StrongBox(keyType: KeyType.button);
+          final StrongBox<int> testStrongBox = StrongBox(
+            keyType: KeyType.button,
+          );
           final int intItem = 10000;
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.buttonTryCount; i++) {
-            if(i == StrongBox.buttonTryCount) { // 마지막 카운트에 나와서 expect에서 호출
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
+            if (i == testStrongBox.keyType.tryCount) {
+              // 마지막 카운트에 나와서 expect에서 호출
               break;
             } else {
               testStrongBox.get();
@@ -110,12 +122,14 @@ void main() {
         });
 
         test('button get메서드 count 초과 throw 테스트', () {
-          final StrongBox<int> testStrongBox = StrongBox(keyType: KeyType.button);
+          final StrongBox<int> testStrongBox = StrongBox(
+            keyType: KeyType.button,
+          );
           final int intItem = 10000;
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.buttonTryCount; i++) {
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
             testStrongBox.get();
           }
           expect(() => testStrongBox.get(), throwsException);
@@ -129,8 +143,9 @@ void main() {
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.dialTryCount; i++) {
-            if(i == StrongBox.dialTryCount - 1) { // 마지막 카운트전에 나와서 expect에서 호출
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
+            if (i == testStrongBox.keyType.tryCount - 1) {
+              // 마지막 카운트전에 나와서 expect에서 호출
               break;
             } else {
               testStrongBox.get();
@@ -145,8 +160,9 @@ void main() {
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.dialTryCount; i++) {
-            if(i == StrongBox.dialTryCount) { // 마지막 카운트에 나와서 expect에서 호출
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
+            if (i == testStrongBox.keyType.tryCount) {
+              // 마지막 카운트에 나와서 expect에서 호출
               break;
             } else {
               testStrongBox.get();
@@ -162,7 +178,7 @@ void main() {
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.dialTryCount; i++) {
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
             testStrongBox.get();
           }
           expect(() => testStrongBox.get(), throwsException);
@@ -171,13 +187,16 @@ void main() {
 
       group('KeyType finger get 메서드 테스트', () {
         test('finger get메서드 count 미달 return null 테스트', () {
-          final StrongBox<int> testStrongBox = StrongBox(keyType: KeyType.finger);
+          final StrongBox<int> testStrongBox = StrongBox(
+            keyType: KeyType.finger,
+          );
           final int intItem = 10000;
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.fingerTryCount; i++) {
-            if(i == StrongBox.fingerTryCount - 1) { // 마지막 카운트전에 나와서 expect에서 호출
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
+            if (i == testStrongBox.keyType.tryCount - 1) {
+              // 마지막 카운트전에 나와서 expect에서 호출
               break;
             } else {
               testStrongBox.get();
@@ -187,13 +206,16 @@ void main() {
         });
 
         test('finger get메서드 count 도달 return iten 테스트', () {
-          final StrongBox<int> testStrongBox = StrongBox(keyType: KeyType.finger);
+          final StrongBox<int> testStrongBox = StrongBox(
+            keyType: KeyType.finger,
+          );
           final int intItem = 10000;
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.fingerTryCount; i++) {
-            if(i == StrongBox.fingerTryCount) { // 마지막 카운트에 나와서 expect에서 호출
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
+            if (i == testStrongBox.keyType.tryCount) {
+              // 마지막 카운트에 나와서 expect에서 호출
               break;
             } else {
               testStrongBox.get();
@@ -204,12 +226,14 @@ void main() {
         });
 
         test('finger get메서드 count 초과 throw 테스트', () {
-          final StrongBox<int> testStrongBox = StrongBox(keyType: KeyType.finger);
+          final StrongBox<int> testStrongBox = StrongBox(
+            keyType: KeyType.finger,
+          );
           final int intItem = 10000;
 
           testStrongBox.put(intItem);
 
-          for(int i = 0; i <= StrongBox.fingerTryCount; i++) {
+          for (int i = 0; i <= testStrongBox.keyType.tryCount; i++) {
             testStrongBox.get();
           }
           expect(() => testStrongBox.get(), throwsException);
