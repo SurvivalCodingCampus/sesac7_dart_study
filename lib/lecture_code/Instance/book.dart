@@ -20,7 +20,7 @@ class Book implements Comparable<Book> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Book && title == other.title && publishDate == other.publishDate;
+      other is Book && title == other.title && publishDate == other.publishDate && other.comment == comment;
 
   @override
   int get hashCode => title.hashCode ^ comment.hashCode ^ publishDate.hashCode;
