@@ -11,11 +11,11 @@
 	- StringBuffer
 		- write() 메서드로 결합한 결과를 내부 메모리(버퍼)에 담아 두고 toString으로 결과를 얻는다.
 			```dart
-			final buffer = StringBuffer('Hello');
-
-			buffer
-				..write('World')
 			void main() {
+   				final buffer = StringBuffer('Hello');
+
+				buffer
+					..write('World');
 				print(buffer.toString()); // 'HelloWorld'
 			}
 			```
