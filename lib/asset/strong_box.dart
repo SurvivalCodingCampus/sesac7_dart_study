@@ -2,23 +2,23 @@ import '../enum/key_type.dart';
 
 class StrongBox<E> {
   E? _item;
-  int openTryCount;
+  int _openTryCount;
 
   final KeyType keyType;
 
-  StrongBox({required this.keyType}): openTryCount = keyType.tryCount;
+  StrongBox({required this.keyType}): _openTryCount = keyType.tryCount;
 
   void put(E value) => _item = value;
 
   E? get() {
-    if (openTryCount < 0) {
+    if (_openTryCount < 0) {
       throw Exception('이미 아이템 찾아갔음');
     }
-    if (openTryCount == 0) {
-      openTryCount--;
+    if (_openTryCount == 0) {
+      _openTryCount--;
       return _item;
     } else {
-      openTryCount--;
+      _openTryCount--;
       return null;
     }
   }
