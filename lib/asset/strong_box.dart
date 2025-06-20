@@ -34,12 +34,10 @@ class StrongBox<E> {
     if (_openTryCount < 0) {
       throw Exception('이미 아이템 찾아갔음');
     }
+    _openTryCount--;
     if (_openTryCount == 0) {
-      _openTryCount--;
       return _item;
-    } else {
-      _openTryCount--;
-      return null;
     }
+    return null;
   }
 }
