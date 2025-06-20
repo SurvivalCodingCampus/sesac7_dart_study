@@ -83,7 +83,7 @@ class Marine extends BionicUnit implements Terran, Attackable {
 
 
 class Medic extends BionicUnit implements Terran {
-    void heal(Bionic bionic) //힐
+    void heal(Healable healable) //힐
 }
 
 class Tank extends MechanicUnit implements Terran, Attackable {

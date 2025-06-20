@@ -124,3 +124,66 @@ while (iterator.moveNext()) {
 }
 ```
 
+## Generic methods for dart objects
+- Every class is subclass of Object, therefore include its methods and properties: namely toString(), operator==, hashcode.
+- operator== is also used to test 'equality' in lists
+- hashCode is also used to test 'eqaulity' in sets and maps
+
+### toString()
+- Often overridden for user-defined classes to customize the string output of an instance when it is converted to String in print statements for example.
+
+### operator==
+- By default, this only compares the reference address, therefore often programmer want to override this method to treat 'logically equal instances' equal.
+```dart
+@override
+bool operator==(Object other) =>
+    identical(this, other) || other is Hero && runtimeType == other.runtimeType && name == other.name;
+```
+- identical(object A, object B) will still strictly do the 'reference address' eqaulity check
+
+### hashCode
+- By default, every different instances in different address will give out unique and different hashcodes.
+- By overriding this method, programmer can make two logically equal instances to return same hashcode
+```dart
+int get hashCode => name.hashCode ^ age.hashCode; 
+// or any other member fields that are relevant to treat two instances 'equal'
+```
+
+### comparable interface and compareTo()
+- Dart data collections, namely list supports sorting.
+- Usually put in anonymous comparator function, but for default, sort function will make use of our compareTo method to make the comparison.
+- In case of (a, b) returning negative will put a before b, positive will put b before a.
+- Implement Comparable<> interface
+```dart
+class Book implements Comparable<Book> {
+  String title;
+  DateTime publishDate;
+  String comment;
+
+  Book({required this.title, required this.comment, DateTime? publishDate})
+    : publishDate = publishDate ?? DateTime.now();
+
+  @override
+  int compareTo(Book other) {
+    return publishDate.compareTo(other.publishDate);
+  }
+}
+```
+
+### Instance copy
+- classes being reference types often makes programmer to make separate copies of instances instead of just making new reference.
+- copyWith() is the de facto official method for it
+- If class include another field of class, that should be copied too. Doing so is called deep copy.
+```dart
+class Book implements Comparable<Book> {
+  String title;
+  DateTime publishDate;
+  String comment;
+
+  Book({required this.title, required this.comment, DateTime? publishDate})
+    : publishDate = publishDate ?? DateTime.now();
+
+  Book copyWith() =>
+      Book(title: title, comment: comment, publishDate: publishDate.copyWith());
+}
+```
