@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/assignments/hero.dart';
-import 'package:modu_3_dart_study/assignments/slime.dart';
+import 'package:modu_3_dart_study/assignments/game/hero.dart';
+import 'package:modu_3_dart_study/assignments/game/slime.dart';
 
 class PoisonSlime extends Slime {
   static const int maxPoisonCount = 5;

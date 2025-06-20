@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/assignments/hero.dart';
+import 'package:modu_3_dart_study/assignments/game/hero.dart';
 
 class Slime {
   static const int maxHp = 50;

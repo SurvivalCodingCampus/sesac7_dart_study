@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/assignments/hero.dart';
-import 'package:modu_3_dart_study/assignments/wizard.dart';
+import 'package:modu_3_dart_study/assignments/game/hero.dart';
+import 'package:modu_3_dart_study/assignments/game/wizard.dart';
 
 class GreatWizard extends Wizard {
   static const int maxMp = 150;

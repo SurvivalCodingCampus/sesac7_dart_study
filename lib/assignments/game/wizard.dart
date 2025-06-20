@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/assignments/hero.dart';
-import 'package:modu_3_dart_study/assignments/wand.dart';
+import 'package:modu_3_dart_study/assignments/game/hero.dart';
+import 'package:modu_3_dart_study/assignments/game/wand.dart';
 
 class Wizard {
   static const int minNameLength = 3;

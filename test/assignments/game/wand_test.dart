@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/assignments/wand.dart';
+import 'package:modu_3_dart_study/assignments/game/wand.dart';
 import 'package:test/test.dart';
 
 void main() {
