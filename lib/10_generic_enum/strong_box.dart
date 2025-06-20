@@ -5,6 +5,8 @@ class StrongBox<E> {
   final KeyType _keyType;
   int _count = 0;
 
+  KeyType get keyType => _keyType;
+
   int get count => _count;
 
   StrongBox({required KeyType keyType}) : _keyType = keyType;
