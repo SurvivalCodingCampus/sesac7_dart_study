@@ -65,7 +65,7 @@ class Word {
 
   /// 모음인지 검사
   bool isVowel(int i) {
-    if (i < 0 || i >= _word.length) return throw ArgumentError('범위를 벗어났습니다.');
+    if (i < 0 || i >= _word.length) throw ArgumentError('범위를 벗어났습니다.');
 
     bool result = false;
 
