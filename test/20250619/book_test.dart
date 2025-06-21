@@ -23,6 +23,16 @@ void main() {
       expect(books[0].title == '가정' && books[0].comment == '따분한책', true);
       expect(books[4].title == '체육' && books[4].comment == '힘든책', true);
     });
+    // 루프를 이용한 테스트 추가
+    test('Book 정렬 순서를 루프로 검증한다.', () {
+      final List<Book> books = [book1, book2, book3, book4, book5];
+      books.sort();
+
+      for (int i = 0; i < books.length - 1; i++) {
+        expect(books[i+1].publishDate.isBefore(books[i].publishDate) ||
+            books[i+1].publishDate.isAtSameMomentAs(books[i].publishDate), isTrue);
+      }
+    });
     test('copyWith() 메서드를 제공한다 (깊은 복사)', () {
       expect(book1.title == book5.title, true);
       expect(book1.comment == book5.comment, true);
