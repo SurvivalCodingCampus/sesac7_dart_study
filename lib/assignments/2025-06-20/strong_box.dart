@@ -6,6 +6,8 @@ class StrongBox<E> {
 
   int _openCount = 0;
 
+  int get openCount => _openCount;
+
   void put(E data) {
     //금고에는 1개의 인스턴스를 담을 수 있음
     _data = data;
