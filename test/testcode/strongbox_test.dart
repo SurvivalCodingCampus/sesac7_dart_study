@@ -37,10 +37,10 @@ void main() {
   });
 
   group('제네릭 열거형 연습문제 2 ', () {
-    final StrongBox sb = StrongBox(KeyType);
-    KeyType key = KeyType.padlock;
     test('열거형 KeyType정의 및 클래스 수정 - 한도횟수까지 시도 Test', () {
       //given(준비)
+      final StrongBox sb = StrongBox(KeyType);
+      KeyType key = KeyType.padlock;
 
       //when(실행)
       sb.put(key);
@@ -54,6 +54,7 @@ void main() {
 
     test('연습문제 2 열거형 KeyType정의 및 클래스 수정 - button 한도횟수까지 시도 초과 Test', () {
       //given(준비)
+      final StrongBox sb = StrongBox(KeyType);
       KeyType key = KeyType.button;
       sb.put(key);
 
@@ -68,6 +69,7 @@ void main() {
 
     test('연습문제 2 열거형 KeyType정의 및 클래스 수정 - dial 한도횟수까지 시도 초과 Test', () {
       //given(준비)
+      final StrongBox sb = StrongBox(KeyType);
       KeyType key = KeyType.dial;
       sb.put(key);
 
@@ -82,6 +84,7 @@ void main() {
 
     test('연습문제 2 열거형 KeyType정의 및 클래스 수정 - finger 한도횟수까지 시도 초과 Test', () {
       //given(준비)
+      final StrongBox sb = StrongBox(KeyType);
       KeyType key = KeyType.finger;
       sb.put(key);
 
@@ -96,12 +99,11 @@ void main() {
   });
 
   group('제네릭 열거형 연습문제 2', () {
-    final StrongBox sb = StrongBox(KeyType);
-    final int addLimitNum = 1;
-    KeyType key = KeyType.padlock;
-
     test('열거형 KeyType정의 및 클래스 수정 - padlock 한도횟수 초과 Test', () {
       //given(준비)
+      final StrongBox sb = StrongBox(KeyType);
+      final int addLimitNum = 1;
+      KeyType key = KeyType.padlock;
       sb.put(key);
 
       //when(실행)
@@ -115,6 +117,8 @@ void main() {
 
     test('연습문제 2 열거형 KeyType정의 및 클래스 수정 - button 한도횟수 초과 Test', () {
       //given(준비)
+      final StrongBox sb = StrongBox(KeyType);
+      final int addLimitNum = 1;
       KeyType key = KeyType.button;
       sb.put(key);
 
@@ -129,6 +133,8 @@ void main() {
 
     test('연습문제 2 열거형 KeyType정의 및 클래스 수정 - dial 한도횟수 초과 Test', () {
       //given(준비)
+      final StrongBox sb = StrongBox(KeyType);
+      final int addLimitNum = 1;
       KeyType key = KeyType.dial;
       sb.put(key);
 
@@ -143,6 +149,8 @@ void main() {
 
     test('연습문제 2 열거형 KeyType정의 및 클래스 수정 - finger 한도횟수 초과 Test', () {
       //given(준비)
+      final StrongBox sb = StrongBox(KeyType);
+      final int addLimitNum = 1;
       KeyType key = KeyType.finger;
       sb.put(key);
 

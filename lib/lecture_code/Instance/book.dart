@@ -7,9 +7,9 @@
 
 class Book implements Comparable<Book> {
   // final로 하자 불변성!
-  String title;
-  DateTime publishDate;
-  String comment;
+  final String title;
+  final DateTime publishDate;
+  final String comment;
 
   Book({
     required this.title,
@@ -21,11 +21,15 @@ class Book implements Comparable<Book> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Book && title == other.title && publishDate == other.publishDate && other.comment == comment;
+          other is Book &&
+          title == other.title &&
+          publishDate.year == other.publishDate.year &&
+          publishDate.month == other.publishDate.month &&
+          publishDate.day == other.publishDate.day && other.comment == comment;
       // 값들을 비교해야한다. publishdate.year 이렇게 하나씩
 
   @override
-  int get hashCode => title.hashCode ^ comment.hashCode ^ publishDate.hashCode;
+  int get hashCode => title.hashCode ^ publishDate.year.hashCode ^ publishDate.month.hashCode ^ publishDate.day.hashCode;
 
   @override
   int compareTo(Book other) {

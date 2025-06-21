@@ -40,21 +40,19 @@ class StrongBox<T> {
   T? get() {
     switch (_data) {
       case KeyType.padlock:
-        if (padlockLimitNum < padlockNum){
-          return _data;
-        }
+        if (padlockLimitNum < padlockNum) return _data;
         padlockNum++;
         return null;
       case KeyType.button:
-        if (buttonLimitNum < buttonNum) break;
+        if (buttonLimitNum < buttonNum) return _data;;
         buttonNum++;
         return null;
       case KeyType.dial:
-        if (dialLimitNum < dialNum) break;
+        if (dialLimitNum < dialNum) return _data;;
         dialNum++;
         return null;
       case KeyType.finger:
-        if (fingerLimitNum < fingerNum) break;
+        if (fingerLimitNum < fingerNum) return _data;;
         fingerNum++;
         return null;
     }
