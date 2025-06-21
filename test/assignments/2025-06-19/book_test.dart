@@ -67,6 +67,9 @@ void main() {
       final sortedList = list.sorted();
       final expectedList = [book3, book2, book4, book1];
       expect(sortedList, equals(expectedList));
+      
+      final equality = ListEquality();
+      expect(equality.equals(sortedList, expectedList), true);
     });
 
     test('Book 클래스 copyWith 테스트', () {
