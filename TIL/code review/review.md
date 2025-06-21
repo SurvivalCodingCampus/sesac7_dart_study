@@ -150,3 +150,54 @@ if(Hero is hero) {
 }
 }
 */
+
+
+요즘 중요하는게 불변성!
+시스템이 커지더라도 불변성을 유지하면서
+결국에는 복사본을 만들면서 교체하는방식으로.
+
+1700년 최저가 그정도 될것 확인해볼것
+
+
+DateTime.now()
+static 매서드가 아니야....
+이름있는 생성자 - 라는 문법
+
+```dart
+  // Person.bbb(){ //<- 이렇게 이름을 붙인다.
+  //    print();
+  //  }
+  //  
+  //  Person.aaa();
+  //  Person.bbb();
+  //   // 여기서 뭐야..어떤것이 생성자야 결국 확인해봐야한다.
+```
+
+
+Comparable<> 타입을 넣어주어야한다.
+- sort가 되게 하려하는것
+
+other -> 즉 다이나믹이야.
+
+
+copyWith에서는 불변(Date) 같은것은 괜찮아 하지만 내가만든 객체는 안된다.
+
+
+sortedBy((hero)=>hero.name) //이름으로 정리
+
+
+
+extention https://dart.dev/language/extension-methods
+확장함수 - 기존의 클래스를 꺠지않고 기능을 확대하는.
+extension
+final 붙으면 상속금지 String 같은거
+
+
+리스트를 다루다 실수를 많이한다
+새로운 리스트를 만들어야지~
+
+List<Hero> newList = [heros[0], Hero(name,100)];
+hero[0].name = 'aa' <- 원본도 바뀌네. 이런이런..
+그래서 깊은 복사를 hero[0].copyWith() 이렇게
+
+
