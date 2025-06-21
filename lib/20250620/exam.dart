@@ -26,7 +26,7 @@ class StrongBox<E> {
   void put(E item) => this._item = item;
 
   int getMaxAttempts(KeyType keyType) {
-    return _maxTryCounts[keyType] ?? (throw ArgumentError('Unsupported KeyType: $keyType'));
+    return _maxTryCounts[keyType] ?? (throw ArgumentError('지원하지 않는 KeyType 입니다.: $keyType'));
   }
 
   E? get() {
