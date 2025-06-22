@@ -26,6 +26,8 @@ void main() {
       expect(() => word.isConsonant(-1), throwsException);
       expect(() => word.isVowel(-1), throwsException);
 
+      expect(() => word.isConsonant(word.word.length), throwsException);
+      expect(() => word.isVowel(word.word.length), throwsException);
       expect(() => word.isConsonant(word.word.length + 1), throwsException);
       expect(() => word.isVowel(word.word.length + 1), throwsException);
     });
