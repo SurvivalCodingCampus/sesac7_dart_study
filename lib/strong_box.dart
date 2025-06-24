@@ -45,16 +45,7 @@ class StrongBox<E> {
     // 설정한 keyType에 따라 entity를 얻는 시도를 한다. (getEntity)
     // 사용횟수 제한은 keyTypeMap[keyType]을 따른다.
     // selectEntityResult 결과에 따라 null을 리턴할지, entity를 리턴하고 금고를 초기화할지를 선택한다.
-    switch (keyType) {
-      case KeyType.padlock:
-        return selectEntityResult(keyType);
-      case KeyType.button:
-        return selectEntityResult(keyType);
-      case KeyType.dial:
-        return selectEntityResult(keyType);
-      case KeyType.finger:
-        return selectEntityResult(keyType);
-    }
+    return selectEntityResult(keyType);
   }
 
   // 사용횟수 제한보다 시도횟수가 적으면 시도횟수를 1 증가시키고 null을 리턴
