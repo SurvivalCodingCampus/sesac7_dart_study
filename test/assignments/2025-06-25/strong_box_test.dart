@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/assignments/2025-06-25/key_type.dart';
 import 'package:test/test.dart';
+import 'package:modu_3_dart_study/assignments/2025-06-25/key_type.dart';
 import 'package:modu_3_dart_study/assignments/2025-06-25/strong_box.dart';
 
 void main() {

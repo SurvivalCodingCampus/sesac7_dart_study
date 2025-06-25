@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 import 'package:modu_3_dart_study/assignments/2025-06-25/serialization_practice.dart';
 
 void main() {
-  test('Employee and Deparment constructor', () {
+  test('Employee and Department constructor', () {
     //given
     final Employee kim = Employee("Kim", 30);
     final Department genetics = Department("genetics", kim);
