@@ -1,18 +1,10 @@
 abstract class Asset {
-  String _name;
+  String name;
   int _price;
-
-  String get name => _name;
 
   int get price => _price;
 
-  Asset({required String name, required int price})
-    : _name = name,
-      _price = price;
-
-  set name(String value) {
-    _name = value;
-  }
+  Asset({required this.name, required int price}) : _price = price;
 
   set price(int value) {
     if (value < 0) {
