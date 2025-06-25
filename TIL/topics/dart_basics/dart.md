@@ -236,7 +236,7 @@ class User {
     final String email;
 
     User.fromJson(Map<String, dynamic> json)
-        :   name = json['name'];
+        :   name = json['name'],
             email = json['email'];
 
     Map<String, dynamic> toJson() {
