@@ -6,11 +6,11 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 void main() {
-  late FileOperationsEx fileOperationsEx;
+  late DefaultFileOperations fileOperationsEx;
   group('20250625 테스트', ()
   {
     setUp((){
-      fileOperationsEx = FileOperationsEx();
+      fileOperationsEx = DefaultFileOperations();
     });
     test('파일명이 없을때', () {
       expect(() => fileOperationsEx.copy('', ''), throwsA(isA<MyException>()));

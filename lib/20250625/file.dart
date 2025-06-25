@@ -6,7 +6,7 @@ abstract interface class FileOperations {
   void copy(String sourcePath, String targetPath);
 }
 
-class FileOperationsEx extends FileOperations {
+class DefaultFileOperations extends FileOperations {
 
   String _contents = "";
 
@@ -25,7 +25,7 @@ class FileOperationsEx extends FileOperations {
 }
 
 void main() {
-  final fileOperations = FileOperationsEx();
+  final fileOperations = DefaultFileOperations();
   try {
     fileOperations.copy('save', 'aaa');
   } catch (e) {
