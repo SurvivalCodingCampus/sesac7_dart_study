@@ -17,7 +17,11 @@ class StrongBox<T> {
   StrongBox(this.keyType, {T? content}) : _content = content;
 
   T? get() {
-    if (_tryCount < StrongBox._maxTrials[keyType]!) {
+    final maxTrial = StrongBox._maxTrials[keyType];
+    if (maxTrial == null) {
+      throw Exception('Unsupported KeyType: $keyType');
+    }
+    if (_tryCount < maxTrial) {
       //print("$_tryCount out of ${StrongBox._maxTrials[keyType]!}");
       _tryCount++;
       return null;
@@ -30,8 +34,8 @@ class StrongBox<T> {
       _content = item;
       _tryCount = 0;
     } else {
-      print(
-        "The strongbox is already occupied. Need to open it before putting new items.",
+      throw Exception(
+        'The strongbox is already occupied. Need to open it before putting new items.',
       );
     }
   }

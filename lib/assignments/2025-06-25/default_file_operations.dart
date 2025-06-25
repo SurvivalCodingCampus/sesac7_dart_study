@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:modu_3_dart_study/assignments/2025-06-25/file_operations.dart';
 
-class DefaultFileOperations implements Fileoperations {
+class DefaultFileOperations implements FileOperations {
   @override
   void copy(String sourcePath, String targetPath) {
     final File sourceFile;
