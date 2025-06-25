@@ -19,6 +19,25 @@ class Student {
 
   int get finalScore => _finalScore;
 
+  // setter
+  set name(String name) => _name = name;
+
+  set midTermScore(int midTermScore) {
+    if (midTermScore < 0 || midTermScore > 100) {
+      throw Exception('중간고사 점수는 0 이상 100 이하여야 합니다.');
+    }
+
+    _midTermScore = midTermScore;
+  }
+
+  set finalScore(int finalScore) {
+    if (finalScore < 0 || finalScore > 100) {
+      throw Exception('기말고사 점수는 0 이상 100 이하여야 합니다.');
+    }
+
+    _finalScore = finalScore;
+  }
+
   // 직렬화
   Map<String, dynamic> toJson() {
     return {
