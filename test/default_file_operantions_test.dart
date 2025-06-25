@@ -21,7 +21,13 @@ void main() {
     final String testOriginalFilePath = 'file_test/original_test.txt';
     final String testCopyFilePath = 'file_test/copy_test.txt';
     final File testOriginalFile = File(testOriginalFilePath);
+    final Directory fileTestDir = Directory('file_test');
 
+    if (!fileTestDir.existsSync()) {
+      Directory('file_test').createSync();
+    }
+
+    testOriginalFile.createSync();
     testOriginalFile.writeAsStringSync('contents');
 
     DefaultFileOperations().copy(sourcePath: testOriginalFilePath, targetPath: testCopyFilePath);
