@@ -13,6 +13,7 @@ class Word {
   }
 
   bool isConsonant(int i) {
+    if (word.isEmpty) return false;
     return !isVowel(i);
   }
 }

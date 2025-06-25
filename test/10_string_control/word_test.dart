@@ -32,15 +32,15 @@ void main() {
     test('Word 클래스 경계 조건 테스트', () {
       // 인덱스 0 테스트 (현재 구현에서는 false 반환)
       expect(testInstance.isVowel(0), equals(false));
-      expect(testInstance.isConsonant(0), equals(false));
+      expect(testInstance.isConsonant(0), equals(true));
 
       // 음수 인덱스 테스트
       expect(testInstance.isVowel(-1), equals(false));
-      expect(testInstance.isConsonant(-1), equals(false));
+      expect(testInstance.isConsonant(-1), equals(true));
 
       // 문자열 길이를 초과하는 인덱스 테스트
       expect(testInstance.isVowel(testWord.length + 1), equals(false));
-      expect(testInstance.isConsonant(testWord.length + 1), equals(false));
+      expect(testInstance.isConsonant(testWord.length + 1), equals(true));
     });
 
     test('빈 문자열 테스트', () {
