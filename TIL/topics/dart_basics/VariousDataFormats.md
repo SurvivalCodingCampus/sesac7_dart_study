@@ -115,6 +115,6 @@
 		}
 		void main() {
 			final Person person = Person('홍길동', 25);
-			jsonEncode(person.getJsonString()); // JsonString을 Map으로 변환
+			jsonDecode(person.getJsonString()); // JsonString을 Map으로 변환
 		}
 		```
