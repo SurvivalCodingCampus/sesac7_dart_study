@@ -1,9 +1,23 @@
-import 'dart:convert';
-
 class Student {
-  String name;
-  int midTermScore;
-  int finalScore;
+  String _name;
+  int _midTermScore;
+  int _finalScore;
+
+  // 생성자
+  Student({
+    required String name,
+    required int midTermScore,
+    required int finalScore,
+  }) : _name = name,
+       _midTermScore = midTermScore,
+       _finalScore = finalScore;
+
+  // getter
+  String get name => _name;
+
+  int get midTermScore => _midTermScore;
+
+  int get finalScore => _finalScore;
 
   // 직렬화
   Map<String, dynamic> toJson() {
@@ -14,16 +28,9 @@ class Student {
     };
   }
 
-  Student(this.name, this.midTermScore, this.finalScore);
-}
-
-void main() {
-  Student s = Student('홍길동', 80, 90);
-  Map<String, dynamic> result = s.toJson();
-  String a = jsonEncode(result);
-  print(a);
-
-  Map<String, dynamic> a2 = jsonDecode(a);
-  a2['name'] = 'hello';
-  print(a2);
+  // 역직렬화
+  Student.fromJson(Map<String, dynamic> jsonMap)
+    : _name = jsonMap['name'],
+      _midTermScore = jsonMap['midTermScore'],
+      _finalScore = jsonMap['finalScore'];
 }
