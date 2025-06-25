@@ -74,6 +74,6 @@ class Department {
 
   @override
   String toString() {
-    return 'department name: $name, leader name: ${leader.name}';
+    return 'department name: $name, leader name: ${leader.name}, leader age: ${leader.age}';
   }
 }
