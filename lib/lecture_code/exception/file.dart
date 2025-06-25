@@ -8,35 +8,31 @@ abstract interface class FileOperations {
   // 지정된 경로의 파일을 다른 경로로 복사합니다.
 
   // [sourcePath] 복사할 원본 파일의 경로
+  final String sourcePath = 'asset/sourcetext.txt';
+
   // [targetPath] 파일이 복사될 대상 경로
-  String sourcePath = 'asset/sourcetext.txt';
-  String targetPath = 'b';
+  final String targetPath = 'asset/targettext.txt';
 
   void copy(String sourcePath, String targetPath);
 }
 
 class DefaultFileOperations extends FileOperations {
-
   @override
   void copy(String sourcePath, String targetPath) {
+    try {
+      // sourcepath 파일을 열기
+      final sourceFile = File(sourcePath);
 
-    // sourcepath 파일을 열기
-    final file = File(sourcePath);
+      // sourcepath 파일을 읽기 => 읽은 내용을 저장하기
+      String text = sourceFile.readAsStringSync();
 
-    // sourcepath 파일을 읽기
-    print(file.readAsStringSync());
+      // targetpath 파일을 열기
+      final targetFile = File(targetPath);
 
-    // 읽은 내용을 저장하기
-
-    // targetpath 파일을 열기
-
-    // 읽은 내용을 targetpath에 쓰기
+      // 읽은 내용을 targetpath에 쓰기
+      targetFile.writeAsStringSync(text);
+    } on PathNotFoundException {
+      print('PathNotFoundException');
+    }
   }
 }
-void main(){
-  DefaultFileOperations dfo = DefaultFileOperations();
-  print(dfo.sourcePath);
-  print(Directory.current.path);
-  dfo.copy(dfo.sourcePath, dfo.targetPath);
-}
-
