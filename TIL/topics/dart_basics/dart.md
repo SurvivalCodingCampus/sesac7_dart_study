@@ -187,3 +187,62 @@ class Book implements Comparable<Book> {
       Book(title: title, comment: comment, publishDate: publishDate.copyWith());
 }
 ```
+
+### Exception 
+- Programmer should expect unexpected situations during runtime and prepare the handling beforehand.
+- Possible unexpected situations include:
+1. out of memory
+1. unable to find a file
+1. network issues
+
+```dart
+try {
+    // code that can possibly cause exceptions
+} catch (e) {
+    // rethrow 
+}
+```
+- rethrow keyword lets the upper scope to handle the exception, but it is not necessary since dart will automatically rethrow it without being explicit.
+- on keyword lets you to handle cases of specific exceptions
+- may have custom exceptions that implement **Exception** interface
+
+### File manipulation
+- rule of thumb is :
+1. open the file
+2. manipulate it
+3. close the file
+
+- but, luckily dart will handle the closing part without programmer being explicit about closing.
+
+```dart
+final file = File('save.txt'); // or may use absolute path
+final text = file.readAsStringSync();
+// or
+//file.writeAsStringSync(text); with optinal parameter mode  
+```
+
+### Dealing with data files
+- CSV : comma separated data files, simple to use
+- properties : key value pair data file
+- XML : just like HTML use tag to organize small data into a discernable structure, usually require parser
+- Json : key value pair data file, [] for list, {} for object. Most preferred at the moment.
+
+### Serialize
+- transform an object or data structure into a format that is easy to save and transport. Here, we aim to serialize them into Json format.
+- Within class, create fromJson and toJson: fromJson will convert map<string, dynamic> to instance and toJosn will convert map to instance.
+```dart
+class User {
+    final String name;
+    final String email;
+
+    User.fromJson(Map<String, dynamic> json)
+        :   name = json['name'];
+            email = json['email'];
+
+    Map<String, dynamic> toJson() {
+        return {'name' : name, 'email' : email};
+    }
+}
+```
+- then use jsonDecode(jsonString) to make string into map
+- use jsonEncode(map) to make map into string
