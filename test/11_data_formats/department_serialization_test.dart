@@ -15,39 +15,34 @@ void main() {
     final department = Department(name: departmentName, leader: employee);
     final String departmentStringJson =
         '''{"name":"총무부","leader":{"name":"홍길동","age":41}}''';
+    final file = File('company.txt');
 
     test('Department 직렬화 테스트', () {
-      try {
-        Map<String, dynamic> departmentJson = department.toJson();
-        final file = File('company.txt');
-        final String testDepartmentStringJson = jsonEncode(departmentJson);
+      Map<String, dynamic> departmentJson = department.toJson();
+      final String testDepartmentStringJson = jsonEncode(departmentJson);
 
-        file.writeAsStringSync(testDepartmentStringJson);
+      file.writeAsStringSync(testDepartmentStringJson);
 
-        final testStringJson = file.readAsStringSync();
-        final testJson = jsonEncode(departmentJson);
+      final testStringJson = file.readAsStringSync();
+      final testJson = jsonEncode(departmentJson);
 
-        expect(testJson == departmentStringJson, equals(true));
-        expect(testStringJson == departmentStringJson, equals(true));
-      } catch (e) {
-        throw Exception();
-      }
+      expect(testJson == departmentStringJson, equals(true));
+      expect(testStringJson == departmentStringJson, equals(true));
     });
 
     test('Department 역직렬화 테스트', () {
-      try {
-        final file = File('company.txt');
-        final testStringJson = file.readAsStringSync();
-        final testDepartment = Department.fromJson(jsonDecode(testStringJson));
+      final testStringJson = file.readAsStringSync();
+      final testDepartment = Department.fromJson(jsonDecode(testStringJson));
 
-        expect(testStringJson == departmentStringJson, equals(true));
+      expect(testStringJson == departmentStringJson, equals(true));
 
-        expect(testDepartment.name == departmentName, equals(true));
-        expect(testDepartment.leader.name == name, equals(true));
-        expect(testDepartment.leader.age == age, equals(true));
-      } catch (e) {
-        throw Exception();
-      }
+      expect(testDepartment.name == departmentName, equals(true));
+      expect(testDepartment.leader.name == name, equals(true));
+      expect(testDepartment.leader.age == age, equals(true));
+    });
+
+    tearDownAll(() {
+      if (file.existsSync()) file.deleteSync();
     });
   });
 }
