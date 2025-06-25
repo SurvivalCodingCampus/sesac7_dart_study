@@ -1,6 +1,5 @@
+import 'package:modu_3_dart_study/rpg_game/hero.dart';
 import 'package:modu_3_dart_study/rpg_game/slime.dart';
-
-import 'hero.dart';
 
 class PoisonSlime extends Slime {
   int _poisonCount = 5; // 독 포자를 살포 가능한 횟수
