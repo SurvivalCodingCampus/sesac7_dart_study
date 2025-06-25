@@ -2,9 +2,12 @@ import 'dart:io';
 
 void main() {
   final file = File('asset/save.txt');
-  file.writeAsStringSync('hello\n', mode: FileMode.append);
-  file.writeAsStringSync('hello\n', mode: FileMode.append);
-  file.writeAsStringSync('hello\n', mode: FileMode.append);
 
-  print(file.path);
+  try {
+    for (int i = 0; i < 3; i++) {
+      file.writeAsStringSync('hello\n', mode: FileMode.append);
+    }
+  } catch (e) {
+    print('예상치 못한 오류');
+  }
 }
