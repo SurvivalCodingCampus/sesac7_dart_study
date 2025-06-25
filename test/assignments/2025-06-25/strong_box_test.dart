@@ -6,7 +6,7 @@ void main() {
   group('GROUP : StrongBox tests\n', () {
     test('Set and get try: padlock', () {
       //given
-      StrongBox<String> box = StrongBox(KeyType.padlock);
+      final StrongBox<String> box = StrongBox(KeyType.padlock);
       expect(box.get(), null);
       //when
       box.set("Secret Map");
@@ -20,7 +20,7 @@ void main() {
     });
     test('Set and get try: button', () {
       //given
-      StrongBox<String> box = StrongBox(KeyType.button);
+      final StrongBox<String> box = StrongBox(KeyType.button);
       expect(box.get(), null);
       //when
       box.set("Secret Map");
@@ -34,7 +34,7 @@ void main() {
     });
     test('Set and get try: dial', () {
       //given
-      StrongBox<String> box = StrongBox(KeyType.dial);
+      final StrongBox<String> box = StrongBox(KeyType.dial);
       expect(box.get(), null);
       //when
       box.set("Secret Map");
@@ -48,7 +48,7 @@ void main() {
     });
     test('Set and get try: finger', () {
       //given
-      StrongBox<String> box = StrongBox(KeyType.finger);
+      final StrongBox<String> box = StrongBox(KeyType.finger);
       expect(box.get(), null);
       //when
       box.set("Secret Map");
