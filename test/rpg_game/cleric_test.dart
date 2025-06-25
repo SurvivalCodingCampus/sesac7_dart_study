@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/cleric.dart';
+import 'package:modu_3_dart_study/rpg_game/cleric.dart';
 import 'package:test/test.dart';
 
 void main() {

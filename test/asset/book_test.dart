@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/book.dart';
+import 'package:modu_3_dart_study/asset/book.dart';
 import 'package:test/test.dart';
 
 void main() {

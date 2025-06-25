@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/strong_box.dart';
+import 'package:modu_3_dart_study/generic_enum_string/strong_box.dart';
 import 'package:test/test.dart';
 
 void main() {

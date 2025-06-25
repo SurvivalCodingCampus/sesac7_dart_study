@@ -1,6 +1,5 @@
-import 'package:modu_3_dart_study/hero.dart';
-import 'package:modu_3_dart_study/wand.dart';
-import 'package:modu_3_dart_study/wizard.dart';
+import 'package:modu_3_dart_study/rpg_game/hero.dart';
+import 'package:modu_3_dart_study/rpg_game/wizard.dart';
 
 class GreatWizard extends Wizard {
   // GreatWizard 인스턴스 공통 속성
@@ -41,24 +40,4 @@ class GreatWizard extends Wizard {
       print('힐을 시전했습니다. 대상 HP: ${hero.hp}');
     }
   }
-}
-
-void main() {
-  GreatWizard g = GreatWizard(
-    name: 'name',
-    hp: 50,
-    wand: Wand(name: 'name', power: 0.5),
-  );
-  Hero h = Hero(name: '홍길동', hp: 50);
-  print('법사의 mp는 ${g.mp}');
-  print('용사의 hp는 ${h.hp}');
-
-  h.hp -= 45;
-  print('용사의 hp는 ${h.hp}');
-
-  g.superHeal(h);
-  g.superHeal(h);
-  g.heal(h);
-  print('법사의 mp는 ${g.mp}');
-  print('용사의 hp는 ${h.hp}');
 }

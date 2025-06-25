@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/sword.dart';
-import 'hero.dart';
+import 'package:modu_3_dart_study/rpg_game/hero.dart';
+import 'package:modu_3_dart_study/rpg_game/sword.dart';
 
 class SuperHero extends Hero {
   Sword? sword;

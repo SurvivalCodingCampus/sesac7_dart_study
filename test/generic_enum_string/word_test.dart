@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/word.dart';
+import 'package:modu_3_dart_study/generic_enum_string/word.dart';
 import 'package:test/test.dart';
 
 void main() {

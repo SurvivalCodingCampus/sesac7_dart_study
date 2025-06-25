@@ -1,6 +1,6 @@
-import 'package:modu_3_dart_study/great_wizard.dart';
-import 'package:modu_3_dart_study/hero.dart';
-import 'package:modu_3_dart_study/wand.dart';
+import 'package:modu_3_dart_study/rpg_game/great_wizard.dart';
+import 'package:modu_3_dart_study/rpg_game/hero.dart';
+import 'package:modu_3_dart_study/rpg_game/wand.dart';
 import 'package:test/test.dart';
 
 void main() {

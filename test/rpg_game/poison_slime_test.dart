@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/hero.dart';
-import 'package:modu_3_dart_study/poison_slime.dart';
+import 'package:modu_3_dart_study/rpg_game/hero.dart';
+import 'package:modu_3_dart_study/rpg_game/poison_slime.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,6 +1,6 @@
 @startuml
 
-    abstract class Unit extends Object {
+    abstract class Unit extends Entity {
     - int attackPower
     - int mp
     - int moveSpeed
@@ -8,7 +8,7 @@
 
      - void move()
 }
-abstract class Structure extends Object
+abstract class Structure extends Entity
 
 abstract class TerranStructure extends Structure
 abstract class ZergStructure extends Structure implements Recoverable
@@ -30,12 +30,12 @@ abstract class ProtossMechanic extends Mechanic implements Recoverable {
 }
 
 class Marine extends TerranBionic implements Attacker {
-    + static const marineCost
-    + static const int productionSpeed
+    + static const Fuel marineCost
+    + static const double productionSpeed
 }
 class Medic extends TerranBionic {
-    + static const medicCost
-    + static const int productionSpeed
+    + static const Fuel medicCost
+    + static const double productionSpeed
     - int healPower
     - void heal(Healable target)
 }
@@ -45,8 +45,8 @@ note left
 일부 유닛에만 작성 후 생략하였다.
 end note
 class Vulture extends TerranMechanic {
-    + static const vultureCost
-    + static const int productionSpeed
+    + static const Fuel vultureCost
+    + static const double productionSpeed
 }
 class Tank extends TerranMechanic
 class SCV extends TerranMechanic implements Worker, Healable {
@@ -62,16 +62,16 @@ class Dragun extends ProtossMechanic
 class Probe extends ProtossMechanic implements Worker
 
 class CommandCenter extends TerranStructure implements Productive {
-    + static const commandCenterCost
-    + static const int productionSpeed
+    + static const Fuel commandCenterCost
+    + static const double productionSpeed
 }
 class SupplyDepot extends TerranStructure {
-    + static const supplyDepotCost
-    + static const int productionSpeed
+    + static const Fuel supplyDepotCost
+    + static const double productionSpeed
 }
 class EngineeringBay extends TerranStructure {
-    + static const engineeringBayCost
-    + static const int productionSpeed
+    + static const Fuel engineeringBayCost
+    + static const double productionSpeed
 }
 
 note right
@@ -89,13 +89,13 @@ class StarGate extends ProtossStructure
 interface Worker implements Productive{
     {abstract} - void mining(Fuel resource)
 }
-abstract class Object {
+abstract class Entity {
     - int hp
     - int defensePower
     {abstract} - void attacked(int attackPower)
 }
 interface Attacker {
-    {abstract} - void attack(Object target)
+    {abstract} - void attack(Entity target)
 }
 interface Healable {
     {abstract} - void healed(int healPower)
@@ -104,7 +104,7 @@ interface Recoverable {
     {abstract} - void recover()
 }
 interface Productive {
-    {abstract} - Object product(Object target)
+    {abstract} - Entity product(Entity target)
 }
 note right of Productive
 유닛을 생성할 수 있는 건물은 클래스 내에 Productive만을 구현한다. 일부 건물에만 작성 후 생략하였다.
@@ -116,8 +116,8 @@ abstract class Fuel {
 class Mineral extends Fuel
 class Gas extends Fuel
 class Player {
-    + Mineral mineral
-    + Gas gas
+    - Mineral mineral
+    - Gas gas
 }
 class InputController {
     - List<Unit> getPickedUnits()

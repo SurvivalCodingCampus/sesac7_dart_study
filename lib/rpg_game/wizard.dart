@@ -1,5 +1,5 @@
-import 'wand.dart';
-import 'hero.dart';
+import 'package:modu_3_dart_study/rpg_game/hero.dart';
+import 'package:modu_3_dart_study/rpg_game/wand.dart';
 
 class Wizard {
   String _name;

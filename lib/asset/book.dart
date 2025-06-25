@@ -1,29 +1,29 @@
-import 'package:modu_3_dart_study/tangible_asset.dart';
+import 'package:modu_3_dart_study/asset/tangible_asset.dart';
 
-class Computer extends TangibleAsset {
-  final String _makerName; // 제조사 명
+class Book extends TangibleAsset {
+  final String _isbn; // 고유 번호
 
   // getter
-  String get makerName => _makerName;
+  String get isbn => _isbn;
 
   // 생성자
-  Computer({
+  Book({
     required super.name,
     required super.price,
     required super.color,
     required super.weight,
-    required String makerName,
-  }) : _makerName = makerName;
+    required String isbn,
+  }) : _isbn = isbn;
 
   // 생성자(구 방식), super에 대해 제대로 이해하기 위해 적었다
   /*
-  Computer({
+  Book({
     required String name,
     required int price,
     required String color,
     required double weight,
-    required String makerName,
-  }) : _makerName = makerName,
+    required String isbn,
+  }) : _isbn = isbn,
        super(name: name, price: price, color: color, weight: weight);
   */
 }

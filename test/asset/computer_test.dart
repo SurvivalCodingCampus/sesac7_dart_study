@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/computer.dart';
+import 'package:modu_3_dart_study/asset/computer.dart';
 import 'package:test/test.dart';
 
 void main() {

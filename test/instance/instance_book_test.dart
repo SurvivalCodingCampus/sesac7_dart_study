@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:modu_3_dart_study/instance_book.dart';
+import 'package:modu_3_dart_study/instance/instance_book.dart';
 import 'package:test/test.dart';
 
 void main() {
