@@ -112,12 +112,64 @@ numbers.sorted((a, b) => a - b); // 라이브러리에서 제공하는 sorted를
 ```
 
 - 리스트는 인터페이스
-- int 는 추상클래스, num 을 상속받은
-- compareTo 는 num 이 준것
+- int 는 num 을 상속받은 추상클래스의 구현 클래스
+- num 은 추상클래스. int, double 이 상속. compareTo() 포함
+- compareTo 는 Comparable<T> 인터페이스에서 정의됨. num 이 이를 구현함.
 - num 은 comparable 한 인터페이스 타입 
+- Comparator<T> 비교함수를 표현하는 typedef(int Function(T a, T b))
 
 임의로 정의한 리스트를 sort 할때는 어떤 기준으로 sort 할것인지 정의해주어야한다
 반드시 compare 해야함 compareTo comparable 구현하면 sort 가능해짐
+
+
+### compareTo는 int 로 값을 반환하고 음수 / 0 / 양수를 반환해야한다
+- 음수 → this < other
+- 0 → this == other
+- 양수 → this > other
+
+### comparable<T>: 클래스가 직접 비교 기준을 갖는 경우 비교가능한 타입을 만들기 위한 인터페이스
+- **비교 기준을 내장**하는 방법
+```dart
+abstract class Comparable<T> {
+  int compareTo(T other);
+}
+
+class Person implements Comparable<Person> {
+  final String name;
+  Person(this.name);
+
+  @override // Comparable<T> 인터페이스에서 정의된 메서드 이기 때문에 override
+  int compareTo(Person other) {
+    return name.compareTo(other.name); // 이름순 정렬 기준
+  }
+}
+
+final people = [Person('Jina'), Person('Alex'), Person('Bella')];
+people.sort(); // compareTo를 구현했기 때문에 sort 하면 자동으로 이름순 정렬
+```
+
+### Comparator<T>: 외부에서 정렬 기준을 넣는 경우
+- 내부에 정렬기준이 없거나 지금 상황에서 다른 기준으로 정렬하고 싶을때
+- 정렬할때마다 **비교 기준을 함수로 전달**하는 방식
+- typedef Comparator<T> = int Function(T a, T b); 이렇게 정의되어 있음
+
+```dart
+class Person {
+  final String name;
+  final int age;
+  Person(this.name, this.age);
+}
+// 이 상태에서는 Person.sort() 사용 불가 compareTo 가 없으니까
+
+final people = [
+  Person('Jina', 25),
+  Person('Alex', 30),
+  Person('Bella', 20),
+];
+
+// 나이순 정렬
+people.sort((a, b) => a.age - b.age); // Comparator<Person>
+```
 
 ## 3. Map
 - 키(key)와 값(value)의 쌍으로 저장
@@ -197,23 +249,3 @@ print(heros[0].name); // '한석봉'
 - 대한민국의 도시 이름 모음(순서상관없음): 중복되는 값이 있을 수 있으니 List
 - 10명 학생의 시험 점수: Map
 - 대한민국의 도시별 인구수(순서상관없음): Map
-
-
-### 복사
-그래서 int 같은건 왜 복사되지?
-레퍼런스 기반으로 왜?
-
-### 얕은 복사, 깊은 복사
-
-```dart
-// 참조기반의 사용자 정의된 타입을 복사해서 사용하기 위해 copyWith 메서드 구현
-  Hero copyWith({
-    String? name,
-    double? hp,
-  }) {
-    return Hero(
-      name: name ?? this.name,
-      hp: hp ?? this.hp,
-    );
-  }
-```

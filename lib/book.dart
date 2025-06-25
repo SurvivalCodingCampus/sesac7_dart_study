@@ -18,7 +18,7 @@ class Book{ // comparable 사용 class Book implements Comparable<Book>
   // {
   //   // 생성될때 자동으로 리스트에 추가 + 정렬
   //   bookList.add(this);
-  //   bookList.sort((a, b) => -a.publishDate.compareTo(b.publishDate));
+  //   bookList.sorted((a, b) => -a.publishDate.compareTo(b.publishDate));
   // }
 
   //: publishDate = publishDate ?? today;
@@ -66,7 +66,7 @@ class Book{ // comparable 사용 class Book implements Comparable<Book>
   // A. 그렇다. 똑같은 규칙으로 재정의해줘야 의미가 있음
 
   // static List<Book> bookList(List<Book> books){
-  //   books.sort((a, b) => a.publishDate.compareTo(b.publishDate));
+  //   books.sorted((a, b) => a.publishDate.compareTo(b.publishDate));
   //   return books;
   // }
 
@@ -97,7 +97,7 @@ class Book{ // comparable 사용 class Book implements Comparable<Book>
 // final List<Book> bookList = [];
 
 // void bookListVoid () {
-//   bookList.sort((a, b) => -a.publishDate.compareTo(b.publishDate));
+//   bookList.sorted((a, b) => -a.publishDate.compareTo(b.publishDate));
 // }
 
 class SortBookList {
@@ -105,7 +105,7 @@ class SortBookList {
 
   void add(Book book) {
     _bookList.add(book);
-    _bookList.sorted((a, b) => -a.publishDate.compareTo(b.publishDate));
+    _bookList.sorted((a, b) => -a.publishDate.compareTo(b.publishDate)); // Comparator 사용
   }
 
   void clear() => _bookList.clear();

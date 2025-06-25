@@ -15,7 +15,7 @@ abstract class TangibleAsset extends Asset implements Thing {
   int price;
   String color;
 
-  TangibleAsset({required super.name, required this.price, required this.color, });
+  TangibleAsset({required super.name, required this.price, required this.color,});
 }
 
 // 다 : 특허권

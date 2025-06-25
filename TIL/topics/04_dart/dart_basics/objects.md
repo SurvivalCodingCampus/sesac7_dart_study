@@ -1,6 +1,6 @@
-# Object 타입 vs object 객체
+# Object 타입 변수 vs object 객체
 
-## Object 타입
+## Object 타입 변수
 - Dart의 모든 클래스의 최상위 타입
 - 모든 클래스는 Object 클래스의 메서드와 프로퍼티를 가지고 있다
 - Object 타입 변수에는 모든 인스턴스를 대입할 수 있다
@@ -29,7 +29,7 @@ bool operator == (Hero hero) =>
 
 ```
 3. hashcode
-- 실행할때 마다 바뀌는 무작위의 값(메모리 주소를 볼수있는 방법이 없으니 메모리 주소를 보는 것이라고 개념을 이해해도 무방하다)
+- 실행할때 마다 바뀌는 무작위의 값(메모리 주소를 볼수있는 방법이 없으니 메모리 주소를 보는 것이라고 개념을 이해해도 무방하다, 그렇지만 hashcode 가 메모리 주소는 아니다)
 - 숫자로 구성되어있다
 - object가 가지고 있는것이고 
 - Set에서 사용
@@ -46,17 +46,42 @@ int get hashCode => _name.hashCode ^ _hp.hashCode;
 - String 은 text 가 같으면 같은 hashcode 값, const 같이
 - name.hashcode 로 비교해서 규칙을 재정의한다
 - 복사한 값
+- 동일한 객체는 항상 같은 해시값을 가진다
 
 ---
 
 ## 객체 복사
+
+1. int, double, bool 모두 primitive 타입
+- primitive 타입: 원시 타입, 값을 직접 저장함 (주소값이 아닌 진짜 값을 변수에 저장)
+- Dart 에서 primitive 타입은 값(value) 자체를 복사한다, 원본 객체에 영향을 주지 않는 새 객체를 생성한다
+- copyWith() 에서 age ?? this.age -> 새 값을 주면 덮어쓰고 안주면 기존 age 를 복사
+- 이때 값 자체를 복사하므로 
+
+2. String 은 불변(immutable)의 값
+- String 도 값을 복사하면 마치 deep copy 처럼 동작함
+
+### 얕은 복사, 깊은 복사
+
+```dart
+// 참조기반의 사용자 정의된 타입을 복사해서 사용하기 위해 copyWith 메서드 직접 구현
+  Hero copyWith({
+    String? name,
+    double? hp,
+  }) {
+    return Hero(
+      name: name ?? this.name,
+      hp: hp ?? this.hp,
+    );
+  }
+```
 
 0. immutable(불변) 타입인 객체들은 얕은 비교로만으로도 참조까지 비교 가능
 0. 시스템에서 불변성을 유지(휴먼에러를 줄이기 위해서) 하면서 코드를 작성하기 위해 사용한다
 0. 모든 필드에 final을 쓰는 방식으로 코드를 작성할 것이다
 
 1. 얕은 복사 메서드: shallowCopy
-- 참조 주소만 복사하는
+- 주소 객체는 같은 참조
 
 ```dart
 class Person {
@@ -81,6 +106,7 @@ class Person {
 ```
 
 2. 깊은 복사 메서드: deepCopy
+- 주소 객체도 새로 생성
 
 ```dart
 
@@ -114,7 +140,7 @@ Book copyWith({
       title: title ?? this.title,
       comment: comment ?? this.comment,
       publishDate: publishDate ?? this.publishDate
-      author: author ?? this.author.copyWith(), // 한번더 메소드 붙여주고 author 안에서 copyWith을 작성해줘야한다
+      author: author ?? this.author.copyWith(), // 한번더 메소드 붙여주고 author 클래스 안에서 copyWith을 작성해줘야한다
     );
   }
 ```
