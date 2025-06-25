@@ -5,7 +5,9 @@ class Department {
   Employee _leader;
 
   // 생성자
-  Department(String name, Employee leader) : _name = name, _leader = leader;
+  Department({required String name, required Employee leader})
+    : _name = name,
+      _leader = leader;
 
   // getter
   String get name => _name;

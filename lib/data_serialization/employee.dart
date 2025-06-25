@@ -3,7 +3,7 @@ class Employee {
   int _age;
 
   // 생성자
-  Employee(String name, int age) : _name = name, _age = age;
+  Employee({required String name, required int age}) : _name = name, _age = age;
 
   // getter
   String get name => _name;
