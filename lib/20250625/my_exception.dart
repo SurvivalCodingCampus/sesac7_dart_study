@@ -9,7 +9,7 @@ class MyException implements Exception {
 
   @override
   String toString() {
-    if (_message == null) return 'MyException is Unkown';
+    if (_message == null) return 'MyException is Unknown';
     return 'MyException: $_message';
   }
 }
