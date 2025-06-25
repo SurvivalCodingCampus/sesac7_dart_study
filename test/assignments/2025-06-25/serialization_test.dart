@@ -12,11 +12,11 @@ void main() {
     //when
 
     //then
-    expect(kim.name == "Kim", true);
-    expect(kim.age == 30, true);
-    expect(genetics.name == "genetics", true);
-    expect(genetics.leader.name == "Kim", true);
-    expect(genetics.leader.age == 30, true);
+    expect(kim.name, equals("Kim"));
+    expect(kim.age, equals(30));
+    expect(genetics.name, equals("genetics"));
+    expect(genetics.leader.name, equals("Kim"));
+    expect(genetics.leader.age, equals(30));
   });
 
   test('Json Employee and Department', () {
@@ -29,11 +29,11 @@ void main() {
     final geneticsMap = genetics.toJson();
     final newGenetics = Department.fromJson(geneticsMap);
     //then
-    expect(newKim.name == kim.name, true);
-    expect(newKim.age == kim.age, true);
-    expect(newGenetics.name == genetics.name, true);
-    expect(newGenetics.leader.name == genetics.leader.name, true);
-    expect(newGenetics.leader.age == genetics.leader.age, true);
+    expect(newKim.name, equals(kim.name));
+    expect(newKim.age, equals(kim.age));
+    expect(newGenetics.name, equals(genetics.name));
+    expect(newGenetics.leader.name, equals(genetics.leader.name));
+    expect(newGenetics.leader.age, equals(genetics.leader.age));
     expect(newKim != kim, true);
     expect(newGenetics != genetics, true);
   });
@@ -56,11 +56,11 @@ void main() {
     final Employee newKim = Employee.fromJson(mapKim);
     final Department newGenetics = Department.fromJson(mapGenetics);
     // then
-    expect(newKim.name == kim.name, true);
-    expect(newKim.age == kim.age, true);
-    expect(newGenetics.name == genetics.name, true);
-    expect(newGenetics.leader.name == genetics.leader.name, true);
-    expect(newGenetics.leader.age == genetics.leader.age, true);
+    expect(newKim.name, equals(kim.name));
+    expect(newKim.age, equals(kim.age));
+    expect(newGenetics.name, equals(genetics.name));
+    expect(newGenetics.leader.name, equals(genetics.leader.name));
+    expect(newGenetics.leader.age, equals(genetics.leader.age));
     expect(newKim != kim, true);
     expect(newGenetics != genetics, true);
   });
