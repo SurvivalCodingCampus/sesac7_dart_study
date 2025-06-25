@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:test/test.dart';
-import 'package:modu_3_dart_study/assignments/2025-06-25/Serialization_practice.dart';
+import 'package:modu_3_dart_study/assignments/2025-06-25/serialization_practice.dart';
 
 void main() {
   test('Employee and Deparment constructor', () {
