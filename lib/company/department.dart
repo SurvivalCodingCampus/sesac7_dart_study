@@ -8,7 +8,7 @@ class Department {
   Employee leader;
 
   Department(this.name, this.leader);
-  Department.fromJson(Map<String, dynamic> json): name = json['name'], leader = json['leader'];
+  Department.fromJson(Map<String, dynamic> json): name = json['name'], leader = Employee.fromJson(json['leader']);
 
   Map<String, dynamic> toJson() => {'name': name, 'leader': leader.toJson()};
 
