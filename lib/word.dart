@@ -15,6 +15,11 @@ class Word {
 
   // method
   bool isVowel(int i) {
+    // 인덱스 검증 범위 설정
+    if (i < 1 || i > word.length) {
+      throw Exception('확인하려는 인덱스는 1 이상이어야 합니다.');
+    }
+
     String charAt = word.substring(i - 1, i);
 
     // 공백이면 모음에 해당하지 않으므로 false를 리턴
