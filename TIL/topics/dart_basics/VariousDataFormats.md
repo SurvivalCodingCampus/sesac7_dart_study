@@ -81,7 +81,7 @@
 				=> {'name': this.name, 'age': this.age};
 		}
 		void main() {
-			final Person person = Person('홍길동', 25);
+			final Person person = Person(name: '홍길동', age: 25);
 			jsonEncode(person.toJson()); // Map형태의 객체를 String으로 변환
 		}
 		```
@@ -114,7 +114,7 @@
 			String getJsonString() => jsonEncode(toJson()); // String으로 받음
 		}
 		void main() {
-			final Person person = Person('홍길동', 25);
+			final Person person = Person(name: '홍길동', age: 25);
 			jsonDecode(person.getJsonString()); // JsonString을 Map으로 변환
 		}
 		```
