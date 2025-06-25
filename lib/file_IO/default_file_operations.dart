@@ -24,10 +24,11 @@ class DefaultFileOperations implements FileOperations {
       // writeAsStringSync는 기존 파일이 없으면 인자로 받은 내용을 토대로 파일을 새로 만듦
       // 따라서 에러 x
       targetFile.writeAsStringSync(source);
-    } on FileSystemException {
-      print('파일 작업 중 에러');
+      print('파일 복사 완료: $sourcePath -> $targetPath');
+    } on FileSystemException catch (e) {
+      print('파일 작업 오류: ${e.message} (경로: ${e.path})');
     } catch (e) {
-      print('예상치 못한 에러');
+      print('예상치 못한 오류: $e');
     }
   }
 }
