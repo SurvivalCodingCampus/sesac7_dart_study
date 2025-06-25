@@ -1,11 +1,13 @@
-void main() {
+class ExceptionPractice {
   final numString = '10.5';
+  int num = 0;
 
-  try {
-    int num = int.parse(numString);
-    print(num);
-  } catch (e) {
-    int num = 0;
-    print(num);
+  void run() {
+    try {
+      num = int.parse(numString);
+      print(num);
+    } catch (e) {
+      print(num = 0);
+    }
   }
 }
