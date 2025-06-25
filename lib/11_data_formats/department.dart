@@ -1,4 +1,4 @@
-import 'package:modu_3_dart_study/11_data_type/employee.dart';
+import 'package:modu_3_dart_study/11_data_formats/employee.dart';
 
 class Department {
   final String _name;

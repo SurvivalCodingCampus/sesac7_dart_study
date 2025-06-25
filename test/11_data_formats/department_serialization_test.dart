@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:modu_3_dart_study/11_data_type/department.dart';
-import 'package:modu_3_dart_study/11_data_type/employee.dart';
+import 'package:modu_3_dart_study/11_data_formats/department.dart';
+import 'package:modu_3_dart_study/11_data_formats/employee.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
