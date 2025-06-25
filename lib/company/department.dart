@@ -23,10 +23,3 @@ class Department {
     companyText.writeAsStringSync(department.toJsonString());
   }
 }
-
-void main() {
-  Employee testEmployee = Employee('홍길동', 41);
-  Department testDepartment = Department('총무부', testEmployee);
-
-  Department.saveCompanyText(testDepartment);
-}
