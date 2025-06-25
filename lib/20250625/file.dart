@@ -12,7 +12,9 @@ class DefaultFileOperations extends FileOperations {
 
   @override
   void copy(String sourcePath, String targetPath) {
-    if(sourcePath.isEmpty || targetPath.isEmpty) throw MyException(MyException.FILE_NAME_EMPTY);
+    if(sourcePath.isEmpty || targetPath.isEmpty) {
+      throw MyException(MyException.FILE_NAME_EMPTY);
+    }
 
     final sourceFile = File(sourcePath);
     if (!sourceFile.existsSync()) throw MyException(MyException.FILE_NOT_FOUND);
