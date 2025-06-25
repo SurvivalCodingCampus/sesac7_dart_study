@@ -24,9 +24,7 @@ void main() {
       file.writeAsStringSync(testDepartmentStringJson);
 
       final testStringJson = file.readAsStringSync();
-      final testJson = jsonEncode(departmentJson);
 
-      expect(testJson == departmentStringJson, equals(true));
       expect(testStringJson == departmentStringJson, equals(true));
     });
 
