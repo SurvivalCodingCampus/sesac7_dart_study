@@ -3,11 +3,11 @@ import 'dart:io';
 
 void main() {
   // 객체 생성
-  Employee HongGilDong = Employee('홍길동', 41);
+  Employee hongGilDong = Employee('홍길동', 41);
   // 파일 열기
   final file = File('employees.txt');
   // 파일에 쓸 String 준비
-  final String jsonString = jsonEncode(HongGilDong.toJson());
+  final String jsonString = jsonEncode(hongGilDong.toJson());
   // 파일에 쓰기
   file.writeAsStringSync(jsonString);
 

@@ -35,10 +35,10 @@ void main() {
       expect(poisonSlimeB.poisonCount, 0);
 
       // PoisonSlime의 poisonCount가 0인 상태에서의 heroB의 Hp
-      int HeroBHpAfter5Attack = heroB.hp;
+      int heroBHpAfter5Attack = heroB.hp;
 
       poisonSlimeB.attack(heroB);
-      expect(heroB.hp, HeroBHpAfter5Attack - 10);
+      expect(heroB.hp, heroBHpAfter5Attack - 10);
     },
   );
 }

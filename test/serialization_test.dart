@@ -7,8 +7,8 @@ import 'package:test/test.dart';
 void main() {
   test('직렬화 테스트', () {
     // given
-    Employee HongGilDong = Employee('홍길동', 41);
-    Department chongMuBuHongGilDong = Department('총무부', HongGilDong);
+    Employee hongGilDong = Employee('홍길동', 41);
+    Department chongMuBuHongGilDong = Department('총무부', hongGilDong);
 
     // when
     // 파일 열기
