@@ -10,10 +10,15 @@ void main() {
   print(saveTxtText);
 
   DefaultFileOperations fileCopy = DefaultFileOperations();
-  fileCopy.copy('save.txt', 'target.txt');
 
-  final targetFile = File('target.txt');
-  print(targetFile.readAsStringSync());
+  // 예외처리: 복사할 원본 파일이 없을 때
+  try {
+    fileCopy.copy('save.txt', 'target.txt');
+    final targetFile = File('target.txt');
+    print(targetFile.readAsStringSync());
+  } catch (e) {
+    print(e);
+  }
 }
 
 abstract interface class FileOperations {
@@ -30,5 +35,3 @@ class DefaultFileOperations implements FileOperations {
     targetFile.writeAsStringSync(sourceText);
   }
 }
-
-// 예외처리 복사할 원본 파일이 없을 때, 타겟 파일이 이미 있을 때
