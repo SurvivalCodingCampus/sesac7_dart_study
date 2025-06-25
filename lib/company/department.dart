@@ -11,7 +11,7 @@ class Department {
 
   Map<String, dynamic> toJson() => {'name': name, 'leader': leader.toJson()};
 
-  String toJsonString() => '''{"name": "$name", "leader": ${leader.toJsonString()}}''';
+  String toJsonString() => '''{"name":"$name","leader":${leader.toJsonString()}}''';
 
   static void saveCompanyText(Department department) {
     final File companyText = File('lib/company/company.txt');
