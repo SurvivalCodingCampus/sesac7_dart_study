@@ -10,5 +10,5 @@ class Employee {
 
   Map<String, dynamic> toJson() => {'name': name, 'age': age};
 
-  String toJsonString() => '''{"name": "$name", "age": $age}''';
+  String toJsonString() => '''{"name":"$name","age":$age}''';
 }
