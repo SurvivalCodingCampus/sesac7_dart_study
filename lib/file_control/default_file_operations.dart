@@ -15,12 +15,3 @@ class DefaultFileOperations implements FileOperations {
     copyFile.writeAsStringSync(originalFile.readAsStringSync());
   }
 }
-
-void main() {
-  DefaultFileOperations defFO = DefaultFileOperations();
-  try {
-    defFO.copy(sourcePath: 'file_test/original_test.txt', targetPath: 'file_test/copy_test.txt');
-  } on FileSystemException {
-    print('파일 복사에 실패했습니다.');
-  }
-}
