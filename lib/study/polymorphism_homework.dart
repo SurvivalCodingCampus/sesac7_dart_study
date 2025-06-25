@@ -1,4 +1,4 @@
-import 'package:collection/collection.dart';
+
 
 abstract class X {
   void a();
@@ -50,7 +50,6 @@ void main() {
 
   exList[0].b();
   exList[1].b();
-  exList.sorted((a, b) => a.hashCode.compareTo(b.hashCode));
   print(ex1 == ex2);
   print(identical(ex1, ex2));
 }
