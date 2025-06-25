@@ -24,15 +24,16 @@ void main() {
 
     test('MY 예외클래스 사용', () {
       expect(() => fileOperationsEx.copy('', ''),
-          throwsA(isA<Exception>().having((e) => e.toString(), 'message', 'MyException: ${MyException.FILE_NOT_FOUND}')));
+          throwsA(isA<Exception>().having((e) => e.toString(), 'message', 'MyException: ${MyException.FILE_NAME_EMPTY}')));
       expect(() => fileOperationsEx.copy('aaa', ''),
-          throwsA(isA<Exception>().having((e) => e.toString(), 'message', 'MyException: ${MyException.FILE_NOT_FOUND}')));
+          throwsA(isA<Exception>().having((e) => e.toString(), 'message', 'MyException: ${MyException.FILE_NAME_EMPTY}')));
       expect(() => fileOperationsEx.copy('empty.txt', 'bbb'),
           throwsA(isA<Exception>().having((e) => e.toString(), 'message', 'MyException: ${MyException.FILE_CONTENTS_EMPTY}')));
     });
 
     test('원본 파일이 없을때', () {
-      expect(() => fileOperationsEx.copy('aaa', 'target.txt'), throwsA(isA<PathNotFoundException>()));
+      expect(() => fileOperationsEx.copy('aaa', 'target.txt'),
+          throwsA(isA<Exception>().having((e) => e.toString(), 'message', 'MyException: ${MyException.FILE_NOT_FOUND}')));
     });
 
     test('정상', () {

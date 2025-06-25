@@ -12,15 +12,21 @@ class DefaultFileOperations extends FileOperations {
 
   @override
   void copy(String sourcePath, String targetPath) {
-    if(sourcePath.isEmpty || targetPath.isEmpty) throw MyException(MyException.FILE_NOT_FOUND);
+    if(sourcePath.isEmpty || targetPath.isEmpty) throw MyException(MyException.FILE_NAME_EMPTY);
 
     final sourceFile = File(sourcePath);
+    if (!sourceFile.existsSync()) throw MyException(MyException.FILE_NOT_FOUND);
+
     _contents = sourceFile.readAsStringSync();
 
     if(_contents.isEmpty) throw MyException(MyException.FILE_CONTENTS_EMPTY);
 
     final targetFile = File(targetPath);
-    targetFile.writeAsStringSync(_contents);
+    try {
+      targetFile.writeAsStringSync(_contents);
+    } catch (e) {
+      throw Exception("파일 쓰기 실패: ${e.toString()}");
+    }
   }
 }
 
