@@ -8,6 +8,8 @@ class StrongBox<T> {
     KeyType.finger: 1_000_000,
   };
 
+  Map<KeyType, int> get maxTrials => _maxTrials;
+
   T? _content;
   final KeyType keyType;
   int _tryCount = 0;
