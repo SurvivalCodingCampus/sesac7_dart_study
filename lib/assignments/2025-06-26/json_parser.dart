@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:intl/intl.dart';
 
 class PriceData {
   double price;
@@ -16,8 +17,7 @@ class PriceData {
   Map<String, dynamic> toJson() {
     return {
       'price': price,
-      'cvtDatetime':
-          '${cvtDatetime.year}-${cvtDatetime.month}-${cvtDatetime.day}T${cvtDatetime.hour}:${cvtDatetime.minute}:${cvtDatetime.second}',
+      'cvtDatetime': DateFormat("yyyy-MM-dd'T'HH:mm:ss").format(cvtDatetime),
     };
   }
 }
@@ -78,4 +78,7 @@ void main() {
   final dataChunk = CollectionList.fromJson(jsonMap);
 
   print(dataChunk);
+
+  final saveFile = File('lib/assignments/2025-06-26/testResult.json');
+  saveFile.writeAsStringSync(jsonEncode(dataChunk.toJson()));
 }
