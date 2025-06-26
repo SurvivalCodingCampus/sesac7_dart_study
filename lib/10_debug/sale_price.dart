@@ -30,8 +30,13 @@ class SalePrice {
   @override
   String toString() => 'SalePrice(price: $price, cvtDatetime: $cvtDatetime)';
 
-  Map<String, dynamic> toJson() => {
-    'price': _price,
-    'cvtDatetime': _cvtDatetime.toString(),
-  };
+  Map<String, dynamic> toJson() {
+    String isoString = _cvtDatetime.toIso8601String();
+    int tIndex = isoString.indexOf('T');
+    String formattedString = isoString.substring(0, tIndex + 9);
+    return {
+      'price': _price,
+      'cvtDatetime': formattedString,
+    };
+  }
 }
