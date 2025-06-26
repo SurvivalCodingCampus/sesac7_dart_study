@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:modu_3_dart_study/10_debug/chart_data_list.dart';
 import 'package:modu_3_dart_study/10_debug/sale_price.dart';
 
@@ -31,13 +32,19 @@ class ChartData {
   bool operator ==(Object other) {
     return other is ChartData
         ? collectionName == other.collectionName &&
-              collectionSalePrice == other.collectionSalePrice
+              DeepCollectionEquality().equals(
+                collectionSalePrice,
+                other.collectionSalePrice,
+              )
         : false;
   }
 
-  // 여기 문제 있는거 같은데 리스트 해시코드 말고 다른 방법을 찾아야할 듯.
-  // @override
-  // int get hashCode => collectionName.hashCode ^ collectionSalePrice.hashCode;
+  // hashAll을 사용하면 Iterable 내부의 모든 요소들의 해시코드를 조합하여 하나의 해시코드를 생성한다.
+  @override
+  int get hashCode => Object.hash(
+    collectionName,
+    collectionSalePrice == null ? null : Object.hashAll(collectionSalePrice!),
+  );
 
   @override
   String toString() =>

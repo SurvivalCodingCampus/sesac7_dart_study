@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:modu_3_dart_study/10_debug/chart_data.dart';
 
 class ChartDataList {
@@ -20,13 +21,15 @@ class ChartDataList {
   @override
   bool operator ==(Object other) {
     return other is ChartDataList
-        ? collectionChartDataList == other.collectionChartDataList
+        ? DeepCollectionEquality().equals(
+            collectionChartDataList,
+            other.collectionChartDataList,
+          )
         : false;
   }
 
-  // 리스트뿐이라 나중에 생각해보자
-  // @override
-  // int get hashCode => super.hashCode;
+  @override
+  int get hashCode => Object.hashAll(collectionChartDataList);
 
   @override
   String toString() =>
