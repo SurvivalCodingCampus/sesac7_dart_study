@@ -19,10 +19,6 @@ void main() {
   Hero hero = Hero(name: '_name', hp: 100);
   hero.run();
 
-  SuperHero superHero = SuperHero(
-    name: 'name',
-    hp: 100,
-    mp: 10,
-  );
+  SuperHero superHero = SuperHero(name: 'name', hp: 100, mp: 10);
   superHero.run();
 }
