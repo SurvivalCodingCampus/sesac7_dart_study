@@ -7,12 +7,6 @@ import 'dart:io';
 abstract interface class FileOperations {
   // 지정된 경로의 파일을 다른 경로로 복사합니다.
 
-  // [sourcePath] 복사할 원본 파일의 경로
-  final String sourcePath = 'asset/sourcetext.txt';
-
-  // [targetPath] 파일이 복사될 대상 경로
-  final String targetPath = 'asset/targettext.txt';
-
   void copy(String sourcePath, String targetPath);
 }
 
@@ -33,6 +27,10 @@ class DefaultFileOperations extends FileOperations {
       targetFile.writeAsStringSync(text);
     } on PathNotFoundException {
       print('PathNotFoundException');
+    } on FileSystemException catch (e) {
+      print('FileSystemException');
+    } catch (e) {
+      print('error: $e');
     }
   }
 }

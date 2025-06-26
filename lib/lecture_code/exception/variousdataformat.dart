@@ -22,8 +22,8 @@ class Employee {
 
   // Json으로 역직렬화
   Employee.fromJson(Map<String, dynamic> json)
-    : name = json['name'],
-      age = json['age'];
+      : name = json['name'],
+        age = json['age'];
 }
 
 class Department {
@@ -39,23 +39,26 @@ class Department {
 
   // Json으로 역직렬화
   Department.fromJson(Map<String, dynamic> json)
-    : name = json['name'],
-      leader = Employee.fromJson(json['leader']) ; // Map -> 객체
+      : name = json['name'],
+        leader = Employee.fromJson(json['leader']); // Map -> 객체
 }
 
 class SaveCompanyText {
   void saveJson(Department department) {
+    try {
+      // 객체 -> Map(Json)
+      Map<String, dynamic> json = department.toJson();
 
-    // 객체 -> Map(Json)
-    Map<String, dynamic> json = department.toJson();
+      // Map(Json) -> String
+      String jsonString = jsonEncode(json);
 
-    // Map(Json) -> String
-    String jsdonString = jsonEncode(json);
+      // 파일 읽기
+      final companyFile = File(companyPath);
 
-    // 파일 읽기
-    final companyFile = File(companyPath);
-
-    // 파일 쓰기
-    companyFile.writeAsStringSync(jsdonString);
+      // 파일 쓰기
+      companyFile.writeAsStringSync(jsonString);
+    } catch (e) {
+      throw Exception('save error: $e');
+    }
   }
 }
