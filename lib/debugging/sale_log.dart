@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 
 class SaleLog {
   double _price; // 가격
@@ -53,20 +53,20 @@ class SaleLog {
   }
 }
 
-void main() {
-  SaleLog s = SaleLog(
-    price: 58.25,
-    cvtDateTime: DateTime(1991, 08, 21, 10, 08, 31),
-  );
-  print(s.dateTimeToString);
-  String a = jsonEncode(s.toJson());
-  print(a);
-
-  String test = '''{
-          "price": 58.25,
-          "cvtDatetime": "2023-03-26T08:00:00"
-        } ''';
-  Map<String, dynamic> testMap = jsonDecode(test);
-  SaleLog s3 = SaleLog.fromJson(testMap);
-  print(s3.toString());
-}
+// void main() {
+//   SaleLog s = SaleLog(
+//     price: 58.25,
+//     cvtDateTime: DateTime(1991, 08, 21, 10, 08, 31),
+//   );
+//   print(s.dateTimeToString);
+//   String a = jsonEncode(s.toJson());
+//   print(a);
+//
+//   String test = '''{
+//           "price": 58.25,
+//           "cvtDatetime": "2023-03-26T08:00:00"
+//         } ''';
+//   Map<String, dynamic> testMap = jsonDecode(test);
+//   SaleLog s3 = SaleLog.fromJson(testMap);
+//   print(s3.toString());
+// }
