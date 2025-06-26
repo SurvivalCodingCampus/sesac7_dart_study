@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/lecture_code/hero.dart';
-import 'package:modu_3_dart_study/lecture_code/slime.dart';
+import 'package:modu_3_dart_study/lecture_code/class/hero.dart';
+import 'package:modu_3_dart_study/lecture_code/class/slime.dart';
 import 'package:test/test.dart';
 
 /*

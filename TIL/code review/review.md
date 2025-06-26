@@ -227,3 +227,17 @@ list 안에 클래스 인스턴스등 레퍼런스 타입을 넣으면 그안에
 테스트 -> 역직렬화해서 확인
 
 
+이런식으로 사용하면 try catch 안해도 된다.
+int num = int.tryParse(numString) ?? 0;
+
+Employee - 동등성, copyWith, hashCode 이거 해야지!
+불면객체 동등성비교 복습 필요.
+
+안드로이드 업데이트 하지마.
+
+자동 테스트 코드 클래스명 드래그 한상테에서 Alt + enter
+
+테스트후에 tearDown() -> 테스트 끝날때마다 실행
+
+bin이 메인
+운세앱
