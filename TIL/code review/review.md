@@ -241,3 +241,9 @@ Employee - 동등성, copyWith, hashCode 이거 해야지!
 
 bin이 메인
 운세앱
+
+람다는 디버깅이 안된다.
+alt + enter blockbody눌러서 람다안에 함수로 들어갈수있다.
+
+안티패턴
+
