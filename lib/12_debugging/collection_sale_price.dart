@@ -26,6 +26,6 @@ class CollectionSalePrice {
 
   @override
   String toString() {
-    return '"price": $price, "cvtDatetime": $cvtDatetime';
+    return '{"price": $price, "cvtDatetime": $cvtDatetime}';
   }
 }

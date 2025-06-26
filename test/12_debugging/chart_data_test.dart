@@ -59,23 +59,24 @@ void main() {
   });
 
   test('ChartData Json 역직렬화 테스트', () {
-    final testChartDataList = testJson['collectionChartDataList'][0];
+    final testChartData = ChartData.fromJson(
+      testJson,
+    ).collectionChartDataList[0];
     final testCollectionName = 'collection1';
-    final testSalePrice =
-        testJson['collectionChartDataList'][0]['collectionSalePrice'][0];
+    final testSalePrice = testChartData.collectionSalePrice[0];
     final testPrice = 58.25;
     final testCvtDateTime = '2023-03-26T08:00:00';
-    final chartData1 = ChartData.fromJson(realJson);
-    final realChartDataList = chartData1.collectionChartDataList[0];
-    final realCollectionName = realChartDataList.collectionName;
-    final realSalePrice = realChartDataList.collectionSalePrice[0];
+    final chartDataList = ChartData.fromJson(realJson);
+    final chartData = chartDataList.collectionChartDataList[0];
+    final realCollectionName = chartData.collectionName;
+    final realSalePrice = chartData.collectionSalePrice[0];
     final realPrice = realSalePrice.price;
     final realCvtDateTime = realSalePrice.cvtDatetime;
 
-    expect(realChartDataList == testChartDataList, equals(true));
-    expect(realCollectionName == testCollectionName, equals(true));
-    expect(realSalePrice == testSalePrice, equals(true));
-    expect(realPrice == testPrice, equals(true));
-    expect(realCvtDateTime == testCvtDateTime, equals(true));
+    expect(chartData == testChartData, isTrue);
+    expect(realCollectionName == testCollectionName, isTrue);
+    expect(realSalePrice == testSalePrice, isTrue);
+    expect(realPrice == testPrice, isTrue);
+    expect(realCvtDateTime == testCvtDateTime, isTrue);
   });
 }
