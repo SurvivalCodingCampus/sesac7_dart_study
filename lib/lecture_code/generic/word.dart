@@ -17,7 +17,7 @@ class Word {
       return false;
     }
 
-    return CheckVowelConsonant(word, i, 'isVowel');
+    return CheckVowelConsonant(word, i, 'isVowel'); //소문자로
   }
 
   bool isConsonant(int i) {
