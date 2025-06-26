@@ -76,17 +76,13 @@ void findCollection({
   required List<CollectionChartData> collections,
   required int collectionNumber,
 }) {
-  final targetName = 'collection$collectionNumber';
   CollectionChartData? foundCollection;
+  final index = collectionNumber - 1;
 
-  for (final collection in collections) {
-    if (collection.collectionName == targetName) {
-      foundCollection = collection;
-      break;
-    }
-  }
-  if (foundCollection == null) {
-    print('$targetName 컬렉션을 찾을 수 없습니다');
+  if (index >= 0 && index < collections.length) {
+    foundCollection = collections[index];
+  } else {
+    print('컬렉션을 찾을 수 없습니다');
     return;
   }
 
@@ -98,7 +94,7 @@ void findCollection({
 
   for (final saleInfo in salesList) {
     print(
-      '컬렉션 이름: $targetName\n가격: ${saleInfo.price}\n시간: ${saleInfo.cvtDatetime}\n',
+      '컬렉션 이름: ${foundCollection.collectionName}\n가격: ${saleInfo.price}\n시간: ${saleInfo.cvtDatetime}\n',
     );
   }
 }
