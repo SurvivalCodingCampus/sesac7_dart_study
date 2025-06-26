@@ -8,6 +8,9 @@ import 'package:test/scaffolding.dart';
 void main() {
   test('json에서 특정 데이터가 null일 경우', () {
     File file = File('chart_data.json');
+    if (!file.existsSync()) {
+      fail('chart_data.json 파일을 찾을 수 없습니다.');
+    }
     String jsonString = file.readAsStringSync();
 
     Map<String, dynamic> jsonMap = jsonDecode(jsonString);

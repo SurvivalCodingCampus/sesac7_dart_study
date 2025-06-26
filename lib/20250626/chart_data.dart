@@ -31,8 +31,8 @@ class CollectionSalePrice {
   }
 
   CollectionSalePrice.fromJson(Map<String, dynamic> json) :
-      _price = json['price'],
-      _cvtDatetime = json['cvtDatetime'];
+        _price = (json['price'] as num).toDouble(),
+        _cvtDatetime = json['cvtDatetime'] as String;
 
   Map<String, dynamic> toJson() {
     return {
