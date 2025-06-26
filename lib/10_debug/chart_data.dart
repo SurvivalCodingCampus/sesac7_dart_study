@@ -1,8 +1,4 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:collection/collection.dart';
-import 'package:modu_3_dart_study/10_debug/chart_data_list.dart';
 import 'package:modu_3_dart_study/10_debug/sale_price.dart';
 
 class ChartData {
@@ -15,7 +11,7 @@ class ChartData {
 
   ChartData({
     required String collectionName,
-    required List<SalePrice> collectionSalePrice,
+    required List<SalePrice>? collectionSalePrice,
   }) : _collectionName = collectionName,
        _collectionSalePrice = collectionSalePrice;
 
@@ -54,16 +50,4 @@ class ChartData {
     'collectionName': collectionName,
     'collectionSalePrice': collectionSalePrice?.map((e) => e.toJson()).toList(),
   };
-}
-
-void main() {
-  final File chartDataJsonFile = File('json_data/chart_data.json');
-  final String chartDataListJsonString = chartDataJsonFile.readAsStringSync();
-  final Map<String, dynamic> chartDataListJsonDeserialize = jsonDecode(
-    chartDataListJsonString,
-  );
-  final chartDataJsonList = ChartDataList.fromJson(
-    chartDataListJsonDeserialize,
-  );
-  print(chartDataJsonList.toString());
 }
