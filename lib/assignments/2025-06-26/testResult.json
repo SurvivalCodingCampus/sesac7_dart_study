@@ -1,0 +1,43 @@
+{
+    "collectionChartDataList": [
+        {
+            "collectionName": "collection1",
+            "collectionSalePrice": [
+                {
+                    "price": 58.25,
+                    "cvtDatetime": "2023-3-26T8:0:0"
+                },
+                {
+                    "price": 58.5,
+                    "cvtDatetime": "2023-3-26T8:0:10"
+                }
+            ]
+        },
+        {
+            "collectionName": "collection2",
+            "collectionSalePrice": [
+                {
+                    "price": 58.75,
+                    "cvtDatetime": "2023-3-26T8:0:20"
+                },
+                {
+                    "price": 59.0,
+                    "cvtDatetime": "2023-3-26T8:0:30"
+                }
+            ]
+        },
+        {
+            "collectionName": "collection3",
+            "collectionSalePrice": [
+                {
+                    "price": 59.25,
+                    "cvtDatetime": "2023-3-26T8:0:40"
+                },
+                {
+                    "price": 59.5,
+                    "cvtDatetime": "2023-3-26T8:0:50"
+                }
+            ]
+        }
+    ]
+}
