@@ -86,7 +86,7 @@ void findCollection({
     }
   }
   if (foundCollection == null) {
-    print('컬렉션을 찾을 수 없습니다');
+    print('$targetName 컬렉션을 찾을 수 없습니다');
     return;
   }
 
@@ -97,7 +97,9 @@ void findCollection({
   }
 
   for (final saleInfo in salesList) {
-    print('가격: ${saleInfo.price}\n시간: ${saleInfo.cvtDatetime}');
+    print(
+      '컬렉션 이름: $targetName\n가격: ${saleInfo.price}\n시간: ${saleInfo.cvtDatetime}\n',
+    );
   }
 }
 
