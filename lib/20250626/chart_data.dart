@@ -1,3 +1,8 @@
+
+
+import 'dart:convert';
+import 'dart:io';
+
 class CollectionSalePrice {
   final double _price;
   final String _cvtDatetime;
@@ -27,25 +32,50 @@ class CollectionSalePrice {
       cvtDatetime ?? _cvtDatetime,
     );
   }
+
+  CollectionSalePrice.fromJson(Map<String, dynamic> json) :
+      _price = json['price'],
+      _cvtDatetime = json['cvtDatetime'];
+
+  Map<String, dynamic> toJson() {
+    return {
+      'price' : _price,
+      'cvtDatetime' : _cvtDatetime
+    };
+  }
 }
 
 class CollectionChartData {
-  final List<CollectionSalePrice> _collectionSalePrices;
+  final List<CollectionSalePrice>? _collectionSalePrice;
   final String _collectionName;
 
-  CollectionChartData(List<CollectionSalePrice> collectionSalePrices, String collectionName)
-    :_collectionSalePrices = collectionSalePrices, _collectionName = collectionName;
+  CollectionChartData(List<CollectionSalePrice>? collectionSalePrice, String collectionName)
+    :_collectionSalePrice = collectionSalePrice, _collectionName = collectionName;
 
   String get collectionName => _collectionName;
-  List<CollectionSalePrice> get collectionSalePrices => _collectionSalePrices;
+  List<CollectionSalePrice>? get collectionSalePrice => _collectionSalePrice;
+
+
+
+  CollectionChartData.fromJson(Map<String, dynamic> json) :
+        _collectionName = json['collectionName'],
+        _collectionSalePrice = json['collectionSalePrice'] != null ?
+        (json['collectionSalePrice'] as List<dynamic>).map((e) => CollectionSalePrice.fromJson(e)).toList() : null;
+
+  Map<String, dynamic> toJson() {
+    return {
+      'collectionSalePrice' : _collectionSalePrice?.map((e) => e.toJson()).toList(),
+      'collectionName' : _collectionName
+    };
+  }
 
   CollectionChartData copyWith({
-    List<CollectionSalePrice>? collectionSalePrices,
+    List<CollectionSalePrice>? collectionSalePrice,
     String? collectionName,
   }) {
     return CollectionChartData(
-      collectionSalePrices ?? _collectionSalePrices,
-      collectionName ?? _collectionName,
+      collectionSalePrice ?? this._collectionSalePrice,
+      collectionName ?? this._collectionName,
     );
   }
 }
