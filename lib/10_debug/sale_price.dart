@@ -28,10 +28,10 @@ class SalePrice {
   int get hashCode => _price.hashCode ^ _cvtDatetime.hashCode;
 
   @override
-  String toString() => 'SalePrice(price: $price, cvtDateTime: $cvtDatetime)';
+  String toString() => 'SalePrice(price: $price, cvtDatetime: $cvtDatetime)';
 
   Map<String, dynamic> toJson() => {
     'price': _price,
-    'cvtDateTime': _cvtDatetime.toString(),
+    'cvtDatetime': _cvtDatetime.toString(),
   };
 }
