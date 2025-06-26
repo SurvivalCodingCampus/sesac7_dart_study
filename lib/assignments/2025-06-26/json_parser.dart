@@ -36,7 +36,7 @@ class PriceCollection {
 
   Map<String, dynamic> toJson() {
     if (collectionSalePrice == null) {
-      return {'collectionName': collectionName, 'collectionSalePrice': '[]'};
+      return {'collectionName': collectionName, 'collectionSalePrice': []};
     }
     return {
       'collectionName': collectionName,
@@ -71,14 +71,18 @@ class CollectionList {
 }
 
 void main() {
-  final file = File('lib/assignments/2025-06-26/chart_data.json');
-  final fileString = file.readAsStringSync();
+  try {
+    final file = File('lib/assignments/2025-06-26/chart_data.json');
+    final fileString = file.readAsStringSync();
 
-  final jsonMap = jsonDecode(fileString);
-  final dataChunk = CollectionList.fromJson(jsonMap);
+    final jsonMap = jsonDecode(fileString);
+    final dataChunk = CollectionList.fromJson(jsonMap);
 
-  print(dataChunk);
+    print(dataChunk);
 
-  final saveFile = File('lib/assignments/2025-06-26/testResult.json');
-  saveFile.writeAsStringSync(jsonEncode(dataChunk.toJson()));
+    final saveFile = File('lib/assignments/2025-06-26/testResult.json');
+    saveFile.writeAsStringSync(jsonEncode(dataChunk.toJson()));
+  } catch (e) {
+    print('Error: $e');
+  }
 }
