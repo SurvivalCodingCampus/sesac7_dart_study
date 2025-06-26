@@ -26,10 +26,7 @@ class CollectionChartData {
   final String collectionName;
   final List<CollectionSalePrice>? collectionSalePrice;
 
-  const CollectionChartData({
-    required this.collectionName,
-    this.collectionSalePrice,
-  });
+  CollectionChartData({required this.collectionName, this.collectionSalePrice});
 
   factory CollectionChartData.fromJson(Map<String, dynamic> json) {
     final salePriceList = json['collectionSalePrice'] != null
