@@ -9,6 +9,15 @@ import 'package:test/scaffolding.dart';
 void main() {
   group('20250625 여러가지 데이터 형식 테스트', ()
   {
+    late File departmentFile;
+    tearDownAll((){
+      departmentFile.deleteSync();
+    });
+
+    setUp((){
+      departmentFile = File('department.txt');
+    });
+
     test('직렬화 및 파일저장 테스트', () {
       final leader = Employee('홍길동', 41);
       final department = Department('총무부', leader);
@@ -16,7 +25,7 @@ void main() {
       final departmentJson = department.toJson();
       String departmentJsonString = jsonEncode(departmentJson);
 
-      File departmentFile = File('department.txt');
+      //File departmentFile = File('department.txt');
       departmentFile.writeAsStringSync(departmentJsonString);
 
       expect(departmentFile.existsSync() , isTrue);
@@ -24,7 +33,7 @@ void main() {
     });
 
     test('파일에서 읽어와서 역직렬화 테스트', () {
-      File departmentFile = File('department.txt');
+      //File departmentFile = File('department.txt');
       String departmentJsonString = departmentFile.readAsStringSync();
       final Map<String, dynamic> departmentMap = jsonDecode(departmentJsonString);
       final department = Department.fromJson(departmentMap);
