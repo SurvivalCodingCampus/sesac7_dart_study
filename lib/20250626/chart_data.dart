@@ -1,8 +1,5 @@
 
 
-import 'dart:convert';
-import 'dart:io';
-
 class CollectionSalePrice {
   final double _price;
   final String _cvtDatetime;
