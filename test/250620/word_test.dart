@@ -24,6 +24,12 @@ void main() {
     for (int i = 0; i < englishWords.length; i++) {
       Word word = Word(word: englishWords[i]);
 
+      // List list = ['a', 'e', 'i', 'o', 'u'];
+      // Word.vowels = list;
+      // Word.vowels = ['a', 'e', 'i', 'o', 'u'];
+
+      Word.vowels.add('p');
+
       final alphabets = word.word.split('');
       print(alphabets);
 
