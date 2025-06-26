@@ -78,10 +78,5 @@ void main() {
 
   print("Q8");
   // 8. 전체 트랜잭션 중 최소값은 얼마인가?
-  print(
-    transactions.fold<int>(
-      transactions[0].value,
-      (total, element) => min(total, element.value),
-    ),
-  );
+  print(transactions.map((e) => e.value).reduce(min));
 }
