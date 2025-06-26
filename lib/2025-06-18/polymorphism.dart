@@ -76,6 +76,7 @@ abstract class Monster {
 // 구체 클래스
 class Slime extends Monster {
   @override
+  // ignore: overridden_fields
   int hp = 50;
   final String suffix;
   Slime(this.suffix);

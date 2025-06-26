@@ -2,6 +2,7 @@ import 'package:modu_3_dart_study/thing.dart';
 
 class Book extends TangibleAsset {
   String isbn;
+  // ignore: annotate_overrides
   double weight;
 
   Book({
@@ -17,7 +18,11 @@ class Book extends TangibleAsset {
     identical(this, other) ||
     other is Book && 
     runtimeType == other.runtimeType &&
-    isbn == other.isbn; 
+    isbn == other.isbn;
+    
+  @override
+  int get hashCode => isbn.hashCode;
+     
 }
 
 

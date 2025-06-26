@@ -109,7 +109,7 @@ void main() {
   String str3 = String.fromCharCodes('hello'.codeUnits); // 런타임에 결정됨
   print(identical(str1, str3)); // false
 
-  String str4 = 'hel' + 'lo'; // + 때문에 런타임에 결정된다
+  String str4 = 'hel' + 'lo'; // + 때문에 런타임에 결정된다 ??
   print(identical(str1, str4)); // false 
 
   String str5 = 'hel' + getLo(); // + 때문에 런타임에 결정된다

@@ -1,3 +1,4 @@
+// ignore: deprecated_member_use
 import 'package:collection/equality.dart';
 import 'package:test/test.dart';
 import 'package:modu_3_dart_study/book.dart';
