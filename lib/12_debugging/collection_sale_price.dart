@@ -5,7 +5,7 @@ class CollectionSalePrice {
   CollectionSalePrice(this.price, this.cvtDatetime);
 
   CollectionSalePrice.fromJson(Map<String, dynamic> json)
-    : price = (json['price'] as num).toDouble(),
+    : price = json['price'],
       cvtDatetime = json['cvtDatetime'];
 
   Map<String, dynamic> toJson() => {
