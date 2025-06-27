@@ -33,7 +33,7 @@ class ChartDataList {
 
   @override
   String toString() =>
-      'ChartDataList(collectionChartDataList: $collectionChartDataList})';
+      'ChartDataList(collectionChartDataList: $collectionChartDataList)';
 
   Map<String, dynamic> toJson() => {
     'collectionChartDataList': collectionChartDataList
