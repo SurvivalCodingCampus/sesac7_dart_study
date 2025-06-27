@@ -5,9 +5,9 @@ class CollectionSalePrice {
   CollectionSalePrice({required this.price, required this.cvtDatetime});
 
   CollectionSalePrice.fromJson(Map<String, dynamic> json)
-    : price = json['price'],
-      cvtDatetime =
-          DateTime.tryParse(json['cvtDatetime']) ?? DateTime(2000, 1, 1);
+      : price = json['price'],
+        cvtDatetime =
+            DateTime.tryParse(json['cvtDatetime']) ?? DateTime(2000, 1, 1);
 
   Map<String, dynamic> toJson() {
     return {
@@ -27,11 +27,11 @@ class CollectionChartData {
   });
 
   CollectionChartData.fromJson(Map<String, dynamic> json)
-    : collectionName = json['collectionName'],
-      collectionSalePriceList =
-          ((json['collectionSalePriceList'] ?? []) as List)
-              .map((e) => CollectionSalePrice.fromJson(e))
-              .toList();
+      : collectionName = json['collectionName'],
+        collectionSalePriceList =
+        ((json['collectionSalePrice'] ?? []) as List)
+            .map((e) => CollectionSalePrice.fromJson(e))
+            .toList();
 }
 
 class ChartData {
@@ -40,10 +40,10 @@ class ChartData {
   ChartData({required this.collectionChartDataList});
 
   ChartData.fromJson(Map<String, dynamic> json)
-    : collectionChartDataList =
-          ((json['collectionChartDataList'] ?? []) as List)
-              .map((e) => CollectionChartData.fromJson(e))
-              .toList();
+      : collectionChartDataList =
+  ((json['collectionChartDataList'] ?? []) as List)
+      .map((e) => CollectionChartData.fromJson(e))
+      .toList();
 }
 
 void main() {
