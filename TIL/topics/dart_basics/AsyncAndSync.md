@@ -60,7 +60,7 @@
 		Future<String> readData() async {
 			File file = File('path/text.txt');
 			await Future.delayed(Duration(seconds: 1));
-			return file.readAsString();
+			return await file.readAsString();
 		}
 		void main() async {
 			String data = await readData();
@@ -76,7 +76,7 @@
 		Future<String> readData(int seconds) async {
 			File file = File('path/text.txt');
 			await Future.delayed(Duration(seconds: seconds));
-			return file.readAsString();
+			return await file.readAsString();
 		}
 		void main() async {
 			List<Future<String>> datas = [readData(1), readData(2), readData(3)];
