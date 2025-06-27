@@ -55,7 +55,7 @@ void main() {
 
         expect(movie.title, equals('Star Ward'));
         expect(movie.director, equals('George Lucas'));
-        expect(movie.year, equals(1997));
+        expect(movie.year, equals(1977));
       });
       test('getMovieInfo 함수 리턴 1초 검증', () async {
         final Stopwatch stopwatch = Stopwatch()..start();
