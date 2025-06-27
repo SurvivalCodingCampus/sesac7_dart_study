@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:test/test.dart';
-import 'package:modu_3_dart_study/debug.dart';
+import 'package:modu_3_dart_study/chart_data.dart';
 
 void main () {
 
