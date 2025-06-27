@@ -41,7 +41,7 @@ void main() {
     });
 
     test('null이 있는 jsonString을 fromJson을 사용한 역직렬화 후 인스턴스 필드 null 검증', () {
-      final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
+      final Map<String, dynamic> jsonMap = jsonDecode(jsonStringIncludeNull);
       final Movie testMovie = Movie.fromJson(jsonMap);
 
       expect(testMovie.title, isNull);
