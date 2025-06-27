@@ -255,3 +255,47 @@ class User {
 1. forEach : run parameter function with each element as its parameter
 1. reduce / fold : returns single value by running the parameter function on each element
 1. any : returns boolean whether the list contains an element that returns true from the parameter function
+
+### Async Programming
+1. Callback function
+```dart
+void fetchData(void Function(String) onSuccess) {
+    onSuccess('Data');
+}
+```
+
+2. Future / then
+- surround return type of a function with Future<> to make it async
+- on upper scope, having .then will have follow up tasks that wait for this particular function to complete
+- rest of the code will asynchronously work instead of waiting future function to complete
+- Quite difficult to expect order of completion and debug
+```dart
+Future<String> fetchData() {
+    return Future.delayed(Duration(seconds: 1), () => 'data');
+}
+
+void main() {
+    fetchData().then((data) => print(data));
+}
+```
+3. Async / Await
+- make a function async by putting async keyword after identifier
+- Await keyword will make that particular line synchronous
+- Easier to predict and debug
+- prefered method
+```dart
+Future<String> runInTheFuture async {
+    var data = await Future.value('world');
+
+    return 'hello $data';
+}
+```
+
+### Important note
+- await keyword is followed by **future** type
+- await keyword is only usable in **async** scope
+```dart
+await Future.delayed(Duration(seconds: interval));
+
+// useful snippet to wait certain amount of time
+```
