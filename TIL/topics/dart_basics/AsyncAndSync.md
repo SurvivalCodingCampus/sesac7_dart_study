@@ -30,7 +30,7 @@
 	void readData(void Function(String) onSuccess) {
 		File file = File('path/text.txt');
 		
-		onSuccess(file.readAsStringAsync);
+		onSuccess(file.readAsStringAsync());
 	}
 	void main() {
 		readData((String result) {
@@ -45,7 +45,7 @@
 		Future<String> readData() {
 			File file = File('path/text.txt');
 			
-			return file.readAsStringAsync;
+			return file.readAsString();
 		}
 		void main() {
 			readData().then((data) => print(data));
@@ -60,7 +60,7 @@
 		Future<String> readData() async {
 			File file = File('path/text.txt');
 			await Future.delayed(Duration(seconds: 1));
-			return file.readAsStringAsync;
+			return file.readAsString();
 		}
 		void main() async {
 			String data = await readData();
@@ -76,7 +76,7 @@
 		Future<String> readData(int seconds) async {
 			File file = File('path/text.txt');
 			await Future.delayed(Duration(seconds: seconds));
-			return file.readAsStringAsync;
+			return file.readAsString();
 		}
 		void main() async {
 			List<Future<String>> datas = [readData(1), readData(2), readData(3)];
