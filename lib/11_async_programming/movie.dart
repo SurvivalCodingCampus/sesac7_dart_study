@@ -31,9 +31,9 @@ class Movie {
       : false;
 
   Movie copyWith({
-    required String? title,
-    required String? director,
-    required num? year,
+    String? title,
+    String? director,
+    num? year,
   }) => Movie(
     title: title ?? this.title,
     director: director ?? this.director,
