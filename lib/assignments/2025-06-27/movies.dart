@@ -6,7 +6,7 @@ class Movie {
   String? director;
   int? year;
 
-  Movie({String? title, String? director, int? year});
+  Movie(this.title, this.director, this.year);
 
   Movie.fromJson(Map<String, dynamic> json)
     : title = json['title'],
@@ -19,9 +19,9 @@ class Movie {
 
   Movie copyWith({String? title, String? director, int? year}) {
     return Movie(
-      title: title ?? this.title,
-      director: director ?? this.director,
-      year: year ?? this.year,
+      title ?? this.title,
+      director ?? this.director,
+      year ?? this.year,
     );
   }
 
@@ -43,7 +43,6 @@ class Movie {
 }
 
 Future<Movie> getMovieInfo() async {
-  // TODO : 2초간 기다리는 코드 작성
   await Future.delayed(Duration(seconds: 2));
 
   // 서버에서 들어오는 데이터라고 상상
@@ -54,7 +53,6 @@ Future<Movie> getMovieInfo() async {
   }''';
   final movie = Movie.fromJson(jsonDecode(jsonString));
 
-  // TODO : Movie 데이터 클래스를 리턴하도록 작성
   return movie;
 }
 
