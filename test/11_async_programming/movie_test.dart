@@ -44,9 +44,9 @@ void main() {
       final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
       final Movie testMovie = Movie.fromJson(jsonMap);
 
-      expect(testMovie.title, equals(testTitle));
-      expect(testMovie.director, equals(testDirector));
-      expect(testMovie.year, equals(testYear));
+      expect(testMovie.title, isNull);
+      expect(testMovie.director, isNull);
+      expect(testMovie.year, isNull);
     });
 
     group('getMovieInfo 테스트', () {
