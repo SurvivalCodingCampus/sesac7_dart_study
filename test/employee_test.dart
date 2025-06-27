@@ -46,7 +46,7 @@ void main () {
     } on FileSystemException catch (e) {
       // FileSystemException: 파일시스템 관련 오류 발생시 사용하는 예외 클래스
       fail('파일 시스템 오류: $e');
-    } on FormatException catch (e) {
+    } on FormatException catch (e) { 
       fail('JSON 파싱 오류: $e');
     } catch (e) {
       fail('예상하지 못한 오류: $e');
