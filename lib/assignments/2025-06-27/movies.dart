@@ -60,7 +60,7 @@ Future<Movie> getMovieInfo() async {
 
 void main() async {
   try {
-    Movie data = await getMovieInfo();
+    final Movie data = await getMovieInfo();
     print(data.title);
   } catch (e) {
     print("Failed to load movie data from server : $e");
