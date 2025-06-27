@@ -21,15 +21,36 @@ class Movie {
 
   factory Movie.fromJson(Map<String, dynamic> json) {
     return Movie(
-      title: json['title'] as String,
-      director: json['director'] as String,
-      year: json['year'] as int,
+      title: (json['title'] is String) ? json['title'] : '',
+      director: (json['director'] is String) ? json['director'] : '',
+      year: int.tryParse(json['year']?.toString() ?? '') ?? 0,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {'title': title, 'director': director, 'year': year};
   }
+
+  Movie copyWith({String? title, String? director, int? year}) {
+    return Movie(
+      title: title ?? this.title,
+      director: director ?? this.director,
+      year: year ?? this.year,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        other is Movie &&
+            runtimeType == other.runtimeType &&
+            title == other.title &&
+            director == other.director &&
+            year == other.year;
+  }
+
+  @override
+  int get hashCode => title.hashCode ^ director.hashCode ^ year.hashCode;
 
   @override
   String toString() => 'Movie(title: $title, director: $director, year: $year)';
