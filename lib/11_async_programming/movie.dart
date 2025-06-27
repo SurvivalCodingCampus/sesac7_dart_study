@@ -14,10 +14,10 @@ class Movie {
   Movie.fromJson(Map<String, dynamic> json)
     : title = json['title'],
       director = json['director'],
-      year = json['year'] is double
+      year = json['year'] != null && json['year'] is double
           ? (json['year'] as double)
                 .floor() // double이면 소수점 제거
-          : json['year'];
+          : json['year']; // null이거나 int면 그대로 사용
 
   @override
   String toString() => 'Movie(title: $title, director: $director, year: $year)';
