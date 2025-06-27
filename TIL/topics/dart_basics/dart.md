@@ -246,3 +246,12 @@ class User {
 ```
 - then use jsonDecode(jsonString) to make string into map
 - use jsonEncode(map) to make map into string
+
+### Higher-order function
+- Dart considers function as a first class object, meaning a function can have another function as parameter. Such functions are called higher-order function
+- Dart-provided higher order functions include:
+1. where : creates new list with elements that returns true with the parameter function
+1. map : create new list with each elements modified by the parameter function
+1. forEach : run parameter function with each element as its parameter
+1. reduce / fold : returns single value by running the parameter function on each element
+1. any : returns boolean whether the list contains an element that returns true from the parameter function
