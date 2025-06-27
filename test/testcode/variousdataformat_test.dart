@@ -8,8 +8,12 @@ void main() {
   test('직렬화 역직렬화 확인 test', () {
     //given(준비)
     //총무부 리더 ‘홍길동(41세)’의 인스턴스를 생성
-    Employee employee = Employee(name: '홍길동', age: 41);
-    Department department = Department(name: '김길동', leader: employee);
+    final String name = '홍길동';
+    final String name2 = '총무부';
+    final int age = 41;
+
+    Employee employee = Employee(name: name, age: age);
+    Department department = Department(name: name2, leader: employee);
     SaveCompanyText saveCompanyText = SaveCompanyText();
 
     //when(실행)
