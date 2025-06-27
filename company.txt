@@ -1,7 +1,0 @@
-{
-  "name": "총무부",
-  "leader": {
-    "name": "hongildong",
-    "age": 41
-  }
-}
