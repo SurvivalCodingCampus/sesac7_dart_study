@@ -247,3 +247,33 @@ alt + enter blockbody눌러서 람다안에 함수로 들어갈수있다.
 
 안티패턴
 
+7월 14일 전까지 인프런 47번까지 들어야함
+
+
+일렬로 되어있는거
+.json 확작장로 저장하면 정리됨
+
+다트는 double int상관관계가아니기때문에 num 타입으로 받아야한다.
+
+dataformat yy-MM-dd M은 대문자
+
+터지는걸 걱정해야하는거...
+
+final 있으면 getter있는거임
+
+ListEquality.hash 
+
+switch  
+case 1 || 2 이런 표현식도있음
+
+리뷰는 코드레빗
+하지만 리팩토링은 작은것
+비지니스 로직을 건들지말고
+
+Alt + J 눌러서 같은거 선택하게
+
+디버그 variable | Watch
+변수 등록하고 계속 볼수있음
+
+map where
+데이터 표시할때 사용하니 익숙해지자...안익숙해져..
