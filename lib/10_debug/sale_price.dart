@@ -8,7 +8,7 @@ class SalePrice {
 
   SalePrice({
     required double price,
-    required cvtDateTime,
+    required DateTime cvtDateTime,
   }) : _price = price,
        _cvtDatetime = cvtDateTime;
 
