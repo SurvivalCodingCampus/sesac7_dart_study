@@ -51,7 +51,7 @@ Future<Movie> getMovieInfo() async {
   await Future.delayed(Duration(seconds: 1));
 
   final String jsonString = '''{
-    "title": "StartWard",
+    "title": "Star Ward",
     "director": "George Lucas",
     "year": 1977
   }''';
