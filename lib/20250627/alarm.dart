@@ -1,15 +1,5 @@
 import 'package:intl/intl.dart';
 
-void main() async {
-  List<Future<void>> futures = [
-    sound(Bird.firstBird),
-    sound(Bird.secondBird),
-    sound(Bird.thirdBird),
-  ];
-
-  await Future.wait(futures);
-}
-
 enum Bird {
   firstBird(1),
   secondBird(2),
@@ -29,15 +19,22 @@ Future<void> sound(Bird bird) async {
 }
 
 String birdSound(Bird bird) {
-  String birdSoundText;
   switch (bird) {
     case Bird.firstBird:
-      birdSoundText = '꾸우';
+      return '꾸우';
     case Bird.secondBird:
-      birdSoundText = '까악';
+      return '까악';
     case Bird.thirdBird:
-      birdSoundText = '짹짹';
+      return '짹짹';
   }
+}
 
-  return birdSoundText;
+void main() async {
+  List<Future<void>> futures = [
+    sound(Bird.firstBird),
+    sound(Bird.secondBird),
+    sound(Bird.thirdBird),
+  ];
+
+  await Future.wait(futures);
 }

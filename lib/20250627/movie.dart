@@ -17,7 +17,10 @@ class Movie {
           year == other.year;
 
   @override
-  int get hashCode => title.hashCode ^ director.hashCode ^ year.hashCode;
+  int get hashCode =>
+      (title?.hashCode ?? 0) ^
+      (director?.hashCode ?? 0) ^
+      (year?.hashCode ?? 0);
 
   Movie copyWith({String? title, String? director, int? year}) {
     return Movie(
@@ -42,7 +45,7 @@ class Movie {
   }
 }
 
-Future<Movie> getMoviewInfo() async {
+Future<Movie> getMovieInfo() async {
   await Future.delayed(Duration(seconds: 2));
   final String jsonString = '''{
     "title" : "Star Ward",
@@ -56,7 +59,7 @@ Future<Movie> getMoviewInfo() async {
   return movie;
 }
 
-Future<Movie> getMoviewInfoToJson(String jsonString) async {
+Future<Movie> getMovieInfoToJson(String jsonString) async {
   await Future.delayed(Duration(seconds: 2));
 
   final mapJson = jsonDecode(jsonString);

@@ -52,7 +52,7 @@ void main() {
         final map = movie.toJson();
         final jsonString = jsonEncode(map);
 
-        final movieInfo = await getMoviewInfoToJson(jsonString);
+        final movieInfo = await getMovieInfoToJson(jsonString);
         print(movieInfo.toString());
         expect(movieInfo.title?.isNotEmpty , isTrue);
       }
@@ -66,7 +66,7 @@ void main() {
         final map = movie.toJson();
         final jsonString = jsonEncode(map);
 
-        final movieInfo = await getMoviewInfoToJson(jsonString);
+        final movieInfo = await getMovieInfoToJson(jsonString);
         print(movieInfo.toString());
         expect(movieInfo , isA<Movie>());
       }
