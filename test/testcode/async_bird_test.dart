@@ -7,10 +7,11 @@ void main() {
 
     //when(실행)
     Stopwatch stopwatch = Stopwatch()..start();
-    await Future.wait(Birds.values.map((b)=>b.twitter()));
+    await Future.wait(Birds.values.map((b) => b.twitter()));
     print(stopwatch.elapsed);
 
     //then(검증)
-
+    expect(stopwatch.elapsed.inSeconds, greaterThanOrEqualTo(12));
+    expect(stopwatch.elapsed.inSeconds, lessThan(13));
   });
 }
