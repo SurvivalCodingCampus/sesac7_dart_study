@@ -62,7 +62,7 @@
 // // List에 담긴 모든 Person 인스턴스의 이름을 표시하시오.
 //
 // // 위와 같이 쓰려면 차라리 class를 만들어 사용해야기
-// class Person {
+// 01.class_instance Person {
 //   String name;
 //   int age;
 //

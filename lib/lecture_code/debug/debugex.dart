@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 class CollectionSalePrice {
-  //collectionSalePrice class
+  //collectionSalePrice 01.class_instance
   final double price; // "price": 58.25
   final String? cvtDataTime; //"2023-03-26T08:00:00"
 

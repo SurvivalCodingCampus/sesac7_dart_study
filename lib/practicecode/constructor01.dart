@@ -3,7 +3,7 @@
 // 값이 꼭 있어야 하며, 변하지 않게 하려면 :	Point(this.x, this.y) + final
 
 
-// class Point {
+// 01.class_instance Point {
 //   int x = 2;
 //   int y = 2;
 //
@@ -13,7 +13,7 @@
 // void main() {
 // }
 
-// class Point {
+// 01.class_instance Point {
 //   late final double x;
 //   final double y;
 //
