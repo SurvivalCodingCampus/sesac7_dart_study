@@ -76,6 +76,24 @@ class Todos {
 
   Todos(this.todos);
 
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Todos &&
+          runtimeType == other.runtimeType &&
+          todos == other.todos;
+
+  @override
+  int get hashCode => todos.hashCode;
+
+  Todos copyWith({
+    List<Todo>? todos,
+  }) {
+    return Todos(
+      todos ?? this.todos,
+    );
+  }
+
   factory Todos.fromJson(List<dynamic> list) {
     return Todos(list.map((e) => Todo.fromJson(e)).toList());
   }
