@@ -1,6 +1,6 @@
-import 'package:modu_3_dart_study/lecture_code/class/cleric.dart';
-import 'package:modu_3_dart_study/lecture_code/class/person.dart';
-import 'package:modu_3_dart_study/lecture_code/class/wizard.dart';
+import 'package:modu_3_dart_study/lecture_code/01.class_instance/cleric.dart';
+import 'package:modu_3_dart_study/lecture_code/01.class_instance/person.dart';
+import 'package:modu_3_dart_study/lecture_code/01.class_instance/wizard.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -70,12 +70,12 @@ void main() {
 
   group('생성자 테스트', () {
     final String clericTestName = '아서스';
-    test('생성자 인자값 : “아서스", hp: 40, mp: 5', () {
+    test('생성자 인자값 : 아서스, hp: 40, mp: 5', () {
       //given(준비)
       final int testHp = 40;
       final int testMp = 5;
 
-      var cleric = Cleric('아서스', hp: 40, mp: 5);
+      var cleric = Cleric(clericTestName, hp: 40, mp: 5);
 
       //when(실행)
 
@@ -85,9 +85,9 @@ void main() {
       expect(cleric.mp, testMp);
     });
 
-    test('생성자 인자값 : “아서스"', () {
+    test('생성자 인자값 : 아서스', () {
       //given(준비)
-      var cleric = Cleric('아서스');
+      var cleric = Cleric('아서스',hp: 1000, mp: 1000);
 
       //when(실행)
 
@@ -97,10 +97,10 @@ void main() {
       expect(cleric.mp, Cleric.maxMp);
     });
 
-    test('생성자 인자값 : “아서스", hp: 40', () {
+    test('생성자 인자값 : 아서스, hp: 40', () {
       //given(준비)
       final int testHp = 35;
-      var cleric = Cleric('아서스', hp: testHp);
+      var cleric = Cleric('아서스', hp: testHp, mp: 40);
 
       //when(실행)
 
@@ -120,7 +120,7 @@ void main() {
     });
   });
 
-  group('Person class 테스트', () {
+  group('Person 01.class_instance 테스트', () {
     test('Person Class birthYear 리턴값 비교확인 거짓일 경우 Test', () {
       //given(준비)
       final int birthYear = 1982;

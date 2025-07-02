@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/lecture_code/class/hero.dart';
-import 'package:modu_3_dart_study/lecture_code/class/wizard.dart';
+import 'package:modu_3_dart_study/lecture_code/01.class_instance/hero.dart';
+import 'package:modu_3_dart_study/lecture_code/01.class_instance/wizard.dart';
 import 'package:test/test.dart';
 
 void main() {

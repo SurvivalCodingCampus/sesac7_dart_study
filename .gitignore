@@ -45,7 +45,7 @@ doc/api/
 # Files for the ART/Dalvik VM
 *.dex
 
-# Java class files
+# Java 01.class_instance files
 *.class
 
 # Generated files

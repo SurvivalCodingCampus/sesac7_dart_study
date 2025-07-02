@@ -1,59 +1,46 @@
-// {
-// "price": 58.25,
-// "cvtDatetime": "2023-03-26T08:00:00"
-// }
-
 import 'dart:convert';
 import 'dart:io';
 
 class CollectionSalePrice {
-  double price;
-  String cvtDatetime;
+  //collectionSalePrice 01.class_instance
+  final double price; // "price": 58.25
+  final String? cvtDataTime; //"2023-03-26T08:00:00"
 
-  CollectionSalePrice({required this.price, required this.cvtDatetime});
+  // 생성자
+  CollectionSalePrice({required this.price, this.cvtDataTime});
 
   CollectionSalePrice.fromJson(Map<String, dynamic> json)
-    : price = json['price'],
-      cvtDatetime = json['cvtDatetime'];
+      : price = json['price'],
+        cvtDataTime = json['cvtDatetime'] ;
 }
 
-class CollectionChartDataList {
-  String collectionName;
-  List<CollectionSalePrice> collectionSalePrice;
+class CollectionChartData {
+  final String collectionName;
+  final List<CollectionSalePrice>? collectionSalePrice; // collection68 => null 허용
 
-  CollectionChartDataList({
+  CollectionChartData({
     required this.collectionName,
-    required this.collectionSalePrice,
+    this.collectionSalePrice,
   });
 
-  // CollectionChartDataList.fromJson(Map<String, dynamic> json)
-  //   : collectionName = json['collectionName'],
-  //     collectionSalePrice = CollectionSalePrice.fromJson(json['collectionSalePrice']);
-
-  static CollectionChartDataList fromJson(Map<String, dynamic> json){
-    List<CollectionSalePrice> collectionList = [];
-    for(var data in json['collectionSalePrice']){
-      collectionList.add(CollectionSalePrice.fromJson(data));
-    }
-    return CollectionChartDataList(collectionName: json['collectionName'], collectionSalePrice: collectionList);
-  }
+  // 라스트인지 확인
+  CollectionChartData.fromJson(Map<String, dynamic> json)
+      : collectionName = json['collectionName'],
+        collectionSalePrice = (json['collectionSalePrice'] is List)
+            ? (json['collectionSalePrice'] as List)
+            .map((e) => CollectionSalePrice.fromJson(e))
+            .toList()
+            : null;
 }
 
-void main() {
-  // sourcepath 파일을 열기
-  final sourceFile = File('lib/lecture_code/debug/chart_data1.json');
+class ChartData{
+  final List<CollectionChartData> collectionChartDataList;
 
-  // sourcepath 파일을 읽기 => 읽은 내용을 저장하기
-  String text = sourceFile.readAsStringSync();
+  ChartData({required this.collectionChartDataList});
 
-  // JsonString -> Map
-  //print(jsonDecode(text));
- List<CollectionSalePrice> list = CollectionChartDataList.fromJson(jsonDecode(text)).collectionSalePrice;
-
-  for(var i in list){
-    print(i.price);
-  }
-
-  //print(CollectionSalePrice.fromJson(jsonDecode(text)['collectionSalePrice'][0]).price);
-  // print(CollectionSalePrice.fromJson(jsonDecode(text)['collectionSalePrice'][0]).cvtDatetime);
+  ChartData.fromJson(Map<String, dynamic> json)
+      : collectionChartDataList = (json['collectionChartDataList'] as List)
+      .map((e) => CollectionChartData.fromJson(e))
+      .toList();
 }
+
