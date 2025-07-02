@@ -45,7 +45,7 @@ void main() {
       testTodoSource.todosFilePath = wrongTodosPath;
 
       // then
-      expect(testTodoSource.getTodo(), throwsException);
+      expect(testTodoSource.getTodos(), throwsException);
     });
   });
 }

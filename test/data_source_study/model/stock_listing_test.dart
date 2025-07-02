@@ -2,7 +2,7 @@ import 'package:modu_3_dart_study/data_source_study/model/stock_listing.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('Geo Test', () {
+  group('StockListing Test', () {
     test('생성자 테스트', () {
       // given
       final String testSymbol = 'A';
