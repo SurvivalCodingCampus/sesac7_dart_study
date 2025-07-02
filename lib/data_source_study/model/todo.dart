@@ -51,15 +51,8 @@ class Todo {
 
   set completed(bool completed) => _completed = completed;
 
-  // 역직렬화
-  Todo.fromJson(Map<String, dynamic> json)
-    : _userId = json['userId'] > idBase ? json['userId'] : defaultIdValue,
-      _id = json['id'] > idBase ? json['id'] : defaultIdValue,
-      _title = json['title'].isEmpty ? 'none' : json['title'],
-      _completed = json['completed'];
-
   // 역직렬화(factory 버전)
-  factory Todo.fromJson2(Map<String, dynamic> json) {
+  factory Todo.fromJson(Map<String, dynamic> json) {
     return Todo(
       userId: json['userId'] > idBase ? json['userId'] : defaultIdValue,
       id: json['id'] > idBase ? json['id'] : defaultIdValue,
@@ -67,6 +60,13 @@ class Todo {
       completed: json['completed'],
     );
   }
+
+  // 역직렬화(기존)
+  Todo.fromJson2(Map<String, dynamic> json)
+    : _userId = json['userId'] > idBase ? json['userId'] : defaultIdValue,
+      _id = json['id'] > idBase ? json['id'] : defaultIdValue,
+      _title = json['title'].isEmpty ? 'none' : json['title'],
+      _completed = json['completed'];
 
   // 직렬화
   Map<String, dynamic> toJson() {
