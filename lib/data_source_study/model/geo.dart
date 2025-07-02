@@ -35,8 +35,16 @@ class Geo {
     };
   }
 
+  // 역직렬화(factory)
+  factory Geo.fromJson(Map<String, dynamic> json) {
+    return Geo(
+      lat: json['lat'].isEmpty ? 'undefined' : json['lat'],
+      lng: json['lng'].isEmpty ? 'undefined' : json['lng'],
+    );
+  }
+
   // 역직렬화
-  Geo.fromJson(Map<String, dynamic> json)
+  Geo.fromJson2(Map<String, dynamic> json)
     : _lat = json['lat'].isEmpty ? 'undefined' : json['lat'],
       _lng = json['lng'].isEmpty ? 'undefined' : json['lng'];
 

@@ -73,8 +73,19 @@ class Address {
     };
   }
 
+  // 역직렬화(factory)
+  factory Address.fromJson(Map<String, dynamic> json) {
+    return Address(
+      street: json['street'].isEmpty ? 'undefined' : json['street'],
+      suite: json['suite'].isEmpty ? 'undefined' : json['suite'],
+      city: json['city'].isEmpty ? 'undefined' : json['city'],
+      zipcode: json['zipcode'].isEmpty ? 'undefined' : json['zipcode'],
+      geo: Geo.fromJson(json['geo']),
+    );
+  }
+
   // 역직렬화
-  Address.fromJson(Map<String, dynamic> json)
+  Address.fromJson2(Map<String, dynamic> json)
     : _street = json['street'].isEmpty ? 'undefined' : json['street'],
       _suite = json['suite'].isEmpty ? 'undefined' : json['suite'],
       _city = json['city'].isEmpty ? 'undefined' : json['city'],

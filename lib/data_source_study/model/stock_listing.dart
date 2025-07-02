@@ -91,7 +91,7 @@ class StockListing {
     _status = status;
   }
 
-  // 역직렬화
+  // 역직렬화(factory)
   factory StockListing.fromCsv(String csvRow) {
     final List<String> csvRowList = csvRow.split(',');
 

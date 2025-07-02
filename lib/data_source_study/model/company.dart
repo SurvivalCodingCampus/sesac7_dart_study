@@ -50,8 +50,19 @@ class Company {
     };
   }
 
+  // 역직렬화(factory)
+  factory Company.fromJson(Map<String, dynamic> json) {
+    return Company(
+      name: json['name'].isEmpty ? 'undefined' : json['name'],
+      catchPhrase: json['catchPhrase'].isEmpty
+          ? 'undefined'
+          : json['catchPhrase'],
+      bs: json['bs'].isEmpty ? 'undefined' : json['bs'],
+    );
+  }
+
   // 역직렬화
-  Company.fromJson(Map<String, dynamic> json)
+  Company.fromJson2(Map<String, dynamic> json)
     : _name = json['name'].isEmpty ? 'undefined' : json['name'],
       _catchPhrase = json['catchPhrase'].isEmpty
           ? 'undefined'
