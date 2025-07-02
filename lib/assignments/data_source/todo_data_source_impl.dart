@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:modu_3_dart_study/assignments/data_source/todo.dart';
 import 'package:modu_3_dart_study/assignments/data_source/todo_data_source.dart';
+import 'package:modu_3_dart_study/assignments/data_source/todo_model.dart';
 
 class TodoDataSourceImpl implements TodoDataSource {
   final String _todoPath;
