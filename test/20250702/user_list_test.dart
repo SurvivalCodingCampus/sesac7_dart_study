@@ -1,6 +1,4 @@
 import 'package:modu_3_dart_study/20250702/UserDataSourceImpl.dart';
-import 'package:modu_3_dart_study/20250702/todo.dart';
-import 'package:modu_3_dart_study/20250702/todo_data_source_impl.dart';
 import 'package:modu_3_dart_study/20250702/user.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
