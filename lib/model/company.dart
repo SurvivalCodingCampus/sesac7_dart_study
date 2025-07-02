@@ -31,7 +31,7 @@ class Company {
     bs: bs ?? this.bs,
   );
 
-  Map<String, dynamic> fromJson() => {
+  Map<String, dynamic> toJson() => {
     'name': name,
     'catchPhrase': catchPhrase,
     'bs': bs,
