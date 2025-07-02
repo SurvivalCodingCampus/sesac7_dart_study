@@ -5,13 +5,36 @@ import 'package:modu_3_dart_study/data_source_study/data_source/todo_data_source
 import 'package:modu_3_dart_study/data_source_study/model/todo.dart';
 
 class TodoDataSourceImpl implements TodoDataSource {
+  String _todoFilePath = 'lib/data_source_study/todo.json';
+  String _todosFilePath = 'lib/data_source_study/todos.json';
+
+  // getter
+  String get todoFilePath => _todoFilePath;
+
+  String get todosFilePath => _todosFilePath;
+
+  // setter
+  set todoFilePath(String todoFilePath) {
+    if (todoFilePath.isEmpty) {
+      throw Exception('파일 경로를 입력해야 합니다.');
+    }
+    _todoFilePath = todoFilePath;
+  }
+
+  set todosFilePath(String todosFilePath) {
+    if (todosFilePath.isEmpty) {
+      throw Exception('파일 경로를 입력해야 합니다.');
+    }
+    _todosFilePath = todosFilePath;
+  }
+
   @override
   Future<Todo> getTodo() async {
     try {
       final Map<String, dynamic> json = jsonDecode(
-        File('lib/data_source_study/todo.json').readAsStringSync(),
+        File(todoFilePath).readAsStringSync(),
       );
-      final Todo todo = Todo.fromJson2(json);
+      final Todo todo = Todo.fromJson(json);
       return todo;
     } on FileSystemException catch (e) {
       throw Exception(e.message);
@@ -25,7 +48,7 @@ class TodoDataSourceImpl implements TodoDataSource {
     try {
       final List<dynamic> json =
           jsonDecode(
-                File('lib/data_source_study/todos.json').readAsStringSync(),
+                File(todosFilePath).readAsStringSync(),
               )
               as List<dynamic>;
       final List<Todo> result = json.map((e) => Todo.fromJson(e)).toList();
@@ -36,10 +59,4 @@ class TodoDataSourceImpl implements TodoDataSource {
       throw Exception('예상치 못한 오류');
     }
   }
-}
-
-void main() async {
-  TodoDataSourceImpl impl = TodoDataSourceImpl();
-  List<Todo> a = await impl.getTodos();
-  print(a.toString());
 }
