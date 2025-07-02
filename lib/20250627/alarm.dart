@@ -36,5 +36,7 @@ void main() async {
     sound(Bird.thirdBird),
   ];
 
+  // 굳이 await로 잡지 않아도 진행중인 모든 함수가 종료되어야 메인이 종료된다.
+  // 밑에 코드는 제거해도됨
   await Future.wait(futures);
 }
