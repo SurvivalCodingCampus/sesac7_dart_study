@@ -13,4 +13,17 @@ class TodoDataSourceImpl implements TodoDataSource {
 
     return Todo.fromJson(json);
   }
+
+  @override
+  Future<List<Todo>> getTodos() async {
+    final List<Todo> todos =
+        (jsonDecode(
+                  File('todos.json').readAsStringSync(),
+                )
+                as List)
+            .map((e) => Todo.fromJson(e as Map<String, dynamic>))
+            .toList();
+
+    return todos;
+  }
 }

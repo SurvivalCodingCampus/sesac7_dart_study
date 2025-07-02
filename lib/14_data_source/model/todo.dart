@@ -23,4 +23,24 @@ class Todo {
   Map<String, dynamic> toJson() {
     return {"userId": userId, "id": id, "title": title, "completed": completed};
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (other is Todo) {
+      return userId == other.userId &&
+          id == other.id &&
+          title == other.title &&
+          completed == other.completed;
+    }
+    return false;
+  }
+
+  @override
+  int get hashCode =>
+      userId.hashCode ^ id.hashCode ^ title.hashCode ^ completed.hashCode;
+
+  @override
+  String toString() {
+    return '{"userId": $userId, "id": $id, "title": $title, "completed": $completed}';
+  }
 }
