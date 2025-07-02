@@ -18,6 +18,22 @@ class TodoDataSourceImpl implements TodoDataSource {
       throw (e);
     }
   }
+
+  @override
+  Future<List<Todo>> getTodos() async {
+    await Future.delayed(Duration(seconds: 2));
+    try {
+      final file = File('lib/assignments/2025-07-02/todos.json');
+      final fileString = file.readAsStringSync();
+
+      List<Todo> todos = (jsonDecode(fileString) as List)
+          .map((e) => Todo.fromMap(e))
+          .toList();
+      return todos;
+    } catch (e) {
+      throw (e);
+    }
+  }
 }
 
 void main() async {
@@ -26,4 +42,9 @@ void main() async {
   print(todo1.userId);
   print(todo1.title);
   print(todo1.completed);
+
+  List<Todo> todos = await TodoDataSourceImpl().getTodos();
+  print(todos.runtimeType);
+  print(todos.length);
+  print(todos[0].id);
 }
