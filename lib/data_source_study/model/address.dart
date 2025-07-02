@@ -93,6 +93,25 @@ class Address {
       _geo = Geo.fromJson(json['geo']);
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Address &&
+          runtimeType == other.runtimeType &&
+          _street == other._street &&
+          _suite == other._suite &&
+          _city == other._city &&
+          _zipcode == other._zipcode &&
+          _geo == other._geo;
+
+  @override
+  int get hashCode =>
+      _street.hashCode ^
+      _suite.hashCode ^
+      _city.hashCode ^
+      _zipcode.hashCode ^
+      _geo.hashCode;
+
+  @override
   String toString() {
     return '[street: $street, suite: $suite, city: $city, zipcode: $zipcode, geo: ${geo.toString()}]';
   }

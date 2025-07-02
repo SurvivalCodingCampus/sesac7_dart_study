@@ -70,6 +70,18 @@ class Company {
       _bs = json['bs'].isEmpty ? 'undefined' : json['bs'];
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Company &&
+          runtimeType == other.runtimeType &&
+          _name == other._name &&
+          _catchPhrase == other._catchPhrase &&
+          _bs == other._bs;
+
+  @override
+  int get hashCode => _name.hashCode ^ _catchPhrase.hashCode ^ _bs.hashCode;
+
+  @override
   String toString() {
     return '[name: $name, catchPhrase: $catchPhrase, bs: $bs]';
   }

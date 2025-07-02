@@ -49,6 +49,17 @@ class Geo {
       _lng = json['lng'].isEmpty ? 'undefined' : json['lng'];
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Geo &&
+          runtimeType == other.runtimeType &&
+          _lat == other._lat &&
+          _lng == other._lng;
+
+  @override
+  int get hashCode => _lat.hashCode ^ _lng.hashCode;
+
+  @override
   String toString() {
     return '[lat: $lat, lng: $lng]';
   }

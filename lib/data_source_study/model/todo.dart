@@ -74,9 +74,23 @@ class Todo {
       'userId': userId > idBase ? userId : defaultIdValue,
       'id': id > idBase ? id : defaultIdValue,
       'title': title.isEmpty ? 'none' : title,
-      'complete': completed,
+      'completed': completed,
     };
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Todo &&
+          runtimeType == other.runtimeType &&
+          _userId == other._userId &&
+          _id == other._id &&
+          _title == other._title &&
+          _completed == other._completed;
+
+  @override
+  int get hashCode =>
+      _userId.hashCode ^ _id.hashCode ^ _title.hashCode ^ _completed.hashCode;
 
   @override
   String toString() {
