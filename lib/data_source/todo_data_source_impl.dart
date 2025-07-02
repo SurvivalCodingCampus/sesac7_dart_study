@@ -7,13 +7,13 @@ import 'package:modu_3_dart_study/model/todo.dart';
 class TodoDataSourceImpl implements TodoDataSource {
   @override
   Future<Todo> getTodo() async {
-    File jsonFile = File('json_data/todo.json');
+    final File jsonFile = File('json_data/todo.json');
     if (!await jsonFile.exists()) {
       throw Exception('todoJson 파일이 없습니다.');
     }
 
-    String jsonString = await jsonFile.readAsString();
-    Map<String, dynamic> jsonMap = jsonDecode(jsonString);
+    final String jsonString = await jsonFile.readAsString();
+    final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
     return Todo.fromJson(jsonMap);
   }
 }
