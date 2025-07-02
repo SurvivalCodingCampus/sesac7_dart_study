@@ -6,8 +6,11 @@ import 'package:modu_3_dart_study/assignments/data_source/todo_data_source.dart'
 
 class TodoDataSourceImpl implements TodoDataSource {
   final String _todoPath;
+  final String _todosPath;
 
-  TodoDataSourceImpl({required String todoPath}) : _todoPath = todoPath;
+  TodoDataSourceImpl({required String todoPath, required String todosPath})
+    : _todoPath = todoPath,
+      _todosPath = todosPath;
 
   Future<String> getJsonFile(String filePath) async {
     final file = File(filePath);
@@ -32,6 +35,14 @@ class TodoDataSourceImpl implements TodoDataSource {
     final jsonMap = jsonDecode(jsonString);
 
     return Todo.fromJson(jsonMap);
+  }
+
+  @override
+  Future<List<Todo>> getTodos() async {
+    final jsonString = await getJsonFile(_todoPath);
+    final jsonMap = jsonDecode(jsonString) as List;
+
+    return jsonMap.map((jsonMap) => Todo.fromJson(jsonMap)).toList();
   }
 }
 
