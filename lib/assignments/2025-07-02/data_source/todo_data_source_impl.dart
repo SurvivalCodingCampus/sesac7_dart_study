@@ -19,3 +19,11 @@ class TodoDataSourceImpl implements TodoDataSource {
     }
   }
 }
+
+void main() async {
+  Todo todo1 = await TodoDataSourceImpl().getTodo();
+  print(todo1.id);
+  print(todo1.userId);
+  print(todo1.title);
+  print(todo1.completed);
+}
