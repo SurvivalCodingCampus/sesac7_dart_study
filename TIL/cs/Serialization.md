@@ -24,6 +24,14 @@ class Employee {
 }
 ```
 
+#### 데이터가 없을 경우 대비
+- nullable로 처리하거나 기본값 사용
+- 백엔드와의 규칙 중요
+- 기본값 사용하는 것이 데이터 사용하기는 편함
+
+#### 데이터의 타입이 엉망일 경우
+- dynamic으로 받은 후 나중에 처리 가능
+
 
 ## 참고
 - [wikipedia - 직렬화](https://ko.wikipedia.org/wiki/%EC%A7%81%EB%A0%AC%ED%99%94)
