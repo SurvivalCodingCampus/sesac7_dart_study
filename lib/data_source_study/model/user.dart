@@ -11,8 +11,8 @@ class User {
   String _website;
   Company _company;
 
-  static const int idBase = 0;
-  static const int defaultIdValue = 1;
+  static const int idBase = 0; // id 기준값(이것보단 커야한다)
+  static const int defaultIdValue = 1; // id의 최소값
 
   // 생성자
   User({
@@ -97,7 +97,8 @@ class User {
 
   set company(Company company) => _company = company;
 
-  // 역직렬화
+  /*
+  ### 역직렬화(기존) ###
   User.fromJson(Map<String, dynamic> json)
     : _id = json['id'] > idBase ? json['id'] : defaultIdValue,
       _name = json['name'].isEmpty ? 'undefined' : json['name'],
@@ -107,6 +108,21 @@ class User {
       _phone = json['phone'].isEmpty ? 'undefined' : json['phone'],
       _website = json['website'].isEmpty ? 'undefined' : json['website'],
       _company = Company.fromJson(json['company']);
+  */
+
+  // 역직렬화(factory)
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'] > idBase ? json['id'] : defaultIdValue,
+      name: json['name'].isEmpty ? 'undefined' : json['name'],
+      username: json['username'].isEmpty ? 'undefined' : json['username'],
+      email: json['email'].isEmpty ? 'undefined' : json['email'],
+      address: Address.fromJson(json['address']),
+      phone: json['phone'].isEmpty ? 'undefined' : json['phone'],
+      website: json['website'].isEmpty ? 'undefined' : json['website'],
+      company: Company.fromJson(json['company']),
+    );
+  }
 
   // 직렬화
   Map<String, dynamic> toJson() {
