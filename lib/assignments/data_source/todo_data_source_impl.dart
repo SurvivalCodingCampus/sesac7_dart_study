@@ -39,7 +39,7 @@ class TodoDataSourceImpl implements TodoDataSource {
 
   @override
   Future<List<Todo>> getTodos() async {
-    final jsonString = await getJsonFile(_todoPath);
+    final jsonString = await getJsonFile(_todosPath);
     final jsonMap = jsonDecode(jsonString) as List;
 
     return jsonMap.map((jsonMap) => Todo.fromJson(jsonMap)).toList();
