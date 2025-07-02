@@ -19,7 +19,7 @@ class StockListing {
 
   factory StockListing.fromCsv(String csvRow) {
     final List<String> csvList = csvRow.split(',');
-    if (csvList.isEmpty || csvList.length > 7) {
+    if (csvList.length != 7) {
       throw Exception('index Error!!');
     }
     return StockListing(
