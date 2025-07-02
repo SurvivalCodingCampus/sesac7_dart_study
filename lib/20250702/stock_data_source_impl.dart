@@ -8,7 +8,7 @@ import '../20250625/my_exception.dart';
 class StockDataSourceImpl implements StockDataSource {
   
   @override
-  Future<List<StockListing>> getStockListings(String csvPath) async {
+  Future<List<StockListing?>> getStockListings(String csvPath) async {
     final sourceFile = File(csvPath);
 
     if (!await sourceFile.exists()) {
@@ -22,7 +22,7 @@ class StockDataSourceImpl implements StockDataSource {
     return stockList
         .skip(1) // 헤더 제거
         .map((line) => line.split(','))
-        .map((fields) => StockListing.fromCvs(fields))
+        .map((fields) => StockListing.fromCsv(fields))
         .where((stock) => stock.name?.isNotEmpty == true)
         .toList();
   }

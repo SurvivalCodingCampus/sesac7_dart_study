@@ -6,13 +6,13 @@ import 'package:test/scaffolding.dart';
 
 void main() {
   group('', () {
-    test('user list 데이터 가져오기', () async {
+    test('stock list 데이터 가져오기', () async {
       StockDataSourceImpl stockDataSourceImpl = StockDataSourceImpl();
       final stockList = await stockDataSourceImpl.getStockListings('listing_status.csv');
 
       expect(stockList , isA<List<StockListing?>>());
-      expect(stockList[0].name , 'Agilent Technologies Inc');
-      expect(stockList[2].name , 'ALTERNATIVE ACCESS FIRST PRIORITY CLO BOND ETF ');
+      expect(stockList[0]?.name , 'Agilent Technologies Inc');
+      expect(stockList[2]?.name , 'ALTERNATIVE ACCESS FIRST PRIORITY CLO BOND ETF ');
     });
   });
 }

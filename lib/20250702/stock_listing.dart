@@ -61,7 +61,7 @@ class StockListing {
     );
   }
 
-  factory StockListing.fromCvs(List<String> list) {
+  factory StockListing.fromCsv(List<String> list) {
     if(list.length != 7) throw Exception('잘못된 데이터 입니다.');
 
     return StockListing(
