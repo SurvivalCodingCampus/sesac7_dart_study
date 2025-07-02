@@ -1,0 +1,24 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:modu_3_dart_study/data_source/todo_data_source.dart';
+import 'package:modu_3_dart_study/model/todo.dart';
+
+class TodoDataSourceImpl implements TodoDataSource {
+  @override
+  Future<Todo> getTodo() async {
+    File jsonFile = File('json_data/todo.json');
+    if (!await jsonFile.exists()) {
+      throw Exception('todoJson 파일이 없습니다.');
+    }
+
+    String jsonString = await jsonFile.readAsString();
+    Map<String, dynamic> jsonMap = jsonDecode(jsonString);
+    return Todo.fromJson(jsonMap);
+  }
+}
+
+void main() async {
+  TodoDataSourceImpl impl = TodoDataSourceImpl();
+  print(await impl.getTodo());
+}
