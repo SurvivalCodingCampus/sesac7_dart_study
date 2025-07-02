@@ -9,10 +9,14 @@ class TodoDataSourceImpl implements TodoDataSource {
   Future<Todo> getTodo() async {
     final File jsonFile = File('json_data/todo.json');
     if (!await jsonFile.exists()) {
-      throw Exception('todoJson 파일이 없습니다.');
+      throw Exception('todo Json 파일이 없습니다.');
     }
 
     final String jsonString = await jsonFile.readAsString();
+    if (jsonString.isEmpty) {
+      throw Exception('todos Json 파일이 비어있습니다.');
+    }
+
     final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
     return Todo.fromJson(jsonMap);
   }
