@@ -23,10 +23,9 @@ class User {
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
-    final int? id = json['id'];
-    if (id is double) {
-      id?.toInt();
-    }
+    final num? id = json['id'] is double
+        ? (json['id'] as double).toInt()
+        : json['id'];
     final Address address = Address.fromJson(
       jsonDecode(jsonEncode(json['address'])),
     );
