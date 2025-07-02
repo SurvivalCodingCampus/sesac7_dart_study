@@ -7,12 +7,12 @@ import 'package:modu_3_dart_study/assignments/2025-07-02/models/todo.dart';
 class TodoDataSourceImpl implements TodoDataSource {
   @override
   Future<Todo> getTodo() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     try {
       final file = File('lib/assignments/2025-07-02/todo.json');
       final fileString = file.readAsStringSync();
 
-      Todo todo = Todo.fromMap(jsonDecode(fileString));
+      Todo todo = Todo.fromJson(jsonDecode(fileString));
       return todo;
     } catch (e) {
       throw (e);
@@ -27,7 +27,7 @@ class TodoDataSourceImpl implements TodoDataSource {
       final fileString = file.readAsStringSync();
 
       List<Todo> todos = (jsonDecode(fileString) as List)
-          .map((e) => Todo.fromMap(e))
+          .map((e) => Todo.fromJson(e))
           .toList();
       return todos;
     } catch (e) {
@@ -38,13 +38,17 @@ class TodoDataSourceImpl implements TodoDataSource {
 
 void main() async {
   Todo todo1 = await TodoDataSourceImpl().getTodo();
-  print(todo1.id);
-  print(todo1.userId);
-  print(todo1.title);
-  print(todo1.completed);
+  print('id: ${todo1.id}');
+  print('userId: ${todo1.userId}');
+  print('title: ${todo1.title}');
+  print('completed: ${todo1.completed}');
 
   List<Todo> todos = await TodoDataSourceImpl().getTodos();
-  print(todos.runtimeType);
-  print(todos.length);
-  print(todos[0].id);
+  print('------------------------');
+  print('runtimeType: ${todos.runtimeType}');
+  print('length: ${todos.length}');
+  print('id: ${todos[0].id}');
+  print('userId: ${todos[0].userId}');
+  print('title: ${todos[0].title}');
+  print('completed: ${todos[0].completed}');
 }

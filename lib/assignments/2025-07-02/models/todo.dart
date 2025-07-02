@@ -15,13 +15,13 @@ class Todo {
     required this.completed,
   });
 
-  Todo.fromMap(Map<String, dynamic> map)
-    : id = map['id'],
-      userId = map['userId'],
-      title = map['title'],
-      completed = map['completed'];
+  Todo.fromJson(Map<String, dynamic> json)
+    : id = json['id'],
+      userId = json['userId'],
+      title = json['title'],
+      completed = json['completed'];
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'userId': userId,
