@@ -14,10 +14,10 @@ class Address {
     required String city,
     required String zipcode,
     required Geo geo,
-  }) : _street = street,
-       _suite = suite,
-       _city = city,
-       _zipcode = zipcode,
+  }) : _street = street.isEmpty ? 'undefined' : street,
+       _suite = suite.isEmpty ? 'undefined' : suite,
+       _city = city.isEmpty ? 'undefined' : city,
+       _zipcode = zipcode.isEmpty ? 'undefined' : zipcode,
        _geo = geo;
 
   // getter
