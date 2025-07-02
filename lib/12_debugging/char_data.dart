@@ -2,18 +2,19 @@ import 'package:collection/collection.dart';
 import 'package:modu_3_dart_study/12_debugging/collection_chart_data.dart';
 
 class ChartData {
-  final List<CollectionChartData> collectionChartDataList;
+  final List<CollectionChartData?>? collectionChartDataList;
 
-  ChartData({required this.collectionChartDataList});
+  ChartData(this.collectionChartDataList);
 
   ChartData.fromJson(Map<String, dynamic> json)
-    : collectionChartDataList = (json['collectionChartDataList'] as List)
-          .map((data) => CollectionChartData.fromJson(data))
-          .toList();
+    : collectionChartDataList =
+          ((json['collectionChartDataList'] ?? []) as List)
+              .map((data) => CollectionChartData.fromJson(data))
+              .toList();
 
   Map<String, dynamic> toJson() => {
-    'collectionChartDataList': collectionChartDataList
-        .map((data) => data.toJson())
+    'collectionChartDataList': (collectionChartDataList ?? [])
+        .map((data) => (data ?? CollectionChartData('', [])).toJson())
         .toList(),
   };
 

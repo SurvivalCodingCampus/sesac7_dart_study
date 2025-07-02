@@ -2,25 +2,25 @@ import 'package:collection/collection.dart';
 import 'package:modu_3_dart_study/12_debugging/collection_sale_price.dart';
 
 class CollectionChartData {
-  final String collectionName;
-  final List<CollectionSalePrice> collectionSalePrice;
+  final String? collectionName;
+  final List<CollectionSalePrice?>? collectionSalePrice;
 
-  CollectionChartData({
-    required this.collectionName,
-    required this.collectionSalePrice,
-  });
+  CollectionChartData(
+    this.collectionName,
+    this.collectionSalePrice,
+  );
 
   CollectionChartData.fromJson(Map<String, dynamic> json)
-    : collectionName = json['collectionName'],
-      collectionSalePrice = (json['collectionSalePrice'] is List)
-          ? (json['collectionSalePrice'] as List)
-                .map((e) => CollectionSalePrice.fromJson(e))
-                .toList()
-          : [];
+    : collectionName = (json['collectionName'] ?? '') as String,
+      collectionSalePrice = ((json['collectionSalePrice'] ?? []) as List)
+          .map((e) => CollectionSalePrice.fromJson(e))
+          .toList();
 
   Map<String, dynamic> toJson() => {
     'collectionName': collectionName,
-    'collectionSalePrice': collectionSalePrice.map((e) => e.toJson()).toList(),
+    'collectionSalePrice': (collectionSalePrice ?? [])
+        .map((e) => (e ?? CollectionSalePrice(0, '')).toJson())
+        .toList(),
   };
 
   @override

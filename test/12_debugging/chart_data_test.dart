@@ -13,7 +13,7 @@ void main() {
       "collectionName": "collection1",
       "collectionSalePrice": [
         {
-          "price": 58.25,
+          "price": 58,
           "cvtDatetime": "2023-03-26T08:00:00"
         },
         {
@@ -61,17 +61,17 @@ void main() {
   test('ChartData Json 역직렬화 테스트', () {
     final testChartData = ChartData.fromJson(
       testJson,
-    ).collectionChartDataList[0];
+    ).collectionChartDataList?[0];
     final testCollectionName = 'collection1';
-    final testSalePrice = testChartData.collectionSalePrice[0];
-    final testPrice = 58.25;
+    final testSalePrice = testChartData!.collectionSalePrice?[0];
+    final testPrice = 58;
     final testCvtDateTime = '2023-03-26T08:00:00';
     final chartDataList = ChartData.fromJson(realJson);
-    final chartData = chartDataList.collectionChartDataList[0];
-    final realCollectionName = chartData.collectionName;
-    final realSalePrice = chartData.collectionSalePrice[0];
-    final realPrice = realSalePrice.price;
-    final realCvtDateTime = realSalePrice.cvtDatetime;
+    final chartData = chartDataList.collectionChartDataList?[0];
+    final realCollectionName = chartData?.collectionName;
+    final realSalePrice = chartData!.collectionSalePrice?[0];
+    final realPrice = realSalePrice?.price;
+    final realCvtDateTime = realSalePrice?.cvtDatetime;
 
     expect(chartData == testChartData, isTrue);
     expect(realCollectionName == testCollectionName, isTrue);
