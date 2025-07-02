@@ -8,9 +8,9 @@ class Company {
     required String name,
     required String catchPhrase,
     required String bs,
-  }) : _name = name,
-       _catchPhrase = catchPhrase,
-       _bs = bs;
+  }) : _name = name.isEmpty ? 'undefined' : name,
+       _catchPhrase = catchPhrase.isEmpty ? 'undefined' : catchPhrase,
+       _bs = bs.isEmpty ? 'undefined' : bs;
 
   // getter
   String get name => _name;
