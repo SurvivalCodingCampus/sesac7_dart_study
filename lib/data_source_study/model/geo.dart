@@ -3,7 +3,9 @@ class Geo {
   String _lng;
 
   // 생성자
-  Geo({required String lat, required String lng}) : _lat = lat, _lng = lng;
+  Geo({required String lat, required String lng})
+    : _lat = lat.isEmpty ? 'undefined' : lat,
+      _lng = lng.isEmpty ? 'undefined' : lng;
 
   // getter
   String get lat => _lat;
