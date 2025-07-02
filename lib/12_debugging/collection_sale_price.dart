@@ -1,12 +1,12 @@
 class CollectionSalePrice {
-  final double price;
-  final String cvtDatetime;
+  final num? price;
+  final String? cvtDatetime;
 
   CollectionSalePrice(this.price, this.cvtDatetime);
 
   CollectionSalePrice.fromJson(Map<String, dynamic> json)
-    : price = json['price'],
-      cvtDatetime = json['cvtDatetime'];
+    : price = (json['price'] ?? 0) as num,
+      cvtDatetime = (json['cvtDatetime'] ?? '') as String;
 
   Map<String, dynamic> toJson() => {
     'price': price,
