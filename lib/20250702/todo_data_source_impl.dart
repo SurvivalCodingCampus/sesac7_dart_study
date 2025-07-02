@@ -24,4 +24,21 @@ class TodoDataSourceImpl implements TodoDataSource {
       return Future.value(null);
     }
   }
+
+  @override
+  Future<List<Todo?>> getTodos(String filePath) {
+    final sourceFile = File(filePath);
+    if (!sourceFile.existsSync()) throw MyException(MyException.FILE_NOT_FOUND);
+
+    _contents = sourceFile.readAsStringSync();
+    if(_contents.isEmpty) throw MyException(MyException.FILE_CONTENTS_EMPTY);
+
+    try {
+      final List<dynamic> todoMap = jsonDecode(_contents);
+      final todoList = todoMap.map((e) => Todo.fromMap(e)).toList();
+      return Future.value(todoList);
+    } catch (e) {
+      return Future.value([]);
+    }
+  }
 }

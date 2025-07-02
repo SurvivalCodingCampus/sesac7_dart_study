@@ -11,5 +11,13 @@ void main() {
 
       expect(todo , isA<Todo>());
     });
+
+    test('todo 리스트 데이터 가져오기', () async {
+      TodoDataSourceImpl todoDataSourceImpl = TodoDataSourceImpl();
+      final todos = await todoDataSourceImpl.getTodos('todo_list.json');
+
+      expect(todos , isA<List<Todo>>());
+      expect(todos.length, 200);
+    });
   });
 }
