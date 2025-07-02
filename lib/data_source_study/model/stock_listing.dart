@@ -1,5 +1,3 @@
-import 'dart:io';
-
 class StockListing {
   String _symbol;
   String _name;
@@ -16,15 +14,17 @@ class StockListing {
     required String exchange,
     required String assetType,
     required String ipoDate,
-    required String delistingDate,
+    required String? delistingDate,
     required String status,
-  }) : _symbol = symbol,
-       _name = name,
-       _exchange = exchange,
-       _assetType = assetType,
-       _ipoDate = ipoDate,
-       _delistingDate = delistingDate,
-       _status = status;
+  }) : _symbol = symbol.isEmpty ? 'undefined' : symbol,
+       _name = name.isEmpty ? 'undefined' : name,
+       _exchange = exchange.isEmpty ? 'undefined' : exchange,
+       _assetType = assetType.isEmpty ? 'undefined' : assetType,
+       _ipoDate = ipoDate.isEmpty ? 'undefined' : ipoDate,
+       _delistingDate = delistingDate != null
+           ? (delistingDate.isEmpty ? 'undefined' : delistingDate)
+           : 'undefined',
+       _status = status.isEmpty ? 'undefined' : status;
 
   // getter
   String get symbol => _symbol;
@@ -107,6 +107,7 @@ class StockListing {
   }
 
   // 직렬화
+  // json 형식이 아닌 csv로의 직렬화이므로, 콤마를 이용한 형태로 직렬화한다.
   String toCsv() {
     return '$symbol,$name,$exchange,$assetType,$ipoDate,$delistingDate,$status';
   }
@@ -138,9 +139,4 @@ class StockListing {
   String toString() {
     return 'symbol: $symbol, name: $name, exchange: $exchange, assetType: $assetType, ipoDate: $ipoDate, delistingDate: $delistingDate, status: $status\n\n';
   }
-}
-
-void main() {
-  File file = File('lib/data_source_study/listing_status.csv');
-  print(file.readAsLinesSync()[0]);
 }
