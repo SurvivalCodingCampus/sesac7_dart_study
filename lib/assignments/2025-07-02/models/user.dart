@@ -24,10 +24,10 @@ class User {
       name = json['name'],
       username = json['username'],
       email = json['email'],
-      address = json['address'],
+      address = Address.fromJson(json['address']),
       phone = json['phone'],
       website = json['website'],
-      company = json['company'];
+      company = Company.fromJson(json['company']);
 }
 
 class Address {
@@ -45,12 +45,12 @@ class Address {
     required this.geo,
   });
 
-  Address.fromJson(Map<String, String> json)
+  Address.fromJson(Map<String, dynamic> json)
     : street = json['street'] ?? '',
       suite = json['suite'] ?? '',
       city = json['city'] ?? '',
       zipcode = json['zipcode'] ?? '',
-      geo = (json['geo'] as Geo?) ?? Geo(lat: '', lng: '');
+      geo = Geo.fromJson(json['geo'] as Map<String, dynamic>);
 }
 
 class Geo {
@@ -59,7 +59,7 @@ class Geo {
 
   Geo({required this.lat, required this.lng});
 
-  Geo.fromJson(Map<String, String> json)
+  Geo.fromJson(Map<String, dynamic> json)
     : lat = json['lat'] ?? '',
       lng = json['lng'] ?? '';
 }
@@ -75,7 +75,7 @@ class Company {
     required this.bs,
   });
 
-  Company.fromJson(Map<String, String> json)
+  Company.fromJson(Map<String, dynamic> json)
     : name = json['name'] ?? '',
       catchPhrase = json['catchPhrase'] ?? '',
       bs = json['bs'] ?? '';
