@@ -47,7 +47,7 @@ void main() {
   ''';
 
   group('TodoDataSourceImpl 테스트', () {
-    test('TodoDataSourceImpl 테스트', () async {
+    test('TodoDataSourceImpl getTodo() 테스트', () async {
       final Todo todo = await dataSource.getTodo();
 
       expect(todo.userId, equals(userId));
@@ -56,7 +56,7 @@ void main() {
       expect(todo.completed, equals(completed));
     });
 
-    test('TodoDataSourceImpl 테스트', () async {
+    test('TodoDataSourceImpl getTodos() 테스트', () async {
       final List<Todo> todos = (await dataSource.getTodos()).sublist(0, 5);
       final List<Todo> testTodos = (jsonDecode(testJsonString) as List)
           .map((e) => Todo.fromJson(e as Map<String, dynamic>))
