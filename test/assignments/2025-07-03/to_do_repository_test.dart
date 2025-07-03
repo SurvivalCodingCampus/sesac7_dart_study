@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 import 'mocks/mock_to_do_data_source_impl.dart';
 
 void main() {
-  test('Testing PhotoRepositoryImpl with MockPhotoDataSource', () async {
+  test('Testing ToDoRepositoryImpl with MockToDoDataSourceImpl', () async {
     //given
     final ToDoRepository testRepo = ToDoRepositoryImpl(
       MockToDoDataSourceImpl(),
