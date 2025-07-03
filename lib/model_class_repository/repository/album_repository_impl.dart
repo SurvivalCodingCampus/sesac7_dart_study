@@ -9,7 +9,7 @@ class AlbumRepositoryImpl implements AlbumRepository {
     : _albumDataSource = albumDataSource;
 
   @override
-  Future<List<Album>> getAlbums(int? limit) async {
+  Future<List<Album>> getAlbums({int? limit}) async {
     final listOfAlbums = await _albumDataSource.getAll();
 
     if (limit == null) {
