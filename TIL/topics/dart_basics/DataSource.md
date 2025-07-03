@@ -1,0 +1,24 @@
+## DataSource(데이터소스)
+---
+### 앱이 사용하는 원천데이터를 받아서 가공하여 가공된 데이터를 화면에 표출한다.
+- 외부 데이터 저장소와 통신
+- Raw 데이터 수신 및 처리
+- CRUD 작업 수행
+- 대표적인 종류
+	- Text, File, JSON, XML, CSV, RDBMS, NoSQL
+- DataSource 클래스 명
+	- 저장소 위치 기준과 기술 스택 기준으로 접두어에 붙여서 작명할 수 있다. 하지만 DataSource Interface와 구현체 Class의 구분에 어려움이 있을 수 있다.
+		- 저장소 위치 기준
+			- LocalUserDataSource
+			- RemoteUserDataSource
+			- CachedUserDataSource
+		- 기술 스택 기준
+			- RoomUserDataSource
+			- RetrofitUserDataSource
+			- SharedPrefsUserDataSource
+	- implements의 약자인 impl 접미사를 붙여서 작명하는 관례가 있고 구현체임을 명확하게 표시할 수 있다.
+		- DataSource Interface
+			- UserDataSource
+		- DataSource 구현체 Class
+			- UserDataSourceImpl
+- DataSource의 Project Directory 구조는 lib/data_source, DataSource에 사용되는 Model의 경우 lib/model을 path로 잡는다.
