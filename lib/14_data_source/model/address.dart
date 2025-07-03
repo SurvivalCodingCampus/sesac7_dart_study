@@ -31,7 +31,7 @@ class Address {
       'suite': suite,
       'city': city,
       'zipcode': zipcode,
-      'geo': geo,
+      'geo': geo?.toJson(),
     };
   }
 

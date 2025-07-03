@@ -30,7 +30,10 @@ class Company {
   }
 
   @override
-  int get hashCode => name.hashCode ^ catchPhrase.hashCode ^ bs.hashCode;
+  int get hashCode =>
+      (name?.hashCode ?? 0) ^
+      (catchPhrase?.hashCode ?? 0) ^
+      (bs?.hashCode ?? 0);
 
   @override
   String toString() {

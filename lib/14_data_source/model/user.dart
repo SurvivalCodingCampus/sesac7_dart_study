@@ -47,10 +47,10 @@ class User {
       'name': name,
       'username': userName,
       'email': email,
-      'address': address,
-      'phone': userName,
-      'website': email,
-      'company': address,
+      'address': address?.toJson(),
+      'phone': phone,
+      'website': website,
+      'company': company?.toJson(),
     };
   }
 

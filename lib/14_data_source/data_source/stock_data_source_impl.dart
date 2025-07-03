@@ -12,7 +12,7 @@ class StockDataSourceImpl implements StockDataSource {
             )
             .readAsLinesSync()
             .map((e) => StockListing.fromCsv(e))
-            .where((e) => (e.name as String).isNotEmpty)
+            .where((e) => e.name != null && (e.name as String).isNotEmpty)
             .toList();
 
     return stockListing;
