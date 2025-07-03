@@ -1,7 +1,7 @@
 void main() {
-  people.entries.forEach((person) {
+  for (var person in people.entries) {
     print('${person.key}의 나이는 ${person.value}살');
-  });
+  }
 
   print('---------------------------');
 
