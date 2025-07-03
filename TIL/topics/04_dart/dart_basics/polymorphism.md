@@ -33,13 +33,13 @@ d.draw();
 final Drawable d = elements[i];
 
 switch (d) {
-  case House();
+  case House():
     print('집 선택');
     break;
-  case Dog();
+  case Dog():
     print('개 선택');
     break;
-  case Tree();
+  case Tree():
     print('나무 선택');
     break;
 }

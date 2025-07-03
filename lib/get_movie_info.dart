@@ -37,6 +37,9 @@ Future<dynamic> getMovieInfo(json) async{
   } else {
     throw FormatException('jsonString Type Error');
   }
+
+  // hashcode 동일
+  // copyWith 작성 왜 하는건지 확인 필요
 }
 
 void main() {

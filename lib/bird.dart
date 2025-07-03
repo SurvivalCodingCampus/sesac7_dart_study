@@ -22,9 +22,22 @@ Future<dynamic> getSoundThree() async{
   }
 }
 
+// 깔끔한 버전
+Future<dynamic> cryBird(int sec, String sound) async{
+  for (int i = 0; i < 4; i ++) {
+    await Future.delayed(Duration(seconds: sec));
+    print(sound);
+  }
+}
+
+
 void main () async{
   
-  List<Future> futures = [getSoundOne(), getSoundTwo(), getSoundThree()];
+  // List<Future> futures = [getSoundOne(), getSoundTwo(), getSoundThree()];
+  // List result = await Future.wait(futures);
+  // 모든 과정을 기다렸다가 wait 결과를 모으는 함수
 
-  List result = await Future.wait(futures);
+  cryBird(1, '꾸우');
+  cryBird(2, '까악');
+  cryBird(3, '짹짹');
 }
