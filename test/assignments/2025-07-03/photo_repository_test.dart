@@ -12,9 +12,9 @@ void main() {
       MockPhotoDataSourceImpl(),
     );
 
-    final List<Photo> results = await testRepo.getPhotos(1);
-
     //when
+
+    final List<Photo> results = await testRepo.getPhotos(1);
 
     //then
     expect(results.length, 3);

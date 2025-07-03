@@ -60,7 +60,7 @@ class User {
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, userName: $username, email: $email, address: $address, phone: $phone, website: $website, company: $company)';
+    return 'User(id: $id, name: $name, username: $username, email: $email, address: $address, phone: $phone, website: $website, company: $company)';
   }
 
   User copyWith({

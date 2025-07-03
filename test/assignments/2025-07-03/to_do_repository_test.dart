@@ -12,10 +12,10 @@ void main() {
       MockToDoDataSourceImpl(),
     );
 
+    //when
+
     final List<ToDo> completedResults = await testRepo.getCompletedTodos();
     final List<ToDo> results = await testRepo.getTodos();
-
-    //when
 
     //then
     expect(completedResults.length, 1);

@@ -12,10 +12,10 @@ void main() {
       MockUserDataSourceImpl(),
     );
 
+    //when
+
     final List<User> results = await testRepo.getUsers();
     final List<User> top10Results = await testRepo.getUsersTop10ByUserName();
-
-    //when
 
     //then
     expect(top10Results.length, 3);
