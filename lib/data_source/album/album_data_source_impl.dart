@@ -10,7 +10,7 @@ class AlbumDataSourceImpl implements AlbumDataSource {
   AlbumDataSourceImpl({required String filePath}) : _filePath = filePath;
 
   @override
-  Future<List<Album>> getAlbums({int? limit}) async {
+  Future<List<Album>> getAllAlbums() async {
     final File jsonFile = File(_filePath);
     if (await jsonFile.exists()) {
       final String jsonString = await jsonFile.readAsString();
