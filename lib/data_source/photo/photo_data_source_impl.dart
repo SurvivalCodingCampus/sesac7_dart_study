@@ -18,7 +18,7 @@ class PhotoDataSourceImpl implements PhotoDataSource {
           .map((photo) => photo as Map<String, dynamic>)
           .toList();
     } else {
-      return [{}];
+      return [];
     }
   }
 }
