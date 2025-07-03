@@ -56,7 +56,7 @@ class Todo {
     return Todo(
       userId: json['userId'] > idBase ? json['userId'] : defaultIdValue,
       id: json['id'] > idBase ? json['id'] : defaultIdValue,
-      title: json['title'].isEmpty ? 'none' : json['title'],
+      title: json['title'].isEmpty ? 'undefined' : json['title'],
       completed: json['completed'],
     );
   }
@@ -65,7 +65,7 @@ class Todo {
   Todo.fromJson2(Map<String, dynamic> json)
     : _userId = json['userId'] > idBase ? json['userId'] : defaultIdValue,
       _id = json['id'] > idBase ? json['id'] : defaultIdValue,
-      _title = json['title'].isEmpty ? 'none' : json['title'],
+      _title = json['title'].isEmpty ? 'undefined' : json['title'],
       _completed = json['completed'];
 
   // 직렬화
@@ -73,7 +73,7 @@ class Todo {
     return {
       'userId': userId > idBase ? userId : defaultIdValue,
       'id': id > idBase ? id : defaultIdValue,
-      'title': title.isEmpty ? 'none' : title,
+      'title': title.isEmpty ? 'undefined' : title,
       'completed': completed,
     };
   }
