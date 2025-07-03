@@ -55,6 +55,11 @@ class Photo {
       url.hashCode ^
       thumbnailUrl.hashCode;
 
+  @override
+  String toString() {
+    return 'albumId: $albumId, id: $id, title: $title, url: $url, thumbnailUrl: $thumbnailUrl';
+  }
+
   // 역직렬화
   factory Photo.fromJson(Map<String, dynamic> json) => _$PhotoFromJson(json);
 

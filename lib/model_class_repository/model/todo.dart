@@ -46,6 +46,11 @@ class Todo {
   int get hashCode =>
       userId.hashCode ^ id.hashCode ^ title.hashCode ^ completed.hashCode;
 
+  @override
+  String toString() {
+    return 'userId: $userId, id: $id, title: $title, completed: $completed\n';
+  }
+
   // 역직렬화
   factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
 

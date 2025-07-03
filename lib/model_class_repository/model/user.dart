@@ -75,6 +75,11 @@ class User {
       website.hashCode ^
       company.hashCode;
 
+  @override
+  String toString() {
+    return 'id: $id\n, name: $name\n, username: $username\n, email: $email\n, address: ${address.toString()}\n, phone: $phone\n, website: $website\n, company: ${company.toString()}\n\n';
+  }
+
   // 역직렬화
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
