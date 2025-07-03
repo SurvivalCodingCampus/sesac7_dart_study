@@ -13,10 +13,10 @@ class Todo {
 
   factory Todo.fromJson(Map<String, dynamic> json) {
     return Todo(
-      userId: int.parse(json["userId"]),
-      id: int.parse(json["id"]),
-      title: json["title"],
-      completed: json["completed"].toLowerCase() == 'true',
+      userId: json["userId"] as int,
+      id: json["id"] as int,
+      title: json["title"] as String,
+      completed: json["completed"] as bool,
     );
   }
 
