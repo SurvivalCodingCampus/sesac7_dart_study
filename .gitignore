@@ -171,3 +171,5 @@ fabric.properties
 
 GEMINI.md
 .claude/
+
+*.g.dart

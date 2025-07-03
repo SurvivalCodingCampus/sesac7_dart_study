@@ -15,3 +15,10 @@ class Person {
     return Person(json['name']);
   }
 }
+
+void main() {
+  Person? person;
+
+
+  print(person.toString()); // null
+}
