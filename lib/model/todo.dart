@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'todo.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class Todo {
   final num? userId;
   final num? id;
@@ -11,16 +16,7 @@ class Todo {
     this.completed,
   });
 
-  factory Todo.fromJson(Map<String, dynamic> json) {
-    return Todo(
-      userId: json['userId'] is double
-          ? (json['userId'] as double).toInt()
-          : json['userId'],
-      id: json['id'] is double ? (json['id'] as double).toInt() : json['id'],
-      title: json['title'],
-      completed: json['completed'],
-    );
-  }
+  factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
 
   @override
   String toString() =>
@@ -44,10 +40,5 @@ class Todo {
     completed: completed ?? this.completed,
   );
 
-  Map<String, dynamic> toJson() => {
-    'userId': userId,
-    'id': id,
-    'title': title,
-    'completed': completed,
-  };
+  Map<String, dynamic> toJson() => _$TodoToJson(this);
 }
