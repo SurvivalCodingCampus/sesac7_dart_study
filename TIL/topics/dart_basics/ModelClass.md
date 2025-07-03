@@ -11,7 +11,7 @@
 			class Person {
 				final String name;
 				final int age;
-				const Person({this.naem, this.age});
+				const Person({required this.naem, required this.age});
 			}
 		```
 - 값 변경을 위해서 copyWith()를 제공
@@ -22,7 +22,7 @@
 			final int age;
 			...
 			Person copyWith({String? name, int? age}) {
-				return Person({name: name ?? this.name, age: age ?? this. age});
+				return Person(name: name ?? this.name, age: age ?? this. age);
 			}
 		}
 		```
