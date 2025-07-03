@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:modu_3_dart_study/data_source/album/album_data_source.dart';
-import 'package:modu_3_dart_study/model/album.dart';
 
 class AlbumDataSourceImpl implements AlbumDataSource {
   final String _filePath;
@@ -10,12 +9,12 @@ class AlbumDataSourceImpl implements AlbumDataSource {
   AlbumDataSourceImpl({required String filePath}) : _filePath = filePath;
 
   @override
-  Future<List<Album>> getAllAlbums() async {
+  Future<List<Map<String, dynamic>>> getAllAlbums() async {
     final File jsonFile = File(_filePath);
     if (await jsonFile.exists()) {
       final String jsonString = await jsonFile.readAsString();
       return (jsonDecode(jsonString) as List)
-          .map((album) => Album.fromJson(album))
+          .map((album) => album as Map<String, dynamic>)
           .toList();
     } else {
       return [];
