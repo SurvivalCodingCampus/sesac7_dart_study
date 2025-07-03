@@ -34,7 +34,15 @@ class StockListing {
   }
 
   String toCsv() {
-    return '$symbol,$name,$exchange,$assetType,$ipoDate,$delistingDate,$status';
+    return [
+      symbol,
+      name,
+      exchange,
+      assetType,
+      ipoDate,
+      delistingDate,
+      status,
+    ].join(',');
   }
 
   @override
