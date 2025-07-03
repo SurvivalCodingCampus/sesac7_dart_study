@@ -23,6 +23,6 @@ class Geo {
 
   Map<String, dynamic> toJson() => _$GeoToJson(this);
 
-  Geo copyWith({String? lat, String? lon}) =>
-      Geo(lat: lat ?? this.lat, lng: lon ?? this.lng);
+  Geo copyWith({String? lat, String? lng}) =>
+      Geo(lat: lat ?? this.lat, lng: lng ?? this.lng);
 }
