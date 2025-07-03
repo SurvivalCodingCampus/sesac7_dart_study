@@ -19,6 +19,9 @@ class AlbumRepositoryImpl implements AlbumRepository {
         .toList();
 
     if (limit != null) {
+      if (limit > albums.length) {
+        throw Exception('Album 전체 사이즈를 벗어남!');
+      }
       return albums.slice(0, limit);
     } else {
       return albums;
