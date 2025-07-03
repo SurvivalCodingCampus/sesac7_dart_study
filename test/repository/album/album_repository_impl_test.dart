@@ -25,7 +25,8 @@ void main() {
       final int totalAlbumSize = (await albumRepository.getAlbums()).length;
 
       for (int i = 0; i < totalAlbumSize; i++) {
-        expect((await albumRepository.getAlbums(limit: i)).length, equals(i));
+        final limitedAlbums = await albumRepository.getAlbums(limit: i);
+        expect(limitedAlbums.length, equals(i));
       }
     });
     test('getAlbums parameter limit 전체 앨범 범위 벗어나면 exception 발생 테스트', () async {
