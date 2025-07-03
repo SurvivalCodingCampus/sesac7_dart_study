@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/assignments/2025-07-03/repository/comment_repo
 import 'package:modu_3_dart_study/assignments/2025-07-03/repository/comment_repository_impl.dart';
 import 'package:test/test.dart';
 
-import 'mocks/mock_comment_dara_source_impl.dart';
+import 'mocks/mock_comment_data_source_impl.dart';
 
 void main() {
   test('comment_repository_impl_test', () async {
