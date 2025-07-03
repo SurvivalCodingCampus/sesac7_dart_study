@@ -28,4 +28,16 @@ class Album {
   String toString() => 'Album(userId: $userId, id: $id, title: $title)';
 
   Map<String, dynamic> toJson() => _$AlbumToJson(this);
+
+  Album copyWith({
+    int? userId,
+    int? id,
+    String? title,
+  }) {
+    return Album(
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+      title: title ?? this.title,
+    );
+  }
 }

@@ -38,4 +38,20 @@ class Comment {
       'Comment(postId: $postId, id: $id, name: $name, email: $email, body: $body)';
 
   Map<String, dynamic> toJson() => _$CommentToJson(this);
+
+  Comment copyWith({
+    int? postId,
+    int? id,
+    String? name,
+    String? email,
+    String? body,
+  }) {
+    return Comment(
+      postId: postId ?? this.postId,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      body: body ?? this.body,
+    );
+  }
 }
