@@ -12,23 +12,25 @@ void main() {
     test('getUsers Test', () async {
       final UserDataSource userDataSourceImpl = MockUserDataSourceImpl();
       final UserRepository userRepositoryImpl = UserRepositoryImpl(dataSource: userDataSourceImpl);
+      final List<User> users = await userRepositoryImpl.getUsers();
+      final User firstUser = users.first;
 
-      expect((await userRepositoryImpl.getUsers()).length, equals(13));
-      expect((await userRepositoryImpl.getUsers()).first.id, equals(1));
-      expect((await userRepositoryImpl.getUsers()).first.name, equals('Leanne Graham'));
-      expect((await userRepositoryImpl.getUsers()).first.username, equals('Bret'));
-      expect((await userRepositoryImpl.getUsers()).first.email, equals('Sincere@april.biz'));
-      expect((await userRepositoryImpl.getUsers()).first.address?.street, equals('Kulas Light'));
-      expect((await userRepositoryImpl.getUsers()).first.address?.suite, equals('Apt. 556'));
-      expect((await userRepositoryImpl.getUsers()).first.address?.city, equals('Gwenborough'));
-      expect((await userRepositoryImpl.getUsers()).first.address?.zipcode, equals('92998-3874'));
-      expect((await userRepositoryImpl.getUsers()).first.address?.geo?.lat, equals('-37.3159'));
-      expect((await userRepositoryImpl.getUsers()).first.address?.geo?.lng, equals('81.1496'));
-      expect((await userRepositoryImpl.getUsers()).first.phone, equals('1-770-736-8031 x56442'));
-      expect((await userRepositoryImpl.getUsers()).first.website, equals('hildegard.org'));
-      expect((await userRepositoryImpl.getUsers()).first.company?.name, equals('Romaguera-Crona'));
-      expect((await userRepositoryImpl.getUsers()).first.company?.catchPhrase, equals('Multi-layered client-server neural-net'));
-      expect((await userRepositoryImpl.getUsers()).first.company?.bs, equals('harness real-time e-markets'));
+      expect(users.length, equals(13));
+      expect(firstUser.id, equals(1));
+      expect(firstUser.name, equals('Leanne Graham'));
+      expect(firstUser.username, equals('Bret'));
+      expect(firstUser.email, equals('Sincere@april.biz'));
+      expect(firstUser.address?.street, equals('Kulas Light'));
+      expect(firstUser.address?.suite, equals('Apt. 556'));
+      expect(firstUser.address?.city, equals('Gwenborough'));
+      expect(firstUser.address?.zipcode, equals('92998-3874'));
+      expect(firstUser.address?.geo?.lat, equals('-37.3159'));
+      expect(firstUser.address?.geo?.lng, equals('81.1496'));
+      expect(firstUser.phone, equals('1-770-736-8031 x56442'));
+      expect(firstUser.website, equals('hildegard.org'));
+      expect(firstUser.company?.name, equals('Romaguera-Crona'));
+      expect(firstUser.company?.catchPhrase, equals('Multi-layered client-server neural-net'));
+      expect(firstUser.company?.bs, equals('harness real-time e-markets'));
     });
 
     test('getUsersTop10ByUserName Test', () async {
