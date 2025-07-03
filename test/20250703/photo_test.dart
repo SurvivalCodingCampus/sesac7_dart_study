@@ -7,7 +7,7 @@ import 'package:test/scaffolding.dart';
 import '../mocks/mock_photo_data_source_impl.dart';
 
 void main() {
-  test('comment_repository_impl_test', () async {
+  test('photo_repository_impl_test', () async {
     final PhotoDataSource mockDataSource = MockPhotoDataSourceImpl();
     final PhotoRepository repository = PhotoRepositoryImpl(mockDataSource);
 
