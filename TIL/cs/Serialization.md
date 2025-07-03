@@ -32,6 +32,10 @@ class Employee {
 #### 데이터의 타입이 엉망일 경우
 - dynamic으로 받은 후 나중에 처리 가능
 
+### json과 csv의 차이점
+  - 직렬화, 역직렬화 방법이 다를 뿐 둘 다 데이터임
+  - csv는 key가 없기 때문에 메모리 절약 가능
+
 
 ## 참고
 - [wikipedia - 직렬화](https://ko.wikipedia.org/wiki/%EC%A7%81%EB%A0%AC%ED%99%94)
