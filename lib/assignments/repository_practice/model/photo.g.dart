@@ -11,7 +11,7 @@ Photo _$PhotoFromJson(Map<String, dynamic> json) => Photo(
   id: (json['id'] as num).toInt(),
   title: json['title'] as String,
   url: json['url'] as String,
-  thumbnail: json['thumbnail'] as String,
+  thumbnailUrl: json['thumbnailUrl'] as String,
 );
 
 Map<String, dynamic> _$PhotoToJson(Photo instance) => <String, dynamic>{
@@ -19,5 +19,5 @@ Map<String, dynamic> _$PhotoToJson(Photo instance) => <String, dynamic>{
   'id': instance.id,
   'title': instance.title,
   'url': instance.url,
-  'thumbnail': instance.thumbnail,
+  'thumbnailUrl': instance.thumbnailUrl,
 };

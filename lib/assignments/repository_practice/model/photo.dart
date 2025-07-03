@@ -8,14 +8,14 @@ class Photo {
   final int id;
   final String title;
   final String url;
-  final String thumbnail;
+  final String thumbnailUrl;
 
   Photo({
     required this.albumId,
     required this.id,
     required this.title,
     required this.url,
-    required this.thumbnail,
+    required this.thumbnailUrl,
   });
 
   factory Photo.fromJson(Map<String, dynamic> json) => _$PhotoFromJson(json);
