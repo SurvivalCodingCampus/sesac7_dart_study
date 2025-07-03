@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/20250703/data_source/user_data_source.dart';
 import 'package:modu_3_dart_study/20250703/model/user.dart';
 import 'package:modu_3_dart_study/20250703/repository/user_repository.dart';
 
-class UserRepositoryImpl implements UserRepository{
+class UserRepositoryImpl implements UserRepository {
   final UserDataSource _userDataSource;
 
   UserRepositoryImpl(this._userDataSource);
@@ -12,9 +12,7 @@ class UserRepositoryImpl implements UserRepository{
   Future<List<User>> getUsers() async {
     try {
       final result = await _userDataSource.getAllData();
-      return result
-          .map((e) => User.fromJson(e))
-          .toList();
+      return result.map((e) => User.fromJson(e)).toList();
     } catch (e) {
       return [];
     }
@@ -27,7 +25,8 @@ class UserRepositoryImpl implements UserRepository{
       return result
           .map((e) => User.fromJson(e))
           .sortedBy((e) => e.name)
-          .sublist(0, 10);
+          .take(10)
+          .toList();
     } catch (e) {
       return [];
     }
