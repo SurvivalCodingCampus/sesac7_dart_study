@@ -11,7 +11,11 @@ class StockDataSourceImpl implements StockDataSource {
               'listing_status.csv',
             )
             .readAsLinesSync()
-            .map((e) => StockListing.fromCsv(e))
+            .map(
+              (e) => StockListing.fromCsv(
+                (e.split(',').length < 8) ? e : ',,,,,,',
+              ),
+            )
             .where((e) => e.name != null && (e.name as String).isNotEmpty)
             .toList();
 

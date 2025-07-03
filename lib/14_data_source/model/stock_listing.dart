@@ -19,6 +19,9 @@ class StockListing {
 
   factory StockListing.fromCsv(String csvRow) {
     final List<String> data = csvRow.split(',');
+    if (data.length > 8) {
+      throw Exception();
+    }
     return StockListing(
       symbol: data[0],
       name: data[1],
