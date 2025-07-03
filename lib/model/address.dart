@@ -1,7 +1,9 @@
-import 'dart:convert';
-
+import 'package:json_annotation/json_annotation.dart';
 import 'package:modu_3_dart_study/model/geo.dart';
 
+part 'address.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class Address {
   final String? street;
   final String? suite;
@@ -11,15 +13,8 @@ class Address {
 
   Address({this.street, this.suite, this.city, this.zipcode, this.geo});
 
-  factory Address.fromJson(Map<String, dynamic> json) {
-    return Address(
-      street: json['street'],
-      suite: json['suite'],
-      city: json['city'],
-      zipcode: json['zipcode'],
-      geo: Geo.fromJson(jsonDecode(jsonEncode(json['geo']))),
-    );
-  }
+  factory Address.fromJson(Map<String, dynamic> json) =>
+      _$AddressFromJson(json);
 
   @override
   String toString() =>
@@ -36,6 +31,8 @@ class Address {
             zipcode == other.zipcode &&
             geo == other.geo
       : false;
+
+  Map<String, dynamic> toJson() => _$AddressToJson(this);
 
   Address copyWith({
     String? street,

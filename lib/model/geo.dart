@@ -1,15 +1,15 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'geo.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class Geo {
   final String? lat;
   final String? lon;
 
   Geo({this.lat, this.lon});
 
-  factory Geo.fromJson(Map<String, dynamic> json) {
-    return Geo(
-      lat: json['lat'],
-      lon: json['lon'],
-    );
-  }
+  factory Geo.fromJson(Map<String, dynamic> json) => _$GeoFromJson(json);
 
   @override
   String toString() => 'Geo(lat: $lat, lon: $lon)';
@@ -21,8 +21,8 @@ class Geo {
   bool operator ==(Object other) =>
       other is Geo ? lat == other.lat && lon == other.lon : false;
 
+  Map<String, dynamic> toJson() => _$GeoToJson(this);
+
   Geo copyWith({String? lat, String? lon}) =>
       Geo(lat: lat ?? this.lat, lon: lon ?? this.lon);
-
-  Map<String, dynamic> toJson() => {'lat': lat, 'lon': lon};
 }
