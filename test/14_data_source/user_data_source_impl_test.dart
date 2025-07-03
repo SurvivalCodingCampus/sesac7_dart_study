@@ -1,12 +1,13 @@
 import 'dart:convert';
 
+import 'package:modu_3_dart_study/14_data_source/data_source/user_data_source.dart';
 import 'package:modu_3_dart_study/14_data_source/data_source/user_data_source_impl.dart';
 import 'package:modu_3_dart_study/14_data_source/model/user.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 void main() {
-  final UserDataSourceImpl dataSource = UserDataSourceImpl();
+  final UserDataSource dataSource = UserDataSourceImpl();
   final testJsonString = '''
   [
     {

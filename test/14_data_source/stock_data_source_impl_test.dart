@@ -1,3 +1,4 @@
+import 'package:modu_3_dart_study/14_data_source/data_source/stock_data_source.dart';
 import 'package:modu_3_dart_study/14_data_source/data_source/stock_data_source_impl.dart';
 import 'package:modu_3_dart_study/14_data_source/model/stock_listing.dart';
 import 'package:test/expect.dart';
@@ -17,7 +18,7 @@ void main() {
                 'AACI,Armada Acquisition Corp II - Class A,NASDAQ,Stock,2025-06-24,null,Active\n'
                 'AACIU,Armada Acquisition Corp II - Units (1 Ord Cls A & 1/2 War),NASDAQ,Stock,2025-05-21,null,Active\n'
             .trim();
-    final StockDataSourceImpl dataSource = StockDataSourceImpl();
+    final StockDataSource dataSource = StockDataSourceImpl();
     final testStockListings = csvString
         .split('\n')
         .map((e) => StockListing.fromCsv(e))
@@ -25,8 +26,8 @@ void main() {
 
     test('getStockListings() 작동 테스트', () async {
       expect(
-        (await dataSource.getStockListings()).sublist(0, 10),
-        equals(testStockListings),
+        (await dataSource.getStockListings()).sublist(0, 9),
+        equals(testStockListings.skip(1)),
       );
     });
 

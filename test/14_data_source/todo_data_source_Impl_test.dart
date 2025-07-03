@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:modu_3_dart_study/14_data_source/data_source/todo_data_source.dart';
 import 'package:modu_3_dart_study/14_data_source/data_source/todo_data_source_impl.dart';
 import 'package:modu_3_dart_study/14_data_source/model/todo.dart';
 import 'package:test/expect.dart';
@@ -10,7 +11,7 @@ void main() {
   final id = 1;
   final title = 'delectus aut autem';
   final completed = false;
-  final TodoDataSourceImpl dataSource = TodoDataSourceImpl();
+  final TodoDataSource dataSource = TodoDataSourceImpl();
   final testJsonString = '''
   [
     {

@@ -11,6 +11,7 @@ class StockDataSourceImpl implements StockDataSource {
               'listing_status.csv',
             )
             .readAsLinesSync()
+            .skip(1)
             .map(
               (e) => StockListing.fromCsv(
                 (e.split(',').length < 8) ? e : ',,,,,,',
@@ -30,10 +31,4 @@ class StockDataSourceImpl implements StockDataSource {
 
     return stockListing;
   }
-}
-
-void main() async {
-  final dataSource = StockDataSourceImpl();
-
-  print((await dataSource.getStockListings()).length);
 }
