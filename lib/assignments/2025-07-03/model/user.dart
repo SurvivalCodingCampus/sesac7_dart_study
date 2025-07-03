@@ -66,7 +66,7 @@ class User {
   User copyWith({
     int? id,
     String? name,
-    String? userName,
+    String? username,
     String? email,
     Address? address,
     String? phone,
@@ -76,7 +76,7 @@ class User {
     return User(
       id: id ?? this.id,
       name: name ?? this.name,
-      username: userName ?? this.username,
+      username: username ?? this.username,
       email: email ?? this.email,
       address: address ?? this.address,
       phone: phone ?? this.phone,

@@ -1,5 +1,4 @@
 import 'package:modu_3_dart_study/assignments/2025-07-03/model/album.dart';
-import 'package:modu_3_dart_study/assignments/2025-07-03/model/user.dart';
 import 'package:modu_3_dart_study/assignments/2025-07-03/repository/album_repository.dart';
 import 'package:modu_3_dart_study/assignments/2025-07-03/repository/album_repository_impl.dart';
 import 'package:test/test.dart';
