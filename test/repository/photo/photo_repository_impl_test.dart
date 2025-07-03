@@ -12,8 +12,9 @@ void main() {
     final PhotoRepository photoRepository = PhotoRepositoryImpl(dataSource: mockPhotoDataSource);
 
     expect((await photoRepository.getPhotos(0)).length, equals(0));
-    expect((await photoRepository.getPhotos(1)).length, equals(2));
+    expect((await photoRepository.getPhotos(1)).length, equals(1));
     expect((await photoRepository.getPhotos(2)).length, equals(1));
+    expect((await photoRepository.getPhotos(3)).length, equals(1));
     expect((await photoRepository.getPhotos(1)).first.url, equals('https://via.placeholder.com/600/92c952'));
   });
 }
