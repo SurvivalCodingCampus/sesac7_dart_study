@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class StockListing {
   final String symbol;
   final String name;
@@ -17,16 +19,15 @@ class StockListing {
     required this.status,
   });
 
-/*
-  factory StockListing.fromCsv(String csvRow){
+  factory StockListing.fromCsv(String csv){
+    List<String> val = csv.split(',');
     return StockListing(
-      symbol: symbol,
-      name: name,
-      exchange: exchange,
-      assetType: assetType,
-      ipoDate: ipoDate,
-      delistingDate: delistingDate,
-      status: status,)
+        symbol: val[0],
+        name: val[1],
+        exchange: val[2],
+        assetType: val[3],
+        ipoDate: val[4],
+        delistingDate: val[5],
+        status: val[6]);
   }
-*/
 }
