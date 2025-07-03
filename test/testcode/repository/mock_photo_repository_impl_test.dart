@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/repository/repository/photo_repository.dart';
 import 'package:modu_3_dart_study/repository/repository/photo_repository_impl.dart';
 import 'package:test/test.dart';
 
-import 'Mock/mock_photo_repository_impl.dart';
+import 'mocks/mock_photo_repository_impl.dart';
 
 void main() {
   test('Repository 작성 연습 2 test', () async {

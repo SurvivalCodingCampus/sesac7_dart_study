@@ -3,7 +3,8 @@ import 'package:modu_3_dart_study/repository/repository/comment_repository.dart'
 import 'package:modu_3_dart_study/repository/repository/comment_repository_impl.dart';
 import 'package:test/test.dart';
 
-import 'Mock/mock_comment_repository_impl.dart';
+import 'mocks/mock_comment_repository_impl.dart';
+
 
 void main() {
   test('test', () async {
