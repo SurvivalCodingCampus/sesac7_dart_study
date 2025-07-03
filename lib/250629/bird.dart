@@ -25,6 +25,21 @@ Future<void> bird3(Stopwatch stopwatch) async {
   }
 }
 
+Future<void> bird({
+  String sound = '',
+  int delaySeconds = 1,
+  Stopwatch? stopwatch,
+}) async {
+  if (stopwatch is Null) stopwatch = Stopwatch()..start();
+
+  for (int i = 0; i < 4; i++) {
+    print('$sound: ${stopwatch.elapsed}');
+    if (i != 3) {
+      await Future.delayed(Duration(seconds: delaySeconds));
+    }
+  }
+}
+
 void main() async {
   // final futures = <Future<void>>[];
   // futures.add(bird1());
