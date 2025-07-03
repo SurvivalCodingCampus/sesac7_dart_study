@@ -31,3 +31,7 @@ include: package:lints/recommended.yaml
 
 formatter:
   trailing_commas: preserve
+
+linter:
+  rules:
+    - require_trailing_commas
