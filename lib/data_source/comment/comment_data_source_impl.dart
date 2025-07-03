@@ -17,7 +17,7 @@ class CommentDataSourceImpl implements CommentDataSource {
           .map((comment) => comment as Map<String, dynamic>)
           .toList();
     } else {
-      return [{}];
+      return [];
     }
   }
 }
