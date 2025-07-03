@@ -19,14 +19,14 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<List<User>> getUsersTop10ByUserName() async {
+  Future<List<User>> getUsersTop5ByUserName() async {
     try {
       final List<Map<String, dynamic>> userMapList = await _userDataSource
           .getUsers();
       final List<User> users = userMapList
           .map((e) => User.fromJson(e))
           .toList();
-      return users.sortedBy((user) => user.name).sublist(0, 10);
+      return users.sortedBy((user) => user.name).sublist(0, 5);
     } catch (e) {
       return [];
     }
