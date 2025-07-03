@@ -44,9 +44,9 @@ class Company {
   // 직렬화
   Map<String, dynamic> toJson() {
     return {
-      'name': name.isEmpty ? 'undefined' : name,
-      'catchPhrase': catchPhrase.isEmpty ? 'undefined' : catchPhrase,
-      'bs': bs.isEmpty ? 'undefined' : bs,
+      'name': name,
+      'catchPhrase': catchPhrase,
+      'bs': bs,
     };
   }
 

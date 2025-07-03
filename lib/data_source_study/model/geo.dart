@@ -30,8 +30,8 @@ class Geo {
   // 직렬화
   Map<String, dynamic> toJson() {
     return {
-      'lat': lat.isEmpty ? 'undefined' : lat,
-      'lng': lng.isEmpty ? 'undefined' : lng,
+      'lat': lat,
+      'lng': lng,
     };
   }
 
