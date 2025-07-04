@@ -15,9 +15,11 @@ class StockDataSourceImpl implements StockDataSource {
     // String csvString = file.readAsStringSync();
     List<String> line = file.readAsLinesSync();
     List<StockListing> stockList = [];
+    StockListing resultCsv;
+
 
     for (int i = 1; i < line.length; i++) {
-      StockListing resultCsv = StockListing.fromCsv(line[i]);
+      resultCsv = StockListing.fromCsv(line[i]);
       if (resultCsv.name == '') continue;
       stockList.add(resultCsv);
     }

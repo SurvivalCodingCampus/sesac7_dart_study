@@ -277,3 +277,22 @@ Alt + J 눌러서 같은거 선택하게
 
 map where
 데이터 표시할때 사용하니 익숙해지자...안익숙해져..
+
+future가있으면 무조건 future로
+
+
+인터페이스를 써라 생성자로 받아라
+
+DDD
+객체들이 도메인이라 보면된다
+
+const로 하면 같은 객체로 
+user1 = cont User('name',1);
+user2 = cont User('name',1);
+identical(user1,user2) -> true
+
+@Jsonkey
+내가 알수있도록 이름바꾸어서 할수있다.
+원하는 이름으로 
+
+모델을 먼저 만들자
