@@ -7,6 +7,13 @@ class response{
  T body
 }
 
+class Post{
+ int userId;
+ int id;
+ String title;
+ String body;
+}
+
 interface RemoteDataSource{
 getPosts()
 getPost(id)
@@ -15,6 +22,7 @@ updatePost(id, post)
 patchPost(id, post)
 deletePost(id)
 }
+
 class JsonPlaceHolderDataSourceImpl implements RemoteDataSource{
 }
 
