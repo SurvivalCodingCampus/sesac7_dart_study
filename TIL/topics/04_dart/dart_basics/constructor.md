@@ -15,3 +15,43 @@
 - `Name({required this.name})`: 이름 있는 매개변수(필수 지정), 데이터 타입이 null 을 허용하지 않으면 required 를 붙여야 함
 - `Name(this.hp, this.mp,{required this.name})` 필수 parameter 와 named parameter를 동시에 사용할 경우 필수 parameter 가 앞에 와야함
 - named parameter 에서만 기본값 지정이 가능
+
+## 3. const 생성자
+- 필드가 모두 final 일때 const 생성자를 만들 수 있다
+```dart
+class User {
+    final String name;
+    final int age;
+
+    const User({
+        required this.name,
+        required this.age,
+    });
+}
+
+void main () {
+    User user1 = const User(name : 'name', age: 20);
+    User user2 = const User(name : 'name', age: 20);
+    print(identical(user1, user2)); //true
+}
+
+// const 붙이면 컴파일 타임에 생성되서 같은 객체를 참조하고 있다
+// const 가 안붙으면 user1, user2 다른 객체이다
+// 효율을 끌어올릴 수 있다!
+// copyWith 은 항상 새로운 객체
+
+```
+
+4. factory 생성자
+
+- facrtory 붙어있을때: factory는 미리 조작해서 런타임에 조작해서 리턴 할 수 있음
+- 안붙어있을때: 컴파일 타임에 확정되고 런타임에 조작할 수 없음
+
+| 구분             | 일반 생성자                        | factory 생성자                                                   |
+|------------------|------------------------------------|-------------------------------------------------------------------|
+| **객체 생성 방식** | 항상 직접 `new Comment(...)`         | 내부 로직에서 조건 따라 다른 객체 생성 가능                           |
+| **제약**          | 항상 `this` 인스턴스를 반환          | `this` 아니어도 됨. 다른 클래스 객체도 반환 가능                         |
+| **언제 씀?**       | 그냥 값 넣어서 바로 객체 만들고 싶을 때 | JSON 파싱, 캐시된 객체 재사용, 조건 분기 등 유연하게 만들고 싶을 때       |
+
+- 두 생성자가 항상 같이 명시해 줘야하는 것은 아니다
+

@@ -39,7 +39,14 @@ Future<dynamic> getMovieInfo(json) async{
   }
 
   // hashcode 동일
-  // copyWith 작성 왜 하는건지 확인 필요
+  
+  // copyWith 왜 작성하는가?
+  // 객체지향의 필드는 final 로 불변객체로 활용해 안정성을 높인다
+  // 불변성 유지 : 원본 데이터를 건드리지 않고 새로운 객체를 만들어 사용
+  // 효율적 업데이트 : 필드하나만 바꿔도 전체 객체를 바꿀 필요없이 간단하게 복사 가능
+  // 객체의 일부 값만 변경된 새로운 인스턴스를 만들어주기 때문에 불변성을 유지하면서도 효율적으로 업데이트 할 수 있음
+
+  // test 할때 copyWith identical == false, 그냥 == true
 }
 
 void main() {
