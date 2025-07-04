@@ -1,0 +1,35 @@
+### GET
+GET https://jsonplaceholder.typicode.com/posts/1
+
+### POST
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "userId": 100,
+  "id": 10,
+  "title": "test",
+  "body": "test"
+}
+
+### 삭제
+DELETE https://jsonplaceholder.typicode.com/posts/1
+
+### 일부 수정
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "userId": 200,
+  "title": "수정했으"
+}
+
+### 모두 수정
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "userId": 150,
+  "title": "모두 수정했으",
+  "body": "바디도 모두 수정했으"
+}
