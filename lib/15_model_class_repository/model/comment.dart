@@ -19,18 +19,18 @@ class Comment {
   });
 
   Comment copyWith(
-    int postId,
-    int id,
-    String name,
-    String email,
-    String body,
+    int? postId,
+    int? id,
+    String? name,
+    String? email,
+    String? body,
   ) {
     return Comment(
-      postId: this.postId,
-      id: this.id,
-      name: this.name,
-      email: this.email,
-      body: this.body,
+      postId: postId ?? this.postId,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      body: body ?? this.body,
     );
   }
 

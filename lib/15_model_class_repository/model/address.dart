@@ -26,18 +26,20 @@ class Address {
   Map<String, dynamic> toJson() => _$AddressToJson(this);
 
   Address copyWith(
-    String street,
-    String suite,
-    String city,
-    String zipcode,
-    Geo geo,
+    String? street,
+    String? suite,
+    String? city,
+    String? zipcode,
+    Geo? geo,
   ) {
     return Address(
-      street: this.street,
-      suite: this.suite,
-      city: this.city,
-      zipcode: this.zipcode,
-      geo: this.geo.copyWith(this.geo.lat, this.geo.lng),
+      street: street ?? this.street,
+      suite: suite ?? this.suite,
+      city: city ?? this.city,
+      zipcode: zipcode ?? this.zipcode,
+      geo: geo != null
+          ? geo.copyWith(geo.lat, geo.lng)
+          : this.geo.copyWith(this.geo.lat, this.geo.lng),
     );
   }
 

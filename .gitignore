@@ -169,3 +169,5 @@ fabric.properties
 
 .idea/
 *.g.dart
+*.json
+*.csv

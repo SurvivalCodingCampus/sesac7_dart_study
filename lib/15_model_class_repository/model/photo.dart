@@ -23,18 +23,18 @@ class Photo {
   Map<String, dynamic> toJson() => _$PhotoToJson(this);
 
   Photo copyWith(
-    int albumId,
-    int id,
-    String title,
-    String url,
-    String thumbnailUrl,
+    int? albumId,
+    int? id,
+    String? title,
+    String? url,
+    String? thumbnailUrl,
   ) {
     return Photo(
-      albumId: albumId,
-      id: this.id,
-      title: this.title,
-      url: this.url,
-      thumbnailUrl: this.thumbnailUrl,
+      albumId: albumId ?? this.albumId,
+      id: id ?? this.id,
+      title: title ?? this.title,
+      url: url ?? this.url,
+      thumbnailUrl: thumbnailUrl ?? this.thumbnailUrl,
     );
   }
 

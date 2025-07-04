@@ -14,12 +14,12 @@ class Geo {
   Map<String, dynamic> toJson() => _$GeoToJson(this);
 
   Geo copyWith(
-    String lat,
-    String lng,
+    String? lat,
+    String? lng,
   ) {
     return Geo(
-      lat: lat,
-      lng: lng,
+      lat: lat ?? this.lat,
+      lng: lng ?? this.lng,
     );
   }
 

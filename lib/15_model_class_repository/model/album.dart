@@ -15,14 +15,14 @@ class Album {
   });
 
   Album copyWith(
-    int userId,
-    int id,
-    String title,
+    int? userId,
+    int? id,
+    String? title,
   ) {
     return Album(
-      userId: this.userId,
-      id: this.id,
-      title: this.title,
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+      title: title ?? this.title,
     );
   }
 

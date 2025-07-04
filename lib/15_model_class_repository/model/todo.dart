@@ -17,16 +17,16 @@ class Todo {
   });
 
   Todo copyWith(
-    int userId,
-    int id,
-    String title,
-    bool completed,
+    int? userId,
+    int? id,
+    String? title,
+    bool? completed,
   ) {
     return Todo(
-      userId: this.userId,
-      id: this.id,
-      title: this.title,
-      completed: this.completed,
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+      title: title ?? this.title,
+      completed: completed ?? this.completed,
     );
   }
 

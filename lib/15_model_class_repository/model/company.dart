@@ -16,14 +16,14 @@ class Company {
   Map<String, dynamic> toJson() => _$CompanyToJson(this);
 
   Company copyWith(
-    String name,
-    String catchPhrase,
-    String bs,
+    String? name,
+    String? catchPhrase,
+    String? bs,
   ) {
     return Company(
-      name: name,
-      catchPhrase: catchPhrase,
-      bs: bs,
+      name: name ?? this.name,
+      catchPhrase: catchPhrase ?? this.catchPhrase,
+      bs: bs ?? this.bs,
     );
   }
 
