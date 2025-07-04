@@ -22,6 +22,22 @@ class Photo {
 
   Map<String, dynamic> toJson() => _$PhotoToJson(this);
 
+  Photo copyWith(
+    int albumId,
+    int id,
+    String title,
+    String url,
+    String thumbnailUrl,
+  ) {
+    return Photo(
+      albumId: albumId,
+      id: this.id,
+      title: this.title,
+      url: this.url,
+      thumbnailUrl: this.thumbnailUrl,
+    );
+  }
+
   @override
   bool operator ==(Object other) {
     if (other is Photo) {

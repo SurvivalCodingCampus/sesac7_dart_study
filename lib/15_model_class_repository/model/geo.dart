@@ -13,6 +13,16 @@ class Geo {
 
   Map<String, dynamic> toJson() => _$GeoToJson(this);
 
+  Geo copyWith(
+    String lat,
+    String lng,
+  ) {
+    return Geo(
+      lat: lat,
+      lng: lng,
+    );
+  }
+
   @override
   bool operator ==(Object other) {
     if (other is Geo) {

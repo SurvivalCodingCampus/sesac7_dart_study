@@ -15,6 +15,18 @@ class Company {
 
   Map<String, dynamic> toJson() => _$CompanyToJson(this);
 
+  Company copyWith(
+    String name,
+    String catchPhrase,
+    String bs,
+  ) {
+    return Company(
+      name: name,
+      catchPhrase: catchPhrase,
+      bs: bs,
+    );
+  }
+
   @override
   bool operator ==(Object other) {
     if (other is Company) {

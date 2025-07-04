@@ -16,6 +16,40 @@ class Todo {
     required this.completed,
   });
 
+  Todo copyWith(
+    int userId,
+    int id,
+    String title,
+    bool completed,
+  ) {
+    return Todo(
+      userId: this.userId,
+      id: this.id,
+      title: this.title,
+      completed: this.completed,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (other is Todo) {
+      return userId == other.userId &&
+          id == other.id &&
+          title == other.title &&
+          completed == other.completed;
+    }
+    return false;
+  }
+
+  @override
+  int get hashCode =>
+      userId.hashCode ^ id.hashCode ^ title.hashCode ^ completed.hashCode;
+
+  @override
+  String toString() {
+    return '{"userId": $userId, "id": $id, "title": "$title", "completed": $completed}';
+  }
+
   factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
 
   Map<String, dynamic> toJson() => _$TodoToJson(this);

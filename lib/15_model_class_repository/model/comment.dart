@@ -18,6 +18,47 @@ class Comment {
     required this.body,
   });
 
+  Comment copyWith(
+    int postId,
+    int id,
+    String name,
+    String email,
+    String body,
+  ) {
+    return Comment(
+      postId: this.postId,
+      id: this.id,
+      name: this.name,
+      email: this.email,
+      body: this.body,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (other is Comment) {
+      return postId == other.postId &&
+          id == other.id &&
+          name == other.name &&
+          email == other.email &&
+          body == other.body;
+    }
+    return false;
+  }
+
+  @override
+  int get hashCode =>
+      postId.hashCode ^
+      id.hashCode ^
+      name.hashCode ^
+      email.hashCode ^
+      body.hashCode;
+
+  @override
+  String toString() {
+    return '{"postId": $postId, "id": $id, "name": "$name", "email": "$email", "body": "$body"}';
+  }
+
   factory Comment.fromJson(Map<String, dynamic> json) =>
       _$CommentFromJson(json);
 

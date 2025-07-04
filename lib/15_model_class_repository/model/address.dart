@@ -25,6 +25,22 @@ class Address {
 
   Map<String, dynamic> toJson() => _$AddressToJson(this);
 
+  Address copyWith(
+    String street,
+    String suite,
+    String city,
+    String zipcode,
+    Geo geo,
+  ) {
+    return Address(
+      street: this.street,
+      suite: this.suite,
+      city: this.city,
+      zipcode: this.zipcode,
+      geo: this.geo.copyWith(this.geo.lat, this.geo.lng),
+    );
+  }
+
   @override
   bool operator ==(Object other) {
     if (other is Address) {
