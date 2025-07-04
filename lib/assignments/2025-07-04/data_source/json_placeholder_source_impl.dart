@@ -12,7 +12,7 @@ class JsonPlaceholderSourceImpl implements RemoteDataSource {
     : _client = client ?? http.Client();
 
   @override
-  Future<Res> createPhoto(Map<String, dynamic> mapOfPhoto) async {
+  Future<Res<String>> createPhoto(Map<String, dynamic> mapOfPhoto) async {
     final response = await _client.post(
       Uri.parse(_baseUrl),
       headers: {'Content-Type': 'application/json'},
@@ -23,28 +23,31 @@ class JsonPlaceholderSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<Res> deletePhoto(int id) async {
+  Future<Res<String>> deletePhoto(int id) async {
     final response = await _client.delete(Uri.parse('$_baseUrl/$id'));
 
     return Res(response.statusCode, response.headers, response.body);
   }
 
   @override
-  Future<Res> getPhoto(int id) async {
+  Future<Res<String>> getPhoto(int id) async {
     final response = await _client.get(Uri.parse('$_baseUrl/$id'));
 
     return Res(response.statusCode, response.headers, response.body);
   }
 
   @override
-  Future<Res> getPhotos() async {
+  Future<Res<String>> getPhotos() async {
     final response = await _client.get(Uri.parse(_baseUrl));
 
     return Res(response.statusCode, response.headers, response.body);
   }
 
   @override
-  Future<Res> patchPhoto(int id, Map<String, dynamic> mapOfPhoto) async {
+  Future<Res<String>> patchPhoto(
+    int id,
+    Map<String, dynamic> mapOfPhoto,
+  ) async {
     final response = await _client.patch(
       Uri.parse('$_baseUrl/$id'),
       headers: {'Content-Type': 'application/json'},
@@ -55,7 +58,10 @@ class JsonPlaceholderSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<Res> updatePhoto(int id, Map<String, dynamic> mapOfPhoto) async {
+  Future<Res<String>> updatePhoto(
+    int id,
+    Map<String, dynamic> mapOfPhoto,
+  ) async {
     final response = await _client.post(
       Uri.parse('$_baseUrl/$id'),
       headers: {'Content-Type': 'application/json'},
