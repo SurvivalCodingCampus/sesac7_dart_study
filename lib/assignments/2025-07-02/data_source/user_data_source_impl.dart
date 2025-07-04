@@ -20,18 +20,18 @@ class UserDataSourceImpl implements UserDataSource {
   }
 
   @override
-  Future<List<User>> getUsers() async {
+  Future<List<Map<String, dynamic>>> getUsers() async {
     await Future.delayed(Duration(seconds: 2));
     try {
       final file = File('lib/assignments/2025-07-02/users.json');
       final fileString = file.readAsStringSync();
 
-      List<User> users = (jsonDecode(fileString) as List)
-          .map((e) => User.fromJson(e))
-          .toList();
+      List<Map<String, dynamic>> users = jsonDecode(
+        fileString,
+      ).map((e) => User.fromJson(e)).toList();
       return users;
     } catch (e) {
-      throw e.toString();
+      throw [];
     }
   }
 }
@@ -59,11 +59,11 @@ void main() async {
   // print('title: ${todo1.title}');
   // print('completed: ${todo1.completed}');
   //
-  List<User> users = await UserDataSourceImpl().getUsers();
-  print('------------------------');
-  print('runtimeType: ${users.runtimeType}');
-  print('length: ${users.length}');
-  print('id: ${users[0].id}');
-  print('username: ${users[0].username}');
-  print('geo.lat: ${users[0].address.geo.lat}');
+  // List<User> users = await UserDataSourceImpl().getUsers();
+  // print('------------------------');
+  // print('runtimeType: ${users.runtimeType}');
+  // print('length: ${users.length}');
+  // print('id: ${users[0].id}');
+  // print('username: ${users[0].username}');
+  // print('geo.lat: ${users[0].address.geo.lat}');
 }

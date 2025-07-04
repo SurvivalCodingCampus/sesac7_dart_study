@@ -15,7 +15,7 @@ class TodoDataSourceImpl implements TodoDataSource {
       Todo todo = Todo.fromJson(jsonDecode(fileString));
       return todo;
     } catch (e) {
-      throw (e);
+      rethrow;
     }
   }
 
@@ -31,7 +31,7 @@ class TodoDataSourceImpl implements TodoDataSource {
           .toList();
       return todos;
     } catch (e) {
-      throw (e);
+      rethrow;
     }
   }
 }

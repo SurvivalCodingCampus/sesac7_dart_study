@@ -7,6 +7,7 @@ class GreatWizard extends Wizard {
 
   GreatWizard(super.name, {required super.hp});
 
+  @override
   int get mp => _mp;
 
   @override
