@@ -13,7 +13,7 @@ class AlbumRepositoryImpl implements AlbumRepository {
       final List<Map<String, dynamic>> albumsMapList = await _albumDataSource
           .getAllAlbums();
       final List<Album> albums = albumsMapList
-          .map((map) => Album.fromJson(map))
+          .map(Album.fromJson) // the same: map((map) => Album.fromJson(map))
           .toList();
       return limit != null && limit <= albums.length
           ? albums.sublist(0, limit)
