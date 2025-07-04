@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'company.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class Company {
   final String? name;
   final String? catchPhrase;
@@ -5,13 +10,8 @@ class Company {
 
   Company({this.name, this.catchPhrase, this.bs});
 
-  factory Company.fromJson(Map<String, dynamic> json) {
-    return Company(
-      name: json['name'],
-      catchPhrase: json['catchPhrase'],
-      bs: json['bs'],
-    );
-  }
+  factory Company.fromJson(Map<String, dynamic> json) =>
+      _$CompanyFromJson(json);
 
   @override
   String toString() =>
@@ -25,15 +25,11 @@ class Company {
       ? name == other.name && catchPhrase == other.catchPhrase && bs == other.bs
       : false;
 
+  Map<String, dynamic> toJson() => _$CompanyToJson(this);
+
   Company copyWith({String? name, String? catchPhrase, String? bs}) => Company(
     name: name ?? this.name,
     catchPhrase: catchPhrase ?? this.catchPhrase,
     bs: bs ?? this.bs,
   );
-
-  Map<String, dynamic> toJson() => {
-    'name': name,
-    'catchPhrase': catchPhrase,
-    'bs': bs,
-  };
 }
