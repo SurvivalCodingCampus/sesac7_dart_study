@@ -7,11 +7,16 @@ import 'package:modu_3_dart_study/16_http/data_source/remote_data_source.dart';
 class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   static const _baseUrl = 'https://jsonplaceholder.typicode.com';
 
+  final http.Client _client;
+
+  JsonPlaceHolderDataSourceImpl({http.Client? client})
+    : _client = client ?? http.Client();
+
   @override
   Future<Response<Map<String, dynamic>>> createPost(
     Map<String, dynamic> post,
   ) async {
-    final response = await http.post(
+    final response = await _client.post(
       Uri.parse('$_baseUrl/posts'),
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +33,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
 
   @override
   Future<Response<void>> deletePost(int id) async {
-    final response = await http.delete(
+    final response = await _client.delete(
       Uri.parse('$_baseUrl/posts/$id'),
       headers: {
         'Content-Type': 'application/json',
@@ -43,8 +48,8 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<Response<List<Map<String, dynamic>>>> getPost(int id) async {
-    final response = await http.get(
+  Future<Response<Map<String, dynamic>>> getPost(int id) async {
+    final response = await _client.get(
       Uri.parse('$_baseUrl/posts/$id'),
       headers: {
         'Content-Type': 'application/json',
@@ -59,8 +64,8 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<Response<Map<String, dynamic>>> getPosts() async {
-    final response = await http.get(
+  Future<Response<List<Map<String, dynamic>>>> getPosts() async {
+    final response = await _client.get(
       Uri.parse('$_baseUrl/posts'),
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +75,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
     return Response(
       statusCode: response.statusCode,
       header: response.headers,
-      body: jsonDecode(response.body),
+      body: List<Map<String, dynamic>>.from(jsonDecode(response.body)),
     );
   }
 
@@ -79,12 +84,12 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
     int id,
     Map<String, dynamic> post,
   ) async {
-    final response = await http.patch(
+    final response = await _client.patch(
       Uri.parse('$_baseUrl/posts/$id'),
       headers: {
         'Content-Type': 'application/json',
       },
-      body: jsonEncode(json),
+      body: jsonEncode(post),
     );
 
     return Response(
@@ -99,7 +104,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
     int id,
     Map<String, dynamic> post,
   ) async {
-    final response = await http.put(
+    final response = await _client.put(
       Uri.parse('$_baseUrl/posts/$id'),
       headers: {
         'Content-Type': 'application/json',

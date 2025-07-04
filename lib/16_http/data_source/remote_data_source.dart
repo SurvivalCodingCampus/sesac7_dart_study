@@ -1,9 +1,9 @@
 import '../core/response.dart';
 
 abstract interface class RemoteDataSource {
-  Future<Response<List<Map<String, dynamic>>>> getPost(int id);
+  Future<Response<Map<String, dynamic>>> getPost(int id);
 
-  Future<Response<Map<String, dynamic>>> getPosts();
+  Future<Response<List<Map<String, dynamic>>>> getPosts();
 
   Future<Response<Map<String, dynamic>>> createPost(Map<String, dynamic> post);
 
