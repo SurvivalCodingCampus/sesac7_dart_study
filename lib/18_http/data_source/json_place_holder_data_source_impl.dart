@@ -5,9 +5,9 @@ import 'package:modu_3_dart_study/18_http/core/response.dart';
 import 'package:modu_3_dart_study/18_http/data_source/remote_data_source.dart';
 
 class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
-  static const baseUrl = 'https://jsonplaceholder.typicode.com';
+  static const baseUrl = 'http://jsonplaceholder.typicode.com';
 
-  http.Client _client;
+  final http.Client _client;
 
   JsonPlaceHolderDataSourceImpl({http.Client? client})
     : _client = client ?? http.Client();

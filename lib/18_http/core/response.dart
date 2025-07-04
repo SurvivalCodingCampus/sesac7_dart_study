@@ -8,4 +8,9 @@ class Response<T> {
     required this.header,
     required this.body,
   });
+
+  @override
+  String toString() {
+    return 'Response{statusCode: $statusCode, header: $header, body: $body}';
+  }
 }
