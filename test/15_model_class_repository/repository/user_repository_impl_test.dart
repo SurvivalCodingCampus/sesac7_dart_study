@@ -16,7 +16,7 @@ void main() {
       expect(users.length, 3);
     });
 
-    test('getUsersTo10ByUserName() Test', () async {
+    test('getUsersTop10ByUserName() Test', () async {
       final testUserName1 = 'Antonette';
       final testUserName2 = 'Bret';
       final testUserName3 = 'Samantha';

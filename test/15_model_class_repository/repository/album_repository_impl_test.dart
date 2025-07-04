@@ -7,11 +7,11 @@ import 'package:test/scaffolding.dart';
 import '../../mocks/mock_album_data_source_impl.dart';
 
 void main() {
-  group('TodoRepositoryImpl Test', () {
+  group('AlbumRepositoryImpl Test', () {
     final AlbumDataSource dataSource = MockAlbumDataSourceImpl();
     final AlbumRepository repository = AlbumRepositoryImpl(dataSource);
 
-    test('getTodos() Test', () async {
+    test('getAlbums() Test', () async {
       final albums = await repository.getAlbums(limit: 3);
       final allAlbums = await repository.getAlbums();
       final emptyAlbum = await repository.getAlbums(limit: -1);
