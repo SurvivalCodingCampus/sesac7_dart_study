@@ -1,0 +1,23 @@
+### GET request
+GET https://jsonplaceholder.typicode.com/posts/1
+
+### POST request
+
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "userId": 100,
+  "id": 10,
+  "title": "추가 된 제목",
+  "body": "추가 된 내용"
+}
+
+### DELETE request
+
+DELETE https://jsonplaceholder.typicode.com/posts/1
+
+
+### PATCH request
+
+PATCH https://jsonplaceholder.typicode.com/posts/1

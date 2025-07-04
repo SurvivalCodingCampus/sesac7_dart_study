@@ -11,6 +11,7 @@ dependencies:
   json_annotation: ^4.9.0
   collection: ^1.18.0
   mockito: ^5.4.6
+  http: ^1.4.0
 
   # path: ^1.8.0
 
