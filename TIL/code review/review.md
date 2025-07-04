@@ -296,3 +296,22 @@ identical(user1,user2) -> true
 원하는 이름으로 
 
 모델을 먼저 만들자
+
+
+equatable => 알아서 동등성 
+
+선택사항은 두가지
+jsontoDart 플러그인
+jsonSerializable 
+
+mockito
+verify 화이트박스 테스트 메서드 타는지
+
+모델클래스는 편안게 써야한다
+
+인터페이스로 의존성을 줄이자
+예를들어 random 같은거
+
+의존성을 
+
+테스트코드에서 하면 무조건 터짐! http로 하면 됨
