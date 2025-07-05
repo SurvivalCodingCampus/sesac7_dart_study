@@ -15,7 +15,7 @@ Content-Type: application/json
 ### 삭제
 DELETE https://jsonplaceholder.typicode.com/posts/1
 
-### 일부 수정
+### 일부 수정하면 나머지 필드는 그대로 유지되고 변경을 요청한 필드만 바뀜
 PATCH https://jsonplaceholder.typicode.com/posts/1
 Content-Type: application/json
 
@@ -24,12 +24,10 @@ Content-Type: application/json
   "title": "수정했으"
 }
 
-### 모두 수정
+### 모두 수정해줘야 한다. 누락된 필드는 null로 바뀜
 PUT https://jsonplaceholder.typicode.com/posts/1
 Content-Type: application/json
 
 {
-  "userId": 150,
-  "title": "모두 수정했으",
-  "body": "바디도 모두 수정했으"
+  "userId": 150
 }
