@@ -4,10 +4,10 @@ part 'post.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Post {
-  final num userId;
-  final num id;
-  final String title;
-  final String body;
+  final num? userId;
+  final num? id;
+  final String? title;
+  final String? body;
 
   Post({
     required this.userId,
