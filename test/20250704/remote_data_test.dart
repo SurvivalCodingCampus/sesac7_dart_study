@@ -164,6 +164,32 @@ void main() {
       expect(response.body, 'page not found!');
     });
 
+    test('deletePost 테스트', () async {
+      final mockClient = MockClient((request) async {
+        return http.Response(jsonEncode({}), 200);
+      });
+
+      final RemoteDataSource dataSource = RemoteDataSourceImpl(
+        client: mockClient,
+      );
+
+      final response = await dataSource.deletePost(1);
+      expect(response, true);
+    });
+
+    test('deletePost error 테스트', () async {
+      final mockClient = MockClient((request) async {
+        return http.Response('DB Error!!!', 500);
+      });
+
+      final RemoteDataSource dataSource = RemoteDataSourceImpl(
+        client: mockClient,
+      );
+
+      final response = await dataSource.deletePost(1);
+      expect(response, false);
+    });
+
     test('PostRepositoryImpl 클래스 구현에 대한 테스트', () async {
       final postRepositoryImpl = PostRepositoryImpl(
         remoteDataSource: RemoteDataSourceImpl(),
