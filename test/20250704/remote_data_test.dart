@@ -163,15 +163,15 @@ void main() {
       expect(response.statusCode, 404);
       expect(response.body, 'page not found!');
     });
-  });
 
-  test('PostRepositoryImpl 클래스 구현에 대한 테스트', () async {
-    final postRepositoryImpl = PostRepositoryImpl(
-      remoteDataSource: RemoteDataSourceImpl(),
-    );
-    final dataList = await postRepositoryImpl.getPostsByKeyword('voluptate');
+    test('PostRepositoryImpl 클래스 구현에 대한 테스트', () async {
+      final postRepositoryImpl = PostRepositoryImpl(
+        remoteDataSource: RemoteDataSourceImpl(),
+      );
+      final dataList = await postRepositoryImpl.getPostsByKeyword('voluptate');
 
-    expect(dataList.length, 13);
-    expect(dataList.first['title'], 'voluptatem eligendi optio');
+      expect(dataList.length, 13);
+      expect(dataList.first.title, 'voluptatem eligendi optio');
+    });
   });
 }
