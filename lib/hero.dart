@@ -19,10 +19,14 @@ class Hero {
     @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Hero && runtimeType == other.runtimeType && name == other.name;
+      other is Hero &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          hp == other.hp &&
+          maxHp == other.maxHp;
 
   @override
-  int get hashCode => name.hashCode;
+  int get hashCode => name.hashCode ^ hp.hashCode ^ maxHp.hashCode;
 
   void damages() {
         hp = hp > 0 ? hp - 1 : 0;
