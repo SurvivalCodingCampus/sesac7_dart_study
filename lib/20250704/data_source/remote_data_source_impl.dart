@@ -30,13 +30,17 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<bool> deletePost(int id) async {
+  Future<Response<String>> deletePost(int id) async {
     final response = await _client.delete(
       Uri.parse('$baseUrl/posts/$id'),
       headers: headers,
     );
 
-    return response.statusCode == 200 ? true : false;
+    return Response(
+      statusCode: response.statusCode,
+      header: response.headers,
+      body: response.body,
+    );
   }
 
   @override

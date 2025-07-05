@@ -19,5 +19,5 @@ abstract interface class RemoteDataSource {
     Map<String, dynamic> post,
   );
 
-  Future<bool> deletePost(int id);
+  Future<Response<String>> deletePost(int id);
 }

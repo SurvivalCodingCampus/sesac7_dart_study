@@ -174,7 +174,7 @@ void main() {
       );
 
       final response = await dataSource.deletePost(1);
-      expect(response, true);
+      expect(response.statusCode, 200);
     });
 
     test('deletePost error 테스트', () async {
@@ -187,7 +187,8 @@ void main() {
       );
 
       final response = await dataSource.deletePost(1);
-      expect(response, false);
+      expect(response.statusCode, 500);
+      expect(response.body, 'DB Error!!!');
     });
 
     test('PostRepositoryImpl 클래스 구현에 대한 테스트', () async {
