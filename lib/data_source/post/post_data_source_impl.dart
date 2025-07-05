@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:modu_3_dart_study/core/response.dart';
 import 'package:modu_3_dart_study/data_source/post/post_data_source.dart';
-import 'package:modu_3_dart_study/model/post.dart';
 
 class PostDataSourceImpl implements PostDataSource {
   static const baseUrl = 'http://jsonplaceholder.typicode.com';
@@ -15,11 +14,11 @@ class PostDataSourceImpl implements PostDataSource {
     : _httpClient = client ?? http.Client();
 
   @override
-  Future<Response<Map<String, dynamic>>> createPost(Post post) async {
+  Future<Response<Map<String, dynamic>>> createPost(Map<String, dynamic> post) async {
     final http.Response response = await _httpClient.post(
       Uri.parse('$baseUrl/posts'),
       headers: {HttpHeaders.contentTypeHeader: ContentType.json.value},
-      body: jsonEncode(post.toJson()),
+      body: jsonEncode(post),
     );
     return Response(
       statusCode: response.statusCode,
@@ -67,11 +66,11 @@ class PostDataSourceImpl implements PostDataSource {
   }
 
   @override
-  Future<Response<Map<String, dynamic>>> patchPost(int id, Post post) async {
+  Future<Response<Map<String, dynamic>>> patchPost(int id, Map<String, dynamic> post) async {
     final http.Response response = await _httpClient.patch(
       Uri.parse('$baseUrl/posts/$id'),
       headers: {HttpHeaders.contentTypeHeader: ContentType.json.value},
-      body: jsonEncode(post.toJson()),
+      body: jsonEncode(post),
     );
     return Response(
       statusCode: response.statusCode,
@@ -81,11 +80,11 @@ class PostDataSourceImpl implements PostDataSource {
   }
 
   @override
-  Future<Response<Map<String, dynamic>>> updatePost(int id, Post post) async {
+  Future<Response<Map<String, dynamic>>> updatePost(int id, Map<String, dynamic> post) async {
     final response = await _httpClient.put(
       Uri.parse('$baseUrl/posts/$id'),
       headers: {HttpHeaders.contentTypeHeader: ContentType.json.value},
-      body: jsonEncode(post.toJson()),
+      body: jsonEncode(post),
     );
     return Response(
       statusCode: response.statusCode,
