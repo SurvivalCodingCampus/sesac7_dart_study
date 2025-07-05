@@ -49,7 +49,7 @@ class User {
     Company? company    
   }) {
     return User(
-          id: id ?? this.id,
+      id: id ?? this.id,
       name: name ?? this.name,
       username: username ?? this.username,
       email: email ?? this.email,

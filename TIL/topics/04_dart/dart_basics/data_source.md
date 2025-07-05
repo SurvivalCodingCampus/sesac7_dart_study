@@ -35,5 +35,6 @@ class AuthDataSourceImpl implements AuthDataSource
 ```
 
 ## 구현체와 인터페이스의 구분
-
 - 인터페이스(약속만 정의), 구현체(실제 내용 정의)
+
+## 의존성을 끊기 위해서 repository 사용
