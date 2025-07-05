@@ -60,7 +60,9 @@ class PostDataSourceImpl implements PostDataSource {
     return Response(
       statusCode: response.statusCode,
       header: response.headers,
-      body: jsonDecode(response.body),
+      body: (jsonDecode(response.body) as List)
+          .map((post) => post as Map<String, dynamic>)
+          .toList(),
     );
   }
 
