@@ -1,8 +1,6 @@
 import 'dart:convert';
 
 import 'package:modu_3_dart_study/20250704/data_source/remote_data_source.dart';
-import 'package:modu_3_dart_study/20250704/data_source/remote_data_source_impl.dart';
-import 'package:modu_3_dart_study/20250704/model/post.dart';
 
 class PostRepositoryImpl {
   final RemoteDataSource remoteDataSource;
