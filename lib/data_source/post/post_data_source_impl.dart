@@ -42,7 +42,7 @@ class PostDataSourceImpl implements PostDataSource {
   @override
   Future<Response<Map<String, dynamic>>> getPost(int id) async {
     final http.Response response = await _httpClient.get(
-      Uri.parse('$baseUrl/posts?id=$id'),
+      Uri.parse('$baseUrl/posts/$id'),
     );
     return Response(
       statusCode: response.statusCode,
