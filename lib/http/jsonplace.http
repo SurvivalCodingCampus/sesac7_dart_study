@@ -1,0 +1,35 @@
+### GET request to example server
+GET https://jsonplaceholder.typicode.com/posts/91
+
+### 글쓰기
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "userId": 100,
+  "id": 10,
+  "title": "Hello",
+  "body": "World"
+}
+
+### 삭제
+DELETE https://jsonplaceholder.typicode.com/posts/1
+
+### 일부 수정
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "userId": 100,
+  "title": "Test",
+  "body": "Code"
+}
+
+### 모두 수정
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "userId": 100,
+  "title": "Test"
+}
