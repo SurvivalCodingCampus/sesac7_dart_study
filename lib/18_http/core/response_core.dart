@@ -1,5 +1,6 @@
 // HTTP 응답전체를 감싸는 역활
 
+// 재사용성 : 제네릭 선언으로 다양한 타입을 담아 사용할 수 있도록
 class ResponseCore<T> {
   final int statusCode;
   final Map<String, String> header;

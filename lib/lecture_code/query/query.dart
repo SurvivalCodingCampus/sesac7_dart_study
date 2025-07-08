@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:collection/collection.dart';
 
 class Trader {
   String name;

@@ -28,7 +28,7 @@ class DefaultFileOperations extends FileOperations {
     } on PathNotFoundException {
       print('PathNotFoundException');
     } on FileSystemException catch (e) {
-      print('FileSystemException');
+      print('FileSystemException : $e');
     } catch (e) {
       print('error: $e');
     }
