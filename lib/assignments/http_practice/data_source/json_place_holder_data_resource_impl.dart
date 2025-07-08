@@ -5,7 +5,8 @@ import 'package:modu_3_dart_study/assignments/http_practice/core/response.dart';
 import 'package:modu_3_dart_study/assignments/http_practice/data_source/remote_data_source.dart';
 
 class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
-  static const _baseUrl = 'https://jsonplaceholder.typicode.com';
+  static const _baseUrl = 'http://jsonplaceholder.typicode.com';
+  static const _header = {'Content-Type': 'application/json'};
   final http.Client _client;
 
   JsonPlaceHolderDataSourceImpl({http.Client? client})
@@ -17,7 +18,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   }) async {
     final response = await _client.post(
       Uri.parse('$_baseUrl/posts'),
-      headers: {'Content-Type': 'application/json'},
+      headers: _header,
       body: jsonEncode(post),
     );
 
@@ -32,7 +33,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   Future<Response<List<Map<String, dynamic>>>> getPosts() async {
     final response = await _client.get(
       Uri.parse('$_baseUrl/posts'),
-      headers: {'Content-Type': 'application/json'},
+      headers: _header,
     );
 
     return Response(
@@ -46,7 +47,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   Future<Response<Map<String, dynamic>>> getPost({required int postId}) async {
     final response = await _client.get(
       Uri.parse('$_baseUrl/posts/$postId'),
-      headers: {'Content-Type': 'application/json'},
+      headers: _header,
     );
 
     return Response(
@@ -63,7 +64,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   }) async {
     final response = await _client.put(
       Uri.parse('$_baseUrl/posts/$postId'),
-      headers: {'Content-Type': 'application/json'},
+      headers: _header,
       body: jsonEncode(post),
     );
 
@@ -81,7 +82,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   }) async {
     final response = await _client.patch(
       Uri.parse('$_baseUrl/posts/$postId'),
-      headers: {'Content-Type': 'application/json'},
+      headers: _header,
       body: jsonEncode(json),
     );
 
@@ -96,7 +97,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   Future<Response<void>> deletePost({required int postId}) async {
     final response = await _client.delete(
       Uri.parse('$_baseUrl/posts/$postId'),
-      headers: {'Content-Type': 'application/json'},
+      headers: _header,
     );
 
     return Response(
