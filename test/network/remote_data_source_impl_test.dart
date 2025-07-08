@@ -44,7 +44,7 @@ void main() {
       );
 
       //then(검증)
-      expect(response.statusCode, 201);
+      expect(response.statusCode, HttpEnv.created);
       expect(response.body.id, 4);
       expect(response.body.body, 'test4 body');
     });
@@ -73,7 +73,7 @@ void main() {
       final response = await dataSource.getPost(1);
 
       //then(검증)
-      expect(response.statusCode, 200);
+      expect(response.statusCode, HttpEnv.ok);
       expect(response.body.title, 'test');
     });
 
@@ -111,7 +111,7 @@ void main() {
       final response = await dataSource.getPosts();
 
       //then(검증)
-      expect(response.statusCode, 200);
+      expect(response.statusCode, HttpEnv.ok);
       expect(response.body.length, 3);
       expect(response.body[0].title, 'test1');
       expect(response.body[1].title, 'test2');
@@ -128,11 +128,11 @@ void main() {
           jsonEncode({
             'userId': 1,
             'id': 1,
-            'title': '수정 update test',
+            'title': 'update test',
             'body': 'test body',
           }),
           200,
-          headers: HttpEnv.HEADERS,
+          headers: HttpEnv.headers,
         );
       });
 
@@ -145,7 +145,7 @@ void main() {
       );
 
       //then(검증)
-      expect(response.statusCode, 200);
+      expect(response.statusCode, HttpEnv.ok);
       expect(response.body.title, 'update test');
     });
 
@@ -153,41 +153,46 @@ void main() {
       //given(준비)
       MockClient mockClient = MockClient((request) async {
         return http.Response(
-          jsonEncode([
-            {
-              'userId': 1,
-              'id': 1,
-              'title': 'test1',
-              'body': 'test1 body',
-            },
-            {
-              'userId': 2,
-              'id': 2,
-              'title': 'test2',
-              'body': 'test2 body',
-            },
-            {
-              'userId': 3,
-              'id': 3,
-              'title': 'test3',
-              'body': 'test3 body',
-            },
-          ]),
+          jsonEncode({
+            'userId': 1,
+            'id': 1,
+            'title': 'patch test',
+            'body': 'test body',
+          }),
           200,
+          headers: HttpEnv.headers,
         );
       });
 
       RemoteDataSource dataSource = RemoteDataSourceImpl(client: mockClient);
 
       //when(실행)
-      final response = await dataSource.getPosts();
+      final response = await dataSource.patchPost(1, {'title': 'patch'});
 
       //then(검증)
-      expect(response.statusCode, 200);
-      expect(response.body.length, 3);
-      expect(response.body[0].title, 'test1');
-      expect(response.body[1].title, 'test2');
-      expect(response.body[2].title, 'test3');
+      expect(response.statusCode, HttpEnv.ok);
+      expect(response.body.title, 'patch test');
+    });
+  });
+
+  group('delete Test', () {
+    test('delete 테스트', () async {
+      //given(준비)
+      //서버
+      MockClient mockClient = MockClient((request) async {
+        return http.Response('',
+          204,
+          headers: HttpEnv.headers,
+        );
+      });
+
+      RemoteDataSource dataSource = RemoteDataSourceImpl(client: mockClient);
+
+      //when(실행)
+      final response = await dataSource.deletePost(1);
+
+      //then(검증)
+      expect(response.statusCode, HttpEnv.noContent);
     });
   });
 }

@@ -17,10 +17,65 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<ResponseCore<Post>> createPost(Post post) async {
     final response = await _client.post(
-      Uri.parse('$HttpEnv.BASE_URL/posts'),
+      Uri.parse('$HttpEnv.baseUrl/posts'),
       // Uri.parse()는 문자열 주소를 http 패키지가 사용하기 좋은 Uri 객체 형태로 변환
-      headers: HttpEnv.HEADERS,
+      headers: HttpEnv.headers,
       body: jsonEncode(post),
+    );
+    return ResponseCore(
+      statusCode: response.statusCode,
+      header: response.headers,
+      body: Post.fromJson(jsonDecode(response.body)),
+    );
+  }
+
+  // get with id
+  @override
+  Future<ResponseCore<Post>> getPost(int id) async {
+    final response = await _client.get(
+      Uri.parse('${HttpEnv.baseUrl}/posts/$id'),
+    );
+    return ResponseCore(
+      statusCode: response.statusCode,
+      header: response.headers,
+      body: Post.fromJson(jsonDecode(response.body)),
+    );
+  }
+
+  // get
+  @override
+  Future<ResponseCore<List<Post>>> getPosts() async {
+    final response = await _client.get(Uri.parse('${HttpEnv.baseUrl}/posts'));
+    return ResponseCore(
+      statusCode: response.statusCode,
+      header: response.headers,
+      body: (jsonDecode(response.body) as List)
+          .map((post) => Post.fromJson(post))
+          .toList(),
+    );
+  }
+
+  // update
+  @override
+  Future<ResponseCore<Post>> updatePost(int id, Post post) async {
+    final response = await _client.put(
+      Uri.parse('${HttpEnv.baseUrl}/posts/$id'),
+    );
+    return ResponseCore(
+      statusCode: response.statusCode,
+      header: response.headers,
+      body: Post.fromJson(jsonDecode(response.body)),
+    );
+  }
+
+  // patch
+  @override
+  Future<ResponseCore<Post>> patchPost(
+    int id,
+    Map<String, dynamic> postData,
+  ) async {
+    final response = await _client.patch(
+      Uri.parse('${HttpEnv.baseUrl}/posts/$id'),
     );
     return ResponseCore(
       statusCode: response.statusCode,
@@ -33,67 +88,12 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<ResponseCore<void>> deletePost(int id) async {
     final response = await _client.delete(
-      Uri.parse('${HttpEnv.BASE_URL}/posts/$id'),
+      Uri.parse('${HttpEnv.baseUrl}/posts/$id'),
     );
     return ResponseCore(
       statusCode: response.statusCode,
       header: response.headers,
       body: null,
-    );
-  }
-
-  // get with id
-  @override
-  Future<ResponseCore<Post>> getPost(int id) async {
-    final response = await _client.get(
-      Uri.parse('${HttpEnv.BASE_URL}/posts/$id'),
-    );
-    return ResponseCore(
-      statusCode: response.statusCode,
-      header: response.headers,
-      body: Post.fromJson(jsonDecode(response.body)),
-    );
-  }
-
-  // get
-  @override
-  Future<ResponseCore<List<Post>>> getPosts() async {
-    final response = await _client.get(Uri.parse('${HttpEnv.BASE_URL}/posts'));
-    return ResponseCore(
-      statusCode: response.statusCode,
-      header: response.headers,
-      body: (jsonDecode(response.body) as List)
-          .map((post) => Post.fromJson(post))
-          .toList(),
-    );
-  }
-
-  // patch
-  @override
-  Future<ResponseCore<Post>> patchPost(
-    int id,
-    Map<String, dynamic> postData,
-  ) async {
-    final response = await _client.patch(
-      Uri.parse('${HttpEnv.BASE_URL}/posts/$id'),
-    );
-    return ResponseCore(
-      statusCode: response.statusCode,
-      header: response.headers,
-      body: Post.fromJson(jsonDecode(response.body)),
-    );
-  }
-
-  // update
-  @override
-  Future<ResponseCore<Post>> updatePost(int id, Post post) async {
-    final response = await _client.put(
-      Uri.parse('${HttpEnv.BASE_URL}/posts/$id'),
-    );
-    return ResponseCore(
-      statusCode: response.statusCode,
-      header: response.headers,
-      body: Post.fromJson(jsonDecode(response.body)),
     );
   }
 }
