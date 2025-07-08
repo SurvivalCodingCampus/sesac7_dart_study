@@ -50,13 +50,24 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
     );
   }
 
+  // @override
+  // Future<Response<List<Map<String, dynamic>>>> getPosts() async {
+  //   final response = await _client.get(Uri.parse('$baseUrl/posts'));
+  //   return Response(
+  //     statusCode: response.statusCode,
+  //     header: response.headers,
+  //     body: jsonDecode(response.body),
+  //   );
+  // }
   @override
   Future<Response<List<Map<String, dynamic>>>> getPosts() async {
     final response = await _client.get(Uri.parse('$baseUrl/posts'));
     return Response(
       statusCode: response.statusCode,
       header: response.headers,
-      body: jsonDecode(response.body),
+      body: (jsonDecode(response.body) as List)
+          .map((e) => e as Map<String, dynamic>)
+          .toList(),
     );
   }
 
