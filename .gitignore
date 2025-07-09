@@ -169,5 +169,6 @@ fabric.properties
 
 .idea/
 *.g.dart
+*.freezed.dart
 *.json
 *.csv
