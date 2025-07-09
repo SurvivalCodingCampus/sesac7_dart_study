@@ -10,7 +10,7 @@ extension DtoToModel on PhotoDto {
       convertedId = id as int;
     }
     if (id is String) {
-      convertedId = int.parse(id as String);
+      convertedId = int.tryParse(id as String) ?? -1;
     }
 
     switch (type?.toLowerCase()) {
