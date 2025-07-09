@@ -1,7 +1,7 @@
 import 'package:modu_3_dart_study/assignments/dto_mapper_practice/data_source/store/store_data_source.dart';
 import 'package:modu_3_dart_study/assignments/dto_mapper_practice/mapper/store/store_mapper.dart';
 import 'package:modu_3_dart_study/assignments/dto_mapper_practice/model/store/store.dart';
-import 'package:modu_3_dart_study/assignments/dto_mapper_practice/repository/store_repository.dart';
+import 'package:modu_3_dart_study/assignments/dto_mapper_practice/repository/store/store_repository.dart';
 
 class StoreRepositoryImpl implements StoreRepository {
   final StoreDataSource _dataSource;

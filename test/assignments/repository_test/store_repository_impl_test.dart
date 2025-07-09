@@ -1,5 +1,5 @@
 import 'package:modu_3_dart_study/assignments/dto_mapper_practice/model/store/store.dart';
-import 'package:modu_3_dart_study/assignments/dto_mapper_practice/repository/store_repository_impl.dart';
+import 'package:modu_3_dart_study/assignments/dto_mapper_practice/repository/store/store_repository_impl.dart';
 import 'package:test/test.dart';
 
 import '../mocks/mock_store_data_source_impl.dart';

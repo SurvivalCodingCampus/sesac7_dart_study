@@ -14,11 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Store {
 
-// DTO의 모든 필드를 받도록 수정
- String get name; String get addr; double get lat; double get lng; StoreStatus get remainStat; String get code;// 추가된 필드
- DateTime get createdAt;// 추가된 필드
- DateTime get stockAt;// 추가된 필드
- String get type;
+ String get name; String get addr; double get lat; double get lng; StoreStatus get remainStat; String get code; DateTime get createdAt; DateTime get stockAt; String get type;
 /// Create a copy of Store
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -221,18 +217,14 @@ class _Store implements Store {
    _Store({required this.name, required this.addr, required this.lat, required this.lng, required this.remainStat, required this.code, required this.createdAt, required this.stockAt, required this.type});
   
 
-// DTO의 모든 필드를 받도록 수정
 @override final  String name;
 @override final  String addr;
 @override final  double lat;
 @override final  double lng;
 @override final  StoreStatus remainStat;
 @override final  String code;
-// 추가된 필드
 @override final  DateTime createdAt;
-// 추가된 필드
 @override final  DateTime stockAt;
-// 추가된 필드
 @override final  String type;
 
 /// Create a copy of Store
