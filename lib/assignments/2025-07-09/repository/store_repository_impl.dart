@@ -15,15 +15,15 @@ class StoreRepositoryImpl implements StoreRepository {
     final filteredList = listOfStore
         .where(
           (e) =>
-              e.address != "null" &&
-              e.code != "null" &&
-              e.createdAt != "null" &&
-              e.lat != 100.0 &&
-              e.lng != 200.0 &&
-              e.name != "null" &&
-              e.remainStat != "null" &&
-              e.stockAt != "null" &&
-              e.type != "null",
+              e.address != StoreMapperConstants.nullPlaceholder &&
+              e.code != StoreMapperConstants.nullPlaceholder &&
+              e.createdAt != StoreMapperConstants.nullPlaceholder &&
+              e.lat != StoreMapperConstants.latGarbageValue &&
+              e.lng != StoreMapperConstants.lngGarbageValue &&
+              e.name != StoreMapperConstants.nullPlaceholder &&
+              e.remainStat != StoreMapperConstants.nullPlaceholder &&
+              e.stockAt != StoreMapperConstants.nullPlaceholder &&
+              e.type != StoreMapperConstants.nullPlaceholder,
         )
         .toList();
 

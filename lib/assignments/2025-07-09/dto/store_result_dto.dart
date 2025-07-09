@@ -35,10 +35,7 @@ class StoreResultDTO {
 
   @override
   String toString() {
-    return '''StoreResultDto(
-                count:$count,
-stores:${stores.toString()}
-    ) ''';
+    return 'StoreResultDTO(count: $count, stores: $stores)';
   }
 
   @override

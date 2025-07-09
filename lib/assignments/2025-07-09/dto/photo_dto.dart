@@ -1,4 +1,4 @@
-class PhotoDTO {
+class PhotoDto {
   int? id;
   String? type;
   String? title;
@@ -7,7 +7,7 @@ class PhotoDTO {
   String? caption;
   String? createdAt;
 
-  PhotoDTO({
+  PhotoDto({
     this.id,
     this.type,
     this.title,
@@ -17,10 +17,8 @@ class PhotoDTO {
     this.createdAt,
   });
 
-  factory PhotoDTO.fromJson(Map<String, dynamic> json) {
-    //id : (json['id'] == null || json['id'] !is int) ? ((int.tryParse(json['id']) != null) ? int.tryParse(json['id']) : "null") : json['id'] as int;
-
-    return PhotoDTO(
+  factory PhotoDto.fromJson(Map<String, dynamic> json) {
+    return PhotoDto(
       id: (json['id'] == null || int.tryParse(json['id'].toString()) == null)
           ? null
           : int.tryParse(json['id'].toString()),

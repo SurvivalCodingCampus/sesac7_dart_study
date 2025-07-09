@@ -38,13 +38,13 @@ class PhotoRepositoryImpl implements PhotoRepository {
 
   @override
   List<Photo> getPhotos() {
-    //loigcal conversion of List<PhotoDTO> to List<Photo>
+    //logical conversion of List<PhotoDTO> to List<Photo>
   }
 }
 ```
 
 ## Model
-- classes responsible for representing data into a useful and convinient form
+- classes responsible for representing data into a useful and convenient form
 - as little nullable as possible the better
 
 ## DTO / Mapper

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class StoreDTO {
   final String? addr;
   final String? code;
@@ -19,29 +21,6 @@ class StoreDTO {
     this.stockAt,
     this.type,
   });
-  StoreDTO copyWith({
-    String? addr,
-    String? code,
-    String? createdAt,
-    double? lat,
-    double? lng,
-    String? name,
-    String? remainStat,
-    String? stockAt,
-    String? type,
-  }) {
-    return StoreDTO(
-      addr: addr ?? this.addr,
-      code: code ?? this.code,
-      createdAt: createdAt ?? this.createdAt,
-      lat: lat ?? this.lat,
-      lng: lng ?? this.lng,
-      name: name ?? this.name,
-      remainStat: remainStat ?? this.remainStat,
-      stockAt: stockAt ?? this.stockAt,
-      type: type ?? this.type,
-    );
-  }
 
   Map<String, Object?> toJson() {
     return {
@@ -77,17 +56,7 @@ class StoreDTO {
 
   @override
   String toString() {
-    return '''Store_DTO(
-                addr:$addr,
-code:$code,
-createdAt:$createdAt,
-lat:$lat,
-lng:$lng,
-name:$name,
-remainStat:$remainStat,
-stockAt:$stockAt,
-type:$type
-    ) ''';
+    return jsonEncode(toJson());
   }
 
   @override
