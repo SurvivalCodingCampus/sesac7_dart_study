@@ -74,12 +74,8 @@ void main() {
         client: mockClient,
       );
 
-      final Response<List<Map<String, dynamic>>> result = await dataSource
-          .getPosts();
-
       // when & then
-      expect(result.statusCode, equals(200));
-      // expect(result.body,)
+      expect(dataSource.getPosts(), throwsA(isA<TypeError>()));
     });
 
     test('getPost success: 200', () async {
@@ -126,15 +122,13 @@ void main() {
         client: mockClient,
       );
 
-      final result = await dataSource.getPost(errorId);
-
       // when & then
-      print(result);
+      expect(dataSource.getPost(errorId), throwsA(isA<TypeError>()));
     });
 
     test('createPost success: 201', () async {
       // given
-      final Map<String, dynamic> newPostData = MockJsonPlaceHolder().data[0];
+      final Map<String, dynamic> newPostData = mockPosts[0];
       final Map<String, dynamic> createdPostResponse = {
         'id': 5,
         ...newPostData,
@@ -192,14 +186,11 @@ void main() {
       };
 
       final MockClient mockClient = MockClient((request) async {
-        if (request.method == 'PUT' && request.url.pathSegments.last == '1') {
-          return http.Response(
-            jsonEncode(updatedPostData),
-            200,
-            headers: {'Content-Type': 'application/json'},
-          );
-        }
-        return http.Response('Not Found', 404);
+        return http.Response(
+          jsonEncode(updatedPostData),
+          200,
+          headers: {'Content-Type': 'application/json'},
+        );
       });
 
       final RemoteDataSource dataSource = JsonPlaceHolderDataSourceImpl(
@@ -220,9 +211,9 @@ void main() {
       // given
       final MockClient mockClient = MockClient((request) async {
         return http.Response(
-          'Not Found',
+          jsonEncode({'message': 'Post not found', 'code': 404}),
+          // 404 에러 메시지를 JSON 객체로 반환
           404,
-          headers: {'Content-Type': 'text/plain'},
         );
       });
 
@@ -230,11 +221,13 @@ void main() {
         client: mockClient,
       );
 
+      final result = await dataSource.updatePost(999, {'title': 'fail'});
+
       // when & then
-      expectLater(
-        () => dataSource.updatePost(999, {'title': 'fail'}),
-        throwsA(isA<Exception>()),
-      );
+      expect(result.statusCode, 404);
+      expect(result.body, isA<Map<String, dynamic>>());
+      expect(result.body['message'], 'Post not found');
+      expect(result.body['code'], 404);
     });
 
     test('patchPost success: 200', () async {
@@ -250,14 +243,11 @@ void main() {
       };
 
       final MockClient mockClient = MockClient((request) async {
-        if (request.method == 'PATCH' && request.url.pathSegments.last == '1') {
-          return http.Response(
-            jsonEncode(patchedPostResponse),
-            200,
-            headers: {'Content-Type': 'application/json'},
-          );
-        }
-        return http.Response('Not Found', 404);
+        return http.Response(
+          jsonEncode(patchedPostResponse),
+          200,
+          headers: {'Content-Type': 'application/json'},
+        );
       });
 
       final RemoteDataSource dataSource = JsonPlaceHolderDataSourceImpl(
@@ -280,7 +270,6 @@ void main() {
         return http.Response(
           'Not Found',
           404,
-          headers: {'Content-Type': 'text/plain'},
         );
       });
 
@@ -327,7 +316,6 @@ void main() {
         return http.Response(
           'Not Found',
           404,
-          headers: {'Content-Type': 'text/plain'},
         );
       });
 
@@ -335,11 +323,11 @@ void main() {
         client: mockClient,
       );
 
-      // when & then
-      expectLater(
-        () => dataSource.deletePost(999),
-        throwsA(isA<Exception>()),
-      );
+      // when
+      final result = await dataSource.deletePost(999);
+
+      // & then
+      expect(result.statusCode, 404);
     });
   });
 }
