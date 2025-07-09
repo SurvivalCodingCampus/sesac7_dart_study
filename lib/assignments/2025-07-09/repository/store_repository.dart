@@ -19,11 +19,3 @@ class StoreRepository {
         .toList();
   }
 }
-
-Future<void> main() async {
-  final List<Store> storesData = await StoreRepository(
-    StoreDataSource(),
-  ).getStores();
-  print(storesData.length);
-  // print(storesData.first.remainStat);
-}
