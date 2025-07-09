@@ -15,7 +15,7 @@ class PhotoDataSourceImpl implements PhotoDataSource {
     final File file = File(_defaultFilePath);
 
     try {
-      final String result = file.readAsStringSync(); // 예외 발생 가능 지점
+      final String result = await file.readAsString(); // 예외 발생 가능 지점
 
       return (jsonDecode(result) as List)
           .map((e) => PhotoDto.fromJson(e))
