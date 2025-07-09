@@ -12,7 +12,6 @@ import '../../mocks/mock_json_place_holder.dart';
 
 void main() {
   final baseUrl = 'https://jsonplaceholder.typicode.com';
-  final testId = 1;
   final MockClient mockClient = MockClient((request) async {
     if (request.method == 'GET' && request.url.toString() == '$baseUrl/posts') {
       // getPosts
