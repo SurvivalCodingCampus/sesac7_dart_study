@@ -16,17 +16,8 @@ class StoreRepositoryImpl implements StoreRepository {
     // StoreResultDto 객체
     final StoreResultDto storeDtos = await _storeDataSource.getStores();
 
-    // stores 중 조건에 맞는 데이터만 추려서 저장
-    final List<StoreDto>? storeDtosResult = storeDtos.stores
-        ?.where((e) => e.remainStat != null && e.remainStat != '')
-        .where((e) => e.stockAt != null && e.stockAt != '')
-        .where((e) => e.createdAt != null && e.createdAt != '')
-        .toList();
-
     // Store 객체 반환
-    // 이때 count는 storeDtosResult의 length 값을 받고,
-    // stores(약국 리스트)는 storeDtosResult를 받는다.
-    return storeDtos.toStore(storeDtosResult?.length, storeDtosResult);
+    return storeDtos.toStore(storeDtos);
   }
 }
 
