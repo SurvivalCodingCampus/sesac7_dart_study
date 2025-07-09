@@ -1,0 +1,40 @@
+### 읽기 성공
+GET https://jsonplaceholder.typicode.com/posts/1
+
+### 읽기 실패
+GET https://jsonplaceholder.typicode.com/posts/101
+
+###
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "id": 10,
+  "title": "test",
+  "body": "testbody"
+}
+
+### 삭제
+DELETE https://jsonplaceholder.typicode.com/posts/1
+
+### 일부수정
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "userId": 200,
+  "title": "testpatch"
+}
+
+
+### 모두 수정
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "userId": 200,
+  "id": 10,
+  "title": "test",
+  "body": "testbody"
+}

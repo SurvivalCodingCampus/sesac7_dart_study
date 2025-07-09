@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 class CollectionSalePrice {
   //collectionSalePrice 01.class_instance
   final double price; // "price": 58.25

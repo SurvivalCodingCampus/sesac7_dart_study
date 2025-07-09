@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class response{
+ int statusCode
+ Map<String, String> header
+ T body
+}
+
+class Post{
+ int userId;
+ int id;
+ String title;
+ String body;
+}
+
+interface RemoteDataSource{
+getPosts()
+getPost(id)
+createPost(post)
+updatePost(id, post)
+patchPost(id, post)
+deletePost(id)
+}
+
+class JsonPlaceHolderDataSourceImpl implements RemoteDataSource{
+}
+
+
+@enduml
