@@ -173,3 +173,4 @@ GEMINI.md
 .claude/
 
 *.g.dart
+*.freezed.dart

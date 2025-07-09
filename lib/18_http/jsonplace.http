@@ -2,7 +2,7 @@
 GET https://jsonplaceholder.typicode.com/posts
 
 ### 읽기 성공
-GET https://jsonplaceholder.typicode.com/posts/1
+GET https://jsonplaceholder.typicode.com/posts/300
 
 ### 읽기 실패 404
 GET https://jsonplaceholder.typicode.com/posts/101

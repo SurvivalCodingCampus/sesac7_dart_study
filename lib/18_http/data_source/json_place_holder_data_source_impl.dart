@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:modu_3_dart_study/18_http/core/response.dart';
 import 'package:modu_3_dart_study/18_http/data_source/remote_data_source.dart';
 
+import '../dto/post_dto.dart';
+
 class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   static const baseUrl = 'http://jsonplaceholder.typicode.com';
 
@@ -13,7 +15,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
     : _client = client ?? http.Client();
 
   @override
-  Future<Response<Map<String, dynamic>>> createPost(
+  Future<Response<PostDto>> createPost(
     Map<String, dynamic> post,
   ) async {
     final response = await _client.post(
@@ -27,7 +29,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
     return Response(
       statusCode: response.statusCode,
       header: response.headers,
-      body: jsonDecode(response.body),
+      body: PostDto.fromJson(jsonDecode(response.body)),
     );
   }
 
@@ -43,31 +45,33 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<Response<Map<String, dynamic>>> getPost(int id) async {
+  Future<Response<PostDto>> getPost(int id) async {
     final response = await _client.get(
       Uri.parse('$baseUrl/posts/$id'),
     );
     return Response(
       statusCode: response.statusCode,
       header: response.headers,
-      body: jsonDecode(response.body),
+      body: PostDto.fromJson(jsonDecode(response.body)),
     );
   }
 
   @override
-  Future<Response<List<Map<String, dynamic>>>> getPosts() async {
+  Future<Response<List<PostDto>>> getPosts() async {
     final response = await _client.get(
       Uri.parse('$baseUrl/posts'),
     );
     return Response(
       statusCode: response.statusCode,
       header: response.headers,
-      body: jsonDecode(response.body),
+      body: (jsonDecode(response.body) as List)
+          .map((e) => PostDto.fromJson(e))
+          .toList(),
     );
   }
 
   @override
-  Future<Response<Map<String, dynamic>>> patchPost(
+  Future<Response<PostDto>> patchPost(
     int id,
     Map<String, dynamic> post,
   ) async {
@@ -81,7 +85,7 @@ class JsonPlaceHolderDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<Response<Map<String, dynamic>>> updatePost(
+  Future<Response<PostDto>> updatePost(
     int id,
     Map<String, dynamic> post,
   ) async {

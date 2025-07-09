@@ -1,18 +1,19 @@
 import 'package:modu_3_dart_study/18_http/core/response.dart';
+import 'package:modu_3_dart_study/18_http/dto/post_dto.dart';
 
 abstract interface class RemoteDataSource {
-  Future<Response<List<Map<String, dynamic>>>> getPosts();
+  Future<Response<List<PostDto>>> getPosts();
 
-  Future<Response<Map<String, dynamic>>> getPost(int id);
+  Future<Response<PostDto>> getPost(int id);
 
-  Future<Response<Map<String, dynamic>>> createPost(Map<String, dynamic> post);
+  Future<Response<PostDto>> createPost(Map<String, dynamic> post);
 
-  Future<Response<Map<String, dynamic>>> updatePost(
+  Future<Response<PostDto>> updatePost(
     int id,
     Map<String, dynamic> post,
   );
 
-  Future<Response<Map<String, dynamic>>> patchPost(
+  Future<Response<PostDto>> patchPost(
     int id,
     Map<String, dynamic> post,
   );
