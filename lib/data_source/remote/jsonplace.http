@@ -1,0 +1,24 @@
+
+GET https://jsonplaceholder.typicode.com/posts/1
+
+###
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+    "userId": 100,
+    "title": "test",
+    "body": "test"
+},
+
+###
+DELETE https://jsonplaceholder.typicode.com/posts/1
+
+###
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+    "userId": 100,
+    "title": "test",
+},
