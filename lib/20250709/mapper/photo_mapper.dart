@@ -5,32 +5,9 @@ import '../model/photo.dart';
 extension PhotoMapper on PhotoDto {
 
   Photo toPhoto() {
-    Type typeValue;
-    DateTime dateTime;
-    String strId;
-
-    strId = id.toString();
-
-    try {
-      dateTime = createdAt != null ? DateTime.parse(createdAt!) : DateTime.now();
-    } catch (e) {
-      dateTime = DateTime.now();
-    }
-
-    switch (type) {
-      case 'article':
-        typeValue = Type.Article;
-        break;
-      case 'image':
-        typeValue = Type.Image;
-        break;
-      case 'video':
-        typeValue = Type.Video;
-        break;
-      default:
-        typeValue = Type.Unknown;
-        break;
-    }
+    final strId = id?.toString() ?? '';
+    final dateTime = _parseDateTime(createdAt);
+    final typeValue = _parseType(type);
 
     return Photo(
       id: strId,
@@ -38,7 +15,27 @@ extension PhotoMapper on PhotoDto {
       content: content ?? '',
       url: url ?? '',
       caption: caption ?? '',
-      createdAt: dateTime
+      createdAt: dateTime,
     );
   }
+
+  // 값이 없거나 예외상황에서는 가장 예전 날짜로 셋팅(1970-01-01 00:00:00 UTC)
+  DateTime _parseDateTime(String? dateStr) {
+    try {
+      return dateStr != null ? DateTime.parse(dateStr) : DateTime.fromMillisecondsSinceEpoch(0);
+    } catch (_) {
+      return DateTime.fromMillisecondsSinceEpoch(0);
+    }
+  }
+
+  Type _parseType(String? typeStr) {
+    const typeMap = {
+      'article': Type.Article,
+      'image': Type.Image,
+      'video': Type.Video,
+    };
+
+    return typeMap[typeStr] ?? Type.Unknown;
+  }
+
 }
