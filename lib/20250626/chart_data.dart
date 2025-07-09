@@ -71,8 +71,8 @@ class CollectionChartData {
     String? collectionName,
   }) {
     return CollectionChartData(
-      collectionSalePrice ?? this._collectionSalePrice,
-      collectionName ?? this._collectionName,
+      collectionSalePrice ?? _collectionSalePrice,
+      collectionName ?? _collectionName,
     );
   }
 }
