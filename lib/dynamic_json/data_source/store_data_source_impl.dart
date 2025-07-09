@@ -22,9 +22,3 @@ class StoreDataSourceImpl implements StoreDataSource {
     return StoreResultDto.fromJson(jsonDecode(response.body));
   }
 }
-
-// void main() async {
-//   StoreDataSource a = StoreDataSourceImpl();
-//   final result = await a.getStores();
-//   print(result.toJson());
-// }

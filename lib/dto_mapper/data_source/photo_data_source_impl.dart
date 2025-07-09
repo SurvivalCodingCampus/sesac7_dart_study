@@ -20,12 +20,3 @@ class PhotoDataSourceImpl implements PhotoDataSource {
         .toList();
   }
 }
-
-void main() async {
-  PhotoDataSource a = PhotoDataSourceImpl(
-    defaultFilePath: 'lib/dto_mapper/data.json',
-  );
-  final result = await a.getPhotos();
-
-  print(result);
-}

@@ -20,12 +20,3 @@ class StoreRepositoryImpl implements StoreRepository {
     return storeDtos.toStore();
   }
 }
-
-// void main() async {
-//   StoreRepository s = StoreRepositoryImpl(
-//     storeDataSource: StoreDataSourceImpl(),
-//   );
-//
-//   final result = await s.getValidStores();
-//   print(result.toString());
-// }

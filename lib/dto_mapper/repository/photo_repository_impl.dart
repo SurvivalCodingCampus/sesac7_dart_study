@@ -1,5 +1,4 @@
 import 'package:modu_3_dart_study/dto_mapper/data_source/photo_data_source.dart';
-import 'package:modu_3_dart_study/dto_mapper/data_source/photo_data_source_impl.dart';
 import 'package:modu_3_dart_study/dto_mapper/dto/photo_dto.dart';
 import 'package:modu_3_dart_study/dto_mapper/mapper/photo_mapper.dart';
 import 'package:modu_3_dart_study/dto_mapper/model/photo.dart';
@@ -17,13 +16,4 @@ class PhotoRepositoryImpl implements PhotoRepository {
 
     return result.map((PhotoDto dto) => dto.toPhoto()).toList();
   }
-}
-
-void main() async {
-  PhotoRepository a = PhotoRepositoryImpl(
-    photoDataSource: PhotoDataSourceImpl(),
-  );
-
-  final result = await a.getPhotoModel();
-  print(result);
 }
