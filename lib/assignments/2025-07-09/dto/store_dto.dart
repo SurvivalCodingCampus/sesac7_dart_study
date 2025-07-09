@@ -64,8 +64,8 @@ class StoreDTO {
       createdAt: json['created_at'] == null
           ? null
           : json['created_at'] as String,
-      lat: json['lat'] == null ? null : json['lat'] as double,
-      lng: json['lng'] == null ? null : json['lng'] as double,
+      lat: (json['lat'] as num?)?.toDouble(),
+      lng: (json['lng'] as num?)?.toDouble(),
       name: json['name'] == null ? null : json['name'] as String,
       remainStat: json['remain_stat'] == null
           ? null

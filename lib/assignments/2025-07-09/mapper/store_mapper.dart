@@ -1,27 +1,51 @@
 import 'package:modu_3_dart_study/assignments/2025-07-09/model/store.dart';
 import 'package:modu_3_dart_study/assignments/2025-07-09/dto/store_dto.dart';
 
+class StoreMapperConstants {
+  static const String nullPlaceholder = "null";
+  static const double latGarbageValue = 100.0;
+  static const double lngGarbageValue = 200.0;
+  static const double minLatitude = -90.0;
+  static const double maxLatitude = 90.0;
+  static const double minLongitude = -180.0;
+  static const double maxLongitude = 180.0;
+}
+
 extension DtoToStore on StoreDTO {
   Store toStore() {
-    final addressHolder = (addr == null || addr == "") ? "null" : addr!;
-    final codeHolder = (code == null || code == "") ? "null" : code!;
+    final addressHolder = (addr == null || addr == "")
+        ? StoreMapperConstants.nullPlaceholder
+        : addr!;
+    final codeHolder = (code == null || code == "")
+        ? StoreMapperConstants.nullPlaceholder
+        : code!;
     final createdAtHolder = (createdAt == null || createdAt == "")
-        ? "null"
+        ? StoreMapperConstants.nullPlaceholder
         : createdAt!;
-    final latHolder = (lat == null || lat! < -90.0 || lat! > 90.0)
-        ? 100.0
+    final latHolder =
+        (lat == null ||
+            lat! < StoreMapperConstants.minLatitude ||
+            lat! > StoreMapperConstants.maxLatitude)
+        ? StoreMapperConstants.latGarbageValue
         : lat!;
-    final lngHolder = (lng == null || lng! < -180.0 || lng! > 180.0)
-        ? 200.0
+    final lngHolder =
+        (lng == null ||
+            lng! < StoreMapperConstants.minLongitude ||
+            lng! > StoreMapperConstants.maxLongitude)
+        ? StoreMapperConstants.lngGarbageValue
         : lng!;
-    final nameHolder = (name == null || name == "") ? "null" : name!;
+    final nameHolder = (name == null || name == "")
+        ? StoreMapperConstants.nullPlaceholder
+        : name!;
     final remainStatHolder = (remainStat == null || remainStat == "")
-        ? "null"
+        ? StoreMapperConstants.nullPlaceholder
         : remainStat!;
     final stockAtHolder = (stockAt == null || stockAt == "")
-        ? "null"
+        ? StoreMapperConstants.nullPlaceholder
         : stockAt!;
-    final typeHolder = (type == null || type == "") ? "null" : type!;
+    final typeHolder = (type == null || type == "")
+        ? StoreMapperConstants.nullPlaceholder
+        : type!;
 
     return Store(
       address: addressHolder,

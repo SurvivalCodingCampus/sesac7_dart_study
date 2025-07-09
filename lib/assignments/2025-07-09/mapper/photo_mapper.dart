@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/assignments/2025-07-09/dto/photo_dto.dart';
 import 'package:modu_3_dart_study/assignments/2025-07-09/model/photo.dart';
 import 'package:modu_3_dart_study/assignments/2025-07-09/model/photo_type.dart';
 
-extension DtoToPhoto on PhotoDTO {
+extension DtoToPhoto on PhotoDto {
   Photo toPhoto() {
     final int idHolder = (id == null) ? -1 : id!;
 
@@ -38,8 +38,8 @@ extension DtoToPhoto on PhotoDTO {
 }
 
 extension PhotoToDto on Photo {
-  PhotoDTO toPhotoDto() {
-    return PhotoDTO(
+  PhotoDto toPhotoDto() {
+    return PhotoDto(
       id: id,
       type: type.name,
       title: title,

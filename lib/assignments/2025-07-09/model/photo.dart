@@ -1,14 +1,14 @@
 import 'package:modu_3_dart_study/assignments/2025-07-09/model/photo_type.dart';
 
 class Photo {
-  int id;
-  PhotoType type;
-  DateTime createdAt;
+  final int id;
+  final PhotoType type;
+  final DateTime createdAt;
 
-  String? title;
-  String? url;
-  String? content;
-  String? caption;
+  final String? title;
+  final String? url;
+  final String? content;
+  final String? caption;
 
   Photo({
     required this.id,
@@ -35,13 +35,7 @@ class Photo {
 
   @override
   int get hashCode {
-    return id.hashCode ^
-        type.hashCode ^
-        createdAt.hashCode ^
-        title.hashCode ^
-        url.hashCode ^
-        content.hashCode ^
-        caption.hashCode;
+    return Object.hash(id, type, createdAt, title, url, content, caption);
   }
 
   @override
