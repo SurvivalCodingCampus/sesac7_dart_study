@@ -13,10 +13,19 @@ class PhotoDataSourceImpl implements PhotoDataSource {
   @override
   Future<List<PhotoDto>> getPhotos() async {
     final File file = File(_defaultFilePath);
-    final String result = file.readAsStringSync();
 
-    return (jsonDecode(result) as List)
-        .map((e) => PhotoDto.fromJson(e))
-        .toList();
+    try {
+      final String result = file.readAsStringSync(); // 예외 발생 가능 지점
+
+      return (jsonDecode(result) as List)
+          .map((e) => PhotoDto.fromJson(e))
+          .toList();
+    } on FileSystemException catch (e) {
+      print(e.message);
+      return []; // 읽기 실패 시 빈 리스트 반환
+    } catch (e) {
+      print('예상치 못한 오류');
+      return []; // 읽기 실패 시 빈 리스트 반환
+    }
   }
 }
