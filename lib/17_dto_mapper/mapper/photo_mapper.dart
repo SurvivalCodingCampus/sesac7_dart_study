@@ -6,7 +6,7 @@ import '../model/photo.dart';
 extension DtoToPhotoMapper on PhotoDto {
   Photo toModel() {
     return Photo(
-      id: (id is num?) ? (id?.toInt() ?? -1) : -1,
+      id: (id is num) ? id.toInt() : -1,
       type: switch (type) {
         'article' => MediaType.article,
         'image' => MediaType.image,
@@ -14,10 +14,10 @@ extension DtoToPhotoMapper on PhotoDto {
         'unknown' => MediaType.unknown,
         _ => MediaType.unknown,
       },
-      url: url ?? 'null',
-      caption: caption ?? 'null',
-      title: title ?? 'null',
-      content: content ?? 'null',
+      url: (url is String) ? url : 'null',
+      caption: (caption is String) ? caption : 'null',
+      title: (title is String) ? title : 'null',
+      content: (content is String) ? content : 'null',
       createdAt: toDateTime(createdAt),
     );
   }

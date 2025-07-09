@@ -22,6 +22,7 @@ void main() {
     expect(photos[1].content, 'null');
     expect(photos[2].id, -1);
     expect(photos[3].type, MediaType.unknown);
+    expect(photos[3].caption, 'null');
     expect(photos[4].type, MediaType.unknown);
     expect(photos[4].title, 'null');
   });

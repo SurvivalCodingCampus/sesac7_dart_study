@@ -35,7 +35,7 @@ class MockPhotoDataSourceImpl implements PhotoDataSource {
           "id": 4,
           "type": null,
           "url": "https://example.com/image.jpg",
-          "caption": "This is an image.",
+          "caption": 10,
           "created_at": "2020-02-02",
         },
         {
