@@ -1,7 +1,7 @@
-import 'package:modu_3_dart_study/dto_mapper/data_source/photo_data_source_impl.dart';
+import 'package:modu_3_dart_study/dto_mapper/data_source/photo_data_source.dart';
 import 'package:modu_3_dart_study/dto_mapper/dto/photo_dto.dart';
 
-class MockPhotoDataSourceImpl implements PhotoDataSourceImpl {
+class MockPhotoDataSourceImpl implements PhotoDataSource {
   final List<Map<String, dynamic>> json = [
     {
       "id": "1",
