@@ -7,7 +7,7 @@ import 'package:modu_3_dart_study/http/data_source/remote_data_source.dart';
 import 'package:modu_3_dart_study/http/reponse.dart';
 import 'package:test/test.dart';
 
-import '../../model_class_repository/mocks/mock_json_place_holder.dart';
+import '../mocks/mock_json_place_holder.dart';
 
 void main() {
   final List<Map<String, dynamic>> mockPosts = MockJsonPlaceHolder().data;
