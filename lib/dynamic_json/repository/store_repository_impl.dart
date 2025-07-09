@@ -17,7 +17,7 @@ class StoreRepositoryImpl implements StoreRepository {
     final StoreResultDto storeDtos = await _storeDataSource.getStores();
 
     // Store 객체 반환
-    return storeDtos.toStore(storeDtos);
+    return storeDtos.toStore();
   }
 }
 
