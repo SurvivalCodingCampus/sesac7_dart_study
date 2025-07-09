@@ -80,9 +80,9 @@ class MockStoreDataSourceImpl implements StoreDataSource {
 """;
 
   @override
-  List<Store_DTO> getStoreDTOs() {
+  List<StoreDTO> getStoreDTOs() {
     final mapOfData = jsonDecode(mockString);
-    final StoreResultDto resultDto = StoreResultDto.fromJson(mapOfData);
+    final StoreResultDTO resultDto = StoreResultDTO.fromJson(mapOfData);
 
     if (resultDto.stores == null) {
       throw Exception("MockDataSource caused error");

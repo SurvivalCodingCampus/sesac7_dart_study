@@ -1,4 +1,4 @@
-class Store_DTO {
+class StoreDTO {
   final String? addr;
   final String? code;
   final String? createdAt;
@@ -8,7 +8,7 @@ class Store_DTO {
   final String? remainStat;
   final String? stockAt;
   final String? type;
-  const Store_DTO({
+  const StoreDTO({
     this.addr,
     this.code,
     this.createdAt,
@@ -19,7 +19,7 @@ class Store_DTO {
     this.stockAt,
     this.type,
   });
-  Store_DTO copyWith({
+  StoreDTO copyWith({
     String? addr,
     String? code,
     String? createdAt,
@@ -30,7 +30,7 @@ class Store_DTO {
     String? stockAt,
     String? type,
   }) {
-    return Store_DTO(
+    return StoreDTO(
       addr: addr ?? this.addr,
       code: code ?? this.code,
       createdAt: createdAt ?? this.createdAt,
@@ -57,8 +57,8 @@ class Store_DTO {
     };
   }
 
-  static Store_DTO fromJson(Map<String, Object?> json) {
-    return Store_DTO(
+  static StoreDTO fromJson(Map<String, Object?> json) {
+    return StoreDTO(
       addr: json['addr'] == null ? null : json['addr'] as String,
       code: json['code'] == null ? null : json['code'] as String,
       createdAt: json['created_at'] == null
@@ -92,7 +92,7 @@ type:$type
 
   @override
   bool operator ==(Object other) {
-    return other is Store_DTO &&
+    return other is StoreDTO &&
         other.runtimeType == runtimeType &&
         other.addr == addr &&
         other.code == code &&

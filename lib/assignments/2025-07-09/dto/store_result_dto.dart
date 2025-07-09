@@ -1,11 +1,11 @@
 import 'package:modu_3_dart_study/assignments/2025-07-09/dto/store_dto.dart';
 
-class StoreResultDto {
+class StoreResultDTO {
   final int? count;
-  final List<Store_DTO>? stores;
-  const StoreResultDto({this.count, this.stores});
-  StoreResultDto copyWith({int? count, List<Store_DTO>? stores}) {
-    return StoreResultDto(
+  final List<StoreDTO>? stores;
+  const StoreResultDTO({this.count, this.stores});
+  StoreResultDTO copyWith({int? count, List<StoreDTO>? stores}) {
+    return StoreResultDTO(
       count: count ?? this.count,
       stores: stores ?? this.stores,
     );
@@ -20,14 +20,14 @@ class StoreResultDto {
     };
   }
 
-  static StoreResultDto fromJson(Map<String, Object?> json) {
-    return StoreResultDto(
+  static StoreResultDTO fromJson(Map<String, Object?> json) {
+    return StoreResultDTO(
       count: json['count'] == null ? null : json['count'] as int,
       stores: json['stores'] == null
           ? null
           : (json['stores'] as List)
-                .map<Store_DTO>(
-                  (data) => Store_DTO.fromJson(data as Map<String, Object?>),
+                .map<StoreDTO>(
+                  (data) => StoreDTO.fromJson(data as Map<String, Object?>),
                 )
                 .toList(),
     );
@@ -43,7 +43,7 @@ stores:${stores.toString()}
 
   @override
   bool operator ==(Object other) {
-    return other is StoreResultDto &&
+    return other is StoreResultDTO &&
         other.runtimeType == runtimeType &&
         other.count == count &&
         other.stores == stores;
