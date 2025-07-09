@@ -315,3 +315,36 @@ verify 화이트박스 테스트 메서드 타는지
 의존성을 
 
 테스트코드에서 하면 무조건 터짐! http로 하면 됨
+
+데이터 소스는 데이터가져오는것만
+
+거르는 로직은 repository
+
+Response을 사용안한다면 더 복자해질꺼다 -> 어떻게 확인.
+
+response 의존성을 줄이기 위해
+
+dartToJson 라이브러리로 DTO
+만들댸 전부 붙여넣어
+
+모델은 datetime으로 DTO는 String으로 
+즉 이름 안 맞추어도되 결국 앱에서 사용하는거는 model쪽이니깐
+
+freezed 필드하고 생성자만 해놔~ 그럼 나머지는 만들어줄께
+
+DTO를 사용안한다면 freezed를 
+
+사용 설치하고 https://pub.dev/packages/freezed
+@freezed 붙이고 with 붙이고 파일명.freezed.dart파일 하고
+필드에 @override붙여주고
+
+사이트 라이브템플릿에 dataclass 
+
+연습문제 작업순서
+model
+
+
+
+폴더에 store class 를 jsonToDart 라이브러리를 사용하여 만들기
+만든후에 코드정리 할것
+
