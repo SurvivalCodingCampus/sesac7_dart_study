@@ -18,8 +18,9 @@ extension MediaDtoToModel on MediaDto {
     if (type == null) {
       parseType = MediaType.Unknown;
     } else {
-      parseType = MediaType.values.singleWhere(
+      parseType = MediaType.values.firstWhere(
         (mediaType) => mediaType.value == type,
+        orElse: () => MediaType.Unknown,
       );
     }
 
