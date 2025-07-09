@@ -53,6 +53,7 @@ bin/
 gen/
 out/
 *.g.dart
+*.freezed.dart
 
 # Gradle files
 .gradle
