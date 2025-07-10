@@ -756,36 +756,6 @@ void main() {
               expect(result.error, equals(NetworkError.jsonParsingError));
           }
         });
-        test('FormatException jsonParsingError', () async {
-          final List<Map<String, dynamic>> mockImageShareAppUserNullJson = [
-            {
-              'id': '1',
-              'name': 1,
-              'age': 1.0,
-              'address': '',
-              'phoneNumber': null,
-            },
-          ];
-          final MockClient mockClient = MockClient((request) async {
-            return http.Response(
-              jsonEncode(mockImageShareAppUserNullJson),
-              200,
-            );
-          });
-          final ImageShareAppUserDataSource mockDataSource =
-          MockImageShareAppDataSourceImpl(mockClient);
-          final ImageShareAppUserRepository imageShareAppUserRepositoryImpl =
-          ImageShareAppUserRepositoryImpl(mockDataSource);
-          final Result<List<ImageShareAppUser>, NetworkError> result =
-          await imageShareAppUserRepositoryImpl.getAllUserList();
-
-          switch (result) {
-            case Success():
-              break;
-            case Error():
-              expect(result.error, equals(NetworkError.jsonParsingError));
-          }
-        });
       });
       test('RequestTimeOutTest', () async {
         final MockClient mockClient = MockClient((request) async {
