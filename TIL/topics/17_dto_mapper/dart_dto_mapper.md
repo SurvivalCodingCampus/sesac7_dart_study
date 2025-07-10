@@ -61,7 +61,7 @@ class TodoDto {
       this.title,
       this.completed,);
 
-  factory Todo.fromJson(Map<String, dynamic> json) {
+  factory TodoDto.fromJson(Map<String, dynamic> json) {
     ...
   }
 
