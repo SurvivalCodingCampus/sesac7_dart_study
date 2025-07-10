@@ -338,6 +338,43 @@ void main() {
               expect(result.error, equals(NetworkError.jsonParsingError));
           }
         });
+        test('FormatException jsonParsingError', () async {
+          final Map<String, dynamic> mockImageShareAppUserNullJson = {
+            'id': 2.0,
+            'name': 'test_name',
+            'age': 28.0,
+            'address': 'test_address',
+            'phoneNumber': 'test_phone_number',
+          };
+          final MockClient mockClient = MockClient((request) async {
+            return http.Response(
+              jsonEncode(mockImageShareAppUserNullJson),
+              200,
+            );
+          });
+          final ImageShareAppUserDataSource mockDataSource =
+          MockImageShareAppDataSourceImpl(mockClient);
+          final ImageShareAppUserRepository imageShareAppUserRepositoryImpl =
+          ImageShareAppUserRepositoryImpl(mockDataSource);
+          final ImageShareAppUser imageShareAppUser = ImageShareAppUser(
+            id: mockSingleUserId,
+            name: mockSingleUserName,
+            age: mockSingleUserAge,
+            address: mockSingleUserAddress,
+            phoneNumber: mockSingleUserAddress,
+          );
+          final Result<ImageShareAppUser, NetworkError> result =
+          await imageShareAppUserRepositoryImpl.createNewUser(
+            imageShareAppUser,
+          );
+
+          switch (result) {
+            case Success():
+              break;
+            case Error():
+              expect(result.error, equals(NetworkError.jsonParsingError));
+          }
+        });
       });
       test('RequestTimeOutTest', () async {
         final MockClient mockClient = MockClient((request) async {
@@ -555,6 +592,34 @@ void main() {
               expect(result.error, equals(NetworkError.jsonParsingError));
           }
         });
+        test('FormatException jsonParsingError', () async {
+          final Map<String, dynamic> mockImageShareAppUserNullJson = {
+            'id': 2.0,
+            'name': 'test_name',
+            'age': 28.0,
+            'address': 'test_address',
+            'phoneNumber': 'test_phone_number',
+          };
+          final MockClient mockClient = MockClient((request) async {
+            return http.Response(
+              jsonEncode(mockImageShareAppUserNullJson),
+              200,
+            );
+          });
+          final ImageShareAppUserDataSource mockDataSource =
+              MockImageShareAppDataSourceImpl(mockClient);
+          final ImageShareAppUserRepository imageShareAppUserRepositoryImpl =
+              ImageShareAppUserRepositoryImpl(mockDataSource);
+          final Result<ImageShareAppUser, NetworkError> result =
+              await imageShareAppUserRepositoryImpl.findByIdUser(2);
+
+          switch (result) {
+            case Success():
+              break;
+            case Error():
+              expect(result.error, equals(NetworkError.jsonParsingError));
+          }
+        });
       });
       test('RequestTimeOutTest', () async {
         final MockClient mockClient = MockClient((request) async {
@@ -606,7 +671,10 @@ void main() {
       group('getAllUserList NetWorkErrorType 테스트 Test', () {
         test('408 requestTimeout', () async {
           final MockClient mockClient = MockClient((request) async {
-            return http.Response(jsonEncode(mockImageShareAppUserJsonList), 408);
+            return http.Response(
+              jsonEncode(mockImageShareAppUserJsonList),
+              408,
+            );
           });
           final ImageShareAppUserDataSource mockDataSource =
               MockImageShareAppDataSourceImpl(mockClient);
@@ -624,7 +692,10 @@ void main() {
         });
         test('401 unauthorized', () async {
           final MockClient mockClient = MockClient((request) async {
-            return http.Response(jsonEncode(mockImageShareAppUserJsonList), 401);
+            return http.Response(
+              jsonEncode(mockImageShareAppUserJsonList),
+              401,
+            );
           });
           final ImageShareAppUserDataSource mockDataSource =
               MockImageShareAppDataSourceImpl(mockClient);
@@ -642,7 +713,10 @@ void main() {
         });
         test('404 notFound', () async {
           final MockClient mockClient = MockClient((request) async {
-            return http.Response(jsonEncode(mockImageShareAppUserJsonList), 404);
+            return http.Response(
+              jsonEncode(mockImageShareAppUserJsonList),
+              404,
+            );
           });
           final ImageShareAppUserDataSource mockDataSource =
               MockImageShareAppDataSourceImpl(mockClient);
@@ -662,12 +736,18 @@ void main() {
           final MockClient mockClientStatusCode500 = MockClient((
             request,
           ) async {
-            return http.Response(jsonEncode(mockImageShareAppUserJsonList), 500);
+            return http.Response(
+              jsonEncode(mockImageShareAppUserJsonList),
+              500,
+            );
           });
           final MockClient mockClientStatusCode599 = MockClient((
             request,
           ) async {
-            return http.Response(jsonEncode(mockImageShareAppUserJsonList), 599);
+            return http.Response(
+              jsonEncode(mockImageShareAppUserJsonList),
+              599,
+            );
           });
           final ImageShareAppUserDataSource mockDataSourceStatusCode500 =
               MockImageShareAppDataSourceImpl(mockClientStatusCode500);
@@ -710,7 +790,10 @@ void main() {
         });
         test('unknown', () async {
           final MockClient mockClient = MockClient((request) async {
-            return http.Response(jsonEncode(mockImageShareAppUserJsonList), 600);
+            return http.Response(
+              jsonEncode(mockImageShareAppUserJsonList),
+              600,
+            );
           });
           final ImageShareAppUserDataSource mockDataSource =
               MockImageShareAppDataSourceImpl(mockClient);
@@ -756,6 +839,36 @@ void main() {
               expect(result.error, equals(NetworkError.jsonParsingError));
           }
         });
+        test('FormatException jsonParsingError', () async {
+          final List<Map<String, dynamic>> mockImageShareAppUserNullJson = [
+            {
+              'id': 2.0,
+              'name': 'test_name',
+              'age': 28.0,
+              'address': 'test_address',
+              'phoneNumber': 'test_phone_number',
+            },
+          ];
+          final MockClient mockClient = MockClient((request) async {
+            return http.Response(
+              jsonEncode(mockImageShareAppUserNullJson),
+              200,
+            );
+          });
+          final ImageShareAppUserDataSource mockDataSource =
+              MockImageShareAppDataSourceImpl(mockClient);
+          final ImageShareAppUserRepository imageShareAppUserRepositoryImpl =
+              ImageShareAppUserRepositoryImpl(mockDataSource);
+          final Result<List<ImageShareAppUser>, NetworkError> result =
+              await imageShareAppUserRepositoryImpl.getAllUserList();
+
+          switch (result) {
+            case Success():
+              break;
+            case Error():
+              expect(result.error, equals(NetworkError.jsonParsingError));
+          }
+        });
       });
       test('RequestTimeOutTest', () async {
         final MockClient mockClient = MockClient((request) async {
@@ -766,7 +879,7 @@ void main() {
         final ImageShareAppUserRepository imageShareAppUserRepositoryImpl =
             ImageShareAppUserRepositoryImpl(mockDataSource);
         final Result<List<ImageShareAppUser>, NetworkError> result =
-        await imageShareAppUserRepositoryImpl.getAllUserList();
+            await imageShareAppUserRepositoryImpl.getAllUserList();
 
         switch (result) {
           case Success():
