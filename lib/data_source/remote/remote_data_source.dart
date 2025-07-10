@@ -1,16 +1,13 @@
 import 'package:modu_3_dart_study/core/response.dart';
+import '../../dto/post_dto.dart'; // DTO 생성하면서 타입을 모두 DTO를 거쳐서 받게 수정
 
-abstract interface class RemoteDataSource{
+abstract interface class RemoteDataSource {
   // 어떻게 줄건지 타입에서 결정해서 준다
-  Future<Response<List<Map<String, dynamic>>>> getPosts();
-  Future<Response<Map<String, dynamic>>> getPost(int id);
-  Future<Response<Map<String, dynamic>>> creatPost(Map<String, dynamic> post);
-  Future<Response<Map<String, dynamic>>> updatePost(
-    int id, Map<String, dynamic> post,
-  );
-  Future<Response<Map<String, dynamic>>> patchPost(
-    int id, Map<String, dynamic> post,
-  );
+  Future<Response<List<PostDto>>> getPosts();
+  Future<Response<PostDto>> getPost(int id);
+  Future<Response<PostDto>> creatPost(PostDto post);
+  Future<Response<PostDto>> updatePost(int id, PostDto post);
+  Future<Response<PostDto>> patchPost(int id, PostDto post);
 
   Future<Response<void>> deletePost(int id);
 }

@@ -105,8 +105,11 @@
 - JSON 파일을 주고 받을때 Content-Type 에 application/json 으로 명시
 
 ## 상태코드
-- 모든 http 응답에는 상태코드와 상태메세지가 있음
+- 모든 http 응답에는 상태코드와 상태메세지가 있음: 상태코드가 있다는 것은 통신을 성공했다는 것
 - 200 OK
 - 400 Bad Request
 - 404 Not Found
 - 500 Internal Sever Error
+
+## Mock 
+- Mock해서 http 테스트 했을때 정확히 돌아간다고 하면 실제 통신에서는 확실히 통신되는건 맞는지
