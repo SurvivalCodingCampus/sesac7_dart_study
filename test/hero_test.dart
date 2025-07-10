@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:modu_3_dart_study/hero.dart';
 import 'package:test/test.dart';
 
@@ -16,5 +17,11 @@ void main() {
     expect(hero.hp == 99, isTrue);
     expect(hero.hp, 99);
     expect(hero.hp, isNot(100));
+
+    DateTime now = DateTime.now();
+    print(now);
+
+    print(DateFormat('yyyy-MM-dd').format(now));
   });
 }
+

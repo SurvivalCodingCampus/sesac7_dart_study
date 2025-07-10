@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+scale 2
+
+class Service
+Service --> Repository
+
+interface Repository
+class RepositoryImpl implements Repository
+
+class MockRepositoryImpl implements Repository
+
+interface DataSource
+class DataSourceImpl implements DataSource
+
+class MockDataSourceImpl implements DataSource
+
+class Dto
+
+class Model
+
+RepositoryImpl --> DataSource
+DataSource --> Dto
+
+Repository --> Model
+
+
+@enduml
