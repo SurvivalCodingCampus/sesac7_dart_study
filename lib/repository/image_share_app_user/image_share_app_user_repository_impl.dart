@@ -20,11 +20,10 @@ class ImageShareAppUserRepositoryImpl implements ImageShareAppUserRepository {
   Future<Result<ImageShareAppUser, NetworkError>> createNewUser(
     ImageShareAppUser imageShareAppUser,
   ) async {
-    final Response<ImageShareAppUserDto> response = await _dataSource
-        .createImageShareAppUser(imageShareAppUser.toDto())
-        .timeout(Duration(seconds: 10));
-
     try {
+      final Response<ImageShareAppUserDto> response = await _dataSource
+          .createImageShareAppUser(imageShareAppUser.toDto())
+          .timeout(Duration(seconds: 10));
       final NetworkError? networkErrorType = response.statusCode
           .statusCodeToNetworkErrorType();
       if (networkErrorType == null) {
