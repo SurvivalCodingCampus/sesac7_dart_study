@@ -6,6 +6,7 @@
 
 *.g.dart
 *.mocks.dart
+*.freezed.dart
 
 
 # Files and directories created by pub

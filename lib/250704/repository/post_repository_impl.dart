@@ -13,7 +13,6 @@ class PostRepositoryImpl implements PostRepository {
 
     return response.body
         .map((e) => Post.fromJson(e))
-        .toList()
         .where((e) => e.title.contains(keyword))
         .toList();
   }
