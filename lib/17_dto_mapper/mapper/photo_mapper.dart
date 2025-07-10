@@ -27,13 +27,13 @@ extension DtoToPhotoMapper on PhotoDto {
     final dateData = ((date is String) ? date : defaultDate).split('-');
 
     dateData[0] = (dateData[0].isEmpty || dateData[0].length < 4)
-        ? '0000'
+        ? '1900'
         : dateData[0];
     dateData[1] = (dateData[1].isEmpty || dateData[1].length < 2)
-        ? '00'
+        ? '01'
         : dateData[1];
     dateData[2] = (dateData[2].isEmpty || dateData[2].length < 2)
-        ? '00'
+        ? '01'
         : dateData[2];
 
     return DateTime(
