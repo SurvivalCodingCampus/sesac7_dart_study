@@ -59,12 +59,15 @@ class MockPhotoDataSourceImpl implements PhotoDataSource {
       },
     );
 
-    return Response(
-      statusCode: response.statusCode,
-      header: response.headers,
-      body: (jsonDecode(response.body) as List)
-          .map((e) => PhotoDto.fromJson(e))
-          .toList(),
+    return await Future.delayed(
+      Duration(seconds: 6),
+      () => Response(
+        statusCode: response.statusCode,
+        header: response.headers,
+        body: (jsonDecode(response.body) as List)
+            .map((e) => PhotoDto.fromJson(e))
+            .toList(),
+      ),
     );
   }
 }
