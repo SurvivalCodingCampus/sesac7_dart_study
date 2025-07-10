@@ -1,7 +1,7 @@
 import 'package:modu_3_dart_study/hero.dart';
 
 class Slime {
-  int _hp = 50;
+  final int _hp = 50;
 
   int get hp => _hp;
 
