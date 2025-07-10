@@ -43,8 +43,8 @@ PATCH https://jsonplaceholder.typicode.com/users/1
 Content-Type: application/json
 
 {
-  "userId": 200,
-  "title": "test"
+  "name": "Updated Name",
+  "email": "updated@email.com"
 }
 
 ### 모두 수정
@@ -52,7 +52,8 @@ PUT https://jsonplaceholder.typicode.com/users/1
 Content-Type: application/json
 
 {
-  "userId": 200,
-  "title": "test",
-  "body": ""
+  "name": "Completely Updated Name",
+  "username": "UpdatedUser",
+  "email": "completely.updated@email.com",
+  "phone": "1-555-123-4567"
 }
