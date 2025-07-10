@@ -7,7 +7,7 @@ GET https://jsonplaceholder.typicode.com/users/1
 ### 읽기 실패 404
 GET https://jsonplaceholder.typicode.com/users/101
 
-### 글쓰기
+### 유저생성
 POST https://jsonplaceholder.typicode.com/users
 Content-Type: application/json
 
