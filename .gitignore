@@ -172,3 +172,4 @@ fabric.properties
 
 *.DS_Store
 *.g.dart
+*.freezed.dart
