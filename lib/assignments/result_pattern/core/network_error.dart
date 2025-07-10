@@ -4,4 +4,5 @@ enum NetworkError {
   notFound,
   serverError,
   unknown,
+  parseError,
 }

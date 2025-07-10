@@ -6,11 +6,5 @@ abstract interface class UserDataSource {
 
   Future<Response<List<UserDto>>> getUsers();
 
-  Future<Response<void>> createUser({
-    required int id,
-    required String name,
-    required int age,
-    required String address,
-    required String phoneNumber,
-  });
+  Future<Response<UserDto>> createUser(UserDto dto);
 }
