@@ -116,7 +116,7 @@ void main() {
           name: mockSingleUserName,
           age: mockSingleUserAge,
           address: mockSingleUserAddress,
-          phoneNumber: mockSingleUserAddress,
+          phoneNumber: mockSingleUserPhoneNumber,
         );
         final Result<ImageShareAppUser, NetworkError> result =
             await imageShareAppUserRepositoryImpl.createNewUser(
