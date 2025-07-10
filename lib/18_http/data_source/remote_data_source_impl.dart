@@ -60,6 +60,8 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<ResponseCore<Post>> updatePost(int id, Post post) async {
     final response = await _client.put(
       Uri.parse('${HttpEnv.baseUrl}/posts/$id'),
+      headers: HttpEnv.headers,
+      body: jsonEncode(post),
     );
     return ResponseCore(
       statusCode: response.statusCode,
@@ -76,6 +78,8 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   ) async {
     final response = await _client.patch(
       Uri.parse('${HttpEnv.baseUrl}/posts/$id'),
+      headers: HttpEnv.headers,
+      body: jsonEncode(postData),
     );
     return ResponseCore(
       statusCode: response.statusCode,
