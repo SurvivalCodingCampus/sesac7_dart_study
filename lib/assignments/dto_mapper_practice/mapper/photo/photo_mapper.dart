@@ -1,7 +1,7 @@
 import 'package:modu_3_dart_study/assignments/dto_mapper_practice/dto/photo/photo_dto.dart';
 import 'package:modu_3_dart_study/assignments/dto_mapper_practice/model/photo/photo.dart';
 
-class PhotoMapper {
+extension PhotoMapper on PhotoDto {
   Photo toPhoto(PhotoDto dto) {
     DateTime createdAt;
     final int id = int.tryParse(dto.id.toString()) ?? 0;

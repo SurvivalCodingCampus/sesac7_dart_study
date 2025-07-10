@@ -4,16 +4,15 @@ import 'package:modu_3_dart_study/assignments/dto_mapper_practice/model/photo/ph
 
 class PhotoRepository {
   final PhotoDataSource _dataSource;
-  final PhotoMapper _mapper;
 
-  PhotoRepository(this._dataSource, this._mapper);
+  PhotoRepository(this._dataSource);
 
-  Future<List<Photo>> getPhotos() async {
+  Future<List<Photo>?> getPhotos() async {
     try {
       final response = await _dataSource.getPhotos();
 
       if (response.statusCode == 200) {
-        return response.body.map((dto) => _mapper.toPhoto(dto)).toList();
+        return response.body.map((dto) => dto.toPhoto(dto)).toList();
       }
 
       return [];
