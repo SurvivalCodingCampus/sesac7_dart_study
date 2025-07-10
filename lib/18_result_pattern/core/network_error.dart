@@ -3,5 +3,6 @@ enum NetworkError {
   unauthorized,
   notFound,
   serverError,
+  parseError,
   unknown,
 }

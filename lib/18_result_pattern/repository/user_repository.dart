@@ -6,7 +6,7 @@ import '../model/user.dart';
 abstract interface class UserRepository {
   Future<Result<User, NetworkError>> getUser(int id);
 
-  Future<Result<User, NetworkError>> getUsers();
+  Future<Result<List<User>, NetworkError>> getUsers();
 
-  Future<Result<User, NetworkError>> createUser(int id, String name);
+  Future<Result<String, NetworkError>> createUser(String name);
 }
