@@ -21,7 +21,8 @@ class ImageShareAppUserRepositoryImpl implements ImageShareAppUserRepository {
     ImageShareAppUser imageShareAppUser,
   ) async {
     final Response<ImageShareAppUserDto> response = await _dataSource
-        .createImageShareAppUser(imageShareAppUser.toDto());
+        .createImageShareAppUser(imageShareAppUser.toDto())
+        .timeout(Duration(seconds: 10));
 
     try {
       final NetworkError? networkErrorType = response.statusCode
