@@ -11,13 +11,13 @@
 		factory Result.error(E error) = Error;
 	}
 
-	class Success<T> implements Result<T, E> {
+	class Success<T, E> implements Result<T, E> {
 		final T data;
 		
 		Success(this.data);
 	}
 
-	class Error<E> implements Result<T, E> {
+	class Error<T, E> implements Result<T, E> {
 		final E error;
 
 		Error(this.error);
