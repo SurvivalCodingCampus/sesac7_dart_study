@@ -4,10 +4,15 @@ part 'store.freezed.dart';
 
 @freezed
 class Store with _$Store {
+  @override
   final String addr;
+  @override
   final int lat;
+  @override
   final int lng;
+  @override
   final String name;
+  @override
   final String remain_stat;
 
   const Store({

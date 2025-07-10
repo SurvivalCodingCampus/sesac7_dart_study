@@ -341,10 +341,24 @@ DTO를 사용안한다면 freezed를
 사이트 라이브템플릿에 dataclass 
 
 연습문제 작업순서
-model
 
-
+작업순서
+1. model
+2. 인터페이스 정리
+3. impl
 
 폴더에 store class 를 jsonToDart 라이브러리를 사용하여 만들기
 만든후에 코드정리 할것
+
+null이 들어오면 안되는곳에는 !넣기
+
+firstWhere같은경우 null 반환하기에 터진다.
+
+리스트 같은것이있을때 copyWith가 이상하다.
+
+pattern types 어렵다.
+
+sealed 클래스는 상속이나 구현을 제한한다.
+
+result패턴은 nullable을 뺼수가 있다.
 
