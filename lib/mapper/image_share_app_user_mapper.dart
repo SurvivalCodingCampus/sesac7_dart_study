@@ -25,25 +25,25 @@ extension ImageShareAppUserDtoToModel on ImageShareAppUserDto {
     }
 
     if (namePlaceHolder == null) {
-      throw Exception('$exceptionPrefix name field is null');
+      throw JsonParsingException('$exceptionPrefix name field is null');
     } else {
       parseName = namePlaceHolder;
     }
 
     if (agePlaceHolder == null) {
-      throw Exception('$exceptionPrefix age field is null');
+      throw JsonParsingException('$exceptionPrefix age field is null');
     } else {
       parseAge = agePlaceHolder.toInt();
     }
 
     if (addressPlaceHolder == null) {
-      throw Exception('$exceptionPrefix address field is null');
+      throw JsonParsingException('$exceptionPrefix address field is null');
     } else {
       parseAddress = addressPlaceHolder;
     }
 
     if (phoneNumberPlaceHolder == null) {
-      throw Exception('$exceptionPrefix phoneNumber field is null');
+      throw JsonParsingException('$exceptionPrefix phoneNumber field is null');
     } else {
       parsePhoneNumber = phoneNumberPlaceHolder;
     }
