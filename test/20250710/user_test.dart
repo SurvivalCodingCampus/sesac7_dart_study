@@ -6,7 +6,6 @@ import 'package:modu_3_dart_study/20250710/core/result.dart';
 import 'package:modu_3_dart_study/20250710/model/user.dart';
 import 'package:modu_3_dart_study/20250710/repository/user_repository_impl.dart';
 import 'package:modu_3_dart_study/20250710/data_source/user_data_source_impl.dart';
-import 'package:modu_3_dart_study/20250710/data_source/user_data_source.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:http/http.dart' as http;
