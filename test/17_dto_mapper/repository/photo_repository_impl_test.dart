@@ -3,7 +3,7 @@ import 'package:modu_3_dart_study/17_dto_mapper/media_type.dart';
 import 'package:modu_3_dart_study/17_dto_mapper/model/photo.dart';
 import 'package:modu_3_dart_study/17_dto_mapper/repository/photo_repository.dart';
 import 'package:modu_3_dart_study/17_dto_mapper/repository/photo_repository_impl.dart';
-import 'package:modu_3_dart_study/18_result_pattern/core/network_error.dart';
+import 'package:modu_3_dart_study/18_result_pattern/core/network_error_for_photo.dart';
 import 'package:modu_3_dart_study/18_result_pattern/core/result.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
@@ -18,7 +18,7 @@ void main() {
     final result = await repository.getPhotos();
 
     switch (result) {
-      case Success<List<Photo>, NetworkError>():
+      case Success<List<Photo>, NetworkErrorForPhoto>():
         final photos = result.data;
         expect(photos.length, 5);
         expect(photos.first.createdAt.runtimeType, DateTime);
@@ -31,12 +31,12 @@ void main() {
         expect(photos[3].caption, 'null');
         expect(photos[4].type, MediaType.unknown);
         expect(photos[4].title, 'null');
-      case Error<List<Photo>, NetworkError>():
+      case Error<List<Photo>, NetworkErrorForPhoto>():
         switch (result.error) {
-          case NetworkError.requestTimeout:
-            expect(result.error, NetworkError.requestTimeout);
+          case NetworkErrorForPhoto.requestTimeout:
+            expect(result.error, NetworkErrorForPhoto.requestTimeout);
           default:
-            expect(result.error, NetworkError.unknown);
+            expect(result.error, NetworkErrorForPhoto.unknown);
         }
     }
   });

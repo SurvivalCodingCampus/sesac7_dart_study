@@ -1,4 +1,4 @@
-enum NetworkError {
+enum NetworkErrorForPhoto {
   requestTimeout,
   unknown,
 }
