@@ -35,6 +35,8 @@ class ImageShareAppUserRepositoryImpl implements ImageShareAppUserRepository {
       return Error(NetworkError.jsonParsingError);
     } on TimeoutException {
       return Error(NetworkError.requestTimeout);
+    } on FormatException {
+      return Error(NetworkError.jsonParsingError);
     } catch (e) {
       return Error(NetworkError.unKnown);
     }
@@ -57,6 +59,8 @@ class ImageShareAppUserRepositoryImpl implements ImageShareAppUserRepository {
       return Error(NetworkError.jsonParsingError);
     } on TimeoutException {
       return Error(NetworkError.requestTimeout);
+    } on FormatException {
+      return Error(NetworkError.jsonParsingError);
     } catch (e) {
       return Error(NetworkError.unKnown);
     }
@@ -79,6 +83,8 @@ class ImageShareAppUserRepositoryImpl implements ImageShareAppUserRepository {
       return Error(NetworkError.jsonParsingError);
     } on TimeoutException {
       return Error(NetworkError.requestTimeout);
+    } on FormatException {
+      return Error(NetworkError.jsonParsingError);
     } catch (e) {
       return Error(NetworkError.unKnown);
     }
