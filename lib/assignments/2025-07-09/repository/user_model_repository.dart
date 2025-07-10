@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:modu_3_dart_study/assignments/2025-07-09/core/network_error.dart';
@@ -55,13 +56,17 @@ class UserModelRepositoryImpl implements UserModelRepository {
   @override
   Future<Result<List<UserModel>, NetworkError>> getUsers() async {
     try {
-      final userDataListJsonSting = await _dataSource.getUsers();
+      final userDataListJsonSting = await _dataSource.getUsers().timeout(
+        Duration(seconds: 10),
+      );
       final List<Map<String, dynamic>> userDataListJson = jsonDecode(
         userDataListJsonSting,
       );
       return Result.success(
         userDataListJson.map((json) => UserModel.fromJson(json)).toList(),
       );
+    } on TimeoutException {
+      return Result.error(NetworkError.requestTimeout);
     } catch (e) {
       return Result.error(NetworkError.unknown);
     }
