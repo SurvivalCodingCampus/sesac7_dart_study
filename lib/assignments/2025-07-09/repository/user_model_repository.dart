@@ -45,8 +45,8 @@ class UserModelRepositoryImpl implements UserModelRepository {
       return Result.error(NetworkError.idError);
     }
     try {
-      final userDataByIdJsonSting = await _dataSource.getUser(id);
-      final userDataByIdJson = jsonDecode(userDataByIdJsonSting);
+      final userDataByIdJsonString = await _dataSource.getUser(id);
+      final userDataByIdJson = jsonDecode(userDataByIdJsonString);
       return Result.success(UserModel.fromJson(userDataByIdJson));
     } catch (e) {
       return Result.error(NetworkError.unknown);
@@ -56,11 +56,11 @@ class UserModelRepositoryImpl implements UserModelRepository {
   @override
   Future<Result<List<UserModel>, NetworkError>> getUsers() async {
     try {
-      final userDataListJsonSting = await _dataSource.getUsers().timeout(
+      final userDataListJsonString = await _dataSource.getUsers().timeout(
         Duration(seconds: 10),
       );
       final List<Map<String, dynamic>> userDataListJson = jsonDecode(
-        userDataListJsonSting,
+        userDataListJsonString,
       );
       return Result.success(
         userDataListJson.map((json) => UserModel.fromJson(json)).toList(),
