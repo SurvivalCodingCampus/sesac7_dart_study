@@ -12,9 +12,10 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<Result<UserDto>> getUserById(String id) async {
-    final response = await _dataSource.getPost(id);
-
-    return
+    // final response = await _dataSource.getPost(id);
+    //
+    // return
+    throw UnimplementedError();
   }
 
   @override
