@@ -10,7 +10,7 @@ abstract class PostLegacy with _$PostLegacy {
   // field 작성 안 해도 됨
   const factory PostLegacy({
     required int userId,
-    @Default(0) required int id,
+    @Default(0) int id,
     required String title,
     required String body,
   }) = _PostLegacy;
