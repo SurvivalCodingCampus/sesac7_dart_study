@@ -174,3 +174,4 @@ GEMINI.md
 
 *.g.dart
 *.freezed.dart
+*.mocks.dart
