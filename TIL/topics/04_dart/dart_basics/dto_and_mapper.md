@@ -11,9 +11,7 @@
 - JSON > DTO > Model Class
 - 모델 클래스는 우리가 편하게 쓰기 위해 변환한것
 - 잘못된 데이터 소스를 받더라도 안 터지게 하려는 클라이언트 개발자의 방어 수단
-
 - 직렬화 역직렬화의 역할을 DTO가 한다 
-
 - 휴먼에러 줄이기 위해 손대지 않는다
 
 
@@ -23,13 +21,29 @@
 - Nullable 을 non-Nullable로 변환하는 것이 핵심
 - DTP 전체를 변환하는 것이 아니다. 필요한 부분만!
 
-- 여기만 작성
-
 - JSON > DTO > Mapper를 활용하여 Model Class로 변환 > 모델클래스 > repository
 
 - DataSource는 DTO를 반환
 - Repository는 Model로 변환하여 반환
 
+## @freezed 사용시
+List 내부값에 접근할 수 없도록 되어있다.
+실제로 List 값 바꾸려면 copyWith 활용
+That behavior can be disabled by writing:
 
+```dart
+@Freezed(makeCollectionsUnmodifiable: false)
+abstract class Example with _$Example {
+  factory Example(List<int> list) = _Example;
+}
+
+void main() {
+  var example = Example([]);
+  example.list.add(42); // OK
+}
+```
+### @Freezed(makeCollectionsUnmodifiable: false)
+- final List 는 선언은 final 이지만 실제로 List 내부 값들은 조작이 가능하다
+- unmodifiable 해주면 List의 모든 값에 접근할 수 없도록 만들어준다
 
 
