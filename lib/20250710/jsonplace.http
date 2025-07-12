@@ -1,0 +1,59 @@
+### 읽기 성공
+GET https://jsonplaceholder.typicode.com/users
+
+### 읽기 성공
+GET https://jsonplaceholder.typicode.com/users/1
+
+### 읽기 실패 404
+GET https://jsonplaceholder.typicode.com/users/101
+
+### 유저생성
+POST https://jsonplaceholder.typicode.com/users
+Content-Type: application/json
+
+{
+  "id": 11,
+  "name": "sehwan Im",
+  "username": "Samantha",
+  "email": "Nathan@yesenia.net",
+  "address": {
+    "street": "Douglas Extension",
+    "suite": "Suite 847",
+    "city": "McKenziehaven",
+    "zipcode": "59590-4157",
+    "geo": {
+      "lat": "-68.6102",
+      "lng": "-47.0653"
+    }
+  },
+  "phone": "1-463-123-4447",
+  "website": "ramiro.info",
+  "company": {
+    "name": "Romaguera-Jacobson",
+    "catchPhrase": "Face to face bifurcated interface",
+    "bs": "e-enable strategic applications"
+  }
+}
+
+### 삭제
+DELETE https://jsonplaceholder.typicode.com/users/11
+
+### 일부 수정
+PATCH https://jsonplaceholder.typicode.com/users/1
+Content-Type: application/json
+
+{
+  "name": "Updated Name",
+  "email": "updated@email.com"
+}
+
+### 모두 수정
+PUT https://jsonplaceholder.typicode.com/users/1
+Content-Type: application/json
+
+{
+  "name": "Completely Updated Name",
+  "username": "UpdatedUser",
+  "email": "completely.updated@email.com",
+  "phone": "1-555-123-4567"
+}
