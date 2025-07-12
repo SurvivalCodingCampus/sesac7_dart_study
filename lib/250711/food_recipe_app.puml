@@ -1,0 +1,70 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+scale 0.5
+
+enum FilterOptions {
+    All,
+    Newest,
+    Oldest,
+    Popularity,
+}
+
+interface RecipeRepository {
+    List<Recipe> getRecommendedRecipesByCategory(int categoryId)
+    List<Recipe> getRecentRecipes() /': 최근 생성된 레시피 중 일부를 가져오기 *'/
+    List<Recipe> getRecipesByKeyword(String keyword, FilterOptions option, int? rate, List<int> category) /': 특정 검색어를 포함하는 레시피 가져오기(필터) *'/
+    List<Map<String, dynamic>> getCategory() /': 카테고리 목록 가져오기 *'/
+    Recipe getRecipe(int recipeId) /': 현재 레시피 정보 가져오기 *'/
+    void rateRecipe(int recipeId, double rating, int userId) /': 현재 레시피 별점 매기기 *'/
+    void saveRecipe(int recipeId, int userId) /': 현재 레시피 저장하기 *'/
+    void unsaveRecipe(int recipeId, int userId) /': 현재 레시피 저장 취소하기 *'/
+    void createRecipe(Recipe recipe, int userId) /': 레시피 작성하기 *'/
+}
+interface UserRepository {
+    User getMyProfile(int userId) /': 로그인한 유저 정보 가져오기 *'/
+    void followUser(int userName, int userId) /': 유저 팔로우 *'/
+    void unfollowUser(int userName, int userId) /': 유저 언팔로우 *'/
+    List<Recipe> getMyRecipes(int userId) /': 로그인한 유저가 작성한 레시피 가져오기 *'/
+    List<Video> getMyVideos(int userId) /': 로그인한 유저가 업로드한 비디오 가져오기 *'/
+    List<Recipe> getSavedRecipes(int userId) /': 저장한 레시피를 가져오는 기능 *'/
+    List<Recipe> getRecentSearchedRecipes(int userId) /': 최근 본 레시피를 가져오기 *'/
+    getMyTags()
+    /' :
+        1. 로그인한 유저가 태그된 컨텐츠 가져오기
+        2. 로그인한 유저가 저장한 태그 가져오기
+        3. 로그인한 유저가 작성한 해시태그가 포함된 컨텐츠 가져오기'/
+    void editMyProfile(User user) /': 유저 정보 변경하기 *'/
+}
+interface ReviewRepository {
+    List<Review> getReviews(int recipeId, int? userId) /': 현재 레시피의 리뷰 가져오기 *'/
+    void createReview(int reviewId, int userId, String comment) /': 리뷰 작성하기 *'/
+    void createUpVote(int userId) /': 리뷰 추천하기 *'/
+    void createDownVote(int userId) /': 리뷰 비추천하기 *'/
+}
+interface NotificationRepository {
+    List<Notification> getNotifications(int userId) /': 알림 목록 가져오기 *'/
+    List<Notification> getReadNotifications(int userId) /': 읽은 알림 목록 가져오기 *'/
+    List<Notification> getUnreadNotifications(int userId) /': 안읽은 알림 목록 가져오기 *'/
+}
+interface UtilRepository {
+    void createShareLink(String link) /': 고유 공유 링크 생성(서버에게: 고유 링크를 link 값과 동일한 값으로 설정해주세요~)'/
+}
+interface AuthRepository {
+    void signUp()
+    void signIn()
+    void socialSignIn()
+    void socialSignUp()
+}
+
+/'
+class Recipe implements RecipeRepository
+class User implements UserRepository
+class Review implements ReviewRepository
+class Notification implements NotificationRepository
+class Util implements UtilRepository
+'/
+
+
+
+@enduml
