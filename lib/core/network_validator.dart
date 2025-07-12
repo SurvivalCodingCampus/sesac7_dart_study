@@ -1,9 +1,5 @@
-class NetworkValidator {
-  bool validateStatusCode(int code) {
-    if (code >= 200 && code < 300) {
-      return true;
-    }
+import 'package:modu_3_dart_study/core/network_error.dart';
 
-    return false;
-  }
+abstract interface class NetworkValidator {
+  NetworkError? checkStatusCodeError(int code);
 }

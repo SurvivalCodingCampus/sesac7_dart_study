@@ -1,3 +1,4 @@
+import 'package:modu_3_dart_study/core/network_validator_impl.dart';
 import 'package:modu_3_dart_study/data_source/photo2/photo2_data_source.dart';
 import 'package:modu_3_dart_study/dto/photo2/photo2_dto.dart';
 import 'package:modu_3_dart_study/mapper/photo2_mapper.dart';
@@ -11,6 +12,7 @@ void main() {
   final Photo2DataSource dataSource = MockPhoto2DataSourceImpl();
   final Photo2Repository repository = Photo2RepositoryImpl(
     dataSource: dataSource,
+    validator: NetworkValidatorImpl(),
   );
 
   group(
@@ -61,6 +63,7 @@ void main() {
           );
           final Photo2Repository repository = Photo2RepositoryImpl(
             dataSource: dataSource,
+            validator: NetworkValidatorImpl(),
           );
 
           // when
@@ -81,6 +84,7 @@ void main() {
           );
           final Photo2Repository repository = Photo2RepositoryImpl(
             dataSource: dataSource,
+            validator: NetworkValidatorImpl(),
           );
 
           // when

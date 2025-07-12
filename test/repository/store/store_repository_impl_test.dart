@@ -1,3 +1,4 @@
+import 'package:modu_3_dart_study/core/network_validator_impl.dart';
 import 'package:modu_3_dart_study/data_source/store/store_data_source.dart';
 import 'package:modu_3_dart_study/dto/store/store_dto.dart';
 import 'package:modu_3_dart_study/mapper/store_mapper.dart';
@@ -11,6 +12,7 @@ void main() {
   final StoreDataSource dataSource = MockStoreDataSourceImpl();
   final StoreRepository repository = StoreRepositoryImpl(
     dataSource: dataSource,
+    validator: NetworkValidatorImpl(),
   );
 
   group('getStores', () {
@@ -63,6 +65,7 @@ void main() {
         );
         final StoreRepository repository = StoreRepositoryImpl(
           dataSource: dataSource,
+          validator: NetworkValidatorImpl(),
         );
 
         // when
@@ -83,6 +86,7 @@ void main() {
         );
         final StoreRepository repository = StoreRepositoryImpl(
           dataSource: dataSource,
+          validator: NetworkValidatorImpl(),
         );
 
         // when

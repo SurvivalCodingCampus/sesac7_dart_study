@@ -11,17 +11,17 @@ class StoreRepositoryImpl implements StoreRepository {
 
   StoreRepositoryImpl({
     required StoreDataSource dataSource,
-    NetworkValidator? validator,
+    required NetworkValidator validator,
   }) : _dataSource = dataSource,
-       _validator = validator ?? NetworkValidator();
+       _validator = validator;
 
   @override
   Future<List<Store>> getStores() async {
     try {
       final response = await _dataSource.getStores();
+      final error = _validator.checkStatusCodeError(response.statusCode);
 
-      if (!_validator.validateStatusCode(response.statusCode) ||
-          response.body.stores == null) {
+      if (error != null) {
         return [];
       }
 

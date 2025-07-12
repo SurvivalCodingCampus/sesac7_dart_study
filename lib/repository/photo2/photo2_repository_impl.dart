@@ -10,16 +10,17 @@ class Photo2RepositoryImpl implements Photo2Repository {
 
   Photo2RepositoryImpl({
     required Photo2DataSource dataSource,
-    NetworkValidator? validator,
+    required NetworkValidator validator,
   }) : _dataSource = dataSource,
-       _validator = validator ?? NetworkValidator();
+       _validator = validator;
 
   @override
   Future<List<Photo2>> getPhotos() async {
     try {
       final response = await _dataSource.getPhotos();
+      final error = _validator.checkStatusCodeError(response.statusCode);
 
-      if (!_validator.validateStatusCode(response.statusCode)) {
+      if (error != null) {
         return [];
       }
 
