@@ -1,5 +1,4 @@
 import 'package:modu_3_dart_study/repository/data_source/photo_data_source.dart';
-import 'package:modu_3_dart_study/repository/model/photo.dart';
 
 class MockPhotoRepositoryImpl implements PhotoDataSource {
   final List<Map<String, dynamic>> json = [

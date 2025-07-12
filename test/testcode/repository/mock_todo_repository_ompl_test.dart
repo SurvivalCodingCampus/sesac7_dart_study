@@ -8,7 +8,6 @@ import 'mocks/mock_todo_repository_impl.dart';
 void main() {
   test('Repository 작성 연습 3 test', () async {
     //given(준비)
-    final bool completed = false;
     final int completedId = 4;
     final int id = 1;
     final TodoDataSource todoDataSource = MockTodoRepositoryImpl();

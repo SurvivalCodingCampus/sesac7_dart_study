@@ -48,7 +48,7 @@ class Account1 {
   // this 없이 초기화 리스트 사용
   Account1(this.owner, {int startMoney = 0}) : _balance = startMoney {
     // 이 시점부터는 this 사용 가능
-    print('생성자 본문: this._balance = ${this._balance}');
+    print('생성자 본문: this._balance = ${_balance}');
   }
 }
 

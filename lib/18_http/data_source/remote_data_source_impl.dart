@@ -7,7 +7,7 @@ import 'package:modu_3_dart_study/18_http/model/post.dart';
 import 'package:http/http.dart' as http;
 
 class RemoteDataSourceImpl implements RemoteDataSource {
-  http.Client _client;
+  final http.Client _client;
 
   // 의존성 주입
   RemoteDataSourceImpl({http.Client? client})
