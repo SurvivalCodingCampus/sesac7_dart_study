@@ -1,0 +1,4 @@
+enum NetworkErrorForPhoto {
+  requestTimeout,
+  unknown,
+}

@@ -1,7 +1,10 @@
 import 'package:modu_3_dart_study/17_dto_mapper/data_source/photo_data_source.dart';
 import 'package:modu_3_dart_study/17_dto_mapper/media_type.dart';
+import 'package:modu_3_dart_study/17_dto_mapper/model/photo.dart';
 import 'package:modu_3_dart_study/17_dto_mapper/repository/photo_repository.dart';
 import 'package:modu_3_dart_study/17_dto_mapper/repository/photo_repository_impl.dart';
+import 'package:modu_3_dart_study/18_result_pattern/core/network_error_for_photo.dart';
+import 'package:modu_3_dart_study/18_result_pattern/core/result.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
@@ -12,18 +15,29 @@ void main() {
     final PhotoDataSource dataSource = MockPhotoDataSourceImpl();
     final PhotoRepository repository = PhotoRepositoryImpl(dataSource);
 
-    final photos = await repository.getPhotos();
+    final result = await repository.getPhotos();
 
-    expect(photos.length, 5);
-    expect(photos.first.createdAt.runtimeType, DateTime);
-    expect(photos.first.url, 'null');
-    expect(photos.first.caption, 'null');
-    expect(photos[1].title, 'null');
-    expect(photos[1].content, 'null');
-    expect(photos[2].id, -1);
-    expect(photos[3].type, MediaType.unknown);
-    expect(photos[3].caption, 'null');
-    expect(photos[4].type, MediaType.unknown);
-    expect(photos[4].title, 'null');
+    switch (result) {
+      case Success<List<Photo>, NetworkErrorForPhoto>():
+        final photos = result.data;
+        expect(photos.length, 5);
+        expect(photos.first.createdAt.runtimeType, DateTime);
+        expect(photos.first.url, 'null');
+        expect(photos.first.caption, 'null');
+        expect(photos[1].title, 'null');
+        expect(photos[1].content, 'null');
+        expect(photos[2].id, -1);
+        expect(photos[3].type, MediaType.unknown);
+        expect(photos[3].caption, 'null');
+        expect(photos[4].type, MediaType.unknown);
+        expect(photos[4].title, 'null');
+      case Error<List<Photo>, NetworkErrorForPhoto>():
+        switch (result.error) {
+          case NetworkErrorForPhoto.requestTimeout:
+            expect(result.error, NetworkErrorForPhoto.requestTimeout);
+          default:
+            expect(result.error, NetworkErrorForPhoto.unknown);
+        }
+    }
   });
 }
